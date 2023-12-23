@@ -1,0 +1,177 @@
+* {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Fira Sans';
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+p, li, div, a, option, input {
+    font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab';
+    margin-left: 40px; 
+    margin-right: 40px;
+}
+
+p {
+    margin-left: 40px; 
+    margin-right: 40px;
+}
+
+.axis {
+    font: 14px sans-serif; 
+}
+
+.possibly-sidebyside > div {
+  float: left;
+}
+
+h1 {
+    color: black; text-align: center;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip .tooltip-content {
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+    max-width: 200px;
+}
+
+.tooltip p {
+    margin: 0;
+}
+
+.tooltip strong {
+    font-weight: bold;
+}
+
+#stacked_1 {
+    display: block; /* Show the default visualization */
+}
+
+#stacked_percentage_1, #small_multiples {
+    display: none; /* Hide the other visualizations initially */
+}
+
+/* styles for the Sankey diagram */
+.node rect {
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+/* styles for the footer */
+footer{
+    background-color: #111010;
+    margin-top: auto;
+    justify-content: center;
+}
+
+footer .cr-con{
+    background-color: #232127;
+    color: white;
+    padding: 1rem 4rem;
+    text-align: center;
+}
+
+/* styles for index.html */
+.img{
+  background: url('https://cdn.britannica.com/98/214598-050-9879F2FA/giant-sequoia-tree-Sequoia-National-Park-California.jpg')no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.img::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.center{
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.center .title{
+  color: #fff;
+  font-size: 55px;
+  font-weight: 600;
+}
+
+.center .sub_title{
+  color: #fff;
+  font-size: 52px;
+  font-weight: 600;
+}
+
+.center .btns {
+  margin-top: 20px;
+}
+
+#central_button {
+  display: inline-block;
+  padding: 0.5rem 1rem; 
+  font-size: 1.1rem; 
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #fff;
+  background-color: transparent; 
+  border: 2px solid white;
+  cursor: pointer;
+  outline: none;
+}
+
+#central_button:hover {
+  background-color: white;
+  color: black;
+}
+
+#navigation_buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#choropleth_legend {
+  font-size: 0.7em;
+  letter-spacing: 0.1;
+}
