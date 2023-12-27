@@ -26,3 +26,8 @@
 .tooltip strong {
     font-weight: bold;
 }
+
+#choropleth_legend {
+  font-size: 0.7em;
+  letter-spacing: 0.1;
+}
