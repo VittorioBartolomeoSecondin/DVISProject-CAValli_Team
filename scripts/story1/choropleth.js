@@ -13,7 +13,7 @@ const Choropleth = {
 		const legendX = width - legendWidth - 80; 
 		const legendY = height / 2 - legendHeight / 2 - 220; 
 		
-		let projection = d3.geoAlbersUsa()
+		let projection = d3.geoAlbers()
 		                   .scale(width - 20)
 		                   .translate([width / 2, height / 2]);
 		
@@ -31,7 +31,6 @@ const Choropleth = {
 						.transition()
 						.duration(200)
 						.style("opacity", 1)
-						.style("stroke", d.properties.abundance != 0 ? "green" : "black")
 						.style("stroke-width", "2px");
 					// Create the tooltip if it doesn't exist
 				            if (!tooltip) {
@@ -40,7 +39,7 @@ const Choropleth = {
 				                    .style("opacity", 0);
 				            }
 					tooltip.html(d.properties.name + ' &#40;' + d.properties.postal + '&#41;: ' + d.properties.abundance + ' trees in '
-		        			+ d.properties.area + ' km<sup>2</sup>')
+		        			+ d.properties.area + ' km<sup>2</sup>') // da decidere
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
@@ -52,7 +51,6 @@ const Choropleth = {
 						.transition()
 						.duration(200)
 						.style("opacity", 1)
-						.style("stroke", "black")
 						.style("stroke-width", "0.75px");
 					if (tooltip) {
 				                tooltip.transition().duration(300)
@@ -66,8 +64,8 @@ const Choropleth = {
 		
 		// Define color scale
 		const colorScale = d3.scaleThreshold()
-			.domain([50000, 100000, 200000, 300000, 500000])
-			.range(d3.schemeGreens[6]);
+			.domain([50000, 100000, 200000, 300000, 500000]) // da suddividere
+			.range(d3.schemeOranges[6]);
 		
 		let svg = d3.select("#choropleth")
 			    .append("svg")
@@ -94,7 +92,7 @@ const Choropleth = {
 		    .attr("opacity", 0.5)
 		    .attr("fill", "grey");
 		
-		fetch("data/section4/choropleth.json")
+		fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
 		        const data_features = topojson.feature(data, data.objects.states).features;
@@ -163,13 +161,13 @@ const Choropleth = {
 			.attr("y", function(d, i) {
 				return height - (i * ls_h) - ls_h - 6;
 			})
-			.text(function(d, i) {
+			.text(function(d, i) { // da sistemare
 				if (i === 0) return "< " + d[1] / 1000 + " k";
 				if (d[1] < d[0]) return d[0] / 1000 + " k +";
 				return d[0] / 1000 + " k - " + d[1] / 1000 + " k";
 			});
 		
-		legend.append("text").attr("x", 15).attr("y", 420).text("Tree abundance");
+		legend.append("text").attr("x", 15).attr("y", 420).text("NEET abundance");
 	},
 
 	destroy: function() {
