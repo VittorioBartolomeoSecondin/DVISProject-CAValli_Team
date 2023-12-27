@@ -42,7 +42,8 @@ const Choropleth = {
 				            if (!tooltip) {
 				                tooltip = d3.select("body").append("div")
 				                    .attr("class", "tooltip")
-				                    .style("opacity", 0);
+				                    .style("opacity", 0)
+						    .style("all", "initial");
 				            }
 					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance[0] + ' NEETs')
 						.style("left", (event.pageX + 15) + "px")
