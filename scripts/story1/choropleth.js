@@ -3,7 +3,7 @@ const Choropleth = {
 		// set the dimensions and margins of the graph
 		var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 		    width = 1435 - margin.left - margin.right,
-		    height = 900 - margin.top - margin.bottom;
+		    height = 800 - margin.top - margin.bottom;
 		
 		// Define the width and height of the legend
 		const legendWidth = 110;
