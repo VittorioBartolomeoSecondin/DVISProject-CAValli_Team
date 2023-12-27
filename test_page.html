@@ -41,61 +41,6 @@
         </nav>
 
         <br>
-
-        <div style="display: flex; justify-content: space-between;">
-            <h1 style="flex: 1;">
-                Assignment 4: maps
-            </h1>
-        </div>
-
-        <br>
-        
-        <h2>Pointwise concentration of trees - dot density map</h2>
-        <p>The following dot density maps show <b>where trees are concentrated in the USA at a city/pointwise level</b>. You can switch between two alternative
-        views thanks to the radio button to include <b>details on the specific tree species</b>. You can drag the map in order to navigate it or
-        zoom in/out by clicking on a state/by scrolling.<br>
-        Moreover, the legend of the second visualization is interactive: you can <b>click on one or more tree species to reduce the visualisation
-        only to those ones</b>.<br> 
-        Hover on states or circles in order to get more information about them.</p>
-        <br>
-
-        <div class="d-flex justify-content-center">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active">
-                <input type="radio" name="dot-options" id="dot-option1" checked> Tree clusters
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="dot-options" id="dot-option2"> Tree species clusters
-              </label>
-            </div>
-        </div>
-
-        <br>
-
-        <div id="dotmap"></div>
-        
-        <br><br>
-        
-        <h2>Aggregated concentration of trees - choropleth map</h2>
-        <p>The following choropleth maps show <b>where trees are concentrated in the USA at a state/aggregated level</b>. You can switch between two alternative
-        views thanks to the radio button to include <b>details on the tree density for each state</b>, computed as the ratio between tree abundance and state area.<br>
-        Moreover, you find a legend on the right side of both maps. Grey-striped areas fill states for which we have no information about trees.<br> 
-        Hover on states in order to get more information about them.</p>
-
-        <br>
-
-        <div class="d-flex justify-content-center">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active">
-                <input type="radio" name="choropleth-options" id="choropleth-option1" checked> Tree abundance
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="choropleth-options" id="choropleth-option2"> Tree density
-              </label>
-            </div>
-        </div>
-
-        <br>
         
         <div id="choropleth"></div>
 
@@ -104,35 +49,6 @@
         <script src="https://d3js.org/d3.v7.js"></script>
         <script src="https://unpkg.com/topojson@3"></script>
         <script src="scripts/story1/choropleth.js"></script>
-
-        <script>
-            function instantiateMaps(radioId) {
-                switch (radioId) {
-                    case 'dot-option1':
-                        DotDensitySpecies.destroy();
-                        DotDensity.initialize();
-                        break;
-                    case 'dot-option2':
-                        DotDensity.destroy();
-                        DotDensitySpecies.initialize();
-                        break;
-                    case 'choropleth-option1':
-                        ChoroplethDensity.destroy();
-                        Choropleth.initialize();
-                        break;
-                    case 'choropleth-option2':
-                        Choropleth.destroy();
-                        ChoroplethDensity.initialize();
-                        break;
-                }
-            }
-            
-            document.querySelectorAll('input[name="dot-options"], input[name="choropleth-options"]').forEach(function (radio) {
-                radio.addEventListener('change', function () {
-                    instantiateMaps(radio.id);
-                });
-            });
-        </script>
         
         <br>
         <div id="navigation_buttons">
