@@ -18,7 +18,7 @@ const Choropleth = {
 				        .center([0.0, 52.0])
 				        .parallels([35.0, 65.0])
 				        .translate([width / 2, height / 2])
-				        .scale(width - 50)
+				        .scale(width - 100)
 				        .precision(.1)
 		                   //.scale(width - 20)
 		                   //.translate([width / 2, height / 2]);
