@@ -38,8 +38,7 @@ const Choropleth = {
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
-					tooltip.html(d.properties.name + ' &#40;' + d.properties.postal + '&#41;: ' + d.properties.abundance + ' trees in '
-		        			+ d.properties.area + ' km<sup>2</sup>') // da decidere
+					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance[0] + ' NEETs')
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
@@ -64,7 +63,7 @@ const Choropleth = {
 		
 		// Define color scale
 		const colorScale = d3.scaleThreshold()
-			.domain([50000, 100000, 200000, 300000, 500000]) // da suddividere
+			.domain([50, 200, 500, 700, 1000]) 
 			.range(d3.schemeOranges[6]);
 		
 		let svg = d3.select("#choropleth")
@@ -111,7 +110,7 @@ const Choropleth = {
 			    .style("stroke-width", "0.75px")
 		            .style("fill", function(d) {
 		                // Get data value
-		                var value = d.properties.abundance;
+		                var value = d.properties.abundance[0];
 		                //return mapColour(c(value));
 			        return value != 0 ? colorScale(value) : "url(#stripe)";
 		            })
