@@ -15,7 +15,7 @@ const Choropleth = {
 		
 		let projection = d3.geoAlbers()
 					.rotate([-20.0, 0.0])
-				        .center([0.0, 52.0])
+				        .center([0.0, 62.0])
 				        .parallels([35.0, 65.0])
 				        .translate([width / 2, height / 2])
 				        .scale(width)
