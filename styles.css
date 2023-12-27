@@ -2,7 +2,7 @@
     max-width: 100%;
 }
 
-.tooltip {
+.tooltip_element {
     display: none;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.9);
@@ -12,18 +12,18 @@
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tooltip .tooltip-content {
+.tooltip_element .tooltip-content {
     font-size: 14px;
     line-height: 1.4;
     text-align: left;
     max-width: 200px;
 }
 
-.tooltip p {
+.tooltip_element p {
     margin: 0;
 }
 
-.tooltip strong {
+.tooltip_element strong {
     font-weight: bold;
 }
 
