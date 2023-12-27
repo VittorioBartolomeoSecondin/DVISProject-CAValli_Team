@@ -95,6 +95,7 @@ const Choropleth = {
 		    .then(response => response.json())
 		    .then(data => {
 		        const data_features = topojson.feature(data, data.objects.europe).features;
+			console.log(data_features)
 			    
 		        world.selectAll(".states")
 		            .data(data_features)
