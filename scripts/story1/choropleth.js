@@ -3,7 +3,7 @@ const Choropleth = {
 		// set the dimensions and margins of the graph
 		var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 		    width = 1435 - margin.left - margin.right,
-		    height = 1400 - margin.top - margin.bottom;
+		    height = 1000 - margin.top - margin.bottom;
 		
 		// Define the width and height of the legend
 		const legendWidth = 110;
@@ -18,7 +18,7 @@ const Choropleth = {
 				        .center([0.0, 52.0])
 				        .parallels([35.0, 65.0])
 				        .translate([width / 2, height / 2])
-				        .scale(width - 50)
+				        .scale(width - 20)
 				        .precision(.1)
 		                   //.scale(width - 20)
 		                   //.translate([width / 2, height / 2]);
