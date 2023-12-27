@@ -94,7 +94,7 @@ const Choropleth = {
 		fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
-		        const data_features = topojson.feature(data, data.objects.states).features;
+		        const data_features = topojson.feature(data, data.objects.europe).features;
 			    
 		        world.selectAll(".states")
 		            .data(data_features)
