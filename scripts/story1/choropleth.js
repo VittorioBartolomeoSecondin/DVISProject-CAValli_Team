@@ -13,7 +13,7 @@ const Choropleth = {
 		const legendX = width - legendWidth - 80; 
 		const legendY = height / 2 - legendHeight / 2 - 220; 
 		
-		let projection = d3.geoAlbers()
+		let projection = d3.geoAlbersUsa()
 		                   .scale(width - 20)
 		                   .translate([width / 2, height / 2]);
 		
