@@ -13,9 +13,15 @@ const Choropleth = {
 		const legendX = width - legendWidth - 80; 
 		const legendY = height / 2 - legendHeight / 2 - 220; 
 		
-		let projection = d3.geoAlbersUsa()
-		                   .scale(width - 20)
-		                   .translate([width / 2, height / 2]);
+		let projection = d3.geoAlbers()
+					.rotate([-20.0, 0.0])
+				        .center([0.0, 52.0])
+				        .parallels([35.0, 65.0])
+				        .translate([width / 2, height / 2])
+				        .scale(700)
+				        .precision(.1)
+		                   //.scale(width - 20)
+		                   //.translate([width / 2, height / 2]);
 		
 		// add tooltip
 		let tooltip = null;
