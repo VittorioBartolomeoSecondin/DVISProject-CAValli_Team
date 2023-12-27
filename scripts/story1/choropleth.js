@@ -117,7 +117,7 @@ const Choropleth = {
 			    .style("stroke-width", "0.75px")
 		            .style("fill", function(d) {
 		                // Get data value
-		                var value = d.properties.abundance_1000[0];
+		                var value = d.properties.abundance1000[0];
 		                //return mapColour(c(value));
 			        return value != 0 ? colorScale(value) : "url(#stripe)";
 		            })
