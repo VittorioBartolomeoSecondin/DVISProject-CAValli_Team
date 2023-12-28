@@ -44,7 +44,7 @@ const Choropleth = {
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
-					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance[0] + ' NEETs')
+					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[0] + ' k NEETs')
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
