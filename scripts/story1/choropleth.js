@@ -168,9 +168,9 @@ const Choropleth = {
 				return height - (i * ls_h) - ls_h - 6;
 			})
 			.text(function(d, i) { // da sistemare
-				if (i === 0) return "< " + d[1];
-				if (d[1] < d[0]) return d[0] + " +";
-				return d[0] + " - " + d[1];
+				if (i === 0) return "< " + d[1] / 1000 + " k";
+				if (d[1] < d[0]) return d[0] / 1000 + " k +";
+				return d[0] / 1000 + " k - " + d[1] / 1000 + " k";
 			});
 		
 		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
