@@ -126,6 +126,7 @@ const Choropleth = {
 
     	updateMap: function(yearIndex) {
 		console.log(this);
+		const self = this;
 	    let mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
@@ -139,8 +140,8 @@ const Choropleth = {
 						.style("opacity", 1)
 						.style("stroke-width", "2px");
 					// Create the tooltip if it doesn't exist
-				            if (!this.tooltip) {
-				                this.tooltip = d3.select("body").append("div")
+				            if (!self.tooltip) {
+				                self.tooltip = d3.select("body").append("div")
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
