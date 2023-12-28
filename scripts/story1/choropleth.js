@@ -82,7 +82,7 @@ const Choropleth = {
 		
 		const legend_entry = legend.selectAll("g.legend")
 			.data(colorScale.range().map(function(d) {
-				d = colorScale.invertExtent(d);
+				d = this.colorScale.invertExtent(d);
 				if (d[0] == null) d[0] = x.domain()[0];
 				if (d[1] == null) d[1] = x.domain()[1];
 				return d;
@@ -101,7 +101,7 @@ const Choropleth = {
 			.attr("width", ls_w)
 			.attr("height", ls_h)
 			.style("fill", function(d) {
-				return colorScale(d[0]);
+				return this.colorScale(d[0]);
 			});
 			//.style("opacity", 0.8);
 		
