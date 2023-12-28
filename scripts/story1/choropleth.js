@@ -152,15 +152,16 @@ const Choropleth = {
 						.transition().duration(400)
 						.style("opacity", 1);
 				}
-			
+
 		fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
 		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
-			    
+
+			self.world.selectAll(".Country").remove(); // Remove previous paths (if any)
 		        self.world.selectAll(".states")
 		            .data(dataFeatures)
-		            .enter().append("path")
+		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
 			    .attr("d", this.path)
 			    .style("stroke", "black")
