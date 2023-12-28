@@ -1,7 +1,7 @@
 const Choropleth = {
 	tooltip: null,
 	mouseOver: null,
-	world: null,
+	dataFeatures: null,
 	createMap: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -52,7 +52,7 @@ const Choropleth = {
 		    .attr("preserveAspectRatio", "xMinYMin meet")
 		    .attr("viewBox", `0 0 ${width} ${height}`);
 	
-	this.world = svg.append("g");
+	let world = svg.append("g");
 	
 	// Add the stripe pattern to the SVG
 	const defs = svg.append("defs");
@@ -73,9 +73,9 @@ const Choropleth = {
 	fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
-		        const data_features = topojson.feature(data, data.objects.europe).features;
+		        dataFeatures = topojson.feature(data, data.objects.europe).features;
 			    
-		        this.world.selectAll(".states")
+		        world.selectAll(".states")
 		            .data(data_features)
 		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
@@ -169,6 +169,7 @@ const Choropleth = {
 				}
 
 		d3.selectAll(".Country")
+		    .data(dataFeatures)
 		    .style("fill", function(d) {
 			    console.log(d);
 		        var value = d.properties.abundance[yearIndex];
