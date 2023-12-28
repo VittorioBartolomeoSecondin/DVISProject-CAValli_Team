@@ -168,6 +168,7 @@ const Choropleth = {
 						.style("opacity", 1);
 				}
 
+		console.log(this.dataFeatures);
 		d3.selectAll(".Country")
 		    .data(this.dataFeatures)
 		    .style("fill", function(d) {
