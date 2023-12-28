@@ -74,7 +74,6 @@ const Choropleth = {
 		    .then(response => response.json())
 		    .then(data => {
 		        const data_features = topojson.feature(data, data.objects.europe).features;
-			console.log(data_features)
 			    
 		        this.world.selectAll(".states")
 		            .data(data_features)
@@ -83,7 +82,7 @@ const Choropleth = {
 			    .attr("d", path)
 			    .style("stroke", "black")
 			    .attr("class", "Country")
-			    .attr("id", function(d) { return d.id })
+			    .attr("id", function(d) { console.log(d); return d.id })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
 			    .on("mouseleave", mouseLeave);
@@ -172,6 +171,7 @@ const Choropleth = {
 		this.world.selectAll(".states").each(function(d) {
 			d3.select(this)
 			  .style("fill", function() {
+				console.log(d);
 				// Get data value
 		                var value = d.properties.abundance[yearIndex];
 		                //return mapColour(c(value));
