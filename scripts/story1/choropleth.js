@@ -169,9 +169,10 @@ const Choropleth = {
 				}
 
 		d3.selectAll(".Country")
-		    .style("fill", function() {
-			    //console.log(d);
-		        var value = this.dataFeatures.properties.abundance[yearIndex];
+		    .data(this.dataFeatures)
+		    .style("fill", function(d) {
+			    console.log(d);
+		        var value = d.properties.abundance[yearIndex];
 		        return value !== 0 ? colorScale(value) : "url(#stripe)";
 		    })
 		    .on("mouseover", this.mouseOver);
