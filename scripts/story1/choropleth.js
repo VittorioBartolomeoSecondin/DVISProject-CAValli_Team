@@ -1,5 +1,6 @@
 const Choropleth = {
 	initialize: function() {
+		function updateMap(yearIndex) {
 		// set the dimensions and margins of the graph
 		var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 		    width = 1435 - margin.left - margin.right,
@@ -44,7 +45,7 @@ const Choropleth = {
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
-					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[0] + ' k NEETs')
+					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + ' k NEETs')
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
@@ -117,7 +118,7 @@ const Choropleth = {
 			    .style("stroke-width", "0.75px")
 		            .style("fill", function(d) {
 		                // Get data value
-		                var value = d.properties.abundance[0];
+		                var value = d.properties.abundance[yearIndex];
 		                //return mapColour(c(value));
 			        return value != 0 ? colorScale(value) : "url(#stripe)";
 		            })
@@ -174,6 +175,21 @@ const Choropleth = {
 			});
 		
 		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
+		}
+		
+		// Slider interaction
+		const slider = document.getElementById("yearSlider");
+		const selectedYear = document.getElementById("selectedYear");
+		
+		slider.addEventListener("input", function() {
+		    const year = parseInt(this.value);
+		    selectedYear.innerHTML = year;
+		    
+		    // Call the update function to update the map based on the selected year
+		    updateMap(year-2009);
+		});
+
+		updateMap(0); // Update the map initially with data for the year 2009
 	},
 
 	destroy: function() {
