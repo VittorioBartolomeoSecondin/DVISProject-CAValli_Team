@@ -40,7 +40,7 @@ const Choropleth = {
 						.style("stroke-width", "2px");
 					// Create the tooltip if it doesn't exist
 				            if (!tooltip) {
-				                tooltip = d3.select("body").append("div")
+				                tooltip = d3.select("body").append("span")
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
