@@ -11,7 +11,7 @@ const Choropleth = {
 		
 		// Calculate the position for the legend
 		const legendX = width - legendWidth - 80; 
-		const legendY = height / 2 - legendHeight / 2 - 220; 
+		const legendY = height / 2 - legendHeight / 2 - 200; 
 		
 		let projection = d3.geoAlbers()
 					.rotate([-20.0, 0.0])
