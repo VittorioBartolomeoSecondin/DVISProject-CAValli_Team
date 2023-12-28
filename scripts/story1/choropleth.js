@@ -79,10 +79,12 @@ const Choropleth = {
 		const legend = svg.append("g")
 			.attr("id", "choropleth_legend")
 			.attr("transform", `translate(${legendX}, ${legendY})`);
+
+		const self = this;
 		
 		const legend_entry = legend.selectAll("g.legend")
 			.data(this.colorScale.range().map(function(d) {
-				d = this.colorScale.invertExtent(d);
+				d = self.colorScale.invertExtent(d);
 				if (d[0] == null) d[0] = x.domain()[0];
 				if (d[1] == null) d[1] = x.domain()[1];
 				return d;
@@ -101,7 +103,7 @@ const Choropleth = {
 			.attr("width", ls_w)
 			.attr("height", ls_h)
 			.style("fill", function(d) {
-				return this.colorScale(d[0]);
+				return self.colorScale(d[0]);
 			});
 			//.style("opacity", 0.8);
 		
