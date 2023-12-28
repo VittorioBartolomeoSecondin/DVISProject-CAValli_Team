@@ -168,17 +168,13 @@ const Choropleth = {
 						.style("opacity", 1);
 				}
 
-		this.world.selectAll(".states").each(function(d) {
-			d3.select(this)
-			  .style("fill", function(d) {
-				console.log(d);
-				// Get data value
-		                var value = d.properties.abundance[yearIndex];
-		                //return mapColour(c(value));
-			        return value != 0 ? colorScale(value) : "url(#stripe)";
-            		  })
-			  .on("mouseover", this.mouseOver);
-		})
+		this.world.selectAll(".Country")
+		    .style("fill", function(d) {
+		        var value = d.properties.abundance[yearIndex];
+		        return value !== 0 ? colorScale(value) : "url(#stripe)";
+		    })
+		    .on("mouseover", this.mouseOver);
+
         },
 
 	initialize: function() {
