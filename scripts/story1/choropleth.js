@@ -76,7 +76,7 @@ const Choropleth = {
 		        dataFeatures = topojson.feature(data, data.objects.europe).features;
 			    
 		        world.selectAll(".states")
-		            .data(data_features)
+		            .data(dataFeatures)
 		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
 			    .attr("d", path)
