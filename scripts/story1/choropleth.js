@@ -168,7 +168,7 @@ const Choropleth = {
 						.style("opacity", 1);
 				}
 
-		this.world.selectAll(".Country")
+		d3.selectAll(".Country")
 		    .style("fill", function(d) {
 			    console.log(d);
 		        var value = d.properties.abundance[yearIndex];
