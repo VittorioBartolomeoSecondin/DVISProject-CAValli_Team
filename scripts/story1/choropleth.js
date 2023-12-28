@@ -163,7 +163,7 @@ const Choropleth = {
 			//.style("opacity", 0.8);
 		
 		legend_entry.append("text")
-			.attr("x", 50)
+			.attr("x", 60)
 			.attr("y", function(d, i) {
 				return height - (i * ls_h) - ls_h - 6;
 			})
@@ -173,7 +173,7 @@ const Choropleth = {
 				return d[0] + " - " + d[1];
 			});
 		
-		legend.append("text").attr("x", 15).attr("y", 620).text("NEET abundance");
+		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
 	},
 
 	destroy: function() {
