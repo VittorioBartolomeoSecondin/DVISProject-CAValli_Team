@@ -117,7 +117,7 @@ const Choropleth = {
 		
 		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
 
-		updateMap(0);
+		this.updateMap(0);
     	},
 
     	updateMap: function(yearIndex) {
