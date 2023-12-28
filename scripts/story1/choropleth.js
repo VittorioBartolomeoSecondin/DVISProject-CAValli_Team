@@ -170,7 +170,7 @@ const Choropleth = {
 
 		this.world.selectAll(".states").each(function(d) {
 			d3.select(this)
-			  .style("fill", function() {
+			  .style("fill", function(d) {
 				console.log(d);
 				// Get data value
 		                var value = d.properties.abundance[yearIndex];
