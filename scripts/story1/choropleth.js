@@ -57,12 +57,12 @@ const Choropleth = {
 						.duration(200)
 						.style("opacity", 1)
 						.style("stroke-width", "0.75px");
-					/*if (tooltip) {
+					if (tooltip) {
 				                tooltip.transition().duration(300)
 				                    .style("opacity", 0)
 				                    .remove();
 				                tooltip = null; // Reset tooltip variable
-		            	       }*/
+		            	       }
 				}
 		
 		let path = d3.geoPath().projection(projection);
