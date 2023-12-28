@@ -164,7 +164,7 @@ const Choropleth = {
 		    	    })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
-			    .on("mouseover", mouseOver);
+			    .on("mouseover", mouseOver)
 			    .on("mouseleave", mouseLeave);
 		    })
 		    .catch(error => {
