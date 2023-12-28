@@ -144,7 +144,7 @@ const Choropleth = {
     	},
 
     	updateMap: function(yearIndex) {
-	    mouseOver = function(event, d) {
+	    this.mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
