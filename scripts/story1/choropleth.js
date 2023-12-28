@@ -2,7 +2,7 @@ const Choropleth = {
 	tooltip: null,
 	world: null,
 	path: null,
-	colorScale: null,
+	colorScale(): null,
 	initialize: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
