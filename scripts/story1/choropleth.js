@@ -173,7 +173,7 @@ const Choropleth = {
 				return d[0] / 1000 + " k - " + d[1] / 1000 + " k";
 			});
 		
-		legend.append("text").attr("x", 15).attr("y", 420).text("NEET abundance");
+		legend.append("text").attr("x", 15).attr("y", 720).text("NEET abundance");
 	},
 
 	destroy: function() {
