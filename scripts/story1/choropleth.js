@@ -170,6 +170,7 @@ const Choropleth = {
 
 		this.world.selectAll(".Country")
 		    .style("fill", function(d) {
+			    console.log(d);
 		        var value = d.properties.abundance[yearIndex];
 		        return value !== 0 ? colorScale(value) : "url(#stripe)";
 		    })
