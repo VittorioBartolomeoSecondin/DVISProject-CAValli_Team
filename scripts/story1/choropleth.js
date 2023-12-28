@@ -1,4 +1,7 @@
 const Choropleth = {
+	tooltip: null,
+	mouseOver: null,
+	world: null,
 	createMap: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -13,48 +16,43 @@ const Choropleth = {
 	   const legendX = width - legendWidth - 80; 
 	   const legendY = height / 2 - legendHeight / 2 - 300; 
 		
-	   var projection = d3.geoAlbers()
+	   let projection = d3.geoAlbers()
 			      .rotate([-20.0, 0.0])
 			      .center([0.0, 52.0])
 			      .parallels([35.0, 65.0])
 			      .translate([width / 2, height / 2 + 400])
 			      .scale(width)
 			      .precision(.1);
-	   
-	   // add tooltip
-	   var tooltip = null;
 
-	   var mouseOver = null;
-
-	   var mouseLeave = function() {
+	   let mouseLeave = function() {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
 						.style("opacity", 1)
 						.style("stroke-width", "0.75px");
-					if (tooltip) {
-				                tooltip.transition().duration(300)
+					if (this.tooltip) {
+				                this.tooltip.transition().duration(300)
 				                    .style("opacity", 0)
 				                    .remove();
-				                tooltip = null; // Reset tooltip variable
+				                this.tooltip = null; // Reset tooltip variable
 		            	       }
 				}
 
-	var path = d3.geoPath().projection(projection);
+	let path = d3.geoPath().projection(projection);
 	
 	// Define color scale
 	const colorScale = d3.scaleThreshold()
 		.domain([100000, 200000, 500000, 1000000, 1500000]) 
 		.range(d3.schemeOranges[6]);
 	
-	var svg = d3.select("#choropleth")
+	let svg = d3.select("#choropleth")
 		    .append("svg")
 		    .attr("width", width)
 		    .attr("height", height)
 		    .attr("preserveAspectRatio", "xMinYMin meet")
 		    .attr("viewBox", `0 0 ${width} ${height}`);
 	
-	var world = svg.append("g");
+	this.world = svg.append("g");
 	
 	// Add the stripe pattern to the SVG
 	const defs = svg.append("defs");
@@ -78,7 +76,7 @@ const Choropleth = {
 		        const data_features = topojson.feature(data, data.objects.europe).features;
 			console.log(data_features)
 			    
-		        world.selectAll(".states")
+		        this.world.selectAll(".states")
 		            .data(data_features)
 		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
@@ -159,19 +157,19 @@ const Choropleth = {
 						.style("opacity", 1)
 						.style("stroke-width", "2px");
 					// Create the tooltip if it doesn't exist
-				            if (!tooltip) {
-				                tooltip = d3.select("body").append("div")
+				            if (!this.tooltip) {
+				                this.tooltip = d3.select("body").append("div")
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
-					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + ' k NEETs')
+					this.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + ' k NEETs')
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
 						.style("opacity", 1);
 				}
 
-		world.selectAll(".states").each(function(d) {
+		this.world.selectAll(".states").each(function(d) {
 			d3.select(this)
 			  .style("fill", function() {
 				// Get data value
@@ -179,7 +177,7 @@ const Choropleth = {
 		                //return mapColour(c(value));
 			        return value != 0 ? colorScale(value) : "url(#stripe)";
             		  })
-			  .on("mouseover", mouseOver);
+			  .on("mouseover", this.mouseOver);
 		})
         },
 
