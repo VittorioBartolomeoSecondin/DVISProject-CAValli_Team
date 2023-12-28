@@ -81,7 +81,7 @@ const Choropleth = {
 			.attr("transform", `translate(${legendX}, ${legendY})`);
 		
 		const legend_entry = legend.selectAll("g.legend")
-			.data(colorScale.range().map(function(d) {
+			.data(this.colorScale.range().map(function(d) {
 				d = this.colorScale.invertExtent(d);
 				if (d[0] == null) d[0] = x.domain()[0];
 				if (d[1] == null) d[1] = x.domain()[1];
