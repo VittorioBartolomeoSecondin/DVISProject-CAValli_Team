@@ -3,6 +3,7 @@ const Choropleth = {
 	world: null,
 	path: null,
 	colorScale: null,
+	mouseLeave: null,
 	initialize: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -28,7 +29,7 @@ const Choropleth = {
 	   const self = this;
 		console.log(this);
 		
-	   let mouseLeave = function() {
+	   this.mouseLeave = function() {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
@@ -145,7 +146,7 @@ const Choropleth = {
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
-					this.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + ' k NEETs')
+					self.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + ' k NEETs')
 						.style("left", (event.pageX + 15) + "px")
 						.style("top", (event.pageY - 28) + "px")
 						.transition().duration(400)
@@ -157,7 +158,7 @@ const Choropleth = {
 		    .then(data => {
 		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
 			    
-		        this.world.selectAll(".states")
+		        self.world.selectAll(".states")
 		            .data(dataFeatures)
 		            .enter().append("path")
 			    // add a class, styling and mouseover/mouseleave
@@ -166,12 +167,12 @@ const Choropleth = {
 			    .attr("class", "Country")
 			    .style("fill", function(d) {
 			        var value = d.properties.abundance[yearIndex];
-			        return value !== 0 ? this.colorScale(value) : "url(#stripe)";
+			        return value !== 0 ? self.colorScale(value) : "url(#stripe)";
 		    	    })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
 			    .on("mouseover", mouseOver)
-			    .on("mouseleave", mouseLeave);
+			    .on("mouseleave", self.mouseLeave);
 		    })
 		    .catch(error => {
 		        console.error("Error fetching the data:", error);
