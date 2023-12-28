@@ -1,7 +1,6 @@
 const Choropleth = {
 	tooltip: null,
 	mouseOver: null,
-	dataFeatures: null,
 	createMap: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -73,16 +72,16 @@ const Choropleth = {
 	fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
-		        this.dataFeatures = topojson.feature(data, data.objects.europe).features;
+		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
 			    
 		        world.selectAll(".states")
-		            .data(this.dataFeatures)
+		            .data(dataFeatures)
 		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
 			    .attr("d", path)
 			    .style("stroke", "black")
 			    .attr("class", "Country")
-			    .attr("id", function(d) { console.log(d); return d.id })
+			    .attr("id", function(d) { return d.id; this.updateMap(d, 0); })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
 			    .on("mouseleave", mouseLeave);
@@ -137,12 +136,9 @@ const Choropleth = {
 			});
 		
 		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
-		
-		// Update the map initially with data for the year 2009
-	        this.updateMap(0); 
     	},
 
-    	updateMap: function(yearIndex) {
+    	updateMap: function(data, yearIndex) {
 	    this.mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
@@ -168,9 +164,8 @@ const Choropleth = {
 						.style("opacity", 1);
 				}
 
-		console.log(this.dataFeatures);
 		d3.selectAll(".Country")
-		    .data(this.dataFeatures)
+		    .data(data)
 		    .style("fill", function(d) {
 			    console.log(d);
 		        var value = d.properties.abundance[yearIndex];
