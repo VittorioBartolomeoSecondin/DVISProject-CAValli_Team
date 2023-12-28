@@ -10,18 +10,18 @@
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tooltip_element .tooltip-content {
+.tooltip .tooltip-content {
     font-size: 14px;
     line-height: 1.4;
     text-align: left;
     max-width: 200px;
 }
 
-.tooltip_element p {
+.tooltip p {
     margin: 0;
 }
 
-.tooltip_element strong {
+.tooltip strong {
     font-weight: bold;
 }
 
