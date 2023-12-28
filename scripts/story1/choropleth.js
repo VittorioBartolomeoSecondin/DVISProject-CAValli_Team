@@ -73,7 +73,7 @@ const Choropleth = {
 	fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
-		        dataFeatures = topojson.feature(data, data.objects.europe).features;
+		        this.dataFeatures = topojson.feature(data, data.objects.europe).features;
 			    
 		        world.selectAll(".states")
 		            .data(dataFeatures)
@@ -169,7 +169,7 @@ const Choropleth = {
 				}
 
 		d3.selectAll(".Country")
-		    .data(dataFeatures)
+		    .data(this.dataFeatures)
 		    .style("fill", function(d) {
 			    console.log(d);
 		        var value = d.properties.abundance[yearIndex];
