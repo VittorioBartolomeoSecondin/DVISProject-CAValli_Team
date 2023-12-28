@@ -69,7 +69,7 @@ const Choropleth = {
 		
 		// Define color scale
 		const colorScale = d3.scaleThreshold()
-			.domain([100, 200, 500, 1000, 1500]) 
+			.domain([100000, 200000, 500000, 1000000, 1500000]) 
 			.range(d3.schemeOranges[6]);
 		
 		let svg = d3.select("#choropleth")
@@ -117,7 +117,7 @@ const Choropleth = {
 			    .style("stroke-width", "0.75px")
 		            .style("fill", function(d) {
 		                // Get data value
-		                var value = d.properties.abundance1000[0];
+		                var value = d.properties.abundance[0];
 		                //return mapColour(c(value));
 			        return value != 0 ? colorScale(value) : "url(#stripe)";
 		            })
