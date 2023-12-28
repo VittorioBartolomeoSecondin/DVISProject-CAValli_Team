@@ -41,7 +41,7 @@ const Choropleth = {
 					// Create the tooltip if it doesn't exist
 				            if (!tooltip) {
 				                tooltip = d3.select("body").append("div")
-				                    .attr("class", "tooltip_element")
+				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
 					tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance[0] + ' NEETs')
