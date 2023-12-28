@@ -40,7 +40,7 @@ const Choropleth = {
 						.style("stroke-width", "2px");
 					// Create the tooltip if it doesn't exist
 				            if (!tooltip) {
-				                tooltip = d3.select("body").append("span")
+				                tooltip = d3.select("body").append("div")
 				                    .attr("class", "tooltip")
 				                    .style("opacity", 0);
 				            }
@@ -57,12 +57,12 @@ const Choropleth = {
 						.duration(200)
 						.style("opacity", 1)
 						.style("stroke-width", "0.75px");
-					if (tooltip) {
+					/*if (tooltip) {
 				                tooltip.transition().duration(300)
 				                    .style("opacity", 0)
 				                    .remove();
 				                tooltip = null; // Reset tooltip variable
-		            	       }
+		            	       }*/
 				}
 		
 		let path = d3.geoPath().projection(projection);
