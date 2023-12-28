@@ -25,17 +25,19 @@ const Choropleth = {
 			      .scale(width)
 			      .precision(.1);
 
+	   const self = this;
+		
 	   let mouseLeave = function() {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
 						.style("opacity", 1)
 						.style("stroke-width", "0.75px");
-					if (this.tooltip) {
-				                this.tooltip.transition().duration(300)
+					if (self.tooltip) {
+				                self.tooltip.transition().duration(300)
 				                    .style("opacity", 0)
 				                    .remove();
-				                this.tooltip = null; // Reset tooltip variable
+				                self.tooltip = null; // Reset tooltip variable
 		            	       }
 				}
 
@@ -79,8 +81,6 @@ const Choropleth = {
 		const legend = svg.append("g")
 			.attr("id", "choropleth_legend")
 			.attr("transform", `translate(${legendX}, ${legendY})`);
-
-		const self = this;
 		
 		const legend_entry = legend.selectAll("g.legend")
 			.data(this.colorScale.range().map(function(d) {
