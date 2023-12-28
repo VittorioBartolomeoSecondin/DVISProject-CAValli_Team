@@ -2,6 +2,7 @@ const Choropleth = {
 	tooltip: null,
 	world: null,
 	path: null,
+	colorScale: null,
 	createMap: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -41,7 +42,7 @@ const Choropleth = {
 	this.path = d3.geoPath().projection(projection);
 	
 	// Define color scale
-	const colorScale = d3.scaleThreshold()
+	this.colorScale = d3.scaleThreshold()
 		.domain([100000, 200000, 500000, 1000000, 1500000]) 
 		.range(d3.schemeOranges[6]);
 	
@@ -160,7 +161,7 @@ const Choropleth = {
 			    .attr("class", "Country")
 			    .style("fill", function(d) {
 			        var value = d.properties.abundance[yearIndex];
-			        return value !== 0 ? colorScale(value) : "url(#stripe)";
+			        return value !== 0 ? this.colorScale(value) : "url(#stripe)";
 		    	    })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
