@@ -2,7 +2,7 @@ const Choropleth = {
 	tooltip: null,
 	world: null,
 	path: null,
-	colorScale(): null,
+	colorScale: null,
 	initialize: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -26,6 +26,7 @@ const Choropleth = {
 			      .precision(.1);
 
 	   const self = this;
+		console.log(this);
 		
 	   let mouseLeave = function() {
 					d3.selectAll(".Country")
@@ -124,6 +125,7 @@ const Choropleth = {
     	},
 
     	updateMap: function(yearIndex) {
+		console.log(this);
 	    let mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
