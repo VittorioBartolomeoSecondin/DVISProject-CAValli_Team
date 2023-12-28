@@ -3,7 +3,7 @@ const Choropleth = {
 	world: null,
 	path: null,
 	colorScale: null,
-	createMap: function() {
+	initialize: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 	       width = 1435 - margin.left - margin.right,
@@ -172,12 +172,7 @@ const Choropleth = {
 		        console.error("Error fetching the data:", error);
 		    });
         },
-
-	initialize: function() {
-	    // Call the map creation function during initialization
-	    this.createMap();
-    	},
-
+	
 	destroy: function() {
 	    // Clean up existing map elements
 	    const existingMap = document.querySelector("#choropleth svg");
