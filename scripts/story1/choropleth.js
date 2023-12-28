@@ -1,6 +1,7 @@
 const Choropleth = {
 	tooltip: null,
-	mouseOver: null,
+	world: null,
+	path: null,
 	createMap: function() {
 	   // set the dimensions and margins of the graph
 	   var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -37,7 +38,7 @@ const Choropleth = {
 		            	       }
 				}
 
-	let path = d3.geoPath().projection(projection);
+	this.path = d3.geoPath().projection(projection);
 	
 	// Define color scale
 	const colorScale = d3.scaleThreshold()
@@ -51,7 +52,7 @@ const Choropleth = {
 		    .attr("preserveAspectRatio", "xMinYMin meet")
 		    .attr("viewBox", `0 0 ${width} ${height}`);
 	
-	let world = svg.append("g");
+	this.world = svg.append("g");
 	
 	// Add the stripe pattern to the SVG
 	const defs = svg.append("defs");
@@ -68,27 +69,6 @@ const Choropleth = {
 	    .attr("transform", "translate(0,0)")
 	    .attr("opacity", 0.5)
 	    .attr("fill", "grey");
-
-	fetch("data/story1/choropleth.json") 
-		    .then(response => response.json())
-		    .then(data => {
-		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
-			    
-		        world.selectAll(".states")
-		            .data(dataFeatures)
-		            .enter().append("path") 
-			    // add a class, styling and mouseover/mouseleave
-			    .attr("d", path)
-			    .style("stroke", "black")
-			    .attr("class", "Country")
-			    .attr("id", function(d) { return d.id; this.updateMap(d, 0); })
-			    .style("opacity", 1)
-			    .style("stroke-width", "0.75px")
-			    .on("mouseleave", mouseLeave);
-		    })
-		    .catch(error => {
-		        console.error("Error fetching the data:", error);
-		    });
 
 	   // Legend
 		const x = d3.scaleLinear()
@@ -136,10 +116,12 @@ const Choropleth = {
 			});
 		
 		legend.append("text").attr("x", 15).attr("y", 580).text("NEET abundance");
+
+		updateMap(0);
     	},
 
-    	updateMap: function(data, yearIndex) {
-	    this.mouseOver = function(event, d) {
+    	updateMap: function(yearIndex) {
+	    let mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
@@ -163,16 +145,31 @@ const Choropleth = {
 						.transition().duration(400)
 						.style("opacity", 1);
 				}
-
-		d3.selectAll(".Country")
-		    .data(data)
-		    .style("fill", function(d) {
-			    console.log(d);
-		        var value = d.properties.abundance[yearIndex];
-		        return value !== 0 ? colorScale(value) : "url(#stripe)";
+			
+		fetch("data/story1/choropleth.json") 
+		    .then(response => response.json())
+		    .then(data => {
+		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
+			    
+		        this.world.selectAll(".states")
+		            .data(dataFeatures)
+		            .enter().append("path")
+			    // add a class, styling and mouseover/mouseleave
+			    .attr("d", this.path)
+			    .style("stroke", "black")
+			    .attr("class", "Country")
+			    .style("fill", function(d) {
+			        var value = d.properties.abundance[yearIndex];
+			        return value !== 0 ? colorScale(value) : "url(#stripe)";
+		    	    })
+			    .style("opacity", 1)
+			    .style("stroke-width", "0.75px")
+			    .on("mouseover", mouseOver);
+			    .on("mouseleave", mouseLeave);
 		    })
-		    .on("mouseover", this.mouseOver);
-
+		    .catch(error => {
+		        console.error("Error fetching the data:", error);
+		    });
         },
 
 	initialize: function() {
