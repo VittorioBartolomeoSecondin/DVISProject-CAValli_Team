@@ -13,7 +13,7 @@ const Choropleth = {
 	   const legendX = width - legendWidth - 80; 
 	   const legendY = height / 2 - legendHeight / 2 - 300; 
 		
-	   let projection = d3.geoAlbers()
+	   var projection = d3.geoAlbers()
 			      .rotate([-20.0, 0.0])
 			      .center([0.0, 52.0])
 			      .parallels([35.0, 65.0])
@@ -22,11 +22,11 @@ const Choropleth = {
 			      .precision(.1);
 	   
 	   // add tooltip
-	   let tooltip = null;
+	   var tooltip = null;
 
-	   let mouseOver = null;
+	   var mouseOver = null;
 
-	   let mouseLeave = function() {
+	   var mouseLeave = function() {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
@@ -40,21 +40,21 @@ const Choropleth = {
 		            	       }
 				}
 
-	let path = d3.geoPath().projection(projection);
+	var path = d3.geoPath().projection(projection);
 	
 	// Define color scale
 	const colorScale = d3.scaleThreshold()
 		.domain([100000, 200000, 500000, 1000000, 1500000]) 
 		.range(d3.schemeOranges[6]);
 	
-	let svg = d3.select("#choropleth")
+	var svg = d3.select("#choropleth")
 		    .append("svg")
 		    .attr("width", width)
 		    .attr("height", height)
 		    .attr("preserveAspectRatio", "xMinYMin meet")
 		    .attr("viewBox", `0 0 ${width} ${height}`);
 	
-	let world = svg.append("g");
+	var world = svg.append("g");
 	
 	// Add the stripe pattern to the SVG
 	const defs = svg.append("defs");
