@@ -147,8 +147,8 @@ const Choropleth = {
 			.enter().append("g")
 			.attr("class", "legend_entry");
 		
-		const ls_w = 20,
-			ls_h = 20;
+		const ls_w = 25,
+			ls_h = 25;
 		
 		legend_entry.append("rect")
 			.attr("x", 20)
