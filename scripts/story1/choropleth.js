@@ -109,7 +109,7 @@ const Choropleth = {
 			    });
 				
 		legend_entry.append("text")
-			    .attr("x", 60)
+			    .attr("x", 65)
 			    .attr("y", function(d, i) {
 				return height - (i * ls_h) - ls_h - 6;
 			    })
