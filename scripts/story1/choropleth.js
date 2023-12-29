@@ -144,7 +144,7 @@ const Choropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					self.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;: ' + d.properties.abundance1000[yearIndex] + 'k NEETs')
+					self.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;' + (d.properties.abundance1000[yearIndex] != 0 ? ': ' + d.properties.abundance1000[yearIndex] + 'k NEETs' : ''))
 					    .style("left", (event.pageX + 15) + "px")
 					    .style("top", (event.pageY - 28) + "px")
 					    .transition().duration(400)
