@@ -30,3 +30,28 @@
   font-size: 1.2em;
   letter-spacing: 0.1;
 }
+
+#slider-container {
+    margin: 20px;
+    text-align: center;
+}
+
+.slider-title {
+    display: block;
+    margin-bottom: 10px;
+    color: #333; /* Change the color to your preferred one */
+}
+
+.slider {
+    width: 80%;
+    margin: 0 auto;
+    background: #e44d26; /* Change the background color to your preferred one */
+    border: none;
+    color: orange; /* Change the text color to your preferred one */
+}
+
+#selectedYear {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
