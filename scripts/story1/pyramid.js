@@ -18,33 +18,9 @@ var svg = d3.create("svg")
 		    .attr("font-size", 10);
 
 d3.csv("/data/story1/pyramids/pyramid2009.csv").then(function(data) {
-       
-	xM = d3.scaleLinear()
-		.domain([0, d3.max(data, d => d.percentage)])
-		.rangeRound([width / 2, margin.left])
-	
-	xF = d3.scaleLinear()
-		.domain(xM.domain())
-		.rangeRound([width / 2, width - margin.right])
-
-	y = d3.scaleBand()
-		.domain(data.map(d => d.name))
-		.rangeRound([height - margin.bottom, margin.top])
-		.padding(0.1)
-
-	xAxis = g => g
-		.attr("transform", `translate(0,${height - margin.bottom})`)
-		.call(g => g.append("g").call(d3.axisBottom(xM).ticks(width / 80, "s")))
-		.call(g => g.append("g").call(d3.axisBottom(xF).ticks(width / 80, "s")))
-		.call(g => g.selectAll(".domain").remove())
-		.call(g => g.selectAll(".tick:first-of-type").remove())
-	
-	yAxis = g => g
-		.attr("transform", `translate(${xM(0)},0)`)
-		.call(d3.axisRight(y).tickSizeOuter(0))
-		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		
 	chart = {
+		
 		svg.append("g")
 			.selectAll("rect")
 			.data(data)
@@ -90,4 +66,29 @@ d3.csv("/data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		
 		return svg.node();
 	}
+       
+	xM = d3.scaleLinear()
+		.domain([0, d3.max(data, d => d.percentage)])
+		.rangeRound([width / 2, margin.left])
+	
+	xF = d3.scaleLinear()
+		.domain(xM.domain())
+		.rangeRound([width / 2, width - margin.right])
+
+	y = d3.scaleBand()
+		.domain(data.map(d => d.name))
+		.rangeRound([height - margin.bottom, margin.top])
+		.padding(0.1)
+
+	xAxis = g => g
+		.attr("transform", `translate(0,${height - margin.bottom})`)
+		.call(g => g.append("g").call(d3.axisBottom(xM).ticks(width / 80, "s")))
+		.call(g => g.append("g").call(d3.axisBottom(xF).ticks(width / 80, "s")))
+		.call(g => g.selectAll(".domain").remove())
+		.call(g => g.selectAll(".tick:first-of-type").remove())
+	
+	yAxis = g => g
+		.attr("transform", `translate(${xM(0)},0)`)
+		.call(d3.axisRight(y).tickSizeOuter(0))
+		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 });
