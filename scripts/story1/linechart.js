@@ -14,12 +14,14 @@ const tooltip = d3.select("#linechart_1")
 
 var linechart_svg;
 
-function updateLineChart(selectedDataset) {
-
-    // append the svg object
-    linechart_svg = d3.select("#linechart_1").append("svg")
-        .attr("id", "linechart_svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+function updateBarChart(selectedDataset) {
+  d3.csv(selectedDataset).then( function(data) {
+	  
+	  // append the svg object
+	  linechart_svg = d3.select("#linechart_1").append("svg")
+		  .attr("id", "linechart_svg")
+		  .attr("width", width + margin.left + margin.right)
+		  .attr("height", height + margin.top + margin.bottom)
+		  .append("g")
+		  .attr("transform", `translate(${margin.left},${margin.top})`);
+	  
