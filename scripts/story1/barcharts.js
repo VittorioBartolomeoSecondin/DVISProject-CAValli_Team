@@ -128,7 +128,7 @@ function updateBarChart(selectedDataset) {
                 .attr("x", x(0))
                 .attr("width", d => x(Math.floor(d.abundance*1000)))
               .delay((d, i) => i * 100);
-      }
+      });
     
   });
 }
