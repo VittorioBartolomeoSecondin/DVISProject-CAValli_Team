@@ -89,7 +89,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseover", function (event, d) {
     
              // Change stroke width when hovering
-             d3.select(this).style("stroke-width", "2px");
+             d3.select(this).style("stroke-width", 2);
     
              // Show the tooltip
              tooltip.transition()
@@ -114,7 +114,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseout", function (d) {
     
              // Returning to original stroke width when not hovering
-             d3.select(this).style("stroke-width", "1px");
+             d3.select(this).style("stroke-width", 1);
     
              // Hide the tooltip
              tooltip.transition()
