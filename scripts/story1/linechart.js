@@ -5,6 +5,15 @@ function drawLineChart(selectedCountries) {
 	           width = 1435 - margin.left - margin.right,
 	           height = 650 - margin.top - margin.bottom;
 
+    // Create a tooltip
+    const tooltip = d3.select("#linechart_1")
+		  .append("section")
+		    .attr("id", "linechart_tooltip")
+		  .style("opacity", 0)
+		  .style("background-color", "lightgray")
+		  .style("border", "2px solid black")
+		    .attr("class", "tooltip");
+
     // Append an SVG element to the specified div
     var svg = d3.select("#linechart_1")
         .append("svg")
@@ -81,13 +90,44 @@ function drawLineChart(selectedCountries) {
                 .attr("stroke-width", 1.5)
                 .style("stroke", colorScale(i))
                 .attr("d", line);
-        });
+
+	    svg.selectAll(".circle-" + country)
+	        .data(countryData)
+	        .enter().append("circle")
+	        .attr("class", "circles")
+	        .attr("cx", function (d) { return xScale(+d.year); })
+	        .attr("cy", function (d) { return yScale(+d.value); })
+	        .attr("r", 4)
+	        .style("fill", colorScale(i))
+	        .on("mouseover", handleMouseOver)
+	        .on("mouseout", handleMouseOut);
+	        });
     });
 }
 
 // Call the drawLineChart function with the initially checked countries
 var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
+
+function handleMouseOver(event, d) {
+    // Show the tooltip
+    tooltip.transition()
+        .duration(200)
+        .style("opacity", 1);
+
+    // Tooltip content
+    const exactAbundance = d.value;
+    tooltip.html(`Abundance: ${exactAbundance}`)
+        .style("left", (event.pageX + 10) + "px")
+        .style("top", (event.pageY - 20) + "px");
+}
+
+function handleMouseOut() {
+    // Hide the tooltip
+    tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+}
 
 
 
