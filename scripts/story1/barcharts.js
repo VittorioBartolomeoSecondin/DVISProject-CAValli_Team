@@ -19,7 +19,7 @@ function updateBarChart(selectedDataset) {
 
       for (var i = 0; i < 6; i++) {
           // Append the svg object to the body of the page
-          const svg = d3.select("#barchart_" + i)
+          let svg = d3.select("#barchart_" + i)
                         .append("svg")
                           .attr("id", "barchart_svg_" + i)
                           .attr("width", width + margin.left + margin.right)
@@ -28,7 +28,7 @@ function updateBarChart(selectedDataset) {
                           .attr("transform", `translate(${margin.left}, ${margin.top})`);
           
           // Create the tooltip element
-          const tooltip = d3.select("#barchart_" + i)
+          let tooltip = d3.select("#barchart_" + i)
                             .append("section")
                               .attr("id", "barchart_tooltip_" + i)
                             .style("opacity", 0)
@@ -37,10 +37,10 @@ function updateBarChart(selectedDataset) {
                               .attr("class", "tooltip");
         
           // Define maximum
-          var max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance*1000);});
+          let max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance*1000);});
         
           // Add X axis
-          const x = d3.scaleLinear()
+          let x = d3.scaleLinear()
                       .domain([0, max + max/10])
                       .range([0, width]);
         
@@ -53,7 +53,7 @@ function updateBarChart(selectedDataset) {
              .style("text-anchor", "end");
           
           // Add Y axis
-          const y = d3.scaleBand()
+          let y = d3.scaleBand()
                       .range([height, 0])
                       .domain(groupData[i].map(d => d.abbreviation))
                       .padding(.1);
