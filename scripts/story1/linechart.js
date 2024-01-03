@@ -34,7 +34,7 @@ function drawLineChart(selectedCountries) {
 
     // Set up the X and Y scales
     var xScale = d3.scaleLinear()
-	    	.range([0, width]);
+	    	.range([20, width-20]);
 	
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
@@ -69,7 +69,7 @@ function drawLineChart(selectedCountries) {
         // Add X-axis
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")).tickPadding(100));
+            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
 
         // Add Y-axis
         svg.append("g")
