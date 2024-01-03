@@ -39,6 +39,13 @@ function drawLineChart(selectedCountries) {
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
 
+    svg.append("line")
+	.attr("x1", 20)  // Adjust the starting x-coordinate based on your left padding
+    	.attr("y1", height)
+    	.attr("x2", width)
+    	.attr("y2", height)
+    	.attr("stroke", "black");
+
     // Load the CSV data
     d3.csv("data/story1/linechart.csv").then(function (data) {
         // Filter data based on selected countries
