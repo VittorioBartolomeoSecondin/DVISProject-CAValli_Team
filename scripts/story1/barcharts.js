@@ -1,5 +1,5 @@
 // Set the dimensions and margins of the graph
-const margin = {top: 20, right: 40, bottom: 70, left: 160}, width2 = 450 - margin.left - margin.right, height2 = 400 - margin.top - margin.bottom;
+const margin = {top: 20, right: 40, bottom: 70, left: 160}, width = 450 - margin.left - margin.right, height = 400 - margin.top - margin.bottom;
 const colours = d3.schemeOranges[6];
 
 // Parse the Data
