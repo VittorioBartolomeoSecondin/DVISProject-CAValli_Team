@@ -1,10 +1,24 @@
 // Set the dimensions and margins of the graph
-const margin = {top: 20, right: 40, bottom: 70, left: 240}, width = 1000 - margin.left - margin.right, height = 600 - margin.top - margin.bottom;
-const margin2 = {top: 20, right: 40, bottom: 70, left: 160}, width2 = 450 - margin.left - margin.right, height2 = 400 - margin.top - margin.bottom;
+const margin = {top: 20, right: 40, bottom: 70, left: 160}, width2 = 450 - margin.left - margin.right, height2 = 400 - margin.top - margin.bottom;
 
 // Parse the Data
 function updateBarChart(selectedDataset) {
-  d3.csv(selectedDataset).then( function(data) {
+  // Load the CSV file using d3.csv
+  d3.csv(selectedDataset).then(function(data) {
+    var groupData = [];
+    
+    // Nest the data based on the 'group' column
+    var nestedData = d3.group(data, d => d.group);
+  
+    // Extract subdatasets based on the groups
+    var groupValues = Array.from(nestedData.keys());
+
+    for (int i = 0; i < 6; i++) {
+        groupData.append(nestedData.get(groupValues[i]));
+        console.log(groupData[i]);
+    }
+  });
+  /*d3.csv(selectedDataset).then( function(data) {
       
       // Append the svg object to the body of the page
       const svg = d3.select("#barchart_1")
@@ -104,15 +118,15 @@ function updateBarChart(selectedDataset) {
             .attr("width", d => x(d.count))
           .delay((d, i) => i * 100);
   })
-}
+}*/
 
 // Initial chart creation with the default dataset
-updateBarChart("data/section1/barchart/total.csv");
+updateBarChart("data/story1/barcharts/barchart2009.csv");
 
 // Listen for changes in the dropdown selection
-document.getElementById("dataset-dropdown").addEventListener("change", function () {
+/*document.getElementById("dataset-dropdown").addEventListener("change", function () {
   const selectedDataset = this.value;
   d3.select("#barchart_svg").remove();
   d3.select("#barchart_tooltip").remove();
   updateBarChart(selectedDataset);
-});
+});*/
