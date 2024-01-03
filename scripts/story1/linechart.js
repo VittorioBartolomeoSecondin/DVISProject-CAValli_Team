@@ -110,10 +110,6 @@ function drawLineChart(selectedCountries) {
     });
 }
 
-// Call the drawLineChart function with the initially checked countries
-var initialCheckedCountries = ["Belgium"];
-drawLineChart(initialCheckedCountries);
-
 function handleMouseOver(event, d) {
     // Show the tooltip
     tooltip.transition()
@@ -134,9 +130,11 @@ function handleMouseOut() {
         .style("opacity", 0);
 }
 
+// Call the drawLineChart function with the initially checked countries
+var initialCheckedCountries = ["Belgium"];
+drawLineChart(initialCheckedCountries);
 
-
-/*document.getElementById("states-checkbox-form").addEventListener("change", function () {
+document.getElementById("states-checkbox-form").addEventListener("change", function () {
 
     // Select all checked checkboxes
     const checkedCheckboxes = document.querySelectorAll("#states-checkbox-form input:checked");
@@ -145,5 +143,5 @@ function handleMouseOut() {
     const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
 
     d3.select("#linechart_svg").remove();
-    updateLineChart(selectedStates);
-});*/
+    drawLineChart(selectedStates);
+});
