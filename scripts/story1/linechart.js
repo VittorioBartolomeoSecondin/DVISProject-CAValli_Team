@@ -14,11 +14,16 @@ function drawLineChart(selectedCountries) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Set up the X and Y scales
-    var xScale = d3.scaleLinear().range([0, width]);
-    var yScale = d3.scaleLinear().range([height, 0]);
+    var xScale = d3.scaleLinear()
+	    	.range([0, width])
+		.padding(1);
+	
+    var yScale = d3.scaleLinear()
+	    	.range([height, 0]);
 
     // Set up the line function
     var line = d3.line()
+	.defined(function(d) { return !isNaN(d[1]); }) // Exclude NaN values from the line
         .x(function (d) { return xScale(+d.year); })
         .y(function (d) { return yScale(+d.value); });
 
@@ -26,7 +31,7 @@ function drawLineChart(selectedCountries) {
     d3.csv("data/story1/linechart.csv").then(function (data) {
         // Filter data based on selected countries
         var filteredData = data.filter(function (d) {
-            return selectedCountries.includes(d.Abbreviation);
+            return selectedCountries.includes(d.Country);
         });
 
         // Format the data
@@ -38,7 +43,7 @@ function drawLineChart(selectedCountries) {
         filteredData.forEach(function (d) {
             years.forEach(function (year) {
                 formattedData.push({
-                    Abbreviation: d.Abbreviation,
+                    Country: d.Country,
                     year: +year,
                     value: +d[year]
                 });
@@ -59,12 +64,12 @@ function drawLineChart(selectedCountries) {
             .call(d3.axisLeft(yScale));
 
         // Add lines for each selected country
-        var countries = Array.from(new Set(formattedData.map(function (d) { return d.Abbreviation; })));
+        var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
         var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         countries.forEach(function (country, i) {
             var countryData = formattedData.filter(function (d) {
-                return d.Abbreviation === country;
+                return d.Country === country;
             });
 
             svg.append("path")
@@ -77,7 +82,7 @@ function drawLineChart(selectedCountries) {
 }
 
 // Call the drawLineChart function with the initially checked countries
-var initialCheckedCountries = ["BEL"];
+var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
 
 
