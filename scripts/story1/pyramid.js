@@ -10,7 +10,7 @@ var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 //         .append("g")
 //         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("/data/story1/pyramids/pyramid2009.csv").then(function(data) {
+d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 
 	const svg = d3.create("svg")
 		.attr("viewBox", [0, 0, width, height])
