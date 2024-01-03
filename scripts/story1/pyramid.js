@@ -18,7 +18,9 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", `translate(${margin.left}, ${margin.top})`);
-	
+
+	var len = data.length;
+		
 	var xM = d3.scaleLinear()
 		.domain([0, d3.max(data, d => +d.percentage)])
 		.rangeRound([width / 2, margin.left]);
@@ -73,18 +75,18 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	
 	svg.append("text")
 		.attr("text-anchor", "end")
-		.attr("fill", "white")
+		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xM(0) - 4)
+		.attr("x", xM(len - 1) - 4)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
 		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
 		.text("Male");
 	
 	svg.append("text")
 		.attr("text-anchor", "start")
-		.attr("fill", "white")
+		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xF(0) + 24)
+		.attr("x", xF(len - 1) + 24)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
 		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
 		.text("Female");
