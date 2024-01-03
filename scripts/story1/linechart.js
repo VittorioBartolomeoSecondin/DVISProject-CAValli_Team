@@ -1,18 +1,3 @@
-
-
-
-/*document.getElementById("states-checkbox-form").addEventListener("change", function () {
-
-    // Select all checked checkboxes
-    const checkedCheckboxes = document.querySelectorAll("#states-checkbox-form input:checked");
-    
-    // Extract values of checked checkboxes
-    const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
-
-    d3.select("#linechart_svg").remove();
-    updateLineChart(selectedStates);
-});*/
-
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
     // Set up the SVG dimensions
@@ -92,5 +77,19 @@ function drawLineChart(selectedCountries) {
 }
 
 // Call the drawLineChart function with the initially checked countries
-var initialCheckedCountries = ["BEL"];  // Adjust this based on your initial state
+var initialCheckedCountries = ["BEL"];
 drawLineChart(initialCheckedCountries);
+
+
+
+/*document.getElementById("states-checkbox-form").addEventListener("change", function () {
+
+    // Select all checked checkboxes
+    const checkedCheckboxes = document.querySelectorAll("#states-checkbox-form input:checked");
+    
+    // Extract values of checked checkboxes
+    const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
+
+    d3.select("#linechart_svg").remove();
+    updateLineChart(selectedStates);
+});*/
