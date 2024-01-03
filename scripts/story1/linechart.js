@@ -46,8 +46,6 @@ function drawLineChart(selectedCountries) {
             return selectedCountries.includes(d.Country);
         });
 
-	console.log(filteredData);
-
         // Format the data
         var years = Object.keys(filteredData[0]).filter(function (key) {
             return key !== "Country" && key !== "Abbreviation";
@@ -64,20 +62,14 @@ function drawLineChart(selectedCountries) {
             });
         });
 
-	console.log(formattedData);
-
         // Set the domains of the scales
-        //xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
-	xScale.domain([
-	    d3.min(formattedData, function (d) { return d.year; }) - 1,
-	    d3.max(formattedData, function (d) { return d.year; }) + 1
-	]);
+        xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
         yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })]);
 
         // Add X-axis
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
+            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")).tickPadding(10));
 
         // Add Y-axis
         svg.append("g")
