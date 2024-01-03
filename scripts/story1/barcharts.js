@@ -1,6 +1,15 @@
 // Set the dimensions and margins of the graph
 const margin = {top: 20, right: 40, bottom: 70, left: 160}, width = 450 - margin.left - margin.right, height = 400 - margin.top - margin.bottom;
-const colours = d3.schemeOranges[6];
+const orangeColors = d3.schemeOranges[6];
+
+const colorDictionary = {
+  "< 100k": orangeColors[0],
+  "100k - 200k": orangeColors[1],
+  "200k - 500k": orangeColors[2],
+  "500k - 1000k": orangeColors[3],
+  "1000k - 1500k": orangeColors[4],
+  "1500k +": orangeColors[5]
+};
 
 // Parse the Data
 function updateBarChart(selectedDataset) {
@@ -71,7 +80,7 @@ function updateBarChart(selectedDataset) {
                .attr("y", d => y(d.abbreviation))
                .attr("width", 0)
                .attr("height", y.bandwidth())
-               .attr("fill", colours[i])
+               .attr("fill", colorDictionary[d.group])
              .on("mouseover", function (event, d) {
     
              // Change color when hovering
@@ -100,7 +109,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseout", function (d) {
     
              // Returning to original color when not hovering
-             d3.select(this).style("fill", colours[i]);
+             d3.select(this).style("fill", colorDictionary[d.group]);
     
              // Hide the tooltip
              tooltip.transition()
