@@ -16,9 +16,9 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("height", height + margin.top + margin.bottom)
 		.append("g")
 		.attr("transform", `translate(${margin.left}, ${margin.top})`);
-       
+	
 	var xM = d3.scaleLinear()
-		.domain([0, d3.max(data, d => d.percentage)])
+		.domain([0, d3.max(data, d => +d.percentage)])
 		.rangeRound([width / 2, margin.left]);
 	
 	var xF = d3.scaleLinear()
@@ -47,9 +47,9 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.data(data)
 		.enter()
 		.append("rect")
-		.attr("x", d => d.sex === "M" ? xM(d.percentage) : xF(0))
+		.attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
 		.attr("y", d => y(d.name))
-		.attr("width", d => d.sex === "M" ? xM(0) - xM(d.percentage) : xF(d.percentage) - xF(0))
+		.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
 		.attr("height", y.bandwidth())
 		.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
 	
@@ -59,7 +59,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.data(data)
 		.join("text")
 		.attr("text-anchor", d => d.sex === "M" ? "start" : "end")
-		.attr("x", d => d.sex === "M" ? xM(d.percentage) + 4 : xF(d.percentage) - 4)
+		.attr("x", d => d.sex === "M" ? xM(+d.percentage) + 4 : xF(+d.percentage) - 4)
 		.attr("y", d => y(d.name) + y.bandwidth() / 2)
 		.attr("dy", "0.35em")
 		.text(d => d.percentage.toLocaleString());
