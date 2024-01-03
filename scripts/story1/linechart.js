@@ -1,11 +1,12 @@
 // Create a tooltip
-const tooltip = d3.select("#linechart_1")
+let tooltip = null;
+/*const tooltip = d3.select("#linechart_1")
 		  .append("section")
 		    .attr("id", "linechart_tooltip")
 		  .style("opacity", 0)
 		  .style("background-color", "lightgray")
 		  .style("border", "2px solid black")
-		    .attr("class", "tooltip");
+		    .attr("class", "tooltip");*/
 
 const distinctColors = [
     '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
@@ -114,6 +115,12 @@ function drawLineChart(selectedCountries) {
 }
 
 function handleMouseOver(event, d) {
+    if (!tooltip) {
+	    tooltip = d3.select("body").append("div")
+		    .attr("class", "tooltip")
+		    .style("opacity", 0);
+    }
+	
     // Show the tooltip
     tooltip.transition()
         .duration(200)
@@ -127,6 +134,14 @@ function handleMouseOver(event, d) {
 }
 
 function handleMouseOut() {
+	
+    if (tooltip) {
+		tooltip.transition().duration(300)
+			.style("opacity", 0)
+			.remove();
+		tooltip = null; // Reset tooltip variable
+    }
+	
     // Hide the tooltip
     tooltip.transition()
         .duration(500)
