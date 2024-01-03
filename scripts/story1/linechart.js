@@ -101,7 +101,7 @@ function drawLineChart(selectedCountries) {
             var color = distinctColors[countryIndex];
 	    lineColors.push({ country: country, color: color });
 
-            svg.append("path")
+            var lineElement = svg.append("path")
                 .data([countryData])
                 .attr("class", "line-" + country)
 		.attr("fill", "none")
