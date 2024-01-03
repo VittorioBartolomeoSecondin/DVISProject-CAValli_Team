@@ -129,6 +129,14 @@ const Barcharts = {
                 i++;
             });
         });
+    },
+
+    destroy: function() {
+	    const existingSvg = document.querySelectorAll("[id^='barchart_svg_']");
+	    existingSvg.forEach(svg => svg.parentNode.removeChild(svg));
+	    
+	    // Remove the reference from the global object
+	    delete window.Barcharts;
     }
 };
 
