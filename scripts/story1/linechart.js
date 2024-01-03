@@ -139,7 +139,7 @@ function handleMouseOut() {
     }
 }
 
-function createLegend(selectedCountries) {
+function createLegend() {
     var legendContainer = d3.select("#linechart_1_legend");
 
     // Create legend items
@@ -156,14 +156,14 @@ function createLegend(selectedCountries) {
     // Add country names to legend
     legendItems.append("div")
         .attr("class", "legend-text")
-        .text(function(country) { return country; });
+        .text(function(d) { return d.country; });
 }
 
 
 // Call the drawLineChart function with the initially checked countries
 var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
-createLegend(initialCheckedCountries);
+createLegend();
 
 document.getElementById("states-checkbox-form").addEventListener("change", function () {
 
