@@ -189,7 +189,12 @@ slider.addEventListener("input", function() {
     
     // Call the update function to update the map based on the selected year
     Choropleth.updateMap(year - 2009);
-	
+});
+
+slider.addEventListener("change", function() {
+    const year = parseInt(this.value);
+    selectedYear.innerHTML = year;
+    
     Barcharts.destroy();
     Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
 });
