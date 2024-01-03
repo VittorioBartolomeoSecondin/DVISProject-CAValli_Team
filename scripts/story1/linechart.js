@@ -33,9 +33,8 @@ function drawLineChart(selectedCountries) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Set up the X and Y scales
-    var xScale = d3.scaleBand()
-	    .range([0, width])
-	    .padding(1);
+    var xScale = d3.scaleLinear()
+	    	.range([0, width]);
 	
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
@@ -64,13 +63,13 @@ function drawLineChart(selectedCountries) {
         });
 
         // Set the domains of the scales
-        xScale.domain(formattedData.map(function(d) { return d.year.toString(); }));
+        xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
         yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })]);
 
         // Add X-axis
         svg.append("g")
-	    .attr("transform", "translate(0," + height + ")")
-	    .call(d3.axisBottom(xScale));
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
 
         // Add Y-axis
         svg.append("g")
