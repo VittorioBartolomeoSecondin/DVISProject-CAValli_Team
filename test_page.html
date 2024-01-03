@@ -49,89 +49,10 @@
 
         <br>
         
-        <div id="barchart_1">
-            <h2>Top tree species</h2>
-            <p>Here we have the <b>top 10 most widespread tree types for all the cities in the USA</b>.<br>
-            With the dropdown button, it is possible to select a single city of the ones in the dataset and visualize
-            the same information but localized.</p>
-        </div>
         
-        <div id="dataset-selector" style="margin-left: 40px;">
-            <label for="dataset-dropdown"  style="margin-left: 10px;">Select Dataset:</label>
-            <select id="dataset-dropdown">
-                <option value="data/section1/barchart/total.csv">All Cities</option>
-                <option value="data/section1/barchart/Albuquerque.csv">Albuquerque</option>
-                <option value="data/section1/barchart/Anaheim.csv">Anaheim</option>
-                <option value="data/section1/barchart/Arlington.csv">Arlington</option>
-                <option value="data/section1/barchart/Atlanta.csv">Atlanta</option>
-                <option value="data/section1/barchart/AuroraCO.csv">Aurora</option>
-                <option value="data/section1/barchart/Austin.csv">Austin</option>
-                <option value="data/section1/barchart/Baltimore.csv">Baltimore</option>
-                <option value="data/section1/barchart/Boston.csv">Boston</option>
-                <option value="data/section1/barchart/Buffalo.csv">Buffalo</option>
-                <option value="data/section1/barchart/CapeCoral.csv">Cape Coral</option>
-                <option value="data/section1/barchart/ColoradoSprings.csv">Colorado Springs</option>
-                <option value="data/section1/barchart/Columbus.csv">Columbus</option>
-                <option value="data/section1/barchart/Dallas.csv">Dallas</option>
-                <option value="data/section1/barchart/Denver.csv">Denver</option>
-                <option value="data/section1/barchart/DesMoines.csv">Des Moines</option>
-                <option value="data/section1/barchart/Detroit.csv">Detroit</option>
-                <option value="data/section1/barchart/Durham.csv">Durham</option>
-                <option value="data/section1/barchart/Fresno.csv">Fresno</option>
-                <option value="data/section1/barchart/GardenGrove.csv">Garden Grove</option>
-                <option value="data/section1/barchart/GrandRapids.csv">Grand Rapids</option>
-                <option value="data/section1/barchart/Greensboro.csv">Greensboro</option>
-                <option value="data/section1/barchart/Honolulu.csv">Honolulu</option>
-                <option value="data/section1/barchart/Houston.csv">Houston</option>
-                <option value="data/section1/barchart/HuntingtonBeach.csv">Huntington Beach</option>
-                <option value="data/section1/barchart/Indianapolis.csv">Indianapolis</option>
-                <option value="data/section1/barchart/Irvine.csv">Irvine</option>
-                <option value="data/section1/barchart/Jerseycity.csv">Jersey City</option>
-                <option value="data/section1/barchart/Knoxville.csv">Knoxville</option>
-                <option value="data/section1/barchart/LasVegas.csv">Las Vegas</option>
-                <option value="data/section1/barchart/LosAngeles.csv">Los Angeles</option>
-                <option value="data/section1/barchart/Louisville.csv">Louisville</option>
-                <option value="data/section1/barchart/Madison.csv">Madison</option>
-                <option value="data/section1/barchart/Miami.csv">Miami</option>
-                <option value="data/section1/barchart/Milwaukee.csv">Milwaukee</option>
-                <option value="data/section1/barchart/Minneapolis.csv">Minneapolis</option>
-                <option value="data/section1/barchart/Nashville.csv">Nashville</option>
-                <option value="data/section1/barchart/NewOrleans.csv">New Orleans</option>
-                <option value="data/section1/barchart/NewYork.csv">New York</option>
-                <option value="data/section1/barchart/Oakland.csv">Oakland</option>
-                <option value="data/section1/barchart/OklahomaCity.csv">Oklahoma City</option>
-                <option value="data/section1/barchart/Ontario.csv">Ontario</option>
-                <option value="data/section1/barchart/Orlando.csv">Orlando</option>
-                <option value="data/section1/barchart/OverlandPark.csv">Overland Park</option>
-                <option value="data/section1/barchart/Phoenix.csv">Phoenix</option>
-                <option value="data/section1/barchart/Pittsburgh.csv">Pittsburgh</option>
-                <option value="data/section1/barchart/Plano.csv">Plano</option>
-                <option value="data/section1/barchart/Portland.csv">Portland</option>
-                <option value="data/section1/barchart/Providence.csv">Providence</option>
-                <option value="data/section1/barchart/RanchoCucamonga.csv">Rancho Cucamonga</option>
-                <option value="data/section1/barchart/Richmond.csv">Richmond</option>
-                <option value="data/section1/barchart/Rochester.csv">Rochester</option>
-                <option value="data/section1/barchart/Sacramento.csv">Sacramento</option>
-                <option value="data/section1/barchart/SanDiego.csv">San Diego</option>
-                <option value="data/section1/barchart/SanFrancisco.csv">San Francisco</option>
-                <option value="data/section1/barchart/SanJose.csv">San Jose</option>
-                <option value="data/section1/barchart/SantaRosa.csv">Santa Rosa</option>
-                <option value="data/section1/barchart/Seattle.csv">Seattle</option>
-                <option value="data/section1/barchart/SiouxFalls.csv">Sioux Falls</option>
-                <option value="data/section1/barchart/StLouis.csv">St. Louis</option>
-                <option value="data/section1/barchart/Stockton.csv">Stockton</option>
-                <option value="data/section1/barchart/Tampa.csv">Tampa</option>
-                <option value="data/section1/barchart/WashingtonDC.csv">Washington DC</option>
-                <option value="data/section1/barchart/Worcester.csv">Worcester</option>
-            </select>
-        </div>
         
         <hr>
-        <h2>Tree distribution in California</h2>
-        <p>Here we have 3 different types of stacked bar charts showing, in the state of California, the <b>tree distribution for each city.</b><br>
-        The stacks represent <b>the 5 most widespread tree types</b> (with the 6th being optional and representing the aggregation of all other tree types) in California as a whole. <br>
-        With the dropdown button, it is possible to cut the visualization to a selected number N of cities. This restricted view effectively gives you <b>the top N cities with the highest overall amount of such tree types</b>.<br></p>
-        <br>
+        
         <div class="d-flex justify-content-center">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-secondary active">
@@ -182,49 +103,12 @@
             }
         </script>
 
-        <div id="city-selector-container" style="clear: left; display: flex; align-items: center; margin-left: 40px;">
-            <div id="city-selector">
-                <label for="city-dropdown">Select Subgroup:</label>
-                <select id="city-dropdown">
-                    <option value="all">All Cities</option>
-                    <option value="10">10 Cities</option>
-                    <option value="5">5 Cities</option>
-                    <option value="3">3 Cities</option>
-                    <option value="2">2 Cities</option>
-                </select>
-            </div>
-
-            <script>
-                function showOthers() {
-                  var x = document.getElementById("small_multiple6");
-                  if (x.style.display === "block") {
-                    x.style.display = "none";
-                  } else {
-                    x.style.display = "block";
-                  }
-                }
-            </script>
-
-            <div class="form-check ml-3" style="margin-left: 30px;">
-                <input class="form-check-input" type="checkbox" value="" id="dataset-checkbox" onclick="showOthers();">
-                <label class="form-check-label" for="dataset-checkbox">With Others</label>
-            </div>
-        </div>
+            
 
         
         <hr>
 
-        <h2>Tree distribution in California - heatmap</h2>
-        <p>Here we visualize the heatmap of the Californian subset. <br>
-        We have on the <i>x-axis</i> the <b>15 cities of the state</b> and on the <i>y-axis</i> the <b>23 most widespread tree types</b>, computed as the union of the top 3 tree types on each of the cities.<br>
-        As it is shown also in the legend, the more intense the color on the heatmap, the more trees of that type are present in that city.</p>
-        <div id="heatmap"></div>
-
-        <br>
-        <div id="navigation_buttons">
-            <a href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section2.html"
-            class="btn btn-secondary btn-lg">Next Assignment</a>
-        </div>
+        
         <br>
 
         <footer>
@@ -232,11 +116,6 @@
         </footer>
         
         <script src="https://d3js.org/d3.v7.js"></script>
-        <script src="scripts/section1/barchart.js"></script>
-        <script src="scripts/section1/stacked.js"></script>
-        <script src="scripts/section1/stacked_percentage.js"></script>
-        <script src="scripts/section1/stacked_small_multiples.js"></script>
-        <script src="scripts/section1/heatmap.js"></script>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
