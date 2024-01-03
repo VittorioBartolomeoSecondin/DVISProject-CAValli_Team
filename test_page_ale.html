@@ -59,6 +59,12 @@
                       // Uncheck the last checkbox
                       checkbox.checked = false;
                     }
+                    
+                    if (checkedCheckboxes.length === 0) {
+                        alert('Minimum 1 checkbox required!');
+                        // Check the current checkbox
+                        checkbox.checked = true;
+                    }
                 }
             </script>
 
