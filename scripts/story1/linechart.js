@@ -142,6 +142,9 @@ function handleMouseOut() {
 function createLegend() {
     var legendContainer = d3.select("#linechart_1_legend");
 
+    // Remove existing legend items
+    legendContainer.selectAll(".legend-item").remove();
+
     // Create legend items
     var legendItems = legendContainer.selectAll(".legend-item")
         .data(lineColors)
