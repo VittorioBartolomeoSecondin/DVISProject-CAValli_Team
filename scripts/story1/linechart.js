@@ -93,7 +93,7 @@ function drawLineChart(selectedCountries) {
 
             svg.append("path")
                 .data([countryData])
-                .attr("class", "line")
+                .attr("class", "line-" + country)
 		.attr("fill", "none")
                 .attr("stroke-width", 1.5)
                 .style("stroke", color)
@@ -144,6 +144,31 @@ function handleMouseOut() {
     }
 }
 
+function createLegend(selectedCountries) {
+    var legendContainer = d3.select("#linechart_1_legend");
+
+    // Create legend items
+    var legendItems = legendContainer.selectAll(".legend-item")
+        .data(selectedCountries)
+        .enter().append("div")
+        .attr("class", "legend-item");
+
+    // Add color boxes to legend
+    legendItems.append("div")
+        .attr("class", "legend-color-box")
+        .style("background-color", function(country) {
+            // Extract the color from the corresponding line
+            var line = d3.select(".line-" + country);
+            return line.style("stroke");
+        });
+
+    // Add country names to legend
+    legendItems.append("div")
+        .attr("class", "legend-text")
+        .text(function(country) { return country; });
+}
+
+
 // Call the drawLineChart function with the initially checked countries
 var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
@@ -158,4 +183,5 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
 
     d3.select("#linechart_1 svg").remove();
     drawLineChart(selectedStates);
+    createLegend(selectedStates);
 });
