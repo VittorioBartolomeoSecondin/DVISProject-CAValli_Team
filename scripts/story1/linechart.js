@@ -88,9 +88,7 @@ function drawLineChart(selectedCountries) {
 	        return d.Country === country;
 	    });
 
-	    console.log(country);
 	    var countryIndex = data.findIndex(item => item.Country === country);
-	    console.log(countryIndex)
             var color = distinctColors[countryIndex];
 
             svg.append("path")
@@ -136,7 +134,7 @@ function handleMouseOut() {
 }
 
 // Call the drawLineChart function with the initially checked countries
-var initialCheckedCountries = ["Belgium"];
+var initialCheckedCountries = ["Austria"];
 drawLineChart(initialCheckedCountries);
 
 document.getElementById("states-checkbox-form").addEventListener("change", function () {
