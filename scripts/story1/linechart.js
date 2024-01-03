@@ -40,7 +40,7 @@ function drawLineChart(selectedCountries) {
 	    	.range([height, 0]);
 
     svg.append("line")
-	.attr("x1", 20)  // Adjust the starting x-coordinate based on your left padding
+	.attr("x1", 0)
     	.attr("y1", height)
     	.attr("x2", width)
     	.attr("y2", height)
