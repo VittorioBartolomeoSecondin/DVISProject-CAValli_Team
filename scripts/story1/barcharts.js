@@ -37,7 +37,7 @@ function updateBarChart(selectedDataset) {
                               .attr("class", "tooltip");
         
           // Define maximum
-          var max = d3.max(data, function(d) {return +d.abundance;});
+          var max = d3.max(data, function(d) {return +Math.floor(d.abundance);});
         
           // Add X axis
           const x = d3.scaleLinear()
@@ -113,7 +113,7 @@ function updateBarChart(selectedDataset) {
               .transition()
               .duration(1000)
                 .attr("x", x(0))
-                .attr("width", d => x(d.abundance))
+                .attr("width", d => x(Math.floor(d.abundance)))
               .delay((d, i) => i * 100);
       }
     
