@@ -33,6 +33,8 @@ function drawLineChart(selectedCountries) {
             return selectedCountries.includes(d.Country);
         });
 
+	console.log(filteredData);
+
         // Format the data
         var years = Object.keys(filteredData[0]).filter(function (key) {
             return key !== "Country" && key !== "Abbreviation";
