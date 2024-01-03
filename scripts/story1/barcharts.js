@@ -1,22 +1,20 @@
 const Barcharts = {
-    // constant properties
-    margin: {top: 20, right: 40, bottom: 70, left: 160},
-    width: 450 - this.margin.left - this.margin.right,
-    height: 400 - this.margin.top - this.margin.bottom,
-    orangeColors: d3.schemeOranges[6],
-    colorDictionary: {
-        "< 100k": this.orangeColors[0],
-        "100k - 200k": this.orangeColors[1],
-        "200k - 500k": this.orangeColors[2],
-        "500k - 1000k": this.orangeColors[3],
-        "1000k - 1500k": this.orangeColors[4],
-        "1500k +": this.orangeColors[5]
-    },
-
-    // Parse the Data
     initialize: function(selectedDataset) {
+        const margin = {top: 20, right: 40, bottom: 70, left: 160};
+        const width = 450 - margin.left - margin.right;
+        const height = 400 - margin.top - margin.bottom;
+        const orangeColors = d3.schemeOranges[6];
+        const colorDictionary = {
+            "< 100k": orangeColors[0],
+            "100k - 200k": orangeColors[1],
+            "200k - 500k": orangeColors[2],
+            "500k - 1000k": orangeColors[3],
+            "1000k - 1500k": orangeColors[4],
+            "1500k +": orangeColors[5]
+        };
+
         // Load the CSV file using d3.csv
-        d3.csv(selectedDataset).then((data) => {
+        d3.csv(selectedDataset).then(function(data) {
             var groupData = {};
             
             // Nest the data based on the 'group' column
@@ -25,23 +23,23 @@ const Barcharts = {
             // Extract subdatasets based on the groups
             var groupValues = Array.from(nestedData.keys());
         
-            Object.keys(this.colorDictionary).forEach((key) => {
-                groupValues.forEach((g) => {
+            Object.keys(colorDictionary).forEach(function(key) {
+                groupValues.forEach(function(g) {
                     if (key === g) 
                       groupData[key] = nestedData.get(g);
                 });
             });
       
             var i = 0;
-            Object.keys(groupData).forEach((key) => {
+            Object.keys(groupData).forEach(function(key) {
                 // Append the svg object to the body of the page
                 let svg = d3.select("#barchart_" + i)
                               .append("svg")
                                 .attr("id", "barchart_svg_" + i)
-                                .attr("width", this.width + this.margin.left + this.margin.right)
-                                .attr("height", this.height + this.margin.top + this.margin.bottom)
+                                .attr("width", width + margin.left + margin.right)
+                                .attr("height", height + margin.top + margin.bottom)
                               .append("g")
-                                .attr("transform", `translate(${this.margin.left}, ${this.margin.top})`);
+                                .attr("transform", `translate(${margin.left}, ${margin.top})`);
       
                 // Create the tooltip element
                 let tooltip = d3.select("#barchart_" + i)
@@ -58,11 +56,11 @@ const Barcharts = {
                 // Add X axis
                 let x = d3.scaleLinear()
                             .domain([0, max + max/10])
-                            .range([0, this.width]);
+                            .range([0, width]);
               
                 svg.append("g")
                      .attr("class", "axis")
-                     .attr("transform", `translate(0, ${this.height})`)
+                     .attr("transform", `translate(0, ${height})`)
                    .call(d3.axisBottom(x))
                    .selectAll("text")
                      .attr("transform", "translate(-10,0)rotate(-45)")
@@ -70,7 +68,7 @@ const Barcharts = {
                 
                 // Add Y axis
                 let y = d3.scaleBand()
-                            .range([this.height, 0])
+                            .range([height, 0])
                             .domain(groupData[key].map((d) => d.abbreviation))
                             .padding(.1);
             
@@ -87,7 +85,7 @@ const Barcharts = {
                      .attr("y", (d) => y(d.abbreviation))
                      .attr("width", 0)
                      .attr("height", y.bandwidth())
-                     .attr("fill", this.colorDictionary[key])
+                     .attr("fill", colorDictionary[key])
                      .attr("stroke", "black") 
                      .attr("stroke-width", 1) 
                    .on("mouseover", function (event, d) {
@@ -138,10 +136,9 @@ const Barcharts = {
             });
         });
     },
-
     destroy: function() {
         // Clean up existing svg elements
-        for (let i = 0; i < 6; i++) { // Assuming indices from 0 to 5 for charts and tooltips
+        for (let i = 0; i < 6; i++) {
             const existingSvg = document.querySelector(`#barchart_svg_${i}`);
             if (existingSvg)
                 existingSvg.parentNode.removeChild(existingSvg);
@@ -154,6 +151,6 @@ const Barcharts = {
         // Remove the reference from the global object
         delete window.Barcharts;
     }
-}
+};
 
 Barcharts.initialize("data/story1/barcharts/barchart2009.csv");
