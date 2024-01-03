@@ -34,7 +34,7 @@ function drawLineChart(selectedCountries) {
 
     // Set up the X and Y scales
     var xScale = d3.scaleLinear()
-	    	.range([20, width-20]);
+	    	.range([20, width]);
 	
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
