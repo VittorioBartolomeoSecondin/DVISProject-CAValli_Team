@@ -141,7 +141,8 @@ function handleMouseOver(event, d) {
 
     // Tooltip content
     const exactAbundance = d.value;
-    tooltip.html(`Abundance: ${exactAbundance}`)
+    const countryName = d.Country;
+    tooltip.html(`Country: ${countryName}<br>Abundance: ${exactAbundance}`)
         .style("left", (event.pageX + 10) + "px")
         .style("top", (event.pageY - 20) + "px");
 }
