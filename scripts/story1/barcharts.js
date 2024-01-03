@@ -51,7 +51,7 @@ const Barcharts = {
                                     .attr("class", "tooltip");
               
                 // Define maximum
-                let max = d3.max(groupData[key], (d) => +Math.floor(d.abundance*1000));
+                let max = d3.max(groupData[key], (d) => +Math.floor(d.abundance));
               
                 // Add X axis
                 let x = d3.scaleLinear()
