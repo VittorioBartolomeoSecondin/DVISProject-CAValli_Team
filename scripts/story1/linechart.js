@@ -172,6 +172,7 @@ function createLegend(selectedCountries) {
 // Call the drawLineChart function with the initially checked countries
 var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
+createLegend(initialCheckedCountries);
 
 document.getElementById("states-checkbox-form").addEventListener("change", function () {
 
