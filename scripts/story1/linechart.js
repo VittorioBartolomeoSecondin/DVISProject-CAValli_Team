@@ -144,7 +144,7 @@ function createLegend(selectedCountries) {
 
     // Create legend items
     var legendItems = legendContainer.selectAll(".legend-item")
-        .data(selectedCountries)
+        .data(lineColors)
         .enter().append("div")
         .attr("class", "legend-item");
 
