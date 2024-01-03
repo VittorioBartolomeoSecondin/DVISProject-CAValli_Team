@@ -43,7 +43,7 @@ function drawLineChart(selectedCountries) {
             years.forEach(function (year) {
                 formattedData.push({
                     Country: d.Country,
-                    year: +year,
+                    year: year,
                     value: +d[year]
                 });
             });
@@ -68,8 +68,8 @@ function drawLineChart(selectedCountries) {
 
         countries.forEach(function (country, i) {
             var countryData = formattedData.filter(function (d) {
-                return d.Country === country;
-            });
+	        return d.Country === country && !isNaN(d.value);
+	    });
 
             svg.append("path")
                 .data([countryData])
