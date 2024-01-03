@@ -30,10 +30,10 @@ updateLineChart();
 });
 
 function updateLineChart() {
-        const selectedState = document.getElementById("#states-dropdown").value;
+        const selectedStates = document.querySelectorAll("#states-checkbox-form input:checked");
 
         // Filter data for the selected state
-        const filteredData = data.filter(d => d.State === selectedState);
+        const filteredData = data.filter(d => d.State === selectedStates);
 
         // Remove the previous chart
         d3.select("#linechart_svg").remove();
