@@ -56,6 +56,26 @@
     font-weight: bold;
 }
 
-.possibly-sidebyside > div {
+/*.possibly-sidebyside > div {
   float: left;
+}*/
+
+.possibly-sidebyside {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.possibly-sidebyside > div {
+  flex: 0 0 calc(50% - 10px); /* Two columns with a little space between */
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/* For small screens, make them full width */
+@media (max-width: 768px) {
+  .possibly-sidebyside > div {
+    flex: 0 0 calc(100% - 20px); /* Full width with a little space between */
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
