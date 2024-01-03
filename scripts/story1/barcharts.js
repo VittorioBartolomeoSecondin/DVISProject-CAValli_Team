@@ -24,9 +24,10 @@ function updateBarChart(selectedDataset) {
       var groupValues = Array.from(nestedData.keys());
   
       Object.keys(colorDictionary).forEach(function(key) {
-          for (String g : groupValues) 
-            if (key == g)
-              groupData[key] = nestedData.get(g);
+          groupValues.forEach(function(g) {
+              if (key === g) 
+                groupData[key] = nestedData.get(g);
+          });
       });
         
       Object.keys(groupData).forEach(function(key) {
