@@ -113,7 +113,7 @@ function updateBarChart(selectedDataset) {
               .transition()
               .duration(1000)
                 .attr("x", x(0))
-                .attr("width", d => x(d.count))
+                .attr("width", d => x(d.abundance))
               .delay((d, i) => i * 100);
       }
     
