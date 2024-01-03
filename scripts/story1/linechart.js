@@ -74,6 +74,8 @@ function drawLineChart(selectedCountries) {
 	        return d.Country === country && !isNaN(d.value);
 	    });
 
+	    console.log(countryData);
+
             svg.append("path")
                 .data([countryData])
                 .attr("class", "line")
