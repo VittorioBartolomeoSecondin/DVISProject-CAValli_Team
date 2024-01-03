@@ -38,7 +38,7 @@ function drawLineChart(selectedCountries) {
         .y(function (d) { return yScale(+d.value); });
 
     // Load the CSV data
-    d3.csv("your_dataset.csv").then(function (data) {
+    d3.csv("data/story1/linechart.js").then(function (data) {
         // Filter data based on selected countries
         var filteredData = data.filter(function (d) {
             return selectedCountries.includes(d.Abbreviation);
