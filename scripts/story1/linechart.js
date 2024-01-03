@@ -69,7 +69,7 @@ function drawLineChart(selectedCountries) {
         // Add X-axis
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")).tickPadding(10));
+            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")).tickPadding(100));
 
         // Add Y-axis
         svg.append("g")
