@@ -16,6 +16,7 @@ const distinctColors = [
     '#ff5722', '#795548', '#9c27b0', '#607d8b', '#3f51b5',
     '#009688', '#8bc34a', '#ff4081', '#00bcd4'
 ];
+var countryColors = [];
 
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
@@ -77,7 +78,6 @@ function drawLineChart(selectedCountries) {
 
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
-        var color = distinctColors[0];
 
 	var line = d3.line()
         	.x(function (d) { return xScale(+d.year); })
@@ -87,6 +87,9 @@ function drawLineChart(selectedCountries) {
             var countryData = formattedData.filter(function (d) {
 	        return d.Country === country;
 	    });
+
+	    var countryIndex = countryColors.findIndex(item => item.country === country);
+            var color = distinctColors[countryIndex];
 
             svg.append("path")
                 .data([countryData])
