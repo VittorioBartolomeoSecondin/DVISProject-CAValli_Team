@@ -155,3 +155,5 @@ const Barcharts = {
         delete window.Barcharts;
     }
 }
+
+Barcharts.initialize("data/story1/barcharts/barchart2009.csv");
