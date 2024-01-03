@@ -18,6 +18,7 @@ function updateBarChart(selectedDataset) {
         console.log(groupData[i]);
     }
   });
+}
   /*d3.csv(selectedDataset).then( function(data) {
       
       // Append the svg object to the body of the page
