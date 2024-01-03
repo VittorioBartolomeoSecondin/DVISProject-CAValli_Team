@@ -146,9 +146,6 @@ function handleMouseOut() {
 function createLegend() {
     var legendContainer = d3.select("#linechart_1_legend");
 
-    // Remove existing legend items
-    legendContainer.selectAll(".legend-item").remove();
-
     // Create legend items
     var legendItems = legendContainer.selectAll(".legend-item")
         .data(lineColors)
@@ -179,7 +176,7 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
     // Extract values of checked checkboxes
     const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
 
+    d3.select("#linechart_1_legend").selectAll("*").remove();
     d3.select("#linechart_1 svg").remove();
-    d3.select("#linechart_1 legend").remove();
     drawLineChart(selectedStates);
 });
