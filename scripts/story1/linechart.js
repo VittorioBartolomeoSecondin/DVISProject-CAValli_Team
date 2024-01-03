@@ -1,12 +1,6 @@
 // Create a tooltip
 let tooltip = null;
-/*const tooltip = d3.select("#linechart_1")
-		  .append("section")
-		    .attr("id", "linechart_tooltip")
-		  .style("opacity", 0)
-		  .style("background-color", "lightgray")
-		  .style("border", "2px solid black")
-		    .attr("class", "tooltip");*/
+var lineColors = [];
 
 const distinctColors = [
     '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
@@ -90,6 +84,7 @@ function drawLineChart(selectedCountries) {
 
 	    var countryIndex = data.findIndex(item => item.Country === country);
             var color = distinctColors[countryIndex];
+	    lineColors.push({ country: country, color: color });
 
             svg.append("path")
                 .data([countryData])
@@ -156,11 +151,7 @@ function createLegend(selectedCountries) {
     // Add color boxes to legend
     legendItems.append("div")
         .attr("class", "legend-color-box")
-        .style("background-color", function(country) {
-            // Extract the color from the corresponding line
-            var line = d3.select(".line-" + country);
-            return line.style("stroke");
-        });
+        .style("background-color", function(d) { return d.color; });
 
     // Add country names to legend
     legendItems.append("div")
