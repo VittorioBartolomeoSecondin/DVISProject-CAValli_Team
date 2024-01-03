@@ -43,7 +43,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".tick text").attr("fill", "white"));
 
 	svg.append("g")
-		.selectAll("myRect")
+		.selectAll("rect")
 		.data(data)
 		.append("rect")
 		.attr("x", d => d.sex === "M" ? xM(d.percentage) : xF(0))
