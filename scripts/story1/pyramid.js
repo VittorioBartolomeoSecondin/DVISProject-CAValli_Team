@@ -4,6 +4,8 @@ var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 	           height = 650 - margin.top - margin.bottom;
 
 d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
+
+	console.log(data);
 	
 	// Append the svg object to the body of the page
 	const svg = d3.select("#pyramid")
@@ -20,11 +22,13 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	var xM = d3.scaleLinear()
 		.domain([0, d3.max(data, d => +d.percentage)])
 		.rangeRound([width / 2, margin.left]);
-	
+	console.log(xM.domain());
+
 	var xF = d3.scaleLinear()
 		.domain(xM.domain())
 		.rangeRound([width / 2, width - margin.right]);
-
+	console.log(xF.domain());
+	
 	var y = d3.scaleBand()
 		.domain(data.map(d => d.name))
 		.rangeRound([height - margin.bottom, margin.top])
