@@ -66,7 +66,7 @@ function drawLineChart(selectedCountries) {
 	var yearsExtent = d3.extent(formattedData, function (d) { return d.year; });
 	
 	// Add some padding to the extent if needed
-	var extentPadding = 0.1; // Adjust this value as needed
+	var extentPadding = 1; // Adjust this value as needed
 	var minYear = yearsExtent[0] - extentPadding;
 	var maxYear = yearsExtent[1];
 	
