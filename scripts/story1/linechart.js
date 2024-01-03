@@ -1,4 +1,4 @@
- // Create a tooltip
+// Create a tooltip
 const tooltip = d3.select("#linechart_1")
 		  .append("section")
 		    .attr("id", "linechart_tooltip")
@@ -6,6 +6,16 @@ const tooltip = d3.select("#linechart_1")
 		  .style("background-color", "lightgray")
 		  .style("border", "2px solid black")
 		    .attr("class", "tooltip");
+
+const distinctColors = [
+    '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
+    '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf',
+    '#aec7e8', '#ffbb78', '#98df8a', '#ff9896', '#c5b0d5',
+    '#c49c94', '#f7b6d2', '#c7c7c7', '#dbdb8d', '#9edae5',
+    '#393b79', '#e57171', '#4caf50', '#d32f2f', '#2196f3',
+    '#ff5722', '#795548', '#9c27b0', '#607d8b', '#3f51b5',
+    '#009688', '#8bc34a', '#ff4081', '#00bcd4'
+];
 
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
@@ -75,8 +85,7 @@ function drawLineChart(selectedCountries) {
 
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
-	console.log(countries);
-        var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        var color = distinctColors[0];
 
 	var line = d3.line()
         	.x(function (d) { return xScale(+d.year); })
@@ -92,7 +101,7 @@ function drawLineChart(selectedCountries) {
                 .attr("class", "line")
 		.attr("fill", "none")
                 .attr("stroke-width", 1.5)
-                .style("stroke", colorScale(i))
+                .style("stroke", color)
                 .attr("d", line);
 
 	    svg.selectAll(".circle-" + country)
@@ -102,7 +111,7 @@ function drawLineChart(selectedCountries) {
 	        .attr("cx", function (d) { return xScale(+d.year); })
 	        .attr("cy", function (d) { return yScale(+d.value); })
 	        .attr("r", 4)
-	        .style("fill", colorScale(i))
+	        .style("fill", color)
 	        .on("mouseover", handleMouseOver)
 	        .on("mouseout", handleMouseOut);
 	        });
