@@ -12,15 +12,15 @@ const tooltip = d3.select("#pyramid")
                   .style("border", "2px solid black")
                     .attr("class", "tooltip");
 
-var svg = d3.create("svg")
-		    .attr("viewBox", [0, 0, width, height])
-		    .attr("font-family", "sans-serif")
-		    .attr("font-size", 10);
-
 d3.csv("/data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		
 	chart = {
-		
+
+		const svg = d3.create("svg")
+			.attr("viewBox", [0, 0, width, height])
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 10);
+	
 		svg.append("g")
 			.selectAll("rect")
 			.data(data)
