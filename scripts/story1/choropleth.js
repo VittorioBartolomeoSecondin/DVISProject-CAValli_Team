@@ -176,9 +176,9 @@ const Choropleth = {
 		    .catch(error => {
 		        console.error("Error fetching the data:", error);
 		    });
-        },
+        }/*,
 	
-	/*destroy: function() {
+	destroy: function() {
 	    // Clean up existing map elements
 	    const existingMap = document.querySelector("#choropleth svg");
 	    if (existingMap)
