@@ -101,7 +101,7 @@ const Barcharts = {
                           .style("border", "2px solid black");
                    
                    // Customize the tooltip content
-                   tooltip.html(`${d.name}: ${Math.floor(d.abundance*1000)} NEETs`)
+                   tooltip.html(`${d.name}: ${Math.floor(d.abundance)}k NEETs`)
                           .style("left", (event.pageX + 40) + "px")
                           .style("top", (event.pageY - 40) + "px");
           
@@ -129,7 +129,7 @@ const Barcharts = {
                     .transition()
                     .duration(1000)
                       .attr("x", x(0))
-                      .attr("width", (d) => x(Math.floor(d.abundance*1000)))
+                      .attr("width", (d) => x(Math.floor(d.abundance)))
                     .delay((d, i) => i * 100);
       
                 i++;
