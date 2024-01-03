@@ -133,13 +133,9 @@ const Barcharts = {
     destroy: function() {
         // Clean up existing svg elements
         for (let i = 0; i < 6; i++) {
-            const existingSvg = document.querySelector(`#barchart_svg_${i}`);
+            const existingSvg = document.querySelectorAll(`#barchart_svg_${i}`);
             if (existingSvg)
                 existingSvg.parentNode.removeChild(existingSvg);
-            
-            const existingTooltip = document.querySelector(`#barchart_tooltip_${i}`);
-            if (existingTooltip)
-                existingTooltip.parentNode.removeChild(existingTooltip);
         }
     
         // Remove the reference from the global object
