@@ -180,5 +180,6 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
     const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
 
     d3.select("#linechart_1 svg").remove();
+    d3.select("#linechart_1_legend").remove();
     drawLineChart(selectedStates);
 });
