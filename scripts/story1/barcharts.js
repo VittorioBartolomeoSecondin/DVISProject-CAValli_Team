@@ -30,21 +30,20 @@ function updateBarChart(selectedDataset) {
           });
       });
 
-      var i = 0;
       Object.keys(groupData).forEach(function(key) {
           // Append the svg object to the body of the page
-          let svg = d3.select("#barchart_" + i)
+          let svg = d3.select("#barchart_" + key)
                         .append("svg")
-                          .attr("id", "barchart_svg_" + i)
+                          .attr("id", "barchart_svg_" + key)
                           .attr("width", width + margin.left + margin.right)
                           .attr("height", height + margin.top + margin.bottom)
                         .append("g")
                           .attr("transform", `translate(${margin.left}, ${margin.top})`);
           
           // Create the tooltip element
-          let tooltip = d3.select("#barchart_" + i)
+          let tooltip = d3.select("#barchart_" + key)
                             .append("section")
-                              .attr("id", "barchart_tooltip_" + i)
+                              .attr("id", "barchart_tooltip_" + key)
                             .style("opacity", 0)
                             .style("background-color", "lightgray")
                             .style("border", "2px solid black")
@@ -131,8 +130,6 @@ function updateBarChart(selectedDataset) {
                 .attr("x", x(0))
                 .attr("width", d => x(Math.floor(d.abundance*1000)))
               .delay((d, i) => i * 100);
-
-          i++;
       });
     
   });
