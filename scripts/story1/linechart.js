@@ -85,7 +85,7 @@ function drawLineChart(selectedCountries) {
 
         countries.forEach(function (country, i) {
             var countryData = formattedData.filter(function (d) {
-	        return d.Country === country;
+	        return d.Country === country && !isNaN(d.value);
 	    });
 
 	    var countryIndex = data.findIndex(item => item.Country === country);
@@ -134,7 +134,7 @@ function handleMouseOut() {
 }
 
 // Call the drawLineChart function with the initially checked countries
-var initialCheckedCountries = ["Austria"];
+var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
 
 document.getElementById("states-checkbox-form").addEventListener("change", function () {
