@@ -20,17 +20,17 @@ d3.csv("your_dataset.csv").then(function (data) {
 	const states = Array.from(new Set(data.map(d => d.State)));
 
 	// Populate the state selector dropdown
-	const stateSelector = d3.select("#stateSelector");
+	const stateSelector = d3.select("#states-dropdown");
 	states.forEach(state => {
-    	stateSelector.append("option").text(state).attr("value", state);
-});
+    		stateSelector.append("option").text(state).attr("value", state);
+	});
 
 // Initialize the chart with the first state
 updateLineChart();
 });
 
 function updateLineChart() {
-        const selectedState = document.getElementById("stateSelector").value;
+        const selectedState = document.getElementById("#states-dropdown").value;
 
         // Filter data for the selected state
         const filteredData = data.filter(d => d.State === selectedState);
