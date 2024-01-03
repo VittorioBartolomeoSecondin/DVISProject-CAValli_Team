@@ -114,8 +114,8 @@
                 function handleCheckboxChange(checkbox) {
                     var checkedCheckboxes = document.querySelectorAll('.form-check-input:checked');
                 
-                    if (checkedCheckboxes.length > 10) {
-                      alert('Maximum 10 checkboxes allowed!');
+                    if (checkedCheckboxes.length > 5) {
+                      alert('Maximum 5 checkboxes allowed!');
                       // Uncheck the last checkbox
                       checkbox.checked = false;
                     }
