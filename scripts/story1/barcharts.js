@@ -1,7 +1,7 @@
 const Barcharts = {
     initialize: function(selectedDataset) {
         const margin = {top: 20, right: 40, bottom: 70, left: 160};
-        const width = 250 - margin.left - margin.right;
+        const width = 325 - margin.left - margin.right;
         const height = 300 - margin.top - margin.bottom;
         const orangeColors = d3.schemeOranges[6];
         const colorDictionary = {
