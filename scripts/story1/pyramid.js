@@ -10,7 +10,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.append("svg")
 		.attr("viewBox", [0, 0, width, height])
 		.attr("font-family", "sans-serif")
-		.attr("font-size", 10);
+		.attr("font-size", 10)
 		.attr("id", "pyramid_svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
