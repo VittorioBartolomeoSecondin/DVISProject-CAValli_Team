@@ -80,7 +80,7 @@ function updateBarChart(selectedDataset) {
                .attr("y", d => y(d.abbreviation))
                .attr("width", 0)
                .attr("height", y.bandwidth())
-               .attr("fill", colorDictionary[d.group])
+               .attr("fill", d => colorDictionary[d.group])
              .on("mouseover", function (event, d) {
     
              // Change color when hovering
@@ -109,7 +109,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseout", function (d) {
     
              // Returning to original color when not hovering
-             d3.select(this).style("fill", colorDictionary[d.group]);
+             d3.select(this).style("fill", d => colorDictionary[d.group]);
     
              // Hide the tooltip
              tooltip.transition()
