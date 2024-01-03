@@ -29,7 +29,8 @@ function updateBarChart(selectedDataset) {
                 groupData[key] = nestedData.get(g);
           });
       });
-        
+
+      var i = 0;
       Object.keys(groupData).forEach(function(key) {
           // Append the svg object to the body of the page
           let svg = d3.select("#barchart_" + i)
@@ -128,6 +129,8 @@ function updateBarChart(selectedDataset) {
                 .attr("x", x(0))
                 .attr("width", d => x(Math.floor(d.abundance*1000)))
               .delay((d, i) => i * 100);
+
+          i++;
       });
     
   });
