@@ -85,7 +85,7 @@ function updateBarChart(selectedDataset) {
                     .style("border", "2px solid black");
              
              // Customize the tooltip content
-             tooltip.html(`${d.name}: ${d.abundance} NEETs`)
+             tooltip.html(`${d.name}: ${Math.floor(d.abundance)} NEETs`)
                     .style("left", (event.pageX + 40) + "px")
                     .style("top", (event.pageY - 40) + "px");
     
