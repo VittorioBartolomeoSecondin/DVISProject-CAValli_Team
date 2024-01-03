@@ -62,6 +62,7 @@ function drawLineChart(selectedCountries) {
 
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
+	console.log(countries);
         var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
 	var line = d3.line()
