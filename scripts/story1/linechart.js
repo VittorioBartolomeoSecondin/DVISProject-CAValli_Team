@@ -61,7 +61,7 @@ function drawLineChart(selectedCountries) {
 
         // Set the domains of the scales
         xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
-        yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })]);
+        yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })+20]);
 
         // Add X-axis
         svg.append("g")
