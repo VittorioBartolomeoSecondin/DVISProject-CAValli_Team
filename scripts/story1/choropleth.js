@@ -178,7 +178,7 @@ const Choropleth = {
 		    });
         },
 	
-	destroy: function() {
+	/*destroy: function() {
 	    // Clean up existing map elements
 	    const existingMap = document.querySelector("#choropleth svg");
 	    if (existingMap)
@@ -186,7 +186,7 @@ const Choropleth = {
 	
 	    // Remove the reference from the global object
 	    delete window.Choropleth;
-	}
+	}*/
 }
 
 // Slider interaction
