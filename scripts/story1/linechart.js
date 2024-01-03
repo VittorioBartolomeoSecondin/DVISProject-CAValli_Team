@@ -11,3 +11,15 @@ const tooltip = d3.select("#linechart_1")
                   .style("background-color", "lightgray")
                   .style("border", "2px solid black")
                     .attr("class", "tooltip");
+
+var linechart_svg;
+
+function updateLineChart(selectedDataset) {
+
+    // append the svg object
+    linechart_svg = d3.select("#linechart_1").append("svg")
+        .attr("id", "linechart_svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
