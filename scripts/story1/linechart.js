@@ -17,7 +17,6 @@ const distinctColors = [
     '#ff5722', '#795548', '#9c27b0', '#607d8b', '#3f51b5',
     '#009688', '#8bc34a', '#ff4081', '#00bcd4'
 ];
-var countryColors = [];
 
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
@@ -118,7 +117,9 @@ function handleMouseOver(event, d) {
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
 		    .attr("class", "tooltip")
-		    .style("opacity", 0);
+		    .style("opacity", 0)
+		    .style("background-color", "lightgray")
+		    .style("border", "2px solid black");
     }
 	
     // Show the tooltip
@@ -133,19 +134,14 @@ function handleMouseOver(event, d) {
         .style("top", (event.pageY - 20) + "px");
 }
 
-function handleMouseOut() {
-	
+function handleMouseOut() {	
     if (tooltip) {
-		tooltip.transition().duration(300)
+		tooltip.transition()
+			.duration(500)
 			.style("opacity", 0)
 			.remove();
 		tooltip = null; // Reset tooltip variable
     }
-	
-    // Hide the tooltip
-    tooltip.transition()
-        .duration(500)
-        .style("opacity", 0);
 }
 
 // Call the drawLineChart function with the initially checked countries
