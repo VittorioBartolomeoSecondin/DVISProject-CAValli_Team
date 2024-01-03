@@ -190,12 +190,7 @@ slider.addEventListener("input", function() {
     // Call the update function to update the map based on the selected year
     Choropleth.updateMap(year - 2009);
 	
-    d3.selectAll("#barchart_svg_0").remove();
-    d3.selectAll("#barchart_svg_1").remove();
-    d3.selectAll("#barchart_svg_2").remove();
-    d3.selectAll("#barchart_svg_3").remove();
-    d3.selectAll("#barchart_svg_4").remove();
-    d3.selectAll("#barchart_svg_5").remove();
+    Barcharts.destroy();
     Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
 });
 
