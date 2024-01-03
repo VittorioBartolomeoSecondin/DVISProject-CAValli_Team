@@ -1,5 +1,6 @@
 // Create a tooltip
 let tooltip = null;
+var lineColors = [];
 
 const distinctColors = [
     '#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
@@ -14,8 +15,6 @@ const distinctColors = [
 
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
-
-    var lineColors = [];
 
     // Set up the SVG dimensions
     var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -179,5 +178,6 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
 
     d3.select("#linechart_1_legend").selectAll("*").remove();
     d3.select("#linechart_1 svg").remove();
+    lineColors = [];
     drawLineChart(selectedStates);
 });
