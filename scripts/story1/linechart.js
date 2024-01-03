@@ -142,6 +142,6 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
     // Extract values of checked checkboxes
     const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
 
-    d3.select("#svg").remove();
+    d3.select("#linechart_1 svg").remove();
     drawLineChart(selectedStates);
 });
