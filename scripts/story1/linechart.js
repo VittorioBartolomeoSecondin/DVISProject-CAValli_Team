@@ -14,14 +14,60 @@ const tooltip = d3.select("#linechart_1")
 
 var linechart_svg;
 
-function updateBarChart(selectedDataset) {
-  d3.csv(selectedDataset).then( function(data) {
-	  
-	  // append the svg object
-	  linechart_svg = d3.select("#linechart_1").append("svg")
-		  .attr("id", "linechart_svg")
-		  .attr("width", width + margin.left + margin.right)
-		  .attr("height", height + margin.top + margin.bottom)
-		  .append("g")
-		  .attr("transform", `translate(${margin.left},${margin.top})`);
+// Read the CSV data and initialize the chart
+d3.csv("your_dataset.csv").then(function (data) {
+	// Extract unique states from the data
+	const states = Array.from(new Set(data.map(d => d.State)));
+
+	// Populate the state selector dropdown
+	const stateSelector = d3.select("#stateSelector");
+	states.forEach(state => {
+    	stateSelector.append("option").text(state).attr("value", state);
+});
+
+// Initialize the chart with the first state
+updateLineChart();
+});
+
+function updateLineChart() {
+        const selectedState = document.getElementById("stateSelector").value;
+
+        // Filter data for the selected state
+        const filteredData = data.filter(d => d.State === selectedState);
+
+        // Remove the previous chart
+        d3.select("#linechart_svg").remove();
+
+        // Append a new SVG for the chart
+        linechart_svg = d3.select("#linechart_1").append("svg")
+            .attr("id", "linechart_svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // Create x and y scales
+        const xScale = d3.scaleBand()
+            .domain(filteredData.columns.slice(1))
+            .range([0, width])
+            .padding(0.1);
+
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(filteredData, d => d3.max(filteredData.columns.slice(1), key => +d[key]))])
+            .range([height, 0]);
+
+        // Create the line generator
+        const line = d3.line()
+            .x(d => xScale(d[0]))
+            .y(d => yScale(+d[1]));
+
+        // Draw the line
+        linechart_svg.append("path")
+            .datum(filteredData.columns.slice(1).map(year => [year, +filteredData[0][year]]))
+            .attr("class", "line")
+            .attr("d", line);
+    }
+
+    // Add event listener for changes in the state selector
+    document.getElementById("stateSelector").addEventListener("change", updateLineChart);
 	  
