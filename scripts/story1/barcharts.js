@@ -31,6 +31,7 @@ const Barcharts = {
             });
       
             var i = 0;
+            var tooltip = null;
             Object.keys(groupData).forEach(function(key) {
                 // Append the svg object to the body of the page
                 let svg = d3.select("#barchart_" + i)
@@ -40,15 +41,6 @@ const Barcharts = {
                                 .attr("height", height + margin.top + margin.bottom)
                               .append("g")
                                 .attr("transform", `translate(${margin.left}, ${margin.top})`);
-      
-                // Create the tooltip element
-                let tooltip = d3.select("#barchart_" + i)
-                                  .append("section")
-                                    .attr("id", "barchart_tooltip_" + i)
-                                  .style("opacity", 0)
-                                  .style("background-color", "lightgray")
-                                  .style("border", "2px solid black")
-                                    .attr("class", "tooltip");
               
                 // Define maximum
                 let max = d3.max(groupData[key], (d) => +Math.floor(d.abundance));
@@ -92,20 +84,19 @@ const Barcharts = {
           
                    // Change stroke width when hovering
                    d3.select(this).attr("stroke-width", 2);
-          
-                   // Show the tooltip
-                   tooltip.transition()
-                          .duration(200)
-                          .style("opacity", 1)
-                          .style("background-color", "lightgray")
-                          .style("border", "2px solid black");
-                   
-                   // Customize the tooltip content
-                   tooltip.html(`${d.name}: ${Math.floor(d.abundance)}k NEETs`)
-                          .style("left", (event.pageX + 40) + "px")
-                          .style("top", (event.pageY - 40) + "px");
-          
-                   })
+
+                   // Create the tooltip if it doesn't exist
+				        if (!tooltip) {
+					    tooltip = d3.select("body").append("div")
+						.attr("class", "tooltip")
+						.style("opacity", 0);
+				        }
+					tooltip.html(`${d.name}: ${Math.floor(d.abundance)}k NEETs`)
+					    .style("left", (event.pageX + 15) + "px")
+					    .style("top", (event.pageY - 28) + "px")
+					    .transition().duration(400)
+					    .style("opacity", 1);
+        
                    .on("mousemove", function (event, d) {
           
                    // Move the tooltip with the mouse pointer
@@ -118,11 +109,12 @@ const Barcharts = {
                    // Returning to original stroke width when not hovering
                    d3.select(this).attr("stroke-width", 1);
           
-                   // Hide the tooltip
-                   tooltip.transition()
-                          .duration(500)
-                          .style("opacity", 0);           
-                   });  
+                   if (tooltip) {
+						tooltip.transition().duration(300)
+						    .style("opacity", 0)
+						    .remove();
+						tooltip = null; // Reset tooltip variable
+				       }
           
                 // Animation
                 svg.selectAll("rect")
