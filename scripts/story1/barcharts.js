@@ -13,8 +13,8 @@ function updateBarChart(selectedDataset) {
     // Extract subdatasets based on the groups
     var groupValues = Array.from(nestedData.keys());
 
-    for (int i = 0; i < 6; i++) {
-        groupData.append(nestedData.get(groupValues[i]));
+    for (var i = 0; i < 6; i++) {
+        groupData.push(nestedData.get(groupValues[i]));
         console.log(groupData[i]);
     }
   });
