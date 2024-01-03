@@ -30,7 +30,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	console.log(xF.domain());
 	
 	var y = d3.scaleBand()
-		.domain(data.map(d => d.name))
+		// .domain(data.map(d => d.name))
+		.domain(data.map(d => d.abbreviation))
 		.rangeRound([height - margin.bottom, margin.top])
 		.padding(0.1);
 
@@ -52,7 +53,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.enter()
 		.append("rect")
 		.attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
-		.attr("y", d => y(d.name))
+		// .attr("y", d => y(d.name))
+		.attr("y", d => y(d.abbreviation))
 		.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
 		.attr("height", y.bandwidth())
 		.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
@@ -64,7 +66,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.join("text")
 		.attr("text-anchor", d => d.sex === "M" ? "start" : "end")
 		.attr("x", d => d.sex === "M" ? xM(+d.percentage) + 4 : xF(+d.percentage) - 4)
-		.attr("y", d => y(d.name) + y.bandwidth() / 2)
+		// .attr("y", d => y(d.name) + y.bandwidth() / 2)
+		.attr("y", d => y(d.abbreviation) + y.bandwidth() / 2)
 		.attr("dy", "0.35em")
 		.text(d => d.percentage.toLocaleString());
 	
@@ -73,7 +76,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("fill", "white")
 		.attr("dy", "0.35em")
 		.attr("x", xM(0) - 4)
-		.attr("y", y(data[0].name) + y.bandwidth() / 2)
+		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
+		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
 		.text("Male");
 	
 	svg.append("text")
@@ -81,7 +85,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("fill", "white")
 		.attr("dy", "0.35em")
 		.attr("x", xF(0) + 24)
-		.attr("y", y(data[0].name) + y.bandwidth() / 2)
+		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
+		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
 		.text("Female");
 
 	svg.append("g")
