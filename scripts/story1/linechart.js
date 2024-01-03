@@ -68,6 +68,15 @@ function updateLineChart() {
             .attr("d", line);
     }
 
-    // Add event listener for changes in the state selector
-    document.getElementById("stateSelector").addEventListener("change", updateLineChart);
-	  
+
+document.getElementById("states-checkbox-form").addEventListener("change", function () {
+
+    // Select all checked checkboxes
+    const checkedCheckboxes = document.querySelectorAll("#states-checkbox-form input:checked");
+    
+    // Extract values of checked checkboxes
+    const selectedStates = Array.from(checkedCheckboxes).map(checkbox => checkbox.value);
+
+    d3.select("#linechart_svg").remove();
+    updateLineChart(selectedStates);
+});
