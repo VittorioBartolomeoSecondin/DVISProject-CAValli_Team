@@ -20,12 +20,6 @@ function drawLineChart(selectedCountries) {
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
 
-    // Set up the line function
-    var line = d3.line()
-	.defined(function(d) { return !isNaN(d[1]); }) // Exclude NaN values from the line
-        .x(function (d) { return xScale(+d.year); })
-        .y(function (d) { return yScale(+d.value); });
-
     // Load the CSV data
     d3.csv("data/story1/linechart.csv").then(function (data) {
         // Filter data based on selected countries
@@ -69,6 +63,10 @@ function drawLineChart(selectedCountries) {
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
         var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+	var line = d3.line()
+        	.x(function (d) { return xScale(+d.year); })
+        	.y(function (d) { return yScale(+d.value); });
 
         countries.forEach(function (country, i) {
             var countryData = formattedData.filter(function (d) {
