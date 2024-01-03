@@ -88,8 +88,8 @@ function updateBarChart(selectedDataset) {
                .attr("fill", colorDictionary[key])
              .on("mouseover", function (event, d) {
     
-             // Change color when hovering
-             d3.select(this).style("fill", "lightgreen");
+             // Change stroke width when hovering
+             d3.select(this).style("stroke-width", "2px");
     
              // Show the tooltip
              tooltip.transition()
@@ -113,8 +113,8 @@ function updateBarChart(selectedDataset) {
              })
              .on("mouseout", function (d) {
     
-             // Returning to original color when not hovering
-             d3.select(this).style("fill", colorDictionary[key]);
+             // Returning to original stroke width when not hovering
+             d3.select(this).style("stroke-width", "1px");
     
              // Hide the tooltip
              tooltip.transition()
