@@ -12,28 +12,28 @@ const distinctColors = [
     '#009688', '#8bc34a', '#ff4081', '#00bcd4'
 ];
 
+// Set up the SVG dimensions
+var margin = { top: 60, right: 70, bottom: 70, left: 100 },
+	   width = 1435 - margin.left - margin.right,
+	   height = 650 - margin.top - margin.bottom;
+
+// Append an SVG element to the specified div
+var svg = d3.select("#linechart_1")
+	.append("svg")
+	.attr("width", width + margin.left + margin.right)
+	.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Set up the X and Y scales
+var xScale = d3.scaleLinear()
+	.range([0, width]);
+
+var yScale = d3.scaleLinear()
+	.range([height, 0]);
+
 // Function to load CSV data and create line chart
 function drawLineChart(selectedCountries) {
-    // Set up the SVG dimensions
-    var margin = { top: 60, right: 70, bottom: 70, left: 100 },
-	           width = 1435 - margin.left - margin.right,
-	           height = 650 - margin.top - margin.bottom;
-
-    // Append an SVG element to the specified div
-    var svg = d3.select("#linechart_1")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    // Set up the X and Y scales
-    var xScale = d3.scaleLinear()
-	    	.range([0, width]);
-	
-    var yScale = d3.scaleLinear()
-	    	.range([height, 0]);
-
     // Load the CSV data
     d3.csv("data/story1/linechart.csv").then(function (data) {
         // Filter data based on selected countries
@@ -104,9 +104,10 @@ function drawLineChart(selectedCountries) {
 	        .style("fill", color)
 	        .on("mouseover", handleMouseOver)
 	        .on("mouseout", handleMouseOut);
-	        });
+	});
+	    
+	createLegend();
     });
-    createLegend();
 }
 
 function handleMouseOver(event, d) {
@@ -155,19 +156,18 @@ function createLegend() {
     // Add color boxes to legend
     legendItems.append("div")
         .attr("class", "legend-color-box")
-        .style("background-color", function(d) { return d.color; });
+        .style("background-color", function (d) { return d.color; });
 
     // Add country names to legend
     legendItems.append("div")
         .attr("class", "legend-text")
-        .text(function(d) { return d.country; });
+        .text(function (d) { return d.country; });
 }
 
 
 // Call the drawLineChart function with the initially checked countries
 var initialCheckedCountries = ["Belgium"];
 drawLineChart(initialCheckedCountries);
-createLegend();
 
 document.getElementById("states-checkbox-form").addEventListener("change", function () {
 
