@@ -129,7 +129,7 @@ const Barcharts = {
                 i++;
             });
         });
-    },
+    }
 };
 
 Barcharts.initialize("data/story1/barcharts/barchart2009.csv");
