@@ -60,7 +60,20 @@ function drawLineChart(selectedCountries) {
         });
 
         // Set the domains of the scales
-        xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
+        //xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
+	    
+	// Compute the extent of years in the formattedData
+	var yearsExtent = d3.extent(formattedData, function (d) { return d.year; });
+	
+	// Add some padding to the extent if needed
+	var extentPadding = 10; // Adjust this value as needed
+	var minYear = yearsExtent[0] - extentPadding;
+	var maxYear = yearsExtent[1] + extentPadding;
+	
+	// Set the x-axis scale domain
+	xScale.domain([minYear, maxYear]);
+ 
+	    
         yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })+20]);
 
         // Add X-axis
