@@ -106,6 +106,7 @@ function drawLineChart(selectedCountries) {
 	        .on("mouseout", handleMouseOut);
 	        });
     });
+    createLegend();
 }
 
 function handleMouseOver(event, d) {
@@ -178,5 +179,4 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
 
     d3.select("#linechart_1 svg").remove();
     drawLineChart(selectedStates);
-    createLegend(selectedStates);
 });
