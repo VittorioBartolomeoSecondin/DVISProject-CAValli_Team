@@ -33,18 +33,12 @@ function drawLineChart(selectedCountries) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     // Set up the X and Y scales
-    var xScale = d3.scaleLinear()
-	    	.range([20, width]);
+    var xScale = d3.scaleBand()
+	    .range([0, width])
+	    .padding(1);
 	
     var yScale = d3.scaleLinear()
 	    	.range([height, 0]);
-
-    svg.append("line")
-	.attr("x1", 0)
-    	.attr("y1", height)
-    	.attr("x2", width)
-    	.attr("y2", height)
-    	.attr("stroke", "black");
 
     // Load the CSV data
     d3.csv("data/story1/linechart.csv").then(function (data) {
@@ -70,13 +64,13 @@ function drawLineChart(selectedCountries) {
         });
 
         // Set the domains of the scales
-        xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
+        xScale.domain(formattedData.map(function(d) { return d.year.toString(); }));
         yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })]);
 
         // Add X-axis
         svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(d3.axisBottom(xScale));
 
         // Add Y-axis
         svg.append("g")
