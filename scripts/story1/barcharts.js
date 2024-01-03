@@ -131,15 +131,11 @@ const Barcharts = {
         });
     },
     destroy: function() {
-        // Clean up existing svg elements
-        for (let i = 0; i < 6; i++) {
-            const existingSvg = document.querySelector(`#barchart_svg_${i}`);
-            if (existingSvg)
-                existingSvg.parentNode.removeChild(existingSvg);
-        }
-    
-        // Remove the reference from the global object
-        delete window.Barcharts;
+	    const existingSvg = document.querySelectorAll("[id^='barchart_svg_']");
+	    existingSvg.forEach(svg => svg.parentNode.removeChild(svg));
+	    
+	    // Remove the reference from the global object
+	    delete window.Barcharts;
     }
 };
 
