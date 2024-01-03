@@ -80,16 +80,16 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("dy", "0.35em")
 		.attr("x", xM(0) - 4)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
-		.attr("y", y(data[len - 1].abbreviation) + 3 * y.bandwidth() / 2)
+		.attr("y", y(data[len - 1].abbreviation) - y.bandwidth() / 2)
 		.text("Male");
 	
 	svg.append("text")
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xF(0) + 24)
+		.attr("x", xF(0) + 4)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
-		.attr("y", y(data[len - 1].abbreviation) + 3 * y.bandwidth() / 2)
+		.attr("y", y(data[len - 1].abbreviation) - y.bandwidth() / 2)
 		.text("Female");
 
 	svg.append("g")
