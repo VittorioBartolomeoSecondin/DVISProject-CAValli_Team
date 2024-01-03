@@ -15,7 +15,7 @@ const colorDictionary = {
 function updateBarChart(selectedDataset) {
   // Load the CSV file using d3.csv
   d3.csv(selectedDataset).then(function(data) {
-      var groupData = [];
+      var groupData = {};
       
       // Nest the data based on the 'group' column
       var nestedData = d3.group(data, d => d.group);
@@ -23,10 +23,13 @@ function updateBarChart(selectedDataset) {
       // Extract subdatasets based on the groups
       var groupValues = Array.from(nestedData.keys());
   
-      for (var i = 0; i < 6; i++) 
-          groupData.push(nestedData.get(groupValues[i]));
-
-      for (var i = 0; i < 6; i++) {
+      Object.keys(colorDictionary).forEach(function(key) {
+          for (String g : groupValues) 
+            if (key == g)
+              groupData[key] = nestedData.get(g);
+      });
+        
+      Object.keys(groupData).forEach(function(key) {
           // Append the svg object to the body of the page
           let svg = d3.select("#barchart_" + i)
                         .append("svg")
@@ -46,7 +49,7 @@ function updateBarChart(selectedDataset) {
                               .attr("class", "tooltip");
         
           // Define maximum
-          let max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance*1000);});
+          let max = d3.max(groupData[key], function(d) {return +Math.floor(d.abundance*1000);});
         
           // Add X axis
           let x = d3.scaleLinear()
@@ -64,7 +67,7 @@ function updateBarChart(selectedDataset) {
           // Add Y axis
           let y = d3.scaleBand()
                       .range([height, 0])
-                      .domain(groupData[i].map(d => d.abbreviation))
+                      .domain(groupData[key].map(d => d.abbreviation))
                       .padding(.1);
       
           svg.append("g")
@@ -73,14 +76,14 @@ function updateBarChart(selectedDataset) {
       
           // Show the bars
           svg.selectAll("myRect")
-             .data(groupData[i])
+             .data(groupData[key])
              .enter()
              .append("rect")
                .attr("x", x(0))
                .attr("y", d => y(d.abbreviation))
                .attr("width", 0)
                .attr("height", y.bandwidth())
-               .attr("fill", d => colorDictionary[d.group])
+               .attr("fill", colorDictionary[key])
              .on("mouseover", function (event, d) {
     
              // Change color when hovering
@@ -109,7 +112,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseout", function (d) {
     
              // Returning to original color when not hovering
-             d3.select(this).style("fill", d => colorDictionary[d.group]);
+             d3.select(this).style("fill", colorDictionary[key]);
     
              // Hide the tooltip
              tooltip.transition()
