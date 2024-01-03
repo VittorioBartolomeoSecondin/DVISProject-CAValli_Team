@@ -45,6 +45,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	svg.append("g")
 		.selectAll("rect")
 		.data(data)
+		.enter()
 		.append("rect")
 		.attr("x", d => d.sex === "M" ? xM(d.percentage) : xF(0))
 		.attr("y", d => y(d.name))
