@@ -30,14 +30,14 @@ function updateBarChart(selectedDataset) {
           // Create the tooltip element
           const tooltip = d3.select("#barchart_" + i)
                             .append("section")
-                              .attr("id", "barchart_tooltip")
+                              .attr("id", "barchart_tooltip_" + i)
                             .style("opacity", 0)
                             .style("background-color", "lightgray")
                             .style("border", "2px solid black")
                               .attr("class", "tooltip");
         
           // Define maximum
-          var max = d3.max(data, function(d) {return +Math.floor(d.abundance);});
+          var max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance);});
         
           // Add X axis
           const x = d3.scaleLinear()
@@ -55,7 +55,7 @@ function updateBarChart(selectedDataset) {
           // Add Y axis
           const y = d3.scaleBand()
                       .range([height, 0])
-                      .domain(data.map(d => d.abbreviation))
+                      .domain(groupData[i].map(d => d.abbreviation))
                       .padding(.1);
       
           svg.append("g")
@@ -64,7 +64,7 @@ function updateBarChart(selectedDataset) {
       
           // Show the bars
           svg.selectAll("myRect")
-             .data(data)
+             .data(groupData[i])
              .enter()
              .append("rect")
                .attr("x", x(0))
