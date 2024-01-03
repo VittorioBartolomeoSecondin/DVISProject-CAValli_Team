@@ -86,6 +86,8 @@ function updateBarChart(selectedDataset) {
                .attr("width", 0)
                .attr("height", y.bandwidth())
                .attr("fill", colorDictionary[key])
+               .attr("stroke", "black") 
+               .attr("stroke-width", 0) 
              .on("mouseover", function (event, d) {
     
              // Change stroke width when hovering
