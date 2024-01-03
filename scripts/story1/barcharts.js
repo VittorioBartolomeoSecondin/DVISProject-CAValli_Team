@@ -37,7 +37,7 @@ function updateBarChart(selectedDataset) {
                               .attr("class", "tooltip");
         
           // Define maximum
-          var max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance);});
+          var max = d3.max(groupData[i], function(d) {return +Math.floor(d.abundance*1000);});
         
           // Add X axis
           const x = d3.scaleLinear()
@@ -85,7 +85,7 @@ function updateBarChart(selectedDataset) {
                     .style("border", "2px solid black");
              
              // Customize the tooltip content
-             tooltip.html(`${d.name}: ${Math.floor(d.abundance)} NEETs`)
+             tooltip.html(`${d.name}: ${Math.floor(d.abundance*1000)} NEETs`)
                     .style("left", (event.pageX + 40) + "px")
                     .style("top", (event.pageY - 40) + "px");
     
@@ -113,7 +113,7 @@ function updateBarChart(selectedDataset) {
               .transition()
               .duration(1000)
                 .attr("x", x(0))
-                .attr("width", d => x(Math.floor(d.abundance)))
+                .attr("width", d => x(Math.floor(d.abundance*1000)))
               .delay((d, i) => i * 100);
       }
     
