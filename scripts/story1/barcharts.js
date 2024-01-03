@@ -134,6 +134,7 @@ const Barcharts = {
         // Clean up existing svg elements
         for (let i = 0; i < 6; i++) {
             const existingSvg = document.querySelectorAll(`#barchart_svg_${i}`);
+	    console.log(existingSvg);
             if (existingSvg)
                 existingSvg.parentNode.removeChild(existingSvg);
         }
