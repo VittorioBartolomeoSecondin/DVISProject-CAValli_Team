@@ -15,7 +15,7 @@ const tooltip = d3.select("#linechart_1")
 var linechart_svg;
 
 // Read the CSV data and initialize the chart
-d3.csv("your_dataset.csv").then(function (data) {
+d3.csv("linechart.csv").then(function (data) {
 	// Extract unique states from the data
 	const states = Array.from(new Set(data.map(d => d.State)));
 
