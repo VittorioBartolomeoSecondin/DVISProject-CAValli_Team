@@ -17,7 +17,7 @@ var svg = d3.create("svg")
 		    .attr("font-family", "sans-serif")
 		    .attr("font-size", 10);
 
-d3.csv("/data/story1/pyramids/pyramid2009.csv).then(function(data) {
+d3.csv("/data/story1/pyramids/pyramid2009.csv").then(function(data) {
        
 	xM = d3.scaleLinear()
 		.domain([0, d3.max(data, d => d.percentage)])
