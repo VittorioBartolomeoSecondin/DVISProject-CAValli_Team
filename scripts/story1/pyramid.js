@@ -71,24 +71,25 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		// .attr("y", d => y(d.name) + y.bandwidth() / 2)
 		.attr("y", d => y(d.abbreviation) + y.bandwidth() / 2)
 		.attr("dy", "0.35em")
-		.text(d => d.percentage.toLocaleString());
+		.text(d => d.percentage);
+		// .text(d => d.percentage.toLocaleString());
 	
 	svg.append("text")
 		.attr("text-anchor", "end")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xM(len - 1) - 4)
+		.attr("x", xM(0) - 4)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
-		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
+		.attr("y", y(data[len - 1].abbreviation) + y.bandwidth() / 2)
 		.text("Male");
 	
 	svg.append("text")
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xF(len - 1) + 24)
+		.attr("x", xF(0) + 24)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
-		.attr("y", y(data[0].abbreviation) + y.bandwidth() / 2)
+		.attr("y", y(data[len - 1].abbreviation) + y.bandwidth() / 2)
 		.text("Female");
 
 	svg.append("g")
