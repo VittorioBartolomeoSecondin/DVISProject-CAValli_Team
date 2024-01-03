@@ -51,6 +51,8 @@ function drawLineChart(selectedCountries) {
             });
         });
 
+	console.log(formattedData);
+
         // Set the domains of the scales
         xScale.domain(d3.extent(formattedData, function (d) { return d.year; }));
         yScale.domain([0, d3.max(formattedData, function (d) { return d.value; })]);
