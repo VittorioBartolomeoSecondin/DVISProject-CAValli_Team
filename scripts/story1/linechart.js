@@ -89,7 +89,7 @@ function drawLineChart(selectedCountries) {
 	    });
 
 	    console.log(country);
-	    var countryIndex = data.findIndex(item => item.country === country);
+	    var countryIndex = data.findIndex(item => item.Country === country);
 	    console.log(countryIndex)
             var color = distinctColors[countryIndex];
 
