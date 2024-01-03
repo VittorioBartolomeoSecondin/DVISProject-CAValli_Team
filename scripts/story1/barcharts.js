@@ -1,7 +1,6 @@
 // Set the dimensions and margins of the graph
 const margin = {top: 20, right: 40, bottom: 70, left: 160}, width = 450 - margin.left - margin.right, height = 400 - margin.top - margin.bottom;
 const orangeColors = d3.schemeOranges[6];
-
 const colorDictionary = {
   "< 100k": orangeColors[0],
   "100k - 200k": orangeColors[1],
@@ -10,7 +9,6 @@ const colorDictionary = {
   "1000k - 1500k": orangeColors[4],
   "1500k +": orangeColors[5]
 };
-
 // Parse the Data
 function updateBarChart(selectedDataset) {
   // Load the CSV file using d3.csv
@@ -30,20 +28,21 @@ function updateBarChart(selectedDataset) {
           });
       });
 
+      var i = 0;
       Object.keys(groupData).forEach(function(key) {
           // Append the svg object to the body of the page
-          let svg = d3.select("#barchart_" + key)
+          let svg = d3.select("#barchart_" + i)
                         .append("svg")
-                          .attr("id", "barchart_svg_" + key)
+                          .attr("id", "barchart_svg_" + i)
                           .attr("width", width + margin.left + margin.right)
                           .attr("height", height + margin.top + margin.bottom)
                         .append("g")
                           .attr("transform", `translate(${margin.left}, ${margin.top})`);
-          
+
           // Create the tooltip element
-          let tooltip = d3.select("#barchart_" + key)
+          let tooltip = d3.select("#barchart_" + i)
                             .append("section")
-                              .attr("id", "barchart_tooltip_" + key)
+                              .attr("id", "barchart_tooltip_" + i)
                             .style("opacity", 0)
                             .style("background-color", "lightgray")
                             .style("border", "2px solid black")
@@ -130,14 +129,15 @@ function updateBarChart(selectedDataset) {
                 .attr("x", x(0))
                 .attr("width", d => x(Math.floor(d.abundance*1000)))
               .delay((d, i) => i * 100);
+
+          i++;
       });
-    
+
   });
 }
   
 // Initial chart creation with the default dataset
 updateBarChart("data/story1/barcharts/barchart2009.csv");
-
 // Listen for changes in the dropdown selection
 /*document.getElementById("dataset-dropdown").addEventListener("change", function () {
   const selectedDataset = this.value;
