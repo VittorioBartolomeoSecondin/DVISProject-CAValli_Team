@@ -71,14 +71,14 @@ function drawLineChart(selectedCountries) {
 
         countries.forEach(function (country, i) {
             var countryData = formattedData.filter(function (d) {
-	        return d.Country === country && !isNaN(d.value);
+	        return d.Country === country;
 	    });
-
-	    console.log(countryData);
 
             svg.append("path")
                 .data([countryData])
                 .attr("class", "line")
+		.attr("fill", "none")
+                .attr("stroke-width", 1.5)
                 .style("stroke", colorScale(i))
                 .attr("d", line);
         });
