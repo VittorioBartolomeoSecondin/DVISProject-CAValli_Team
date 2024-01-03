@@ -37,7 +37,7 @@ function updateBarChart(selectedDataset) {
                               .attr("class", "tooltip");
         
           // Define maximum
-          var max = d3.max(data, function(d) {return +d.count;});
+          var max = d3.max(data, function(d) {return +d.abundance;});
         
           // Add X axis
           const x = d3.scaleLinear()
@@ -55,7 +55,7 @@ function updateBarChart(selectedDataset) {
           // Add Y axis
           const y = d3.scaleBand()
                       .range([height, 0])
-                      .domain(data.map(d => d.scientific_name))
+                      .domain(data.map(d => d.abbreviation))
                       .padding(.1);
       
           svg.append("g")
@@ -68,10 +68,10 @@ function updateBarChart(selectedDataset) {
              .enter()
              .append("rect")
                .attr("x", x(0))
-               .attr("y", d => y(d.scientific_name))
+               .attr("y", d => y(d.abbreviation))
                .attr("width", 0)
                .attr("height", y.bandwidth())
-               .attr("fill", "steelblue")
+               .attr("fill", colours[i])
              .on("mouseover", function (event, d) {
     
              // Change color when hovering
@@ -85,7 +85,7 @@ function updateBarChart(selectedDataset) {
                     .style("border", "2px solid black");
              
              // Customize the tooltip content
-             tooltip.html(`Common name: ${d.common_name}<br>Count: ${d.count}<br>Average height: ${d.avg_height} meters`)
+             tooltip.html(`${d.name}: ${d.abundance} NEETs`)
                     .style("left", (event.pageX + 40) + "px")
                     .style("top", (event.pageY - 40) + "px");
     
@@ -100,7 +100,7 @@ function updateBarChart(selectedDataset) {
              .on("mouseout", function (d) {
     
              // Returning to original color when not hovering
-             d3.select(this).style("fill", "steelblue");
+             d3.select(this).style("fill", colours[i]);
     
              // Hide the tooltip
              tooltip.transition()
