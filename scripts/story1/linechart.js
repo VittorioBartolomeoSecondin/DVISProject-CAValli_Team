@@ -104,7 +104,7 @@ function drawLineChart(selectedCountries) {
 
 	    var countryIndex = data.findIndex(item => item.Country === country);
             var color = distinctColors[countryIndex];
-	    lineColors.push({ abbreviation: data[countryIndex].Abbreviation, color: color });
+	    lineColors.push({ country: country, abbreviation: data[countryIndex].Abbreviation, color: color });
 
             var lineElement = svg.append("path")
                 .data([countryData])
