@@ -104,7 +104,7 @@ function drawLineChart(selectedCountries) {
 
 	    var countryIndex = data.findIndex(item => item.Country === country);
             var color = distinctColors[countryIndex];
-	    lineColors.push({ country: country, color: color });
+	    lineColors.push({ abbreviation: data[countryIndex].Abbreviation, color: color });
 
             var lineElement = svg.append("path")
                 .data([countryData])
@@ -180,7 +180,7 @@ function createLegend() {
     // Add country names to legend
     legendItems.append("div")
         .attr("class", "legend-text")
-        .text(function (d) { return d.country; });
+        .text(function (d) { return d.abbreviation; });
 }
 
 
