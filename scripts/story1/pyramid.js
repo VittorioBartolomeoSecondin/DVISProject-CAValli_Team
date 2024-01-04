@@ -44,8 +44,19 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".domain").remove())
 		.call(g => g.selectAll(".tick:first-of-type").remove());
 	
-	var yAxis = g => g
-		.attr("transform", `translate(${xM(0) + 50}, 0)`)
+	var yAxisF = g => g
+		.attr("transform", `translate(${xF(0) + 50}, 0)`)
+		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
+		.call(g => g.selectAll(".tick text").attr("fill", "white"))
+		.append("text")
+		.attr("x", -3) // Adjust the x position as needed
+		.attr("y", y(0)) // Positions the "0" label based on the y-scale value
+		.attr("text-anchor", "start")
+		.attr("fill", "black")
+		.text("0");
+
+	var yAxisM = g => g
+		.attr("transform", `translate(${xM(0) - 50}, 0)`)
 		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
 		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		.append("text")
@@ -105,7 +116,10 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(xAxis);
 
 	svg.append("g")
-		.call(yAxis);
+		.call(yAxisF);
+
+	svg.append("g")
+		.call(yAxisM);
 	
 	return svg.node();
 });
