@@ -47,7 +47,7 @@ const Barcharts = {
               
                 // Add X axis
                 let x = d3.scaleLinear()
-                            .domain([0, max + max/10])
+                            .domain([0, max + max/5])
                             .range([0, width]);
               
                 svg.append("g")
