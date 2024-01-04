@@ -61,6 +61,7 @@
 }
 
 .legend-item {
+    display: inline-block;
     width: 175px;
     margin-right: 20px;
     margin-bottom: 10px;
