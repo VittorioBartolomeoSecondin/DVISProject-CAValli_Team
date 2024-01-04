@@ -36,10 +36,10 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	var xAxis = g => g
 		.attr("transform", `translate(0,${height - margin.bottom})`)
 		.call(g => g.append("g")
-        	.attr("transform", `translate(-30,0)`) // Translate the male axis by 10 units vertically
+        	.attr("transform", `translate(-50,0)`) // Translate the male axis by 10 units vertically
         	.call(d3.axisBottom(xM).ticks(width / 80, "s")))
     		.call(g => g.append("g")
-        	.attr("transform", `translate(30,0)`) // Translate the female axis by 10 units vertically
+        	.attr("transform", `translate(50,0)`) // Translate the female axis by 10 units vertically
         	.call(d3.axisBottom(xF).ticks(width / 80, "s")))
 		.call(g => g.selectAll(".domain").remove())
 		.call(g => g.selectAll(".tick:first-of-type").remove());
@@ -54,7 +54,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.data(data)
 		.enter()
 		.append("rect")
-		.attr("transform", d => d.sex === "F" ? `translate(30,0)` : `translate(-30,0)`)
+		.attr("transform", d => d.sex === "F" ? `translate(50,0)` : `translate(-50,0)`)
 		.attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
 		// .attr("y", d => y(d.name))
 		.attr("y", d => y(d.abbreviation))
