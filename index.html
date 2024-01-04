@@ -142,6 +142,152 @@
 		    					<h2 style="color: #E57F50;">Trends over time</h2>
 		    					<span class="position">Line chart</span><br>
 		    					<p>Description</p>
+							<div class="dropdown">
+						                <button class="btn btn-primary dropdown-toggle" type="button" id="states-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 30px;">
+						                    Select State
+						                </button>
+						                <div class="dropdown-menu" aria-labelledby="states-dropdown" style="max-height: 250px; overflow-y: auto;">
+						                    <form id="states-checkbox-form" style="padding: 5px;">
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Austria" id="Checkme2" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme2">Austria</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Belgium" id="Checkme3" onchange="handleCheckboxChange(this)" checked>
+						                            <label class="form-check-label" for="Checkme3">Belgium</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Bulgaria" id="Checkme4" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme4">Bulgaria</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Croatia" id="Checkme5" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme5">Croatia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Cyprus" id="Checkme6" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme6">Cyprus</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Czechia" id="Checkme7" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme7">Czechia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Denmark" id="Checkme8" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme8">Denmark</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Estonia" id="Checkme9" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme9">Estonia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Finland" id="Checkme10" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme10">Finland</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="France" id="Checkme11" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme11">France</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Germany" id="Checkme12" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme12">Germany</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Greece" id="Checkme13" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme13">Greece</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Hungary" id="Checkme14" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme14">Hungary</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Iceland" id="Checkme15" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme15">Iceland</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Ireland" id="Checkme16" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme16">Ireland</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Italy" id="Checkme17" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme17">Italy</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Latvia" id="Checkme18" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme18">Latvia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Lithuania" id="Checkme19" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme19">Lithuania</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Luxembourg" id="Checkme20" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme20">Luxembourg</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Malta" id="Checkme21" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme21">Malta</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Montenegro" id="Checkme22" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme22">Montenegro</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Netherlands" id="Checkme23" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme23">Netherlands</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="North Macedonia" id="Checkme24" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme24">North Macedonia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Norway" id="Checkme25" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme25">Norway</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Poland" id="Checkme26" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme26">Poland</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Portugal" id="Checkme27" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme27">Portugal</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Romania" id="Checkme28" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme28">Romania</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Serbia" id="Checkme29" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme29">Serbia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Slovakia" id="Checkme30" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme30">Slovakia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Slovenia" id="Checkme31" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme31">Slovenia</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Spain" id="Checkme32" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme32">Spain</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Sweden" id="Checkme33" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme33">Sweden</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Switzerland" id="Checkme34" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme34">Switzerland</label>
+						                        </div>
+						                        <div class="form-check">
+						                            <input class="form-check-input" type="checkbox" value="Türkiye" id="Checkme35" onchange="handleCheckboxChange(this)">
+						                            <label class="form-check-label" for="Checkme35">Türkiye</label>
+						                        </div>
+						                    </form>
+						                </div>
+						            </div>
+
 	    					</div>
 	    				</div>
 					  </div>
