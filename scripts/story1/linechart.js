@@ -146,8 +146,7 @@ function handleMouseOver(event, d) {
     const exactAbundance = d.value;
     const countryName = d.Country;
 
-    var countryIndex = d.findIndex(item => item.Country === country);
-    var color = distinctColors[countryIndex];
+    var color = lineColors.find(item => item.country === "Italy").color;
 	
     tooltip.html(`Country: <span style="color:${color}">${countryName}</span><br>Abundance: ${exactAbundance}`)
 	   .style("left", (event.pageX + 10) + "px")
