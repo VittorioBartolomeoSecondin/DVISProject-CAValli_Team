@@ -61,9 +61,7 @@
 }
 
 .standard-legend {
-  margin: 1rem;
-  padding: 2rem 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .legend-item {
