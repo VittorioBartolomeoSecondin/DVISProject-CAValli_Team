@@ -96,8 +96,8 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	svg.append("g")
 		.call(xAxis);
 
-	svg.append("g")
-		.call(yAxis);
+	/*svg.append("g")
+		.call(yAxis);*/
 	
 	return svg.node();
 });
