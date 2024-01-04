@@ -134,9 +134,7 @@ function handleMouseOver(event, d) {
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
 		    .attr("class", "tooltip")
-		    .style("opacity", 0)
-		    .style("background-color", "lightgray")
-		    .style("border", "2px solid black");
+		    .style("opacity", 0);
     }
 	
     // Show the tooltip
