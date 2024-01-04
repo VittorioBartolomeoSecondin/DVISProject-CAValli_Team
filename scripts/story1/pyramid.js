@@ -68,7 +68,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.data(data)
 		.join("text")
 		.attr("text-anchor", d => d.sex === "M" ? "start" : "end")
-		.attr("x", d => d.sex === "M" ? xM(+d.percentage) + 4 : xF(+d.percentage) - 4)
+		.attr("x", d => d.sex === "M" ? xM(+d.percentage) - 30 : xF(+d.percentage) + 30)
 		// .attr("y", d => y(d.name) + y.bandwidth() / 2)
 		.attr("y", d => y(d.abbreviation) + y.bandwidth() / 2)
 		.attr("dy", "0.35em")
