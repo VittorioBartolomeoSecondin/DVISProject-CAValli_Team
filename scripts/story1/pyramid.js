@@ -36,7 +36,9 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	var xAxis = g => g
 		.attr("transform", `translate(0,${height - margin.bottom})`)
 		.call(g => g.append("g").call(d3.axisBottom(xM).ticks(width / 80, "s")))
+		.attr("transform", `translate(-30, 0)`)
 		.call(g => g.append("g").call(d3.axisBottom(xF).ticks(width / 80, "s")))
+		.attr("transform", `translate(30, 0)`)
 		.call(g => g.selectAll(".domain").remove())
 		.call(g => g.selectAll(".tick:first-of-type").remove());
 	
