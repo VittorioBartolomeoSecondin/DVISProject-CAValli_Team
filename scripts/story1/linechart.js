@@ -82,8 +82,9 @@ function drawLineChart(selectedCountries) {
             .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
 
         // Add Y-axis
-        svg.append("g")
-            .call(d3.axisLeft(yScale));
+	svg.append("g")
+    	    .call(d3.axisLeft(yScale).tickFormat(function (d) { return d + "k"; }));
+
 
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
