@@ -37,10 +37,10 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("transform", `translate(0,${height - margin.bottom})`)
 		.call(g => g.append("g")
         	.attr("transform", `translate(-50,0)`) // Translate the male axis by 10 units vertically
-        	.call(d3.axisBottom(xM).ticks(4, "s")))
+        	.call(d3.axisBottom(xM).ticks(2, "s")))
     		.call(g => g.append("g")
         	.attr("transform", `translate(50,0)`) // Translate the female axis by 10 units vertically
-        	.call(d3.axisBottom(xF).ticks(4, "s")))
+        	.call(d3.axisBottom(xF).ticks(2, "s")))
 		.call(g => g.selectAll(".domain").remove())
 		.call(g => g.selectAll(".tick:first-of-type").remove());
 	
