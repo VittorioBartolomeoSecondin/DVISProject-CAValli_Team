@@ -45,7 +45,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".tick:first-of-type").remove());
 	
 	var yAxis = g => g
-		.attr("transform", `translate(${xM(0)},0)`)
+		.attr("transform", `translate(${xM(0) + 50}, 0)`)
 		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
 		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		.append("text")
