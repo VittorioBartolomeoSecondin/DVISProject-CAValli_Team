@@ -50,12 +50,12 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("transform", `translate(-50,0)`)
 		.call(d3.axisBottom(xM).ticks(5, "s").tickSizeOuter(0))
 		.selectAll(".tick line") // Selecting all tick lines
-           	.attr("stroke", "black") // Changing the tick color to black
+           	.attr("stroke", "black")) // Changing the tick color to black
 	    	.call(g => g.append("g")
 		.attr("transform", `translate(50,0)`)
 		.call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
 		.selectAll(".tick line") // Selecting all tick lines
-           	.attr("stroke", "black"); // Changing the tick color to black
+           	.attr("stroke", "black")); // Changing the tick color to black
 	
 	var yAxisF = g => g
 		.attr("transform", `translate(${xF(0) + 50}, 0)`)
