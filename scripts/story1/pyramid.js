@@ -50,7 +50,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.data(data)
 		.enter()
 		.append("rect")
-		.attr("transform", `translate(30,0)`)
+		.attr("transform", d => d.sex === "F" ? `translate(30,0)` : `translate(-30,0)`)
 		.attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
 		// .attr("y", d => y(d.name))
 		.attr("y", d => y(d.abbreviation))
