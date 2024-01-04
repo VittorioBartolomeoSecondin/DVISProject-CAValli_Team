@@ -148,7 +148,7 @@ function handleMouseOver(event, d) {
 
     var color = lineColors.find(item => item.country === countryName).color;
 	
-    tooltip.html(`Country: <span style="color:${color}">${countryName}</span><br>Abundance: ${exactAbundance}`)
+    tooltip.html(`Country: <span style="color:${color}"><b>${countryName}</b></span><br>Abundance: ${exactAbundance}`)
 	   .style("left", (event.pageX + 10) + "px")
 	   .style("top", (event.pageY - 20) + "px");
 }
