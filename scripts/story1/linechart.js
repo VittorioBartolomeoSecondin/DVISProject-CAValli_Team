@@ -17,8 +17,8 @@ const distinctColors = [
 function drawLineChart(selectedCountries) {
 
     // Set up the SVG dimensions
-    var margin = { top: 60, right: 70, bottom: 70, left: 100 },
-	    width = 800 - margin.left - margin.right,
+    var margin = { top: 60, right: 70, bottom: 70, left: 50 },
+	    width = 775 - margin.left - margin.right,
 	    height = 500 - margin.top - margin.bottom;
 	
     // Append an SVG element to the specified div
