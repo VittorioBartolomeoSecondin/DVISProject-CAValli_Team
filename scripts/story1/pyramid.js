@@ -76,6 +76,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		// .text(d => d.percentage.toLocaleString());
 	
 	svg.append("text")
+		.attr("transform", `translate(-50,0)`)
 		.attr("text-anchor", "end")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
@@ -85,6 +86,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.text("Male");
 	
 	svg.append("text")
+		.attr("transform", `translate(50,0)`)
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
