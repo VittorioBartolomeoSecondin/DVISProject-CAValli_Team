@@ -45,19 +45,20 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".tick:first-of-type").remove());*/
 
 	var xAxis = g => g
-	    	.attr("transform", `translate(0,${height - margin.bottom})`)
-	    	.call(g => g.append("g")
-		.attr("transform", `translate(-50,0)`)
-		.call(d3.axisBottom(xM).ticks(5, "s").tickSizeOuter(0))
-		.selectAll(".tick line") // Selecting all tick lines
-           	.attr("stroke", "black")
-		.selectAll(".tick text") // Selecting all tick lines
-           	.attr("fill", "black")) // Changing the tick color to black
-	    	.call(g => g.append("g")
-		.attr("transform", `translate(50,0)`)
-		.call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
-		.selectAll(".tick line") // Selecting all tick lines
-           	.attr("stroke", "black")); // Changing the tick color to black
+	    .attr("transform", `translate(0,${height - margin.bottom})`)
+	    .call(g => g.append("g")
+	        .attr("transform", `translate(-50,0)`)
+	        .call(d3.axisBottom(xM).ticks(5, "s").tickSizeOuter(0))
+	        .selectAll(".tick line") // Selecting all tick lines in xM axis
+	        .attr("stroke", "black")) // Changing the tick lines color to black
+	    .call(g => g.selectAll(".tick text") // Selecting all tick text in xM axis
+	        .attr("fill", "black")) // Changing the tick text color to black
+	    .call(g => g.append("g")
+	        .attr("transform", `translate(50,0)`)
+	        .call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
+	        .selectAll(".tick line") // Selecting all tick lines in xF axis
+	        .attr("stroke", "black")); // Changing the tick lines color to black
+
 	
 	var yAxisF = g => g
 		.attr("transform", `translate(${xF(0) + 50}, 0)`)
