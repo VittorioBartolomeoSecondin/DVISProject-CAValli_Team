@@ -57,7 +57,9 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	        .attr("transform", `translate(50,0)`)
 	        .call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
 	        .selectAll(".tick line") // Selecting all tick lines in xF axis
-	        .attr("stroke", "black")); // Changing the tick lines color to black
+	        .attr("stroke", "black")) // Changing the tick lines color to black
+	    .call(g => g.selectAll(".tick text") // Selecting all tick text in xM axis
+		.attr("fill", "black")); // Changing the tick text color to black
 
 	
 	var yAxisF = g => g
