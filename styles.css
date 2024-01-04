@@ -68,12 +68,16 @@
   display: inline-block;
   padding: 1rem 1rem;
   vertical-align: middle;
-  display: flex; /* Set items as flexbox */
-  align-items: center; /* Align items vertically */
 }
 
 .legend-color-box {
+    display: inline-block; /* Display color box inline */
     width: 20px;
     height: 20px;
+    vertical-align: middle; /* Align elements vertically */
     margin-right: 5px;
+}
+
+.legend-text {
+    display: inline-block; /* Display text inline */
 }
