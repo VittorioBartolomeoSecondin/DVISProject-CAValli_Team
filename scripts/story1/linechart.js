@@ -200,3 +200,19 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
     lineColors = [];
     drawLineChart(selectedStates);
 });
+
+function handleCheckboxChange(checkbox) {
+    var checkedCheckboxes = document.querySelectorAll('.form-check-input:checked');
+
+    if (checkedCheckboxes.length > 5) {
+      alert('Maximum 5 checkboxes allowed!');
+      // Uncheck the last checkbox
+      checkbox.checked = false;
+    }
+    
+    if (checkedCheckboxes.length === 0) {
+	alert('Minimum 1 checkbox required!');
+	// Check the current checkbox
+	checkbox.checked = true;
+    }
+}
