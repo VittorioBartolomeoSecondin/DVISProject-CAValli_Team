@@ -180,23 +180,27 @@ const Choropleth = {
 }
 
 // Slider interaction
-const slider = document.getElementById("yearSlider");
-const selectedYear = document.getElementById("selectedYear");
+const sliders = document.querySelectorAll(".yearSlider");
 
-slider.addEventListener("input", function() {
-    const year = parseInt(this.value);
-    selectedYear.innerHTML = year;
-    
-    // Call the update function to update the map based on the selected year
-    Choropleth.updateMap(year - 2009);
-});
+sliders.forEach((slider) => {
+    slider.addEventListener("input", function () {
+        const year = parseInt(this.value);
+        const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
+        selectedYear.innerHTML = year;
 
-slider.addEventListener("change", function() {
-    const year = parseInt(this.value);
-    selectedYear.innerHTML = year;
-    
-    Barcharts.destroy();
-    Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
+        // Call the update function for the map based on the selected year
+        Choropleth.updateMap(year - 2009);
+    });
+
+    slider.addEventListener("change", function () {
+        const year = parseInt(this.value);
+        const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
+        selectedYear.innerHTML = year;
+
+        // Update the chart based on the selected year
+        Barcharts.destroy();
+        Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
+    });
 });
 
 Choropleth.initialize();
