@@ -95,7 +95,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	    .attr("y", d => y(d.abbreviation) + y.bandwidth() / 2)
 	    .attr("dy", "0.35em")
 	    .attr("fill", "black")
-	    .text(d => d.abbreviation);
+	    .text(d => d.name);
 	
 	svg.append("g")
 		.attr("fill", "white")
