@@ -33,7 +33,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.rangeRound([height - margin.bottom, margin.top])
 		.padding(0.1);
 
-	var xAxis = g => g
+	/*var xAxis = g => g
 		.attr("transform", `translate(0,${height - margin.bottom})`)
 		.call(g => g.append("g")
         	.attr("transform", `translate(-50,0)`) // Translate the male axis by 10 units vertically
@@ -42,7 +42,20 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
         	.attr("transform", `translate(50,0)`) // Translate the female axis by 10 units vertically
         	.call(d3.axisBottom(xF).ticks(5, "s")))
 		.call(g => g.selectAll(".domain").remove())
-		.call(g => g.selectAll(".tick:first-of-type").remove());
+		.call(g => g.selectAll(".tick:first-of-type").remove());*/
+
+	var xAxis = g => g
+	    	.attr("transform", `translate(0,${height - margin.bottom})`)
+	    	.call(g => g.append("g")
+		.attr("transform", `translate(-50,0)`)
+		.call(d3.axisBottom(xM).ticks(5, "s").tickSizeOuter(0))
+		.selectAll("line")
+		.attr("stroke", "black")) // Set the color of ticks for xM
+	    	.call(g => g.append("g")
+		.attr("transform", `translate(50,0)`)
+		.call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
+		.selectAll("line")
+		.attr("stroke", "black")); // Set the color of ticks for xF
 	
 	var yAxisF = g => g
 		.attr("transform", `translate(${xF(0) + 50}, 0)`)
