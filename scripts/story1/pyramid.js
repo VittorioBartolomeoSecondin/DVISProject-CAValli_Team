@@ -74,7 +74,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("text-anchor", "end")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xM(0) - 8)
+		.attr("x", xM(0) - 100)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
 		.attr("y", y(data[len - 1].abbreviation) - y.bandwidth() / 2)
 		.text("Male");
@@ -83,7 +83,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.attr("dy", "0.35em")
-		.attr("x", xF(0) + 8)
+		.attr("x", xF(0) + 100)
 		// .attr("y", y(data[0].name) + y.bandwidth() / 2)
 		.attr("y", y(data[len - 1].abbreviation) - y.bandwidth() / 2)
 		.text("Female");
