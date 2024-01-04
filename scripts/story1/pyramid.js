@@ -84,6 +84,18 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
 		.attr("height", y.bandwidth())
 		.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
+
+	svg.append("g")
+	    .selectAll("text")
+	    .data(data)
+	    .enter()
+	    .append("text")
+	    .attr("text-anchor", "middle")
+	    .attr("x", (xF(0) + xM(0)) / 2) // Placing text in the middle of the space
+	    .attr("y", d => y(d.abbreviation) + y.bandwidth() / 2)
+	    .attr("dy", "0.35em")
+	    .attr("fill", "black")
+	    .text(d => d.abbreviation);
 	
 	svg.append("g")
 		.attr("fill", "white")
