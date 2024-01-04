@@ -175,27 +175,6 @@ function createLegend() {
     legendItems.append("div")
         .attr("class", "legend-text")
         .text(function (d) { return d.country; });
-
-    // Add hover effects to legend items
-    legendItems.on("mouseover", function (d) {
-        // Highlight the corresponding line
-        svg.selectAll(".line-" + d.country)
-            .style("stroke-width", 3);
-
-        // Fade out other lines
-        svg.selectAll(".line-" + d.country)
-            .filter(function () {
-                return this !== lineElement.node();
-            })
-            .style("opacity", 0.5);
-    });
-
-    legendItems.on("mouseout", function (d) {
-        // Remove highlighting and restore opacity
-        svg.selectAll(".line-" + d.country)
-            .style("stroke-width", 1.5)
-            .style("opacity", 1);
-    });
 }
 
 
