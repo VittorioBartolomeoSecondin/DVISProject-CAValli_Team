@@ -50,7 +50,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		.append("text")
 		.attr("x", -3) // Adjust the x position as needed
-		.attr("y", height - margin.bottom + 20) // Positions the "0" label based on the y-scale value
+		.attr("y", height - margin.bottom + 15.5) // Positions the "0" label based on the y-scale value
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.text("0");
@@ -61,7 +61,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		.append("text")
 		.attr("x", -3) // Adjust the x position as needed
-		.attr("y", height - margin.bottom + 20) // Positions the "0" label based on the y-scale value
+		.attr("y", height - margin.bottom + 15.5) // Positions the "0" label based on the y-scale value
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
 		.text("0");
