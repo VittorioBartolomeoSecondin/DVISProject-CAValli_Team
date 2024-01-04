@@ -50,7 +50,7 @@
     color: #e57f50;
 }
 
-#selectedYear {
+.selectedYear {
     display: block;
     margin-top: 10px;
     font-weight: bold;
