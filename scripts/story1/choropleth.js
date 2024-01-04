@@ -193,9 +193,17 @@ sliders.forEach((slider) => {
     });
 
     slider.addEventListener("change", function () {
+	const sliders = document.querySelectorAll('.yearSlider');
+        const selectedYears = document.querySelectorAll('.selectedYear');
+	    
         const year = parseInt(this.value);
-        const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
-        selectedYear.innerHTML = year;
+
+        sliders.forEach((s) => {
+		s.value = year;
+        });
+    	selectedYears.forEach((sy) => {
+		sy.innerHTML = year;
+        });
 
         // Update the chart based on the selected year
         Barcharts.destroy();
