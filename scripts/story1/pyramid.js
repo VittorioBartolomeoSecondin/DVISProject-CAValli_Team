@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-var margin = { top: 30, right: 10, bottom: 50, left: 50 },
-	           width = 720 - margin.left - margin.right,
+var margin = { top: 30, right: 10, bottom: 50, left: 10 },
+	           width = 740 - margin.left - margin.right,
 	           height = 800 - margin.top - margin.bottom;
 
 d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
