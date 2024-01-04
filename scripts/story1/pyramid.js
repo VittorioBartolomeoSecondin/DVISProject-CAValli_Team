@@ -49,7 +49,7 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
 		.call(g => g.selectAll(".tick text").attr("fill", "white"))
 		.append("text")
-		.attr("x", 4) // Adjust the x position as needed
+		.attr("x", -3) // Adjust the x position as needed
 		.attr("y", y(0)) // Positions the "0" label based on the y-scale value
 		.attr("text-anchor", "start")
 		.attr("fill", "black")
