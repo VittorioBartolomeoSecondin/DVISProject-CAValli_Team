@@ -1,32 +1,32 @@
 name,abundance,abbreviation,group
-Belgium,243.0,BEL,200k - 500k
-Bulgaria,289.0,BGR,200k - 500k
-Czechia,266.0,CZE,200k - 500k
-Denmark,72.0,DNK,< 100k
+Türkiye,6776.0,TUR,1500k +
+Italy,1945.0,ITA,1500k +
 Germany,1827.0,DEU,1500k +
-Estonia,49.0,EST,< 100k
-Ireland,210.0,IRL,200k - 500k
-Greece,310.0,GRC,200k - 500k
 Spain,1682.0,ESP,1500k +
 France,1389.0,FRA,1000k - 1500k
-Croatia,121.0,HRV,100k - 200k
-Italy,1945.0,ITA,1500k +
-Cyprus,19.0,CYP,< 100k
-Latvia,97.0,LVA,< 100k
-Lithuania,102.0,LTU,100k - 200k
-Luxembourg,7.0,LUX,< 100k
-Hungary,293.0,HUN,200k - 500k
-Malta,11.0,MLT,< 100k
-Netherlands,194.0,NLD,100k - 200k
-Austria,153.0,AUT,100k - 200k
 Poland,1186.0,POL,1000k - 1500k
-Portugal,236.0,PRT,200k - 500k
 Romania,843.0,ROU,500k - 1000k
-Slovenia,31.0,SVN,< 100k
+Greece,310.0,GRC,200k - 500k
+Hungary,293.0,HUN,200k - 500k
+Bulgaria,289.0,BGR,200k - 500k
+Czechia,266.0,CZE,200k - 500k
+Belgium,243.0,BEL,200k - 500k
+Portugal,236.0,PRT,200k - 500k
 Slovakia,211.0,SVK,200k - 500k
-Finland,106.0,FIN,100k - 200k
+Ireland,210.0,IRL,200k - 500k
+Netherlands,194.0,NLD,100k - 200k
 Sweden,167.0,SWE,100k - 200k
-Iceland,6.0,ISL,< 100k
-Norway,68.0,NOR,< 100k
 North Macedonia,159.0,MKD,100k - 200k
-Türkiye,6776.0,TUR,1500k +
+Austria,153.0,AUT,100k - 200k
+Croatia,121.0,HRV,100k - 200k
+Finland,106.0,FIN,100k - 200k
+Lithuania,102.0,LTU,100k - 200k
+Latvia,97.0,LVA,< 100k
+Denmark,72.0,DNK,< 100k
+Norway,68.0,NOR,< 100k
+Estonia,49.0,EST,< 100k
+Slovenia,31.0,SVN,< 100k
+Cyprus,19.0,CYP,< 100k
+Malta,11.0,MLT,< 100k
+Luxembourg,7.0,LUX,< 100k
+Iceland,6.0,ISL,< 100k

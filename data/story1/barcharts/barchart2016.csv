@@ -1,35 +1,35 @@
 name,abundance,abbreviation,group
-Belgium,249,BEL,200k - 500k
-Bulgaria,257,BGR,200k - 500k
-Czechia,190,CZE,100k - 200k
-Denmark,92,DNK,< 100k
-Germany,1391,DEU,1000k - 1500k
-Estonia,31,EST,< 100k
-Ireland,126,IRL,100k - 200k
-Greece,364,GRC,200k - 500k
-Spain,1262,ESP,1000k - 1500k
-France,1538,FRA,1500k +
-Croatia,142,HRV,100k - 200k
-Italy,2208,ITA,1500k +
-Cyprus,30,CYP,< 100k
-Latvia,43,LVA,< 100k
-Lithuania,56,LTU,< 100k
-Luxembourg,7,LUX,< 100k
-Hungary,201,HUN,200k - 500k
-Malta,8,MLT,< 100k
-Netherlands,218,NLD,200k - 500k
-Austria,145,AUT,100k - 200k
-Poland,920,POL,500k - 1000k
-Portugal,211,PRT,200k - 500k
-Romania,860,ROU,500k - 1000k
-Slovenia,30,SVN,< 100k
-Slovakia,157,SVK,100k - 200k
-Finland,107,FIN,100k - 200k
-Sweden,124,SWE,100k - 200k
-Iceland,3,ISL,< 100k
-Norway,86,NOR,< 100k
-Switzerland,111,CHE,100k - 200k
-Montenegro,30,MNE,< 100k
-North Macedonia,136,MKD,100k - 200k
-Serbia,272,SRB,200k - 500k
 Türkiye,4991,TUR,1500k +
+Italy,2208,ITA,1500k +
+France,1538,FRA,1500k +
+Germany,1391,DEU,1000k - 1500k
+Spain,1262,ESP,1000k - 1500k
+Poland,920,POL,500k - 1000k
+Romania,860,ROU,500k - 1000k
+Greece,364,GRC,200k - 500k
+Serbia,272,SRB,200k - 500k
+Bulgaria,257,BGR,200k - 500k
+Belgium,249,BEL,200k - 500k
+Netherlands,218,NLD,200k - 500k
+Portugal,211,PRT,200k - 500k
+Hungary,201,HUN,200k - 500k
+Czechia,190,CZE,100k - 200k
+Slovakia,157,SVK,100k - 200k
+Austria,145,AUT,100k - 200k
+Croatia,142,HRV,100k - 200k
+North Macedonia,136,MKD,100k - 200k
+Ireland,126,IRL,100k - 200k
+Sweden,124,SWE,100k - 200k
+Switzerland,111,CHE,100k - 200k
+Finland,107,FIN,100k - 200k
+Denmark,92,DNK,< 100k
+Norway,86,NOR,< 100k
+Lithuania,56,LTU,< 100k
+Latvia,43,LVA,< 100k
+Estonia,31,EST,< 100k
+Slovenia,30,SVN,< 100k
+Cyprus,30,CYP,< 100k
+Montenegro,30,MNE,< 100k
+Malta,8,MLT,< 100k
+Luxembourg,7,LUX,< 100k
+Iceland,3,ISL,< 100k

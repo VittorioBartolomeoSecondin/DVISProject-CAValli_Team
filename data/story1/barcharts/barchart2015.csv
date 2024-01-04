@@ -1,35 +1,35 @@
 name,abundance,abbreviation,group
+Türkiye,4997,TUR,1500k +
+Italy,2344,ITA,1500k +
+France,1577,FRA,1500k +
+Spain,1373,ESP,1000k - 1500k
+Germany,1298,DEU,1000k - 1500k
+Poland,1005,POL,1000k - 1500k
+Romania,930,ROU,500k - 1000k
+Greece,403,GRC,200k - 500k
+Serbia,308,SRB,200k - 500k
 Belgium,277,BEL,200k - 500k
 Bulgaria,264,BGR,200k - 500k
-Czechia,208,CZE,200k - 500k
-Denmark,91,DNK,< 100k
-Germany,1298,DEU,1000k - 1500k
-Estonia,29,EST,< 100k
-Ireland,143,IRL,100k - 200k
-Greece,403,GRC,200k - 500k
-Spain,1373,ESP,1000k - 1500k
-France,1577,FRA,1500k +
-Croatia,148,HRV,100k - 200k
-Italy,2344,ITA,1500k +
-Cyprus,31,CYP,< 100k
-Latvia,47,LVA,< 100k
-Lithuania,65,LTU,< 100k
-Luxembourg,8,LUX,< 100k
-Hungary,224,HUN,200k - 500k
-Malta,10,MLT,< 100k
 Netherlands,227,NLD,200k - 500k
-Austria,139,AUT,100k - 200k
-Poland,1005,POL,1000k - 1500k
+Hungary,224,HUN,200k - 500k
 Portugal,220,PRT,200k - 500k
-Romania,930,ROU,500k - 1000k
-Slovenia,35,SVN,< 100k
+Czechia,208,CZE,200k - 500k
 Slovakia,176,SVK,100k - 200k
-Finland,114,FIN,100k - 200k
-Sweden,129,SWE,100k - 200k
-Iceland,3,ISL,< 100k
-Norway,85,NOR,< 100k
-Switzerland,108,CHE,100k - 200k
-Montenegro,31,MNE,< 100k
+Croatia,148,HRV,100k - 200k
 North Macedonia,144,MKD,100k - 200k
-Serbia,308,SRB,200k - 500k
-Türkiye,4997,TUR,1500k +
+Ireland,143,IRL,100k - 200k
+Austria,139,AUT,100k - 200k
+Sweden,129,SWE,100k - 200k
+Finland,114,FIN,100k - 200k
+Switzerland,108,CHE,100k - 200k
+Denmark,91,DNK,< 100k
+Norway,85,NOR,< 100k
+Lithuania,65,LTU,< 100k
+Latvia,47,LVA,< 100k
+Slovenia,35,SVN,< 100k
+Montenegro,31,MNE,< 100k
+Cyprus,31,CYP,< 100k
+Estonia,29,EST,< 100k
+Malta,10,MLT,< 100k
+Luxembourg,8,LUX,< 100k
+Iceland,3,ISL,< 100k

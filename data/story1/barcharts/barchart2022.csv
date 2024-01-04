@@ -1,31 +1,31 @@
 name,abundance,abbreviation,group
-Belgium,189.0,BEL,100k - 200k
-Bulgaria,144.0,BGR,100k - 200k
-Czechia,178.0,CZE,100k - 200k
-Denmark,88.0,DNK,< 100k
-Germany,1134.0,DEU,1000k - 1500k
-Estonia,21.0,EST,< 100k
-Ireland,83.0,IRL,< 100k
-Greece,247.0,GRC,200k - 500k
-Spain,947.0,ESP,500k - 1000k
-France,1369.0,FRA,1000k - 1500k
-Croatia,85.0,HRV,< 100k
 Italy,1670.0,ITA,1500k +
-Cyprus,25.0,CYP,< 100k
-Latvia,31.0,LVA,< 100k
-Lithuania,44.0,LTU,< 100k
-Luxembourg,8.0,LUX,< 100k
+France,1369.0,FRA,1000k - 1500k
+Germany,1134.0,DEU,1000k - 1500k
+Spain,947.0,ESP,500k - 1000k
+Romania,597.0,ROU,500k - 1000k
+Poland,591.0,POL,500k - 1000k
+Greece,247.0,GRC,200k - 500k
+Belgium,189.0,BEL,100k - 200k
+Czechia,178.0,CZE,100k - 200k
 Hungary,168.0,HUN,100k - 200k
-Malta,7.0,MLT,< 100k
+Serbia,163.0,SRB,100k - 200k
+Bulgaria,144.0,BGR,100k - 200k
+Portugal,141.0,PRT,100k - 200k
 Netherlands,138.0,NLD,100k - 200k
 Austria,134.0,AUT,100k - 200k
-Poland,591.0,POL,500k - 1000k
-Portugal,141.0,PRT,100k - 200k
-Romania,597.0,ROU,500k - 1000k
-Slovenia,25.0,SVN,< 100k
 Slovakia,106.0,SVK,100k - 200k
-Finland,87.0,FIN,< 100k
 Sweden,104.0,SWE,100k - 200k
-Iceland,4.0,ISL,< 100k
+Denmark,88.0,DNK,< 100k
+Finland,87.0,FIN,< 100k
+Croatia,85.0,HRV,< 100k
+Ireland,83.0,IRL,< 100k
 Norway,69.0,NOR,< 100k
-Serbia,163.0,SRB,100k - 200k
+Lithuania,44.0,LTU,< 100k
+Latvia,31.0,LVA,< 100k
+Cyprus,25.0,CYP,< 100k
+Slovenia,25.0,SVN,< 100k
+Estonia,21.0,EST,< 100k
+Luxembourg,8.0,LUX,< 100k
+Malta,7.0,MLT,< 100k
+Iceland,4.0,ISL,< 100k

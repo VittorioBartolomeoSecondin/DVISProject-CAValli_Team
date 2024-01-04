@@ -1,31 +1,31 @@
 name,abundance,abbreviation,group
-Belgium,205.0,BEL,200k - 500k
-Bulgaria,171.0,BGR,100k - 200k
-Czechia,172.0,CZE,100k - 200k
-Denmark,91.0,DNK,< 100k
-Germany,1230.0,DEU,1000k - 1500k
-Estonia,22.0,EST,< 100k
-Ireland,91.0,IRL,< 100k
-Greece,279.0,GRC,200k - 500k
-Spain,1035.0,ESP,1000k - 1500k
-France,1432.0,FRA,1000k - 1500k
-Croatia,98.0,HRV,< 100k
 Italy,2032.0,ITA,1500k +
-Cyprus,26.0,CYP,< 100k
-Latvia,33.0,LVA,< 100k
-Lithuania,54.0,LTU,< 100k
-Luxembourg,10.0,LUX,< 100k
-Hungary,184.0,HUN,100k - 200k
-Malta,9.0,MLT,< 100k
-Netherlands,127.0,NLD,100k - 200k
-Austria,139.0,AUT,100k - 200k
+France,1432.0,FRA,1000k - 1500k
+Germany,1230.0,DEU,1000k - 1500k
+Spain,1035.0,ESP,1000k - 1500k
 Poland,747.0,POL,500k - 1000k
-Portugal,161.0,PRT,100k - 200k
 Romania,611.0,ROU,500k - 1000k
-Slovenia,22.0,SVN,< 100k
-Slovakia,127.0,SVK,100k - 200k
-Finland,86.0,FIN,< 100k
-Sweden,112.0,SWE,100k - 200k
-Iceland,5.0,ISL,< 100k
-Norway,75.0,NOR,< 100k
+Greece,279.0,GRC,200k - 500k
 Serbia,206.0,SRB,200k - 500k
+Belgium,205.0,BEL,200k - 500k
+Hungary,184.0,HUN,100k - 200k
+Czechia,172.0,CZE,100k - 200k
+Bulgaria,171.0,BGR,100k - 200k
+Portugal,161.0,PRT,100k - 200k
+Austria,139.0,AUT,100k - 200k
+Slovakia,127.0,SVK,100k - 200k
+Netherlands,127.0,NLD,100k - 200k
+Sweden,112.0,SWE,100k - 200k
+Croatia,98.0,HRV,< 100k
+Denmark,91.0,DNK,< 100k
+Ireland,91.0,IRL,< 100k
+Finland,86.0,FIN,< 100k
+Norway,75.0,NOR,< 100k
+Lithuania,54.0,LTU,< 100k
+Latvia,33.0,LVA,< 100k
+Cyprus,26.0,CYP,< 100k
+Slovenia,22.0,SVN,< 100k
+Estonia,22.0,EST,< 100k
+Luxembourg,10.0,LUX,< 100k
+Malta,9.0,MLT,< 100k
+Iceland,5.0,ISL,< 100k
