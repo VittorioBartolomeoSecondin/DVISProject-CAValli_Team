@@ -53,7 +53,7 @@ const Barcharts = {
                 svg.append("g")
                      .attr("class", "axis")
                      .attr("transform", `translate(0, ${height})`)
-                   .call(d3.axisBottom(x))
+                   .call(d3.axisBottom(x)).ticks(8)
                    .selectAll("text")
                      .attr("transform", "translate(-10,0)rotate(-45)")
                    .style("text-anchor", "end");
