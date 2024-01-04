@@ -61,6 +61,7 @@
 }
 
 .standard-legend {
+  border: 1px solid black;
   margin: 1rem;
   padding: 2rem 2rem;
   text-align: center;
@@ -68,13 +69,9 @@
 
 .legend-item {
   display: inline-block;
+  border: 1px solid red;
   padding: 1rem 1rem;
   vertical-align: middle;
-  width: 175px;
-  margin-right: 20px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
 }
 
 .legend-color-box {
