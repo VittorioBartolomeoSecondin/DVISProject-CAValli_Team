@@ -82,7 +82,7 @@ const Choropleth = {
 			    .rangeRound([600, 860]);
 			
 		const legend = svg.append("g")
-				  .attr("id", "choropleth_legend")
+				  .attr("id", "choropleth-legend")
 				  .attr("transform", `translate(${legendX}, ${legendY})`);
 			
 		const legend_entry = legend.selectAll("g.legend")
