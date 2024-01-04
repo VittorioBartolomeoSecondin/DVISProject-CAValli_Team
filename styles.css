@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-#choropleth_legend {
+#choropleth-legend {
   font-size: 1.2em;
   letter-spacing: 0.1;
 }
@@ -60,7 +60,7 @@
   float: left;
 }
 
-.standard_legend {
+.standard-legend {
   margin: 1rem;
   padding: 2rem 2rem;
   text-align: center;
