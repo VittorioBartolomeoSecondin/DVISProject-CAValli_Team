@@ -65,24 +65,12 @@ d3.csv("data/story1/pyramids/pyramid2009.csv").then(function(data) {
 	var yAxisF = g => g
 		.attr("transform", `translate(${xF(0) + 50}, 0)`)
 		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
-		.call(g => g.selectAll(".tick text").attr("fill", "white"))
-		.append("text")
-		.attr("x", -3) // Adjust the x position as needed
-		.attr("y", height - margin.bottom + 15.5) // Positions the "0" label based on the y-scale value
-		.attr("text-anchor", "start")
-		.attr("fill", "black")
-		.text("0");
+		.call(g => g.selectAll(".tick text").attr("fill", "white"));
 
 	var yAxisM = g => g
 		.attr("transform", `translate(${xM(0) - 50}, 0)`)
 		.call(d3.axisRight(y).tickSize(0).tickFormat(''))
-		.call(g => g.selectAll(".tick text").attr("fill", "white"))
-		.append("text")
-		.attr("x", -3) // Adjust the x position as needed
-		.attr("y", height - margin.bottom + 15.5) // Positions the "0" label based on the y-scale value
-		.attr("text-anchor", "start")
-		.attr("fill", "black")
-		.text("0");
+		.call(g => g.selectAll(".tick text").attr("fill", "white"));
 
 	svg.append("g")
 		.selectAll("rect")
