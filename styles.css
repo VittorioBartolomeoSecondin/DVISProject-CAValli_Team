@@ -31,7 +31,7 @@
   letter-spacing: 0.1;
 }
 
-#slider-container {
+.slider-container {
     margin: 20px;
     text-align: center;
 }
@@ -42,7 +42,7 @@
     color: #333;
 }
 
-.slider {
+.yearSlider {
     width: 80%;
     margin: 0 auto;
     background: #e57f50;
