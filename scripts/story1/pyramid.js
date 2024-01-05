@@ -76,6 +76,15 @@ const Butterfly = {
 			.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
 			.attr("height", y.bandwidth())
 			.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
+
+		svg.selectAll("rect")
+		    .transition()
+		    .duration(1000)
+		    .attr("x", d => d.sex === "M" ? xM(0) : xF(0)) // Set initial x position
+		    .attr("width", d => d.sex === "M" ? xM(+d.percentage) : xF(+d.percentage)) // Set initial width
+		    .delay((d, i) => i * 100)
+		    .attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(+d.percentage)) // Final x position after delay
+		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(0) - xF(+d.percentage)); // Final width after delay
 	
 		svg.append("g")
 		    .selectAll("text")
