@@ -64,7 +64,7 @@ const Butterfly = {
 			.call(d3.axisRight(y).tickSize(0).tickFormat(''))
 			.call(g => g.selectAll(".tick text").attr("fill", "white"));
 	
-		svg.append("g")
+		/*svg.append("g")
 			.selectAll("rect")
 			.data(data)
 			.enter()
@@ -75,17 +75,27 @@ const Butterfly = {
 			.attr("y", d => y(d.abbreviation))
 			.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
 			.attr("height", y.bandwidth())
-			.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
+			.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);*/
 
-		svg.selectAll("rect")
-		    .transition()
+		// Append the rectangles without width initially
+		const bars = svg.append("g")
+		    .selectAll("rect")
+		    .data(data)
+		    .enter()
+		    .append("rect")
+		    .attr("transform", d => d.sex === "F" ? `translate(50,0)` : `translate(-50,0)`)
+		    .attr("x", d => d.sex === "M" ? xM(0) : xF(0))
+		    .attr("y", d => y(d.abbreviation))
+		    .attr("width", 0) // Initially set width to 0
+		    .attr("height", y.bandwidth())
+		    .attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
+		
+		// Transition to gradually increase width for each bar pair
+		bars.transition()
 		    .duration(1000)
-		    .attr("x", d => d.sex === "M" ? xM(0) : xF(0)) // Set initial x position
-		    .attr("width", d => d.sex === "M" ? xM(+d.percentage) : xF(+d.percentage)) // Set initial width
-		    .delay((d, i) => i * 100)
-		    .attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(+d.percentage)) // Final x position after delay
-		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(0) - xF(+d.percentage)); // Final width after delay
-	
+		    .delay((d, i) => i * 100) // Add delay for each bar pair
+		    .attr("width", d => d.sex === "M" ? xM(+d.percentage) - xM(0) : xF(+d.percentage) - xF(0));
+
 		svg.append("g")
 		    .selectAll("text")
 		    .data(data)
