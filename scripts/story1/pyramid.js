@@ -84,7 +84,7 @@ const Butterfly = {
 		    .enter()
 		    .append("rect")
 		    .attr("transform", d => d.sex === "F" ? `translate(50,0)` : `translate(-50,0)`)
-		    .attr("x", d => d.sex === "M" ? xM(0) : xF(0))
+		    .attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
 		    .attr("y", d => y(d.abbreviation))
 		    .attr("width", 0) // Initially set width to 0
 		    .attr("height", y.bandwidth())
