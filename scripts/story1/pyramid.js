@@ -94,7 +94,7 @@ const Butterfly = {
 		bars.transition()
 		    .duration(1000)
 		    .delay((d, i) => i * 100) // Add delay for each bar pair
-		    .attr("width", d => d.sex === "M" ? xM(+d.percentage) - xM(0) : xF(+d.percentage) - xF(0));
+		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0));
 
 		svg.append("g")
 		    .selectAll("text")
