@@ -208,6 +208,9 @@ sliders.forEach((slider) => {
         // Update the chart based on the selected year
         Barcharts.destroy();
         Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
+
+	Butterfly.destroy();
+	Butterfly.initialize("data/story1/pyramids/pyramid" + year + ".csv");
     });
 });
 
