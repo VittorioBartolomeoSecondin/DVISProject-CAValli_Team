@@ -20,6 +20,7 @@ function updateDonuts(selectedValue) {
 	            if (countryData) {
 	                const svg = d3.select("#donut_" + j)
 	                  .append("svg")
+			    .attr("id", "donut_" + j + "_svg")
 	                    .attr("width", width)
 	                    .attr("height", height)
 	                  .append("g")
