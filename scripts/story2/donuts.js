@@ -27,7 +27,14 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                 // Create the tooltip element
                 let tooltip = null;
 
-                const data = { Male: +countryData.valueM, Female: +countryData.valueF };
+                // Calculate the total sum of male and female values for each country
+                countryData.total = +countryData.valueM + +countryData.valueF;
+
+                // Convert counts to percentages
+                countryData.percentM = (+countryData.valueM / countryData.total) * 100;
+                countryData.percentF = (+countryData.valueF / countryData.total) * 100;
+
+                const data = { Male: countryData.percentM, Female: countryData.percentF };
 
                 // Setting the title with country name
                 d3.select("#title_" + j)
@@ -54,7 +61,6 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .attr("stroke", "black")
                     .attr("stroke-width", 1)
                 .on("mouseover", function(event, d) {
-		console.log(d);
 		// Change stroke width when hovering
                 d3.select(this).attr("stroke-width", 2);
 			
@@ -71,7 +77,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 	                .style("opacity", 1)
 			
            	// Customize the tooltip content
-           	tooltip.html(`<span style="color:${color(d.data[0])}"><b>${d.data[0]}</b></span>: ${d.data[1]}`)
+           	tooltip.html(`<span style="color:${color(d.data[0])}"><b>${d.data[0]}</b></span>: ${d.data[1]}%`)
 			.style("left", (event.pageX + 10) + "px")
                   	.style("top", (event.pageY - 20) + "px");
 		   
