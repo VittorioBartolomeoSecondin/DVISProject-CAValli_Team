@@ -94,3 +94,5 @@ function updateDonuts(selectedValue) {
 	    }
 	});
 }
+
+updateDonuts("data/story2/donuts/donut2009.csv");
