@@ -55,42 +55,6 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		  .innerRadius(radius * 0.9)
 		  .outerRadius(radius * 0.9);
 
-		/*svg.selectAll('allSlices')
-		    .data(data_ready)
-		    .join('path')
-		    .attr('d', arc)
-		    .attr('fill', d => color(d.data[0]))
-		    .attr("stroke", "black")
-		    .attr("stroke-width", 1)
-		    .each(function(d) {
-		        const centroid = arc.centroid(d);
-		        svg.append('text')
-		            .attr('text-anchor', 'middle')
-		            .attr('fill', 'white')
-		            .attr('x', centroid[0])
-		            .attr('y', centroid[1])
-		            .attr('font-size', '10px') // Adjust the font size here
-		            .text(`${d.data[1].toFixed(1)}%`);
-		    });*/
-
-		/*svg.selectAll('allSlices')
-		    .data(data_ready)
-		    .join('path')
-		    .attr('d', arc)
-		    .attr('fill', 'white') // Initially set fill to white
-		    .attr("stroke", "black")
-		    .attr("stroke-width", 1)
-		    .transition() // Apply transition
-		    .duration(1000) // Set the duration of the transition in milliseconds
-		    .attrTween('d', function(d) {
-		        const interpolate = d3.interpolate(d.startAngle, d.endAngle);
-		        return function(t) {
-		            d.endAngle = interpolate(t);
-		            return arc(d);
-		        };
-		    })
-		    .attr('fill', d => color(d.data[0])); // Transition to the respective color*/
-
 		svg.selectAll('allSlices')
 		    .data(data_ready)
 		    .join('path')
