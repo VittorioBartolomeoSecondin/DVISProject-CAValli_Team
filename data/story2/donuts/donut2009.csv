@@ -1,4 +1,10 @@
-name,level,rank,valueM,valueF
-Spain,low,1,2162.3,1601.5
-Bulgaria,medium,1,380.7,295.9
-Croatia,high,1,24.8,50.3
+name,abbreviation,level,rank,valueM,valueF
+Spain,ESP,low,1,2162.3,1601.5
+Greece,GRC,low,2,411.7,322.7
+Malta,MLT,low,3,18.6,14.7
+Bulgaria,BGR,medium,1,380.7,295.9
+Türkiye,TUR,medium,2,2630.7,2075.6
+North Macedonia,MKD,medium,3,135.6,108.0
+Croatia,HRV,high,1,24.8,50.3
+Slovenia,SVN,high,2,15.9,31.4
+Estonia,EST,high,3,16.3,32.0
