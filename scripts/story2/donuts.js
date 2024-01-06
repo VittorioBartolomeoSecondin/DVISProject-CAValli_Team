@@ -13,7 +13,7 @@ for (let i = 1; i <= 9; i++) {
         .attr("width", width)
         .attr("height", height)
       .append("g")
-        .attr("transform", `translate(${width/2},${height/2})`);
+        .attr("transform", `translate(${width/2-20},${height/2})`);
     
     // Create dummy data
     const data = {a: 9, b: 20, c:30, d:8, e:12, f:3, g:7, h:14}
