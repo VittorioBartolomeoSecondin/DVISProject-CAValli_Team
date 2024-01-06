@@ -29,9 +29,11 @@ function updateStackedPChart(selectedValue) {
      
       // List of subgroups = header of the csv files = "low", "medium", "high"
       const subgroups = data.columns.slice(2);
+      console.log("Subgroups:", subgroups);
     
       // List of groups = value of the first column = countries -> on Y axis
       const groups = data.map(d => d.Country);
+      console.log("Groups:", groups);
 
       var filteredData = data;
     
