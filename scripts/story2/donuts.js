@@ -121,7 +121,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		            .text(d => `${d.data[1].toFixed(1)}%`)
 		            .style('opacity', 0) // Initially set text opacity to 0
 		            .transition() // Apply text transition
-		            .duration(150) // Set text appearance duration
+		            .duration(175) // Set text appearance duration
 		            .style('opacity', 1); // Transition to visible state
 		    });
             }
