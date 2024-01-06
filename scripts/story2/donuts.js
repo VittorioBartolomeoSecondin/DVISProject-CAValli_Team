@@ -110,21 +110,20 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		    .attr('fill', d => color(d.data[0])) // Transition to the respective color
 		    .end() // After color transition ends, add text
 		    .then(() => {
-		        svg.selectAll('allSlices')
-		            .each(function(d) {
-		                const centroid = arc.centroid(d);
-		                svg.append('text')
-		                    .attr('text-anchor', 'middle')
-		                    .attr('fill', 'white')
-		                    .attr('x', centroid[0])
-		                    .attr('y', centroid[1])
-		                    .attr('font-size', '10px') // Adjust the font size here
-		                    .text(`${d.data[1].toFixed(1)}%`)
-		                    .style('opacity', 0) // Initially set text opacity to 0
-		                    .transition() // Apply text transition
-		                    .duration(200) // Set text appearance duration
-		                    .style('opacity', 1); // Transition to visible state
-		            });
+		        svg.selectAll('.text-label') // Select existing text elements
+		            .data(data_ready)
+		            .join('text') // Append new text elements
+		            .attr('class', 'text-label') // Assign a class for selection
+		            .attr('text-anchor', 'middle')
+		            .attr('fill', 'white')
+		            .attr('font-size', '10px') // Adjust the font size here
+		            .attr('transform', d => `translate(${arc.centroid(d)})`)
+		            .text(d => `${d.data[1].toFixed(1)}%`)
+		            .style('opacity', 0) // Initially set text opacity to 0
+		            .transition() // Apply text transition
+		            .delay(800) // Delay text appearance after the fill animation
+		            .duration(200) // Set text appearance duration
+		            .style('opacity', 1); // Transition to visible state
 		    });
             }
         }
