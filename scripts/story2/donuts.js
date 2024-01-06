@@ -1,5 +1,5 @@
-const width = 150,
-    height = 150,
+const width = 100,
+    height = 100,
     margin = 20;
 
 const radius = Math.min(width, height) / 2 - margin;
