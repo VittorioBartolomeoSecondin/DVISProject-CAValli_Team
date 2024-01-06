@@ -80,7 +80,7 @@ const Butterfly = {
 		// Transition to gradually increase width for each bar pair
 		bars.transition()
 		    .duration(1000)
-		    .delay((d, i) => i * 10) // Add delay for each bar pair
+		    .delay((d, i) => i * 20) // Add delay for each bar pair
 		    .attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0)) // Set initial x position for M bars
 		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0)); // Set width based on percentage
 
