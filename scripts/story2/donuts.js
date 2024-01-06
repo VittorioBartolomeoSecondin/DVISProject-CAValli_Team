@@ -24,6 +24,9 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                   .append("g")
                     .attr("transform", `translate(${width/2-20},${height/2+20})`);
 
+                // Create the tooltip element
+                let tooltip = null;
+
                 const data = { M: +countryData.valueM, F: +countryData.valueF };
 
                 // Setting the title with country name
@@ -50,7 +53,43 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .attr('fill', d => color(d.data[1]))
                     .attr("stroke", "white")
                     .style("stroke-width", "2px")
-                    .style("opacity", 0.7);
+                    .style("opacity", 0.7)
+                .on("mouseover", function(event, d) {
+		if (!tooltip) {
+			tooltip = d3.select("body").append("div")
+				.attr("id", "donut_tooltip")
+				.attr("class", "tooltip")
+				.style("opacity", 0);
+		}
+    
+	        // Change color when hovering
+	        d3.select(this).style("fill", "lightgreen");
+	              
+	        // Show the tooltip
+	        tooltip.transition()
+	                .duration(200)
+	                .style("opacity", 1)
+            
+           	// Customize the tooltip content
+           	tooltip.html("prova")
+			.style("left", (event.pageX + 10) + "px")
+                  	.style("top", (event.pageY - 20) + "px");
+		   
+           })
+                .on("mouseout", function(event, d) {
+    
+           	// Returning to original color when not hovering
+           	const subgroupColor = color(d3.select(this.parentNode).datum().key);
+           	d3.select(this).style("fill", subgroupColor);
+           
+           	if (tooltip) {
+		tooltip.transition()
+			.duration(200)
+			.style("opacity", 0)
+			.remove();
+		tooltip = null; // Reset tooltip variable
+    		}
+           });
             }
         }
     }
