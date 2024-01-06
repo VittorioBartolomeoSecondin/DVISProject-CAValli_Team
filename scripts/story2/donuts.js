@@ -51,8 +51,8 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .join('path')
                     .attr('d', arc)
                     .attr('fill', d => color(d.data[1]))
-                    .attr("stroke", "white")
-                    .style("stroke-width", "2px")
+                    .attr("stroke", "black")
+                    .style("stroke-width", 1)
                     .style("opacity", 0.7)
                 .on("mouseover", function(event, d) {
 		if (!tooltip) {
@@ -62,8 +62,8 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 				.style("opacity", 0);
 		}
     
-	        // Change color when hovering
-	        d3.select(this).style("fill", "lightgreen");
+	        // Change stroke width when hovering
+                d3.select(this).attr("stroke-width", 2);
 	              
 	        // Show the tooltip
 	        tooltip.transition()
@@ -77,10 +77,9 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		   
            })
                 .on("mouseout", function(event, d) {
-    
-           	// Returning to original color when not hovering
-           	const subgroupColor = color(d3.select(this.parentNode).datum().key);
-           	d3.select(this).style("fill", subgroupColor);
+
+		// Returning to original stroke width when not hovering
+                d3.select(this).attr("stroke-width", 1);
            
            	if (tooltip) {
 		tooltip.transition()
