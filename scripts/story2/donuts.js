@@ -82,6 +82,13 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		    .attr("stroke-width", 1)
 		    .transition() // Apply transition
 		    .duration(1000) // Set the duration of the transition in milliseconds
+		    .attrTween('d', function(d) {
+		        const interpolate = d3.interpolate(d.startAngle, d.endAngle);
+		        return function(t) {
+		            d.endAngle = interpolate(t);
+		            return arc(d);
+		        };
+		    })
 		    .attr('fill', d => color(d.data[0])); // Transition to the respective color
 
 		// Add text after the transition
