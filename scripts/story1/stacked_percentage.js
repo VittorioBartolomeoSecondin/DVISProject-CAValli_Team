@@ -2,7 +2,6 @@ function updateStackedPChart(selectedValue) {
 
   // Parse the Data
   d3.csv(selectedValue).then( function(data) {
-      console.log("Data loaded:", data);
 
       // Set up the SVG dimensions
       var margin = { top: 60, right: 70, bottom: 70, left: 100 },
@@ -20,21 +19,13 @@ function updateStackedPChart(selectedValue) {
 
       
       // Create the tooltip element
-      const tooltip = d3.select("#stacked_percentage_1")
-                        .append("section")
-                        .attr("id", "stacked_percentage_tooltip")
-                        .style("opacity", 0)
-                        .style("background-color", "lightgray")
-                        .style("border", "2px solid black")
-                          .attr("class", "tooltip"); 
+      let tooltip = null;
       
       // List of subgroups = header of the csv files = "low", "medium", "high"
       const subgroups = data.columns.slice(2);
-      console.log("Subgroups:", subgroups);
     
       // List of groups = value of the first column = countries -> on Y axis
       const groups = data.map(d => d.Country);
-      console.log("Groups:", groups);
 
       var filteredData = data;
     
@@ -112,46 +103,51 @@ function updateStackedPChart(selectedValue) {
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
            .on("mouseover", function(event, d) {
+		if (!tooltip) {
+			tooltip = d3.select("body").append("div")
+				.attr("class", "tooltip")
+				.style("opacity", 0);
+		}
     
-           // Change color when hovering
-           d3.select(this).style("fill", "lightgreen");
-              
-           // Show the tooltip
-           tooltip.transition()
-                  .duration(200)
-                  .style("opacity", 1)
-                  .style("background-color", "lightgray")
-                  .style("border", "2px solid black");
+	        // Change color when hovering
+	        d3.select(this).style("fill", "lightgreen");
+	              
+	        // Show the tooltip
+	        tooltip.transition()
+	                .duration(200)
+	                .style("opacity", 1)
             
-           // Define the subgroup name and value to display them in the tooltip
-           const subgroupName = d3.select(this.parentNode).datum().key;
-           const subgroupValue = d.data[subgroupName];
-	   const subgroupOriginalValue = d.data[`${subgroupName}_original`];
+           	// Define the subgroup name and value to display them in the tooltip
+           	const subgroupName = d3.select(this.parentNode).datum().key;
+           	const subgroupValue = d.data[subgroupName];
+	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`];
             
-           // Customize the tooltip content
-           tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
-                  .style("left", (event.pageX + 40) + "px")
-                  .style("top", (event.pageY - 40) + "px");
+           	// Customize the tooltip content
+           	tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
+                  	.style("left", (event.pageX + 10) + "px")
+                  	.style("top", (event.pageY - 20) + "px");
              
            })
            .on("mousemove", function(event, d) {
             
-           // Move the tooltip with the mouse pointer
-           tooltip.style("left", (event.pageX + 10) + "px")
-                  .style("top", (event.pageY + 10) + "px");
+           	// Move the tooltip with the mouse pointer
+           	tooltip.style("left", (event.pageX + 10) + "px")
+                  	.style("top", (event.pageY + 10) + "px");
              
            })
            .on("mouseout", function(event, d) {
     
-           // Returning to original color when not hovering
-           const subgroupColor = color(d3.select(this.parentNode).datum().key);
-           d3.select(this).style("fill", subgroupColor);
+           	// Returning to original color when not hovering
+           	const subgroupColor = color(d3.select(this.parentNode).datum().key);
+           	d3.select(this).style("fill", subgroupColor);
            
-           // Hide the tooltip
-           tooltip.transition()
-                  .duration(500)
-                  .style("opacity", 0);
-            
+           	if (tooltip) {
+		tooltip.transition()
+			.duration(500)
+			.style("opacity", 0)
+			.remove();
+		tooltip = null; // Reset tooltip variable
+    		}
            });
   })
 }
@@ -162,6 +158,5 @@ updateStackedPChart("data/story2/stacked/stacked2009_low.csv");
 document.getElementById("year-dropdown").addEventListener("change", function () {
     const selectedValue = "data/story2/stacked/stacked" + this.value + "_low.csv";
     d3.select("#stacked_percentage_svg").remove();
-    d3.select("#stacked_percentage_tooltip").remove();
     updateStackedPChart(selectedValue);
 });
