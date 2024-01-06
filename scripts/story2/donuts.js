@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const width = 200,
     height = 200,
-    margin = 40;
+    margin = 20;
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 const radius = Math.min(width, height) / 2 - margin
