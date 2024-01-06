@@ -79,6 +79,12 @@ function updateStackedPChart(selectedValue) {
           
           // Now normalize
           for (i in subgroups){ name=subgroups[i] ; d[name] = (d[name] / tot * 100).toFixed(2)}
+	  for (i in subgroups) {
+	        name = subgroups[i];
+	        const originalValue = +d[name]; // Store the original value
+	        d[name] = (originalValue / tot * 100).toFixed(2); // Normalize to 100
+	        d[`${name}_original`] = originalValue; // Create a new property for the original value
+	   }
         
       })
   
@@ -120,9 +126,10 @@ function updateStackedPChart(selectedValue) {
            // Define the subgroup name and value to display them in the tooltip
            const subgroupName = d3.select(this.parentNode).datum().key;
            const subgroupValue = d.data[subgroupName];
+	   const subgroupOriginalValue = d.data[`${subgroupName}_original`];
             
            // Customize the tooltip content
-           tooltip.html("Scientific name: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%")
+           tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue)
                   .style("left", (event.pageX + 40) + "px")
                   .style("top", (event.pageY - 40) + "px");
              
