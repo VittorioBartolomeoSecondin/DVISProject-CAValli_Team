@@ -53,7 +53,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		// Another arc that won't be drawn. Just for labels positioning
 		const outerArc = d3.arc()
 		  .innerRadius(radius * 0.9)
-		  .outerRadius(radius * 0.9)
+		  .outerRadius(radius * 0.9);
 
                 svg.selectAll('allSlices')
                     .data(data_ready)
