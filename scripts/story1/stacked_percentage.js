@@ -78,7 +78,7 @@ function updateStackedPChart(selectedValue) {
           for (i in subgroups){ name=subgroups[i] ; tot += +d[name] }
           
           // Now normalize
-          for (i in subgroups){ name=subgroups[i] ; d[name] = (d[name] / tot * 100).toFixed(2)}
+          //for (i in subgroups){ name=subgroups[i] ; d[name] = (d[name] / tot * 100).toFixed(2)}
 	  for (i in subgroups) {
 	        name = subgroups[i];
 	        const originalValue = +d[name]; // Store the original value
