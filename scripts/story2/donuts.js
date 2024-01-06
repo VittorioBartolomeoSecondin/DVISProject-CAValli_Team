@@ -52,8 +52,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .attr('d', arc)
                     .attr('fill', d => color(d.data[1]))
                     .attr("stroke", "black")
-                    .style("stroke-width", 1)
-                    .style("opacity", 0.7)
+                    .attr("stroke-width", 1)
                 .on("mouseover", function(event, d) {
 
 		// Change stroke width when hovering
