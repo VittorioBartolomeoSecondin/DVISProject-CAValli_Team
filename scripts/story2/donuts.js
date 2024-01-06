@@ -26,6 +26,10 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 
                 const data = { M: +countryData.valueM, F: +countryData.valueF };
 
+                // Setting the title with country name
+                d3.select("#title_" + j)
+                  .text(countryData.name);
+
                 const color = d3.scaleOrdinal()
                     .domain(["M", "F"])
                     .range([d3.schemeSet1[1], d3.schemeSet1[0]]);
