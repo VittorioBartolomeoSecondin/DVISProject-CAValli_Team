@@ -2,6 +2,11 @@ function updateStackedPChart(selectedValue) {
 
   // Parse the Data
   d3.csv(selectedValue).then( function(data) {
+
+      // Set up the SVG dimensions
+      var margin = { top: 60, right: 70, bottom: 70, left: 50 },
+	      width = 775 - margin.left - margin.right,
+	      height = 500 - margin.top - margin.bottom;
     
       // append the svg object to the body of the page
       const svg = d3.select("#stacked_percentage_1")
