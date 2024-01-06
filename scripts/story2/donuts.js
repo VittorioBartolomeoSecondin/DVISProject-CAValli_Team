@@ -39,7 +39,7 @@ for (let i = 1; i <= 9; i++) {
       .data(data_ready)
       .join('path')
       .attr('d', arc)
-      .attr('fill', d => color(d.data[0]))
+      .attr('fill', d => color(d.data[1]))
       .attr("stroke", "white")
       .style("stroke-width", "2px")
       .style("opacity", 0.7)
