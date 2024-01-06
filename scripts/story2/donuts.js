@@ -24,9 +24,6 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                   .append("g")
                     .attr("transform", `translate(${width/2-20},${height/2+20})`);
 
-                // Create the tooltip element
-                let tooltip = null;
-
                 // Calculate the total sum of male and female values for each country
                 countryData.total = +countryData.valueM + +countryData.valueF;
 
@@ -59,42 +56,42 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .attr('d', arc)
                     .attr('fill', d => color(d.data[0]))
                     .attr("stroke", "black")
-                    .attr("stroke-width", 1)
-                .on("mouseover", function(event, d) {
-		// Change stroke width when hovering
-                d3.select(this).attr("stroke-width", 2);
-			
-		if (!tooltip) {
-			tooltip = d3.select("body").append("div")
-				.attr("id", "donut_tooltip")
-				.attr("class", "tooltip")
-				.style("opacity", 0);
-		}
-	              
-	        // Show the tooltip
-	        tooltip.transition()
-	                .duration(200)
-	                .style("opacity", 1)
-			
-           	// Customize the tooltip content
-           	tooltip.html(`<span style="color:${color(d.data[0])}"><b>${d.data[0]}</b></span>: ${d.data[1]}%`)
-			.style("left", (event.pageX + 10) + "px")
-                  	.style("top", (event.pageY - 20) + "px");
-		   
-           })
-                .on("mouseout", function(event, d) {
+                    .attr("stroke-width", 1);
 
-		// Returning to original stroke width when not hovering
-                d3.select(this).attr("stroke-width", 1);
-           
-           	if (tooltip) {
-		tooltip.transition()
-			.duration(200)
-			.style("opacity", 0)
-			.remove();
-		tooltip = null; // Reset tooltip variable
-    		}
-           });
+		// Add the polylines between chart and labels:
+		svg
+		  .selectAll('allPolylines')
+		  .data(data_ready)
+		  .join('polyline')
+		    .attr("stroke", "black")
+		    .style("fill", "none")
+		    .attr("stroke-width", 1)
+		    .attr('points', function(d) {
+		      const posA = arc.centroid(d) // line insertion in the slice
+		      const posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
+		      const posC = outerArc.centroid(d); // Label position = almost the same as posB
+		      const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
+		      posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+		      return [posA, posB, posC]
+		    })
+		
+		// Add the polylines between chart and labels:
+		svg
+		  .selectAll('allLabels')
+		  .data(data_ready)
+		  .join('text')
+		    .text(d => d.data[0])
+		    .attr('transform', function(d) {
+		        const pos = outerArc.centroid(d);
+		        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+		        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+		        return `translate(${pos})`;
+		    })
+		    .style('text-anchor', function(d) {
+		        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+		        return (midangle < Math.PI ? 'start' : 'end')
+		    })
+                
             }
         }
     }
