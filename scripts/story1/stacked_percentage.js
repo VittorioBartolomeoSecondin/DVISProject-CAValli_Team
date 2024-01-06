@@ -109,7 +109,7 @@ function updateStackedPChart(selectedValue) {
              .attr("y", d => y(d.data.Country))
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
-           .on("mouseover", function(event, d) {
+           /*.on("mouseover", function(event, d) {
     
            // Change color when hovering
            d3.select(this).style("fill", "lightgreen");
@@ -149,7 +149,7 @@ function updateStackedPChart(selectedValue) {
                   .duration(500)
                   .style("opacity", 0);
             
-           });      
+           });   */   
   })
 }
 
