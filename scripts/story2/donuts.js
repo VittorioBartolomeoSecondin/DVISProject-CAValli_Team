@@ -38,13 +38,9 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .range([d3.schemeSet1[1], d3.schemeSet1[0]]);
 
                 const pie = d3.pie()
-                    .sort(null)
-                    .value((d) => {
-			console.log('Value of d:', d);
-			console.log('Object.entries(data):', Object.entries(data));
-			return d[1];
-    			});
-                const data_ready = pie(Object.entries(data));
+			    .sort(null)
+			    .value(d => d[1]);
+		const data_ready = pie(Object.entries(data));
 
                 const arc = d3.arc()
                     .innerRadius(radius * 0.5)
