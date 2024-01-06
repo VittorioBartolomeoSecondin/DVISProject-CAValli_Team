@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const width = 250,
+const width = 150,
     height = 150,
     margin = 40;
 
