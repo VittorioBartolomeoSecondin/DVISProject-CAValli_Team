@@ -1,4 +1,4 @@
-const width = 200,
+const width = 250,
     height = 200,
     margin = 20;
 
