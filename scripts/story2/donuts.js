@@ -77,7 +77,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		            .attr('fill', 'white')
 		            .attr('x', centroid[0])
 		            .attr('y', centroid[1])
-		            .attr('font-size', '10px') // Adjust the font size here
+		            .attr('font-size', '8px') // Adjust the font size here
 		            .text(`${d.data[1].toFixed(1)}%`);
 		    });
             }
