@@ -5,7 +5,7 @@ function updateStackedPChart(selectedValue) {
       console.log("Data loaded:", data);
 
       // Set up the SVG dimensions
-      var margin = { top: 60, right: 70, bottom: 70, left: 80 },
+      var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 	      width = 775 - margin.left - margin.right,
 	      height = 500 - margin.top - margin.bottom;
     
