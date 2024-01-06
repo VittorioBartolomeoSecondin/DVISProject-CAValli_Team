@@ -149,11 +149,11 @@ function updateStackedPChart(selectedValue) {
   })
 }
 
-updateStackedPChart(2009);
+updateStackedPChart("data/story2/stacked2009_low.csv");
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown").addEventListener("change", function () {
-    const selectedValue = "stacked" + this.value + "_low.csv";
+    const selectedValue = "data/story2/stacked" + this.value + "_low.csv";
     d3.select("#stacked_percentage_svg").remove();
     d3.select("#stacked_percentage_tooltip").remove();
     updateStackedPChart(selectedValue);
