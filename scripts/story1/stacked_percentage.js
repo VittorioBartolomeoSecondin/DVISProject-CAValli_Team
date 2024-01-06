@@ -18,7 +18,7 @@ function updateStackedPChart(selectedValue) {
                     .append("g")
                       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-      /*
+      
       // Create the tooltip element
       const tooltip = d3.select("#stacked_percentage_1")
                         .append("section")
@@ -27,7 +27,7 @@ function updateStackedPChart(selectedValue) {
                         .style("background-color", "lightgray")
                         .style("border", "2px solid black")
                           .attr("class", "tooltip"); 
-      */
+      
       // List of subgroups = header of the csv files = "low", "medium", "high"
       const subgroups = data.columns.slice(2);
       console.log("Subgroups:", subgroups);
