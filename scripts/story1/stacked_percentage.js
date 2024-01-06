@@ -5,7 +5,7 @@ function updateStackedPChart(selectedValue) {
       console.log("Data loaded:", data);
 
       // Set up the SVG dimensions
-      var margin = { top: 60, right: 70, bottom: 70, left: 50 },
+      var margin = { top: 60, right: 70, bottom: 70, left: 80 },
 	      width = 775 - margin.left - margin.right,
 	      height = 500 - margin.top - margin.bottom;
     
@@ -58,7 +58,7 @@ function updateStackedPChart(selectedValue) {
       const y = d3.scaleBand()
                   .range([0, height])
                   .domain(groups)
-                  .padding(.1);
+                  .padding(0.5);
       
       svg.append("g")
          .attr("class", "axis")
@@ -105,7 +105,7 @@ function updateStackedPChart(selectedValue) {
              .attr("y", d => y(d.data.Country))
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
-           /*.on("mouseover", function(event, d) {
+           .on("mouseover", function(event, d) {
     
            // Change color when hovering
            d3.select(this).style("fill", "lightgreen");
@@ -145,7 +145,7 @@ function updateStackedPChart(selectedValue) {
                   .duration(500)
                   .style("opacity", 0);
             
-           });   */   
+           });
   })
 }
 
