@@ -104,6 +104,7 @@ function updateStackedPChart(selectedValue) {
            .on("mouseover", function(event, d) {
 		if (!tooltip) {
 			tooltip = d3.select("body").append("div")
+				.attr("id", "stacked_percentage_tooltip")
 				.attr("class", "tooltip")
 				.style("opacity", 0);
 		}
@@ -150,5 +151,6 @@ updateStackedPChart("data/story2/stacked/stacked2009_low.csv");
 document.getElementById("year-dropdown").addEventListener("change", function () {
     const selectedValue = "data/story2/stacked/stacked" + this.value + "_low.csv";
     d3.select("#stacked_percentage_svg").remove();
+    d3.select("#stacked_percentage_tooltip").remove();
     updateStackedPChart(selectedValue);
 });
