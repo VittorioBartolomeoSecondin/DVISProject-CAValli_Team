@@ -69,7 +69,6 @@ function updateStackedPChart(selectedValue) {
           for (i in subgroups){ name=subgroups[i] ; tot += +d[name] }
           
           // Now normalize
-          //for (i in subgroups){ name=subgroups[i] ; d[name] = (d[name] / tot * 100).toFixed(2)}
 	  for (i in subgroups) {
 	        name = subgroups[i];
 	        const originalValue = +d[name]; // Store the original value
@@ -129,8 +128,8 @@ function updateStackedPChart(selectedValue) {
 		const svgContainer = document.getElementById("stacked_percentage_svg");
 		const svgRect = svgContainer.getBoundingClientRect();
 
-                tooltip.style("left", (event.clientX - svgRect.left + 10) + "px")
-        		.style("top", (event.clientY - svgRect.top - 20) + "px");
+                tooltip.style("left", (event.clientX - svgRect.left + 1) + "px")
+        		.style("top", (event.clientY - svgRect.top - 2) + "px");
              
            })
            .on("mousemove", function(event, d) {
