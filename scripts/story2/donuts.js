@@ -27,14 +27,14 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                 // Create the tooltip element
                 let tooltip = null;
 
-                const data = { M: +countryData.valueM, F: +countryData.valueF };
+                const data = { Male: +countryData.valueM, Female: +countryData.valueF };
 
                 // Setting the title with country name
                 d3.select("#title_" + j)
                   .text(countryData.name);
 
                 const color = d3.scaleOrdinal()
-                    .domain(["M", "F"])
+                    .domain(["Male", "Female"])
                     .range([d3.schemeSet1[1], d3.schemeSet1[0]]);
 
                 const pie = d3.pie()
@@ -50,7 +50,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .data(data_ready)
                     .join('path')
                     .attr('d', arc)
-                    .attr('fill', d => color(d.data[1]))
+                    .attr('fill', d => color(d.data[0]))
                     .attr("stroke", "black")
                     .attr("stroke-width", 1)
                 .on("mouseover", function(event, d) {
@@ -69,9 +69,9 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 	        tooltip.transition()
 	                .duration(200)
 	                .style("opacity", 1)
-            
+			
            	// Customize the tooltip content
-           	tooltip.html("prova")
+           	tooltip.html(`<span style="color:${color(d.data[0])}"><b>${d.data[0]}</b></span>: ${d.data[1]}`)
 			.style("left", (event.pageX + 10) + "px")
                   	.style("top", (event.pageY - 20) + "px");
 		   
