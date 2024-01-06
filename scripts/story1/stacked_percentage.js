@@ -93,7 +93,7 @@ function updateStackedPChart(selectedValue) {
            .data(d => d)
            .join("rect")
              .attr("x", d => x(d[0]))
-             .attr("y", d => y(d.data.city))
+             .attr("y", d => y(d.data.Country))
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
            .on("mouseover", function(event, d) {
