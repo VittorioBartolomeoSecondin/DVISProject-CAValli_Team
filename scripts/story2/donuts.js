@@ -55,15 +55,16 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
                     .style("stroke-width", 1)
                     .style("opacity", 0.7)
                 .on("mouseover", function(event, d) {
+
+		// Change stroke width when hovering
+                d3.select(this).attr("stroke-width", 2);
+			
 		if (!tooltip) {
 			tooltip = d3.select("body").append("div")
 				.attr("id", "donut_tooltip")
 				.attr("class", "tooltip")
 				.style("opacity", 0);
 		}
-    
-	        // Change stroke width when hovering
-                d3.select(this).attr("stroke-width", 2);
 	              
 	        // Show the tooltip
 	        tooltip.transition()
