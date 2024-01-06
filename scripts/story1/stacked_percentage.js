@@ -124,8 +124,13 @@ function updateStackedPChart(selectedValue) {
             
            	// Customize the tooltip content
            	tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
-                  	.style("left", (event.pageX + 10) + "px")
-                  	.style("top", (event.pageY - 20) + "px");
+
+		// Calculate adjusted position based on SVG container
+		const svgContainer = document.getElementById("stacked_percentage_svg");
+		const svgRect = svgContainer.getBoundingClientRect();
+
+                tooltip.style("left", (event.clientX - svgRect.left + 10) + "px")
+        		.style("top", (event.clientY - svgRect.top - 20) + "px");
              
            })
            .on("mousemove", function(event, d) {
