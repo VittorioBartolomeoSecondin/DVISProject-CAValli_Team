@@ -21,11 +21,11 @@ function updateStackedPChart(selectedValue) {
                         .style("border", "2px solid black")
                           .attr("class", "tooltip"); 
      
-      // List of subgroups = header of the csv files = scientific name of the trees (here)
-      const subgroups = data.columns.slice(1);
+      // List of subgroups = header of the csv files = "low", "medium", "high"
+      const subgroups = data.columns.slice(2);
     
-      // List of groups = value of the first column = cities (here) -> on Y axis
-      const groups = data.map(d => d.city);
+      // List of groups = value of the first column = countries -> on Y axis
+      const groups = data.map(d => d.Country);
 
       var filteredGroups = groups;
       var filteredData = data;
