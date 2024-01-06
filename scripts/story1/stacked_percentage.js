@@ -105,9 +105,6 @@ function updateStackedPChart(selectedValue) {
 		if (!tooltip) {
 			tooltip = d3.select("body").append("div")
 				.attr("class", "tooltip")
-				.style("width", "150px") // Set the width
-			        .style("height", "80px") // Set the height
-			        .style("padding", "10px") // Add padding
 				.style("opacity", 0);
 		}
     
