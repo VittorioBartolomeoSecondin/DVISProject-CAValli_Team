@@ -18,7 +18,7 @@ for (let i = 1; i <= 9; i++) {
     // Create dummy data
     const data = {M: 9, F: 20}
     
-    const colorScale = d3.scaleOrdinal()
+    const color = d3.scaleOrdinal()
                         .domain(["M", "F"])
                         .range([d3.schemeSet1[1], d3.schemeSet1[0]]);
     
