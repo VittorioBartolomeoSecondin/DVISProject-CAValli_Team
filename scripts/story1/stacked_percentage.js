@@ -129,7 +129,7 @@ function updateStackedPChart(selectedValue) {
 	   const subgroupOriginalValue = d.data[`${subgroupName}_original`];
             
            // Customize the tooltip content
-           tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue)
+           tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
                   .style("left", (event.pageX + 40) + "px")
                   .style("top", (event.pageY - 40) + "px");
              
