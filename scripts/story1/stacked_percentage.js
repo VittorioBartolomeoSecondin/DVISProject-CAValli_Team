@@ -17,6 +17,11 @@ function updateStackedPChart(selectedValue) {
                       .attr("height", height + margin.top + margin.bottom)
                     .append("g")
                       .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      svg.append("rect")
+	   .attr("width", width)
+	   .attr("height", height)
+	   .attr("fill", "lightblue");
     
       // Create the tooltip element
       const tooltip = d3.select("#stacked_percentage_1")
