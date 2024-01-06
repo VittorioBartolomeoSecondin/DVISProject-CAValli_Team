@@ -172,14 +172,14 @@ footer .cr-con{
   letter-spacing: 0.1;
 }
 
-.education_level {
+.education-level {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 350px;
 }
 
-.donut_item {
+.donut-item {
     display: flex;
     justify-content: center;
     align-items: center;
