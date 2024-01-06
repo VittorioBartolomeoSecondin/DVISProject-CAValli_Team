@@ -152,5 +152,10 @@ document.getElementById("year-dropdown").addEventListener("change", function () 
     const selectedValue = "data/story2/stacked/stacked" + this.value + "_low.csv";
     d3.select("#stacked_percentage_svg").remove();
     d3.select("#stacked_percentage_tooltip").remove();
+    // Remove elements with IDs from donut_1 to donut_9
+    for (let i = 1; i <= 9; i++) 
+	d3.select("#donut_" + i).remove();
+
     updateStackedPChart(selectedValue);
+    updateDonuts(selectedValue);
 });
