@@ -63,38 +63,6 @@ const Butterfly = {
 			.attr("transform", `translate(${xM(0) - 50}, 0)`)
 			.call(d3.axisRight(y).tickSize(0).tickFormat(''))
 			.call(g => g.selectAll(".tick text").attr("fill", "white"));
-	
-		/*svg.append("g")
-			.selectAll("rect")
-			.data(data)
-			.enter()
-			.append("rect")
-			.attr("transform", d => d.sex === "F" ? `translate(50,0)` : `translate(-50,0)`)
-			.attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0))
-			// .attr("y", d => y(d.name))
-			.attr("y", d => y(d.abbreviation))
-			.attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0))
-			.attr("height", y.bandwidth())
-			.attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);*/
-
-		// Append the rectangles without width initially
-		/*const bars = svg.append("g")
-		    .selectAll("rect")
-		    .data(data)
-		    .enter()
-		    .append("rect")
-		    .attr("transform", d => d.sex === "F" ? `translate(50,0)` : `translate(-50,0)`)
-		    .attr("x", d => d.sex === "M" ? xM(0) : xF(0))
-		    .attr("y", d => y(d.abbreviation))
-		    .attr("width", 0) // Initially set width to 0
-		    .attr("height", y.bandwidth())
-		    .attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0]);
-		
-		// Transition to gradually increase width for each bar pair
-		bars.transition()
-		    .duration(1000)
-		    .delay((d, i) => i * 100) // Add delay for each bar pair
-		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0));*/
 
 		// Append the rectangles without width initially
 		const bars = svg.append("g")
@@ -112,7 +80,7 @@ const Butterfly = {
 		// Transition to gradually increase width for each bar pair
 		bars.transition()
 		    .duration(1000)
-		    .delay((d, i) => i * 100) // Add delay for each bar pair
+		    .delay((d, i) => i * 10) // Add delay for each bar pair
 		    .attr("x", d => d.sex === "M" ? xM(+d.percentage) : xF(0)) // Set initial x position for M bars
 		    .attr("width", d => d.sex === "M" ? xM(0) - xM(+d.percentage) : xF(+d.percentage) - xF(0)); // Set width based on percentage
 
