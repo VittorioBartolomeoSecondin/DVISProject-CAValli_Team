@@ -55,15 +55,7 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		  .innerRadius(radius * 0.9)
 		  .outerRadius(radius * 0.9);
 
-                /*svg.selectAll('allSlices')
-                    .data(data_ready)
-                    .join('path')
-                    .attr('d', arc)
-                    .attr('fill', d => color(d.data[0]))
-                    .attr("stroke", "black")
-                    .attr("stroke-width", 1);*/
-
-		svg.selectAll('allSlices')
+		/*svg.selectAll('allSlices')
 		    .data(data_ready)
 		    .join('path')
 		    .attr('d', arc)
@@ -79,6 +71,35 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		            .attr('y', centroid[1])
 		            .attr('font-size', '10px') // Adjust the font size here
 		            .text(`${d.data[1].toFixed(1)}%`);
+		    });*/
+
+		svg.selectAll('allSlices')
+		    .data(data_ready)
+		    .join('path')
+		    .attr('d', arc)
+		    .attr('fill', 'white') // Initially set fill to white
+		    .attr("stroke", "black")
+		    .attr("stroke-width", 1)
+		    .transition() // Apply transition
+		    .duration(1000) // Set the duration of the transition in milliseconds
+		    .attr('fill', d => color(d.data[0])); // Transition to the respective color
+
+		// Add text after the transition
+		svg.selectAll('allSlices')
+		    .each(function(d) {
+			const centroid = arc.centroid(d);
+			svg.append('text')
+			    .attr('text-anchor', 'middle')
+			    .attr('fill', 'white')
+			    .attr('x', centroid[0])
+			    .attr('y', centroid[1])
+			    .attr('font-size', '10px') // Adjust the font size here
+			    .text(`${d.data[1].toFixed(1)}%`)
+			    .style('opacity', 0) // Initially set text opacity to 0
+			    .transition() // Apply text transition
+			    .delay(800) // Delay text appearance after the fill animation
+			    .duration(200) // Set text appearance duration
+			    .style('opacity', 1); // Transition to visible state
 		    });
             }
         }
