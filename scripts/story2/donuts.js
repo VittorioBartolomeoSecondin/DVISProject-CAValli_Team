@@ -55,13 +55,30 @@ d3.csv("data/story2/donuts/donut2009.csv").then(function(data) {
 		  .innerRadius(radius * 0.9)
 		  .outerRadius(radius * 0.9);
 
-                svg.selectAll('allSlices')
+                /*svg.selectAll('allSlices')
                     .data(data_ready)
                     .join('path')
                     .attr('d', arc)
                     .attr('fill', d => color(d.data[0]))
                     .attr("stroke", "black")
-                    .attr("stroke-width", 1);
+                    .attr("stroke-width", 1);*/
+
+		svg.selectAll('allSlices')
+		    .data(data_ready)
+		    .join('path')
+		    .attr('d', arc)
+		    .attr('fill', d => color(d.data[0]))
+		    .attr("stroke", "black")
+		    .attr("stroke-width", 1)
+		    .each(function(d) {
+		        const centroid = arc.centroid(d);
+		        svg.append('text')
+		            .attr('text-anchor', 'middle')
+		            .attr('fill', 'white')
+		            .attr('x', centroid[0])
+		            .attr('y', centroid[1])
+		            .text(`${d.data[1].toFixed(1)}%`);
+		    });
             }
         }
     }
