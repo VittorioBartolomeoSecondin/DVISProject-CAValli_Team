@@ -65,20 +65,3 @@ svg
       posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
       return [posA, posB, posC]
     })
-
-// Add the polylines between chart and labels:
-svg
-  .selectAll('allLabels')
-  .data(data_ready)
-  .join('text')
-    .text(d => d.data[0])
-    .attr('transform', function(d) {
-        const pos = outerArc.centroid(d);
-        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-        return `translate(${pos})`;
-    })
-    .style('text-anchor', function(d) {
-        const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        return (midangle < Math.PI ? 'start' : 'end')
-    })
