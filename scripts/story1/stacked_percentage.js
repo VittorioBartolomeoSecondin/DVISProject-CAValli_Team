@@ -122,15 +122,11 @@ function updateStackedPChart(selectedValue) {
 	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`];
             
            	// Customize the tooltip content
-           	tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
-
-		// Calculate adjusted position based on SVG container
-		const svgContainer = document.getElementById("stacked_percentage_svg");
-		const svgRect = svgContainer.getBoundingClientRect();
-
-                tooltip.style("left", (event.clientX - svgRect.left + 1) + "px")
-        		.style("top", (event.clientY - svgRect.top - 2) + "px");
-             
+           	//tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
+		tooltip.html("Education level: ")
+			.style("left", (event.pageX + 10) + "px")
+                  	.style("top", (event.pageY - 20) + "px");
+		   
            })
            .on("mouseout", function(event, d) {
     
@@ -140,7 +136,7 @@ function updateStackedPChart(selectedValue) {
            
            	if (tooltip) {
 		tooltip.transition()
-			.duration(500)
+			.duration(200)
 			.style("opacity", 0)
 			.remove();
 		tooltip = null; // Reset tooltip variable
