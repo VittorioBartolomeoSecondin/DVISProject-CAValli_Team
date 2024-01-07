@@ -148,10 +148,10 @@ function updateStackedPChart(selectedValue) {
            	// Define the subgroup name and value to display them in the tooltip
            	const subgroupName = d3.select(this.parentNode).datum().key;
            	const subgroupValue = d.data[subgroupName];
-	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`];
+	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`]; 
             
            	// Customize the tooltip content
-           	tooltip.html("Education level: " + subgroupName + "<br>" + "Percentage: " + subgroupValue + "%" + "<br>" + "Absolute value: " + subgroupOriginalValue + "k persons")
+           	tooltip.html(`Education level: <span style="color:${color(subgroupName}"><b>${subgroupName.charAt(0).toUpperCase() + subgroupName.slice(1)}</b></span><br>Percentage: ${subgroupValue}%<br>Absolute value: ${subgroupOriginalValue} k persons`)
 			.style("left", (event.pageX + 10) + "px")
                   	.style("top", (event.pageY - 20) + "px");
 		   
