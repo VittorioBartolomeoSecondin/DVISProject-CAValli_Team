@@ -184,7 +184,9 @@ function createLineChartLegend() {
     // Add color boxes to legend
     legendItems.append("div")
         .attr("class", "legend-color-box")
-        .style("background-color", function (d) { return d.color; });
+        .style("background-color", function (d) { return d.color; })
+	.attr("stroke", "black") 
+        .attr("stroke-width", 1);
 
     // Add country names to legend
     legendItems.append("div")
