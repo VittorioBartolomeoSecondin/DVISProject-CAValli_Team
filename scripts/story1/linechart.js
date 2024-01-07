@@ -78,17 +78,27 @@ function drawLineChart(selectedCountries) {
 
         // Add X-axis
         svg.append("g")
+	    .attr("class", "axis")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
+            .call(d3.axisBottom(xScale).tickFormat(d3.format("d")))
+	    .selectAll("text")
+		.attr("fill", "black");
 
         // Add Y-axis
 	svg.append("g")
+	    .attr("class", "axis")
 	    .call(
 	        d3.axisLeft(yScale).tickFormat(function (d) {
 	            return d === 0 ? d : d + "k";
 	        })
-	    );
+	    )
+	    .selectAll("text")
+		.attr("fill", "black");
 
+	// Select lines of X,Y axis
+	svg.selectAll(".axis")
+	    .selectAll("line")
+	    .attr("stroke", "black");
 
         // Add lines for each selected country
         var countries = Array.from(new Set(formattedData.map(function (d) { return d.Country; })));
