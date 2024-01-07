@@ -143,11 +143,16 @@ const Choropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					self.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;' + (d.properties.abundance1000[yearIndex] != 0 ? ': ' + d.properties.abundance1000[yearIndex] + 'k NEETs' : ''))
-					    .style("left", (event.pageX + 15) + "px")
-					    .style("top", (event.pageY - 28) + "px")
-					    .transition().duration(400)
-					    .style("opacity", 1);
+					let value = d.properties.abundance1000[yearIndex];
+					let description = value != 0 ? ': ' + value + 'k NEETs' : '';
+					let color = value != 0 ? self.colorScale(value) : "grey";
+					self.tooltip.html(`<span style="color:${color}; text-shadow: -0.2px -0.2px 0 #000, 
+							  0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000;"><b>${d.properties.name}</b></span>
+	 						  &#40;${d.properties.abbreviation}&#41; ${description}`)
+						    .style("left", (event.pageX + 15) + "px")
+						    .style("top", (event.pageY - 28) + "px")
+						    .transition().duration(400)
+						    .style("opacity", 1);
 				  }
 		 fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
@@ -162,7 +167,7 @@ const Choropleth = {
 			    .style("stroke", "black")
 			    .attr("class", "Country")
 			    .style("fill", function(d) {
-			        var value = d.properties.abundance[yearIndex];
+			        let value = d.properties.abundance[yearIndex];
 			        return value !== 0 ? self.colorScale(value) : "url(#stripe)";
 		    	    })
 			    .style("opacity", 1)
