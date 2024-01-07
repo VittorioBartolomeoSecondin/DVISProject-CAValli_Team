@@ -126,7 +126,7 @@ const Choropleth = {
 
     	updateMap: function(yearIndex) {
 		const self = this;
-	        let mouseOver = function(event, d, color) {
+	        function mouseOver(self, event, d, color) {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
@@ -175,7 +175,7 @@ const Choropleth = {
 			    .style("stroke-width", "0.75px")
 			    .on("mouseover", function(event, d) {
 				let value = d.properties.abundance[yearIndex];
-        			mouseOver(event, d, value !== 0 ? self.colorScale(value) : "grey");
+        			mouseOver(self, event, d, value !== 0 ? self.colorScale(value) : "grey");
     			    })
 			    .on("mouseleave", self.mouseLeave);
 		    })
