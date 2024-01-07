@@ -42,7 +42,7 @@ function updateLollipopChart(selectedValue) {
 	  svg.append("g")
 	    .call(d3.axisLeft(y));
 
-	  // Line for the first row
+	  // Horizontal line
 	  svg.append("line")
 	    .attr("x1", 0)
   	    .attr("x2", width)
@@ -51,13 +51,22 @@ function updateLollipopChart(selectedValue) {
 	    .attr("stroke", "red")
 	    .attr("stroke-dasharray", "5,5");
 
-	  // Text label for the first row
+	  // Text label horizontal line
 	  svg.append("text")
 	   .attr("x", width + 5) // Adjust the x-coordinate for positioning
 	   .attr("y", y(firstRow.abundance))
 	   .attr("dy", "0.35em")
 	   .style("font-size", "12px")
 	   .text("Europe")
+	   .attr("fill", "red");
+		
+	  // Text label horizontal line
+	  svg.append("text")
+	   .attr("x", width - 5) // Adjust the x-coordinate for positioning
+	   .attr("y", y(firstRow.abundance) + 5)
+	   .attr("dy", "0.35em")
+	   .style("font-size", "12px")
+	   .text('${firstRow.abundance}%')
 	   .attr("fill", "red");
 		
 	  // Lines
