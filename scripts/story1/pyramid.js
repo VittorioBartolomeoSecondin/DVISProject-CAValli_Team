@@ -56,12 +56,12 @@ const Butterfly = {
 	
 		var yAxisF = g => g
 			.attr("transform", `translate(${xF(0) + 50}, 0)`)
-			.call(d3.axisRight(y).tickSize(5).tickFormat(''))
+			.call(d3.axisRight(y).tickSize(-10).tickFormat(''))
 			.call(g => g.selectAll(".tick text").attr("fill", "white"));
 	
 		var yAxisM = g => g
 			.attr("transform", `translate(${xM(0) - 50}, 0)`)
-			.call(d3.axisRight(y).tickSize(5).tickFormat(''))
+			.call(d3.axisRight(y).tickSize(10).tickFormat(''))
 			.call(g => g.selectAll(".tick text").attr("fill", "white"));
 
 		// Append the rectangles without width initially
