@@ -145,7 +145,7 @@ function updateStackedPChart(selectedValue) {
   })
 }
 
-updateStackedPChart("data/story2/stacked/stacked2009_low.csv");
+updateStackedPChart("data/story2/stacked/stacked2009.csv");
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown").addEventListener("change", function () {
