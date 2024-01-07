@@ -80,10 +80,11 @@ const Barcharts = {
                      .attr("fill", colorDictionary[key])
                      .attr("stroke", "black") 
                      .attr("stroke-width", 1) 
+		     .style("opacity", 0.7)
                    .on("mouseover", function (event, d) {
           
                    // Change stroke width when hovering
-                   d3.select(this).attr("stroke-width", 2);
+                   d3.select(this).attr("stroke-width", 2).style("opacity", 1);
 
                    // Create the tooltip if it doesn't exist
 				        if (!tooltip) {
@@ -108,7 +109,7 @@ const Barcharts = {
                    .on("mouseout", function (d) {
           
                    // Returning to original stroke width when not hovering
-                   d3.select(this).attr("stroke-width", 1);
+                   d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
           
                    if (tooltip) {
 						tooltip.transition().duration(300)
