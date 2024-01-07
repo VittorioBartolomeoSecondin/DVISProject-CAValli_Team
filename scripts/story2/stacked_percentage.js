@@ -179,7 +179,7 @@ function updateStackedPChart(selectedValue) {
 	    .data(stackedData)
 	    .transition()
 	    .duration(1000)
-	      .attr("x", x(d[0]))
+	      .attr("x", d => x(d[0]))
 	      .attr("width", d => x(d[1]) - x(d[0]))
 	    .delay((d, i) => i * 100);
 	  createStackedPLegend();
