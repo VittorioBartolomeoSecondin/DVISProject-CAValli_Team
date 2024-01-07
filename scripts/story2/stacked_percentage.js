@@ -71,6 +71,7 @@ function updateStackedPChart(selectedValue) {
          .call(d3.axisBottom(x))
          .selectAll("text")
            .attr("transform", "translate(-10,0)rotate(-45)")
+	   .attr("fill", "black")
          .style("text-anchor", "end");
       
       // Add Y axis
@@ -81,7 +82,14 @@ function updateStackedPChart(selectedValue) {
       
       svg.append("g")
          .attr("class", "axis")
-         .call(d3.axisLeft(y).tickSizeOuter(0));
+         .call(d3.axisLeft(y).tickSizeOuter(0))
+	 .selectAll("text")
+		 .attr("fill", "black");
+
+      // Select lines of X,Y axis
+      svg.selectAll(".axis")
+         .selectAll("line")
+         .attr("stroke", "black");
     
       // Color palette = one color per subgroup
       const color = d3.scaleOrdinal()
