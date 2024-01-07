@@ -101,8 +101,8 @@ function LollipopChartMouseOver(event, d) {
     const exactAbundance = d.abundance;
     const countryName = d.name;
 	
-    tooltip.html(`Country: ${countryName} <br>
-		    Abundance: ${exactAbundance}%`)
+    tooltip.html(`Country: <b>${countryName}</b> <br>
+		    Percentage: ${exactAbundance}%`)
 	   .style("left", (event.pageX + 10) + "px")
 	   .style("top", (event.pageY - 20) + "px");
 }
