@@ -129,7 +129,13 @@ function updateStackedPChart(selectedValue) {
              .attr("y", d => y(d.data.Country))
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
+	     .attr("stroke", "black") 
+             .attr("stroke-width", 1) 
            .on("mouseover", function(event, d) {
+
+		// Change stroke width when hovering
+                d3.select(this).attr("stroke-width", 2);
+		   
 		if (!tooltip) {
 			tooltip = d3.select("body").append("div")
 				.attr("id", "stacked_percentage_tooltip")
@@ -137,9 +143,6 @@ function updateStackedPChart(selectedValue) {
 				.style("opacity", 0);
 		}
     
-	        // Change color when hovering
-	        d3.select(this).style("fill", "lightgreen");
-	              
 	        // Show the tooltip
 	        tooltip.transition()
 	                .duration(200)
@@ -158,9 +161,8 @@ function updateStackedPChart(selectedValue) {
            })
            .on("mouseout", function(event, d) {
     
-           	// Returning to original color when not hovering
-           	const subgroupColor = color(d3.select(this.parentNode).datum().key);
-           	d3.select(this).style("fill", subgroupColor);
+           	// Returning to original stroke width when not hovering
+                d3.select(this).attr("stroke-width", 1);
            
            	if (tooltip) {
 		tooltip.transition()
