@@ -41,6 +41,8 @@ function updateLollipopChart(selectedValue) {
 
 	  // Line for the first row
 	  svg.append("line")
+	    .attr("x1", 0)
+  	    .attr("x2", width)
 	    .attr("y1", y(firstRow.abundance))
 	    .attr("y2", y(firstRow.abundance))
 	    .attr("stroke", "red");
