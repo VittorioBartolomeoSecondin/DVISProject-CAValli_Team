@@ -1,3 +1,31 @@
+function createStackedPLegend() {
+    var legendContainer = d3.select("#stacked_percentage_1_legend");
+
+    // Data for legend items
+    var legendData = [
+        { level: 'Low', color: '#b51d14' },
+        { level: 'Medium', color: '#ddb310' },
+        { level: 'High', color: '#4053d3' }
+    ];
+
+    // Create legend items
+    var legendItems = legendContainer.selectAll(".legend-item")
+        .data(legendData)
+        .enter()
+        .append("div")
+        .attr("class", "legend-item");
+
+    // Add color boxes to legend
+    legendItems.append("div")
+        .attr("class", "legend-color-box")
+        .style("background-color", function (d) { return d.color; });
+
+    // Add country names to legend
+    legendItems.append("div")
+        .attr("class", "legend-text")
+        .text(function (d) { return d.level; });
+}
+
 function updateStackedPChart(selectedValue) {
 
   // Parse the Data
@@ -57,8 +85,8 @@ function updateStackedPChart(selectedValue) {
     
       // Color palette = one color per subgroup
       const color = d3.scaleOrdinal()
-                      .range(['#b51d14', '#ddb310', '#4053d3'])
-                      .domain(subgroups);
+	              .range(['#b51d14', '#ddb310', '#4053d3'])
+	              .domain(subgroups);
   
       // Normalize the data -> sum of each group must be 100!
       dataNormalized = []
@@ -142,7 +170,9 @@ function updateStackedPChart(selectedValue) {
 		tooltip = null; // Reset tooltip variable
     		}
            });
+	  createStackedPLegend();
   })
+	
 }
 
 updateStackedPChart("data/story2/stacked/stacked2009.csv");
