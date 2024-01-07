@@ -1,13 +1,3 @@
-function animateStackedBars(svg) {
-    svg.selectAll("rect")
-        .transition()
-        .duration(1000) // Set the duration of the animation in milliseconds
-        .attr("height", d => y.bandwidth() - y(0))
-        .attr("y", d => y(d.data.Country) + y(0))
-        .delay((d, i) => i * 50) // Add a delay between each bar for a smoother effect
-        .ease(d3.easeLinear); // Set the easing function for the animation
-}
-
 function createStackedPLegend() {
     var legendContainer = d3.select("#stacked_percentage_1_legend");
 
@@ -137,7 +127,7 @@ function updateStackedPChart(selectedValue) {
            .join("rect")
              .attr("x", d => x(d[0]))
              .attr("y", d => y(d.data.Country))
-             .attr("width", d => x(d[1]) - x(d[0]))
+             .attr("width", 0)
              .attr("height", y.bandwidth())
 	     .attr("stroke", "black") 
              .attr("stroke-width", 1)
@@ -182,8 +172,16 @@ function updateStackedPChart(selectedValue) {
 			.remove();
 		tooltip = null; // Reset tooltip variable
     		}
-           })
-	   .call(animateStackedBars);
+           });
+
+	  // Animation
+	svg.selectAll("rect")
+	    .data(stackedData)
+	    .transition()
+	    .duration(1000)
+	      .attr("x", x(d[0]))
+	      .attr("width", d => x(d[1]) - x(d[0]))
+	    .delay((d, i) => i * 100);
 	  createStackedPLegend();
   })
 	
