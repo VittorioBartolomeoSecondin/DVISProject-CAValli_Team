@@ -122,6 +122,9 @@ function drawLineChart(selectedCountries) {
 	        .attr("cy", function (d) { return yScale(+d.value); })
 	        .attr("r", 4)
 	        .style("fill", color)
+		.attr("stroke", "black") 
+                .attr("stroke-width", 1)
+		.style("opacity", 0.7)
 	        .on("mouseover", LineChartMouseOver)
 	        .on("mouseout", LineChartMouseOut);
 	});
@@ -131,6 +134,8 @@ function drawLineChart(selectedCountries) {
 }
 
 function LineChartMouseOver(event, d) {
+    d3.select(this).attr("stroke-width", 2).style("opacity", 1);
+	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
 		    .attr("class", "tooltip")
@@ -153,7 +158,9 @@ function LineChartMouseOver(event, d) {
 	   .style("top", (event.pageY - 20) + "px");
 }
 
-function LineChartMouseOut() {	
+function LineChartMouseOut() {
+    d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
+	
     if (tooltip) {
 		tooltip.transition()
 			.duration(500)
