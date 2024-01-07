@@ -130,7 +130,8 @@ function updateStackedPChart(selectedValue) {
              .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
 	     .attr("stroke", "black") 
-             .attr("stroke-width", 1) 
+             .attr("stroke-width", 1)
+	     .style("opacity", 0.7)
            .on("mouseover", function(event, d) {
 
 		// Change stroke width when hovering
