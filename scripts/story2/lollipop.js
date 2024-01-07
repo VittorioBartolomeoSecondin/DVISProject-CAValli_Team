@@ -1,3 +1,6 @@
+// Create a tooltip
+let tooltip = null;
+
 function updateLollipopChart(selectedValue) {
 	
 	// Set up the SVG dimensions
@@ -77,7 +80,41 @@ function updateLollipopChart(selectedValue) {
 	      .attr("r", "4")
 	      .style("fill", "#69b3a2")
 	      .attr("stroke", "black")
+	      .on("mouseover", LollipopChartMouseOver)
+	      .on("mouseout", LollipopChartMouseOut);
 	})
+}
+
+function LollipopChartMouseOver(event, d) {	
+    if (!tooltip) {
+	    tooltip = d3.select("body").append("div")
+		    .attr("class", "tooltip")
+		    .style("opacity", 0);
+    }
+	
+    // Show the tooltip
+    tooltip.transition()
+        .duration(200)
+        .style("opacity", 1);
+
+    // Tooltip content
+    const exactAbundance = d.abundance;
+    const countryName = d.name;
+	
+    tooltip.html(`Country: ${countryName} <br>
+		    Abundance: ${exactAbundance}%`)
+	   .style("left", (event.pageX + 10) + "px")
+	   .style("top", (event.pageY - 20) + "px");
+}
+
+function LineChartMouseOut() {
+    if (tooltip) {
+		tooltip.transition()
+			.duration(500)
+			.style("opacity", 0)
+			.remove();
+		tooltip = null; // Reset tooltip variable
+    }
 }
 
 updateLollipopChart("data/story2/lollipops/lollipop2009_EU.csv");
