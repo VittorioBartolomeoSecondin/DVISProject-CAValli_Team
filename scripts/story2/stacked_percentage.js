@@ -115,7 +115,7 @@ function updateStackedPChart(selectedValue) {
                             (filteredData);
     
       // Show the bars
-      svg.append("g")
+      /*svg.append("g")
          .selectAll("g")
          // Enter in the stack data = loop key per key = group per group
          .data(stackedData)
@@ -127,11 +127,30 @@ function updateStackedPChart(selectedValue) {
            .join("rect")
              .attr("x", d => x(d[0]))
              .attr("y", d => y(d.data.Country))
-             .attr("width", 0)
+             .attr("width", d => x(d[1]) - x(d[0]))
              .attr("height", y.bandwidth())
 	     .attr("stroke", "black") 
              .attr("stroke-width", 1)
-	     .style("opacity", 0.7)
+	     .style("opacity", 0.7)*/
+	  // Show the bars
+	svg.append("g")
+	    .selectAll("g")
+	    .data(stackedData)
+	    .join("g")
+	    .attr("fill", d => color(d.key))
+	    .selectAll("rect")
+	    .data(d => d)
+	    .join("rect")
+	    .attr("y", d => y(d.data.Country))
+	    .attr("height", y.bandwidth())
+	    .attr("x", 0) // Starting x position
+	    .attr("width", 0) // Starting width at 0 for animation
+	
+	    // Animation
+	    .transition()
+	    .duration(1000)
+	    .attr("width", d => x(d[1]) - x(d[0])) // Transition to the actual width
+	    .delay((d, i) => i * 100) // Add delay for staggered animation
            .on("mouseover", function(event, d) {
 
 		// Change stroke width when hovering
@@ -173,15 +192,7 @@ function updateStackedPChart(selectedValue) {
 		tooltip = null; // Reset tooltip variable
     		}
            });
-
-	  // Animation
-	svg.selectAll("rect")
-	    .data(stackedData)
-	    .transition()
-	    .duration(1000)
-	      .attr("x", d => x(d[0]))
-	      .attr("width", d => x(d[1]) - x(d[0]))
-	    .delay((d, i) => i * 100);
+	  
 	  createStackedPLegend();
   })
 	
