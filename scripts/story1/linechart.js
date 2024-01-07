@@ -122,15 +122,15 @@ function drawLineChart(selectedCountries) {
 	        .attr("cy", function (d) { return yScale(+d.value); })
 	        .attr("r", 4)
 	        .style("fill", color)
-	        .on("mouseover", handleMouseOver)
-	        .on("mouseout", handleMouseOut);
+	        .on("mouseover", LineChartMouseOver)
+	        .on("mouseout", LineChartMouseOut);
 	});
 	    
-	createLegend();
+	createLineChartLegend();
     });
 }
 
-function handleMouseOver(event, d) {
+function LineChartMouseOver(event, d) {
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
 		    .attr("class", "tooltip")
@@ -153,7 +153,7 @@ function handleMouseOver(event, d) {
 	   .style("top", (event.pageY - 20) + "px");
 }
 
-function handleMouseOut() {	
+function LineChartMouseOut() {	
     if (tooltip) {
 		tooltip.transition()
 			.duration(500)
@@ -163,7 +163,7 @@ function handleMouseOut() {
     }
 }
 
-function createLegend() {
+function createLineChartLegend() {
     var legendContainer = d3.select("#linechart_1_legend");
 
     // Create legend items
@@ -202,7 +202,7 @@ document.getElementById("states-checkbox-form").addEventListener("change", funct
     drawLineChart(selectedStates);
 });
 
-function handleCheckboxChange(checkbox) {
+function LineChartCheckboxChange(checkbox) {
     var checkedCheckboxes = document.querySelectorAll('.form-check-input:checked');
 
     if (checkedCheckboxes.length > 5) {
