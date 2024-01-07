@@ -123,10 +123,9 @@ const Choropleth = {
 	
 		this.updateMap(0);
     	},
-
     	updateMap: function(yearIndex) {
 		const self = this;
-	        function mouseOver(self, event, d, color) {
+	        let mouseOver = function(event, d) {
 					d3.selectAll(".Country")
 						.transition()
 						.duration(200)
@@ -144,21 +143,16 @@ const Choropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					self.tooltip.html(`<span style="color:${color}; text-shadow: -0.2px -0.2px 0 #000, 
-							  0.2px -0.2px 0 #000, -0.2px 0.2px 0 #000, 0.2px 0.2px 0 #000;"><b>${d.properties.name}</b></span>
-	 						  &#40;${d.properties.abbreviation}&#41; ${d.properties.abundance1000[yearIndex] != 0 ? ': ' + 
-							  d.properties.abundance1000[yearIndex] + 'k NEETs' : ''}`)
+					self.tooltip.html(d.properties.name + ' &#40;' + d.properties.abbreviation + '&#41;' + (d.properties.abundance1000[yearIndex] != 0 ? ': ' + d.properties.abundance1000[yearIndex] + 'k NEETs' : ''))
 					    .style("left", (event.pageX + 15) + "px")
 					    .style("top", (event.pageY - 28) + "px")
 					    .transition().duration(400)
 					    .style("opacity", 1);
 				  }
-
 		 fetch("data/story1/choropleth.json") 
 		    .then(response => response.json())
 		    .then(data => {
 		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
-
 			self.world.selectAll(".Country").remove(); // Remove previous paths (if any)
 		        self.world.selectAll(".states")
 		            .data(dataFeatures)
@@ -168,15 +162,12 @@ const Choropleth = {
 			    .style("stroke", "black")
 			    .attr("class", "Country")
 			    .style("fill", function(d) {
-			        let value = d.properties.abundance[yearIndex];
+			        var value = d.properties.abundance[yearIndex];
 			        return value !== 0 ? self.colorScale(value) : "url(#stripe)";
 		    	    })
 			    .style("opacity", 1)
 			    .style("stroke-width", "0.75px")
-			    .on("mouseover", function(event, d) {
-				let value = d.properties.abundance[yearIndex];
-        			mouseOver(self, event, d, value !== 0 ? self.colorScale(value) : "grey");
-    			    })
+			    .on("mouseover", mouseOver)
 			    .on("mouseleave", self.mouseLeave);
 		    })
 		    .catch(error => {
@@ -184,33 +175,27 @@ const Choropleth = {
 		    });
         }
 }
-
 // Slider interaction
 const sliders = document.querySelectorAll(".yearSlider");
-
 sliders.forEach((slider) => {
     slider.addEventListener("input", function () {
         const year = parseInt(this.value);
         const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
         selectedYear.innerHTML = year;
-
         // Call the update function for the map based on the selected year
         Choropleth.updateMap(year - 2009);
     });
-
     slider.addEventListener("change", function () {
 	const sliders = document.querySelectorAll('.yearSlider');
         const selectedYears = document.querySelectorAll('.selectedYear');
 	    
         const year = parseInt(this.value);
-
         sliders.forEach((s) => {
 		s.value = year;
         });
     	selectedYears.forEach((sy) => {
 		sy.innerHTML = year;
         });
-
         // Update the chart based on the selected year
         Barcharts.destroy();
         Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
