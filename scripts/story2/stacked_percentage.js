@@ -149,12 +149,28 @@ updateStackedPChart("data/story2/stacked/stacked2009_low.csv");
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown").addEventListener("change", function () {
+
+    const useVariantDataset = document.getElementById("variant-checkbox").checked;
+
+    let selectedValue;
+    if (useVariantDataset) {
+        selectedValue = "data/story2/stacked/stacked" + this.value + "_low.csv";
+    } else {
+        selectedValue = "data/story2/stacked/stacked" + this.value + ".csv";
+    }
+	
     d3.select("#stacked_percentage_svg").remove();
     d3.select("#stacked_percentage_tooltip").remove();
     // Remove elements with IDs from donut_1 to donut_9
     for (let i = 1; i <= 9; i++) 
 	d3.select("#donut_" + i + "_svg").remove();
 
-    updateStackedPChart("data/story2/stacked/stacked" + this.value + "_low.csv");
-    updateDonuts("data/story2/donuts/donut" + this.value + ".csv");
+    updateStackedPChart(selectedValue);
+    updateDonuts(selectedValue);
+});
+
+// Add an event listener to the checkbox
+document.getElementById("variant-checkbox").addEventListener("change", function () {
+    // Trigger a change in the year dropdown to reload the chart with the current dataset
+    document.getElementById("year-dropdown").dispatchEvent(new Event("change"));
 });
