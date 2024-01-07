@@ -32,7 +32,7 @@ function updateStackedPChart(selectedValue) {
   d3.csv(selectedValue).then( function(data) {
 
       // Set up the SVG dimensions
-      var margin = { top: 60, right: 70, bottom: 70, left: 100 },
+      var margin = { top: 30, right: 70, bottom: 70, left: 100 },
 	      width = 900 - margin.left - margin.right,
 	      height = 725 - margin.top - margin.bottom;
     
