@@ -152,8 +152,8 @@ function updateStackedPChart(selectedValue) {
             
            	// Customize the tooltip content
            	tooltip.html(`Education level: <span style="color:${color(subgroupName)}"><b>${subgroupName.charAt(0).toUpperCase() + 
-			subgroupName.slice(1)}</b></span><br>Percentage: ${subgroupValue.toFixed(1)}%<br>
-                        Absolute value: ${subgroupOriginalValue.toFixed(0)} k persons`)
+			subgroupName.slice(1)}</b></span><br>Percentage: ${+subgroupValue.toFixed(1)}%<br>
+                        Absolute value: ${+subgroupOriginalValue.toFixed(0)} k persons`)
 			.style("left", (event.pageX + 10) + "px")
                   	.style("top", (event.pageY - 20) + "px");
 		   
