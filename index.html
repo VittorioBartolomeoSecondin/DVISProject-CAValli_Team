@@ -323,9 +323,31 @@
 			</div>
 		  </div>
 		  <div class="row d-flex">
-			<div class="col-md-4 d-flex ftco-animate">
+		        <div id="dataset-selector" style="margin-left: 40px;">
+		            <input type="checkbox" id="variant-checkbox"> Order by Absolute Value
+		
+		            <label for="year-dropdown"  style="margin-left: 30px;">Select Year:</label>
+		            <select id="year-dropdown">
+		                <option value=2009>2009</option>
+		                <option value=2010>2010</option>
+		                <option value=2011>2011</option>
+		                <option value=2012>2012</option>
+		                <option value=2013>2013</option>
+		                <option value=2014>2014</option>
+		                <option value=2015>2015</option>
+		                <option value=2016>2016</option>
+		                <option value=2017>2017</option>
+		                <option value=2018>2018</option>
+		                <option value=2019>2019</option>
+		                <option value=2020>2020</option>
+		                <option value=2021>2021</option>
+		                <option value=2022>2022</option>
+		            </select>
+        		</div>
+			<div id="stacked_percentage_1">
+			<!--<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
-				<!--some chart here-->
+				
 				<div class="text mt-3 float-right d-block">
 				  <h3 class="heading">Title 1</h3>
 				  <div class="d-flex align-items-center mb-3 meta">
@@ -339,7 +361,7 @@
 			</div>
 			<div class="col-md-4 d-flex ftco-animate">
 			  <div class="blog-entry justify-content-end">
-			  <!--some chart here-->
+			 
 			  <div class="text mt-3 float-right d-block">
 				<h3 class="heading">Title 2</h3>
 				<div class="d-flex align-items-center mb-3 meta">
@@ -353,7 +375,7 @@
 		  </div>
 		  <div class="col-md-4 d-flex ftco-animate">
 			  <div class="blog-entry justify-content-end">
-			  <!--some chart here-->
+			  
 			  <div class="text mt-3 float-right d-block">
 				<h3 class="heading">Title 3</h3>
 				<div class="d-flex align-items-center mb-3 meta">
@@ -364,7 +386,7 @@
 				<p>Description 3</p>
 			  </div>
 			</div>
-		  </div>
+		  </div>-->
 		  </div>
 		</div>
 	  </section>
@@ -474,6 +496,8 @@
   <script src="scripts/story1/choropleth.js"></script>
   <script src="scripts/story1/linechart.js"></script>
   <script src="scripts/story1/pyramid.js"></script>
+  <script src="scripts/story2/donuts.js"></script>
+  <script src="scripts/story2/stacked_percentage.js"></script>
 	  
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
