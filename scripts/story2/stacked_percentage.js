@@ -1,3 +1,13 @@
+function animateStackedBars(svg) {
+    svg.selectAll("rect")
+        .transition()
+        .duration(1000) // Set the duration of the animation in milliseconds
+        .attr("height", d => y.bandwidth() - y(0))
+        .attr("y", d => y(d.data.Country) + y(0))
+        .delay((d, i) => i * 50) // Add a delay between each bar for a smoother effect
+        .ease(d3.easeLinear); // Set the easing function for the animation
+}
+
 function createStackedPLegend() {
     var legendContainer = d3.select("#stacked_percentage_1_legend");
 
@@ -172,7 +182,8 @@ function updateStackedPChart(selectedValue) {
 			.remove();
 		tooltip = null; // Reset tooltip variable
     		}
-           });
+           })
+	   .call(animateStackedBars);
 	  createStackedPLegend();
   })
 	
