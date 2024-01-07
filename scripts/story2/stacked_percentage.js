@@ -141,9 +141,9 @@ function updateStackedPChart(selectedValue) {
 	    .selectAll("rect")
 	    .data(d => d)
 	    .join("rect")
+	    .attr("x", d => x(d[0]))
 	    .attr("y", d => y(d.data.Country))
 	    .attr("height", y.bandwidth())
-	    .attr("x", 0) // Starting x position
 	    .attr("width", 0) // Starting width at 0 for animation
 	
 	    // Animation
