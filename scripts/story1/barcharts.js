@@ -56,6 +56,7 @@ const Barcharts = {
                    .call(d3.axisBottom(x).ticks(5))
                    .selectAll("text")
                      .attr("transform", "translate(-10,0)rotate(-45)")
+		     .attr("fill", "black")
                    .style("text-anchor", "end");
                 
                 // Add Y axis
@@ -66,7 +67,9 @@ const Barcharts = {
             
                 svg.append("g")
                    .attr("class", "axis")
-                   .call(d3.axisLeft(y));
+                   .call(d3.axisLeft(y))
+		   .selectAll("text")
+		   .attr("fill", "black");
             
                 // Show the bars
                 svg.selectAll("myRect")
