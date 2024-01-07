@@ -88,6 +88,7 @@ function updateLollipopChart(selectedValue) {
 function LollipopChartMouseOver(event, d) {	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
+		    .attr("id", "lollipop_tooltip")
 		    .attr("class", "tooltip")
 		    .style("opacity", 0);
     }
@@ -123,8 +124,9 @@ updateLollipopChart("data/story2/lollipops/lollipop2009_EU.csv");
 document.getElementById("year-dropdown-lollipop").addEventListener("change", function () {
 
     const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
-	
+
     d3.select("#lollipop_svg").remove();
+    d3.select("lollipop_tooltip").remove();
     
     updateLollipopChart(selectedValue);
 });
