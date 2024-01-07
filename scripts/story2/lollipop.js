@@ -12,7 +12,7 @@ const svg = d3.select("#lollipop")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 // Parse the Data
-d3.csv("data/story2/lollipop/lollipop2009.csv").then( function(data) {
+d3.csv("data/story2/lollipops/lollipop2009.csv").then( function(data) {
   
   // X axis
   const x = d3.scaleBand()
