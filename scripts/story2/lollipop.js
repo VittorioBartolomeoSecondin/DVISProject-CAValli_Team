@@ -16,6 +16,9 @@ function updateLollipopChart(selectedValue) {
 	
 	// Parse the Data
 	d3.csv(selectedValue).then( function(data) {
+
+	  // Treat the first row separately
+    	  const firstRow = data[0];
 	  
 	  // X axis
 	  const x = d3.scaleBand()
@@ -35,10 +38,18 @@ function updateLollipopChart(selectedValue) {
 	    .range([ height, 0]);
 	  svg.append("g")
 	    .call(d3.axisLeft(y));
+
+	  // Line for the first row
+	  svg.append("line")
+	     .attr("x1", x(firstRow.name))
+	     .attr("x2", x(firstRow.name))
+	     .attr("y1", y(firstRow.abundance))
+	     .attr("y2", y(firstRow.abundance))
+	     .attr("stroke", "red");
 	  
 	  // Lines
 	  svg.selectAll("myline")
-	    .data(data)
+	    .data(data.slice(1)) // Exclude the first row
 	    .enter()
 	    .append("line")
 	      .attr("x1", function(d) { return x(d.name); })
@@ -49,7 +60,7 @@ function updateLollipopChart(selectedValue) {
 	  
 	  // Circles
 	  svg.selectAll("mycircle")
-	    .data(data)
+	    .data(data.slice(1)) // Exclude the first row
 	    .join("circle")
 	      .attr("cx", function(d) { return x(d.name); })
 	      .attr("cy", function(d) { return y(d.abundance); })
