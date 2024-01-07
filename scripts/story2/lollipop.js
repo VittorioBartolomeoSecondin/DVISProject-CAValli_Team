@@ -77,7 +77,10 @@ document.getElementById("year-dropdown-lollipop").addEventListener("change", fun
 
     const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
 	
-    d3.select("#lollipop_svg").remove();*/
+    d3.select("#lollipop_svg").remove();
+    
+    updateLollipopChart(selectedValue);
+});*/
 function updateLollipopChart(selectedValue) {
 
   // Set up the SVG dimensions
@@ -152,7 +155,4 @@ document.getElementById("year-dropdown-lollipop").addEventListener("change", fun
   d3.select("#lollipop_svg").remove();
 
   updateLollipopChart(selectedValue);
-});
-
-    updateLollipopChart(selectedValue);
 });
