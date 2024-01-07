@@ -1,4 +1,4 @@
-function updateLollipopChart(selectedValue) {
+/*function updateLollipopChart(selectedValue) {
 	
 	// Set up the SVG dimensions
 	var margin = { top: 30, right: 70, bottom: 90, left: 100 },
@@ -77,7 +77,82 @@ document.getElementById("year-dropdown-lollipop").addEventListener("change", fun
 
     const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
 	
-    d3.select("#lollipop_svg").remove();
+    d3.select("#lollipop_svg").remove();*/
+function updateLollipopChart(selectedValue) {
+
+  // Set up the SVG dimensions
+  var margin = { top: 30, right: 70, bottom: 90, left: 100 },
+    width = 900 - margin.left - margin.right,
+    height = 625 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  const svg = d3.select("#lollipop")
+    .append("svg")
+    .attr("id", "lollipop_svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  // Parse the Data
+  d3.csv(selectedValue).then(function (data) {
+
+    // Treat the first row separately
+    const firstRow = data[0];
+
+    // X axis
+    const x = d3.scaleBand()
+      .range([0, width])
+      .domain(data.map(function (d) { return d.name; }))
+      .padding(1);
+
+    // Add Y axis
+    const y = d3.scaleLinear()
+      .domain([0, 100])
+      .range([height, 0]);
+
+    // Line for the first row
+    svg.append("line")
+      .attr("x1", x(firstRow.name) + x.bandwidth() / 2)
+      .attr("x2", x(firstRow.name) + x.bandwidth() / 2)
+      .attr("y1", y(firstRow.abundance))
+      .attr("y2", y(firstRow.abundance))
+      .attr("stroke", "red");
+
+    // Lines
+    svg.selectAll("myline")
+      .data(data)
+      .enter()
+      .append("line")
+      .attr("x1", function (d) { return x(d.name) + x.bandwidth() / 2; })
+      .attr("x2", function (d) { return x(d.name) + x.bandwidth() / 2; })
+      .attr("y1", function (d) { return y(d.abundance); })
+      .attr("y2", y(0))
+      .attr("stroke", "grey");
+
+    // Circles
+    svg.selectAll("mycircle")
+      .data(data)
+      .join("circle")
+      .attr("cx", function (d) { return x(d.name) + x.bandwidth() / 2; })
+      .attr("cy", function (d) { return y(d.abundance); })
+      .attr("r", "4")
+      .style("fill", "#69b3a2")
+      .attr("stroke", "black");
+  })
+}
+
+updateLollipopChart("data/story2/lollipops/lollipop2009_EU.csv");
+
+// Attach an event listener to the year dropdown
+document.getElementById("year-dropdown-lollipop").addEventListener("change", function () {
+
+  const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
+
+  d3.select("#lollipop_svg").remove();
+
+  updateLollipopChart(selectedValue);
+});
 
     updateLollipopChart(selectedValue);
 });
