@@ -114,24 +114,6 @@ function updateStackedPChart(selectedValue) {
                             .offset(d3.stackOffsetNone)
                             (filteredData);
     
-      // Show the bars
-      /*svg.append("g")
-         .selectAll("g")
-         // Enter in the stack data = loop key per key = group per group
-         .data(stackedData)
-         .join("g")
-           .attr("fill", d => color(d.key))
-           .selectAll("rect")
-           // enter a second time = loop subgroup per subgroup to add all rectangles
-           .data(d => d)
-           .join("rect")
-             .attr("x", d => x(d[0]))
-             .attr("y", d => y(d.data.Country))
-             .attr("width", d => x(d[1]) - x(d[0]))
-             .attr("height", y.bandwidth())
-	     .attr("stroke", "black") 
-             .attr("stroke-width", 1)
-	     .style("opacity", 0.7)*/
 	  // Show the bars
 	svg.append("g")
 	    .selectAll("g")
@@ -169,7 +151,9 @@ function updateStackedPChart(selectedValue) {
 	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`]; 
             
            	// Customize the tooltip content
-           	tooltip.html(`Education level: <span style="color:${color(subgroupName)}"><b>${subgroupName.charAt(0).toUpperCase() + subgroupName.slice(1)}</b></span><br>Percentage: ${subgroupValue}%<br>Absolute value: ${subgroupOriginalValue} k persons`)
+           	tooltip.html(`Education level: <span style="color:${color(subgroupName)}"><b>${subgroupName.charAt(0).toUpperCase() + 
+			subgroupName.slice(1)}</b></span><br>Percentage: ${subgroupValue.toFixed(1)}%<br>
+                        Absolute value: ${subgroupOriginalValue.toFixed(0)} k persons`)
 			.style("left", (event.pageX + 10) + "px")
                   	.style("top", (event.pageY - 20) + "px");
 		   
@@ -195,47 +179,6 @@ function updateStackedPChart(selectedValue) {
 	    .duration(1000)
 	    .attr("width", d => x(d[1]) - x(d[0])) // Transition to the actual width
 	    .delay((d, i) => i * 100); // Add delay for staggered animation
-           /*.on("mouseover", function(event, d) {
-
-		// Change stroke width when hovering
-                d3.select(this).attr("stroke-width", 2).style("opacity", 1);
-		   
-		if (!tooltip) {
-			tooltip = d3.select("body").append("div")
-				.attr("id", "stacked_percentage_tooltip")
-				.attr("class", "tooltip")
-				.style("opacity", 0);
-		}
-    
-	        // Show the tooltip
-	        tooltip.transition()
-	                .duration(200)
-	                .style("opacity", 1)
-            
-           	// Define the subgroup name and value to display them in the tooltip
-           	const subgroupName = d3.select(this.parentNode).datum().key;
-           	const subgroupValue = d.data[subgroupName];
-	   	const subgroupOriginalValue = d.data[`${subgroupName}_original`]; 
-            
-           	// Customize the tooltip content
-           	tooltip.html(`Education level: <span style="color:${color(subgroupName)}"><b>${subgroupName.charAt(0).toUpperCase() + subgroupName.slice(1)}</b></span><br>Percentage: ${subgroupValue}%<br>Absolute value: ${subgroupOriginalValue} k persons`)
-			.style("left", (event.pageX + 10) + "px")
-                  	.style("top", (event.pageY - 20) + "px");
-		   
-           })
-           .on("mouseout", function(event, d) {
-    
-           	// Returning to original stroke width when not hovering
-                d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
-           
-           	if (tooltip) {
-		tooltip.transition()
-			.duration(200)
-			.style("opacity", 0)
-			.remove();
-		tooltip = null; // Reset tooltip variable
-    		}
-           });*/
 	  
 	  createStackedPLegend();
   })
