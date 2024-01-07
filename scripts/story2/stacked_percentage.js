@@ -143,6 +143,9 @@ function updateStackedPChart(selectedValue) {
 	    .join("rect")
 	    .attr("x", d => x(d[0]))
 	    .attr("y", d => y(d.data.Country))
+	    .attr("stroke", "black") 
+            .attr("stroke-width", 1)
+	    .style("opacity", 0.7)
 	    .on("mouseover", function(event, d) {
 
 		// Change stroke width when hovering
