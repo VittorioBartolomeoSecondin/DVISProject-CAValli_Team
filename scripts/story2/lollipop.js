@@ -28,7 +28,7 @@ d3.csv("data/story2/lollipops/lollipop2009.csv").then( function(data) {
   
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, 13000])
+    .domain([0, 100])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
