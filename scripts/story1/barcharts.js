@@ -57,10 +57,7 @@ const Barcharts = {
                    .selectAll("text")
                      .attr("transform", "translate(-10,0)rotate(-45)")
 		     .attr("fill", "black")
-                   .style("text-anchor", "end")
-		   .end() // End of text selection
-		   .selectAll("line") // Select lines
-		     .attr("stroke", "black"); // Style the lines;
+                   .style("text-anchor", "end");
                 
                 // Add Y axis
                 let y = d3.scaleBand()
@@ -72,10 +69,12 @@ const Barcharts = {
                    .attr("class", "axis")
                    .call(d3.axisLeft(y))
 		   .selectAll("text")
-		     .attr("fill", "black")
-		   .end() // End of text selection
-		   .selectAll("line") // Select lines
-		     .attr("stroke", "black"); // Style the lines;
+		     .attr("fill", "black");
+
+		// Select lines of X,Y axis
+		svg.selectAll(".axis")
+		    .selectAll("line")
+		    .attr("stroke", "black");
             
                 // Show the bars
                 svg.selectAll("myRect")
