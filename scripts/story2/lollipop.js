@@ -59,12 +59,12 @@ function updateLollipopChart(selectedValue) {
 	})
 }
 
-updateLollipopChart("data/story2/lollipops/lollipop2009.csv");
+updateLollipopChart("data/story2/lollipops/lollipop2009_EU.csv");
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown-lollipop").addEventListener("change", function () {
 
-    const selectedValue = "data/story2/lollipops/lollipop" + this.value + ".csv";
+    const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
 	
     d3.select("#lollipop_svg").remove();
 
