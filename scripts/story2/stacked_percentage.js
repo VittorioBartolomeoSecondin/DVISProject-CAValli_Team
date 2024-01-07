@@ -166,7 +166,7 @@ document.getElementById("year-dropdown").addEventListener("change", function () 
 	d3.select("#donut_" + i + "_svg").remove();
 
     updateStackedPChart(selectedValue);
-    updateDonuts("data/story2/stacked/stacked" + this.value + ".csv");
+    updateDonuts("data/story2/donuts/donut" + this.value + ".csv");
 });
 
 // Add an event listener to the checkbox
