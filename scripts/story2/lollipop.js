@@ -62,11 +62,11 @@ function updateLollipopChart(selectedValue) {
 		
 	  // Text label horizontal line
 	  svg.append("text")
-	   .attr("x", width - 5) // Adjust the x-coordinate for positioning
+	   .attr("x", width - 15) // Adjust the x-coordinate for positioning
 	   .attr("y", y(firstRow.abundance) + 5)
 	   .attr("dy", "0.35em")
 	   .style("font-size", "12px")
-	   .text('${firstRow.abundance}%')
+	   .text(firstRow.abundance + "%")
 	   .attr("fill", "red");
 		
 	  // Lines
