@@ -107,7 +107,7 @@ function LollipopChartMouseOver(event, d) {
 	   .style("top", (event.pageY - 20) + "px");
 }
 
-function LineChartMouseOut() {
+function LollipopChartMouseOut() {
     if (tooltip) {
 		tooltip.transition()
 			.duration(500)
