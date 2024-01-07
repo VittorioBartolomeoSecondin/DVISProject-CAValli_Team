@@ -45,8 +45,18 @@ function updateLollipopChart(selectedValue) {
   	    .attr("x2", width)
 	    .attr("y1", y(firstRow.abundance))
 	    .attr("y2", y(firstRow.abundance))
-	    .attr("stroke", "red");
-	  
+	    .attr("stroke", "red")
+	    .attr("stroke-dasharray", "5,5");
+
+	  // Text label for the first row
+	  svg.append("text")
+	   .attr("x", width + 5) // Adjust the x-coordinate for positioning
+	   .attr("y", y(firstRow.abundance))
+	   .attr("dy", "0.35em")
+	   .style("font-size", "12px")
+	   .text("Europe")
+	   .attr("fill", "red");
+		
 	  // Lines
 	  svg.selectAll("myline")
 	    .data(data)
