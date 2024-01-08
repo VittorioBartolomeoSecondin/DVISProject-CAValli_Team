@@ -71,7 +71,7 @@ function updateLollipopChart(selectedValue) {
 	    .enter()
 	    .append("line")
 	      .attr("x1", 0)
-	      .attr("x2", x(d.abundance))
+	      .attr("x2", function(d) { return x(d.abundance); })
 	      .attr("y1", function(d) { return y(d.name); })
 	      .attr("y2", function(d) { return y(d.name); })
 	      .attr("stroke", "grey")
