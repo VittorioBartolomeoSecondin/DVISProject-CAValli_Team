@@ -13,7 +13,7 @@ const svg = d3.select("#streamgraph")
           `translate(${margin.left}, ${margin.top})`);
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered_wide.csv").then( function(data) {
+d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
 
   // List of groups = header of the csv files
   const keys = data.columns.slice(1)
