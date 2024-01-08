@@ -1,6 +1,3 @@
-// Create a tooltip
-let tooltip = null;
-
 function updateLollipopChart(selectedValue) {
 	
 	// Set up the SVG dimensions
