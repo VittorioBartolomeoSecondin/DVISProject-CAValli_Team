@@ -76,24 +76,30 @@ function updateLollipopChart(selectedValue) {
 			      .attr("y1", function(d) { return y(d.name); })
 			      .attr("y2", function(d) { return y(d.name); })
 			      .attr("stroke", "grey");
+		
+	// Circles
+	const circles = svg.selectAll("mycircle")
+			    .data(data)
+			    .join("circle")
+			      .attr("cx", function(d) { return x(d.abundance); })
+			      .attr("cy", function(d) { return y(d.name); })
+			      .attr("r", "0")
+			      .style("fill", "#69b3a2")
+			      .attr("stroke", "black")
+			      .attr("stroke-width", 1)
+			      .on("mouseover", LollipopChartMouseOver)
+			      .on("mouseout", LollipopChartMouseOut);
 
 	lines.transition()
 	    .duration(1000)
-	    .delay((d, i) => i * 100) 
-	    .attr("x2", function(d) { return x(d.abundance); });
-	  
-	  // Circles
-	  svg.selectAll("mycircle")
-	    .data(data)
-	    .join("circle")
-	      .attr("cx", function(d) { return x(d.abundance); })
-	      .attr("cy", function(d) { return y(d.name); })
-	      .attr("r", "8")
-	      .style("fill", "#69b3a2")
-	      .attr("stroke", "black")
-	      .attr("stroke-width", 1)
-	      .on("mouseover", LollipopChartMouseOver)
-	      .on("mouseout", LollipopChartMouseOut);
+	    .delay((d, i) => i * 100)
+	    .attr("x2", function(d) { return x(d.abundance); })
+	    .on("end", function() {
+	        // Transition for increasing circle radius
+	        circles.transition()
+	            .duration(500) // Duration for the circle animation
+	            .attr("r", "8"); // Adjust the final radius as needed
+	    });
 	})
 }
 
