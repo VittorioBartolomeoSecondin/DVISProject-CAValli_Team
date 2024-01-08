@@ -50,8 +50,9 @@ function updateLollipopChart(selectedValue) {
 	  // Text label vertical line
 	  svg.append("text")
 	   .attr("x", x(firstRow.abundance)) // Adjust the x-coordinate for positioning
-	   .attr("y", height + 5)
-	   .attr("dx", "0.35em")
+	   .attr("y", 0)
+	   .attr("dx", "-1.5em")
+	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
 	   .text("Europe")
 	   .attr("fill", "red");
