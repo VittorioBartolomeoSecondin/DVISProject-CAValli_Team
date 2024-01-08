@@ -37,10 +37,10 @@ function updateLollipopChart(selectedValue) {
 	  
 	  // Add Y axis
 	  const y = d3.scaleLinear()
-	    .domain([0, 100])
-	    .range([ height, 0]);
+	    .domain([0, 55])
+	    .range([height, 0]);
 	  svg.append("g")
-	    .call(d3.axisLeft(y));
+	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
 
 	  // Horizontal line
 	  svg.append("line")
