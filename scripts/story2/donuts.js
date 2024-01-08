@@ -98,3 +98,22 @@ function updateDonuts(selectedValue) {
 }
 
 updateDonuts("data/story2/donuts/donut2009.csv");
+
+function seeDonuts() {
+  // Retrieve the element with id "more_about_gender_gap" and add the hidden attribute
+  var moreAboutGenderGap = document.getElementById("more_about_gender_gap");
+  moreAboutGenderGap.setAttribute("hidden", true);
+
+  // Remove the hidden attribute from the element with id "less_about_gender_gap"
+  var lessAboutGenderGap = document.getElementById("less_about_gender_gap");
+  lessAboutGenderGap.removeAttribute("hidden");
+
+  // Remove the hidden attribute from the element with id "all_donuts"
+  var allDonuts = document.getElementById("all_donuts");
+  allDonuts.removeAttribute("hidden");
+
+  // Add attributes to the "all_donuts" element
+  allDonuts.setAttribute("data-aos", "fade-down");
+  allDonuts.setAttribute("data-aos-easing", "linear");
+  allDonuts.setAttribute("data-aos-duration", "1500");
+}
