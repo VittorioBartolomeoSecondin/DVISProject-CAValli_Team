@@ -45,12 +45,8 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
     .keys(keys)
     (data)
 
-  // Append the group for the streamgraph
-  const streamgraphGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`); // Adjusted the translation
-
   // Show the areas
-  streamgraphGroup.selectAll("mylayers")
+  svg.selectAll("mylayers")
     .data(stackedData)
     .join("path")
       .style("fill", function(d) { return color(d.key); })
