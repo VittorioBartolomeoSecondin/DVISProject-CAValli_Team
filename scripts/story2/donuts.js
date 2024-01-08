@@ -106,6 +106,7 @@ function seeorhideDonuts(id) {
 	
   if (id === "more_about_gender_gap") {
   	document.getElementById("less_about_gender_gap").removeAttribute("hidden");
+	AOS.refresh();
 	// Add attributes to the "all_donuts" element
 	allDonuts.removeAttribute("hidden");
 	allDonuts.setAttribute("data-aos", "fade-down");
@@ -120,9 +121,9 @@ function seeorhideDonuts(id) {
         allDonuts.removeAttribute("data-aos-duration");
   }
 
-  // Destroy and reinitialize AOS
+  /* Destroy and reinitialize AOS
   AOS.init({
     duration: 800,
     easing: 'slide'
-  });
+  });*/
 }
