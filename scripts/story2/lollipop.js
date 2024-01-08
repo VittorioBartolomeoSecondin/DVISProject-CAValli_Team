@@ -67,15 +67,20 @@ function updateLollipopChart(selectedValue) {
 	   .attr("fill", "red");
 		
 	  // Lines
-	  svg.selectAll("myline")
-	    .data(data)
-	    .enter()
-	    .append("line")
-	      .attr("x1", 0)
-	      .attr("x2", function(d) { return x(d.abundance); })
-	      .attr("y1", function(d) { return y(d.name); })
-	      .attr("y2", function(d) { return y(d.name); })
-	      .attr("stroke", "grey")
+	  const lines = svg.selectAll("myline")
+			    .data(data)
+			    .enter()
+			    .append("line")
+			      .attr("x1", 0)
+			      .attr("x2", 0)
+			      .attr("y1", function(d) { return y(d.name); })
+			      .attr("y2", function(d) { return y(d.name); })
+			      .attr("stroke", "grey");
+
+	lines.transition()
+	    .duration(1000)
+	    .delay((d, i) => i * 100) 
+	    .attr("x2", function(d) { return x(d.abundance); });
 	  
 	  // Circles
 	  svg.selectAll("mycircle")
