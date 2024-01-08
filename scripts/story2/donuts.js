@@ -106,24 +106,10 @@ function seeorhideDonuts(id) {
 	
   if (id === "more_about_gender_gap") {
   	document.getElementById("less_about_gender_gap").removeAttribute("hidden");
-	AOS.refresh();
-	// Add attributes to the "all_donuts" element
 	allDonuts.removeAttribute("hidden");
-	allDonuts.setAttribute("data-aos", "fade-down");
-	allDonuts.setAttribute("data-aos-easing", "linear");
-	allDonuts.setAttribute("data-aos-duration", "1500");
   }
   else if (id === "less_about_gender_gap") {
 	document.getElementById("more_about_gender_gap").removeAttribute("hidden");
 	allDonuts.setAttribute("hidden", "");
-	allDonuts.removeAttribute("data-aos");
-        allDonuts.removeAttribute("data-aos-easing");
-        allDonuts.removeAttribute("data-aos-duration");
   }
-
-  /* Destroy and reinitialize AOS
-  AOS.init({
-    duration: 800,
-    easing: 'slide'
-  });*/
 }
