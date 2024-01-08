@@ -1,6 +1,6 @@
 function updateDonuts(selectedValue) {
-	const width = 225,
-	    height = 225,
+	const width = 235,
+	    height = 235,
 	    margin = 20;
 	
 	const radius = Math.min(width, height) / 2 - margin;
