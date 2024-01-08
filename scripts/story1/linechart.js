@@ -134,7 +134,6 @@ function drawLineChart(selectedCountries) {
 	        .style("fill", color)
 		.attr("stroke", "black") 
                 .attr("stroke-width", 1)
-		.style("opacity", 0.7)
 	        .on("mouseover", LineChartMouseOver)
 	        .on("mouseout", LineChartMouseOut);
 	});
@@ -144,7 +143,7 @@ function drawLineChart(selectedCountries) {
 }
 
 function LineChartMouseOver(event, d) {
-    d3.select(this).attr("stroke-width", 2).style("opacity", 1);
+    d3.select(this).attr("stroke-width", 2);
 	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
@@ -156,22 +155,15 @@ function LineChartMouseOver(event, d) {
     tooltip.transition()
         .duration(200)
         .style("opacity", 1);
-
-    // Tooltip content
-    const exactAbundance = d.value;
-    const countryName = d.Country;
-
-    var color = lineColors.find(item => item.country === countryName).color;
 	
-    tooltip.html(`Country: <span style="color:${color}; text-shadow: -0.3px -0.3px 0 #000, 0.3px -0.3px 0 #000, 
-		    -0.3px 0.3px 0 #000, 0.3px 0.3px 0 #000;"><b>${countryName}</b></span><br>
-		    Abundance: ${exactAbundance}k NEETs`)
+    tooltip.html(`Country: <b>${d.Country}</b><br>
+		    Abundance: ${d.value}k NEETs`)
 	   .style("left", (event.pageX + 10) + "px")
 	   .style("top", (event.pageY - 20) + "px");
 }
 
 function LineChartMouseOut() {
-    d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
+    d3.select(this).attr("stroke-width", 1);
 	
     if (tooltip) {
 		tooltip.transition()
