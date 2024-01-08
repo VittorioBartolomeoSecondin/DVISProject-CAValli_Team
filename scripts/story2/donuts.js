@@ -120,5 +120,9 @@ function seeorhideDonuts(id) {
         allDonuts.removeAttribute("data-aos-duration");
   }
 
-  AOS.refresh();
+  // Destroy and reinitialize AOS
+  AOS.init({
+    duration: 800,
+    easing: 'slide'
+  });
 }
