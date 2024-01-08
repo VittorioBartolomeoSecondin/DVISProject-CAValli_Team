@@ -143,12 +143,9 @@ const Choropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					let value = d.properties.abundance[yearIndex];
-					let value1000 = d.properties.abundance1000[yearIndex]
-					let description = value1000 != 0 ? ': ' + value1000 + 'k NEETs' : '';
-					let color = value != 0 ? self.colorScale(value) : "grey";
-					self.tooltip.html(`<span style="color:${color}; text-shadow: -0.3px -0.3px 0 #000, 
-							  0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000, 0.3px 0.3px 0 #000;"><b>${d.properties.name}</b></span>
+					let value = d.properties.abundance1000[yearIndex]
+					let description = value != 0 ? ': ' + value + 'k NEETs' : '';
+					self.tooltip.html(`<b>${d.properties.name}</b>
 	 						  &#40;${d.properties.abbreviation}&#41; ${description}`)
 						    .style("left", (event.pageX + 15) + "px")
 						    .style("top", (event.pageY - 28) + "px")
