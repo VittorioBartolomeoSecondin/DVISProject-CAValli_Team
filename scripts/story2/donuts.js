@@ -74,6 +74,7 @@ function updateDonuts(selectedValue) {
 			        };
 			    })
 			    .attr('fill', d => color(d.data[0])) // Transition to the respective color
+			    .style("opacity", 0.7)
 			    .end() // After color transition ends, add text
 			    .then(() => {
 			        svg.selectAll('.text-label') // Select existing text elements
