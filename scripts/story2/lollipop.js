@@ -19,17 +19,6 @@ function updateLollipopChart(selectedValue) {
 
 	  // Treat the first row separately
     	  const firstRow = data.shift(); // Remove and save the first row
-	  
-	  // Y axis as the horizontal axis
-	const y = d3.scaleBand() // Use scaleBand for the y-axis
-	  .range([0, height]) // Use height for the range
-	  .domain(data.map(function(d) { return d.name; }))
-	  .padding(1);
-	svg.append("g")
-	  .call(d3.axisLeft(y))
-	  .selectAll("text")
-	    .attr("transform", "translate(-10,0)rotate(-45)")
-	    .style("text-anchor", "end");
 	
 	// X axis as the vertical axis
 	const x = d3.scaleLinear() // Use scaleLinear for the x-axis
@@ -38,6 +27,16 @@ function updateLollipopChart(selectedValue) {
 	svg.append("g")
 	  .attr("transform", `translate(0, ${height})`)
 	  .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")));
+
+	  // Y axis as the horizontal axis
+	const y = d3.scaleBand() // Use scaleBand for the y-axis
+	  .range([0, height]) // Use height for the range
+	  .domain(data.map(function(d) { return d.name; }))
+	  .padding(1);
+	svg.append("g")
+	  .call(d3.axisLeft(y))
+	  .selectAll("text")
+	    .style("text-anchor", "end");
 
 	  // Vertical line
 	  svg.append("line")
