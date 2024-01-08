@@ -1,7 +1,7 @@
 // Set up the SVG dimensions
-	var margin = { top: 30, right: 70, bottom: 90, left: 100 },
-		      width = 900 - margin.left - margin.right,
-		      height = 625 - margin.top - margin.bottom;
+var margin = { top: 30, right: 70, bottom: 90, left: 100 },
+		width = 900 - margin.left - margin.right,
+		height = 625 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#streamgraph")
