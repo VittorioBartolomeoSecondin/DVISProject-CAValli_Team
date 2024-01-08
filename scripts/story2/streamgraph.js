@@ -19,9 +19,10 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
   const keys = data.columns.slice(1)
 
   // Add X axis
-  const x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.year; }))
-    .range([ 0, width ]);
+  const x = d3.scaleBand()
+    .domain(data.map(d => d.Age))
+    .range([0, width])
+    .padding(0.1);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).ticks(5));
@@ -50,7 +51,7 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
     .join("path")
       .style("fill", function(d) { return color(d.key); })
       .attr("d", d3.area()
-        .x(function(d, i) { return x(d.data.year); })
+        .x(function(d, i) { return x(d.data.Age); })
         .y0(function(d) { return y(d[0]); })
         .y1(function(d) { return y(d[1]); })
     )
