@@ -37,7 +37,7 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
       .attr("x1", d => x(d.Age) + x.bandwidth() / 2)
       .attr("y1", height)
       .attr("x2", d => x(d.Age) + x.bandwidth() / 2)
-      .attr("y2", height + 10); // Adjust the length of the lines as needed
+      .attr("y2", height - 1000); // Adjust the length of the lines as needed
 
   // Add Y axis
   const y = d3.scaleLinear()
