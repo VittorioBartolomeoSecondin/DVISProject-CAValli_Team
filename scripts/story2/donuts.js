@@ -24,7 +24,7 @@ function updateDonuts(selectedValue) {
 	                    .attr("width", width)
 	                    .attr("height", height)
 	                  .append("g")
-	                    .attr("transform", `translate(${width/2-35},${height/2+30})`);
+	                    .attr("transform", `translate(${width/2-35},${height/2+50})`);
 	
 	                // Calculate the total sum of male and female values for each country
 	                countryData.total = +countryData.valueM + +countryData.valueF;
