@@ -89,12 +89,15 @@ function updateLollipopChart(selectedValue) {
 	      .attr("r", "8")
 	      .style("fill", "#69b3a2")
 	      .attr("stroke", "black")
+	      .attr("stroke-width", 1)
 	      .on("mouseover", LollipopChartMouseOver)
 	      .on("mouseout", LollipopChartMouseOut);
 	})
 }
 
-function LollipopChartMouseOver(event, d) {	
+function LollipopChartMouseOver(event, d) {
+    d3.select(this).attr("stroke-width", 2);
+	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
 		    .attr("id", "lollipop_tooltip")
@@ -118,6 +121,8 @@ function LollipopChartMouseOver(event, d) {
 }
 
 function LollipopChartMouseOut() {
+    d3.select(this).attr("stroke-width", 1);
+	
     if (tooltip) {
 		tooltip.transition()
 			.duration(500)
