@@ -184,7 +184,7 @@ function updateStackedPChart(selectedValue) {
 	
 	    // Animation
 	    .transition()
-	    .duration(1000)
+	    .duration(1500)
 	    .attr("width", d => x(d[1]) - x(d[0])) // Transition to the actual width
 	    .delay((d, i) => i * 100); // Add delay for staggered animation
 	  
