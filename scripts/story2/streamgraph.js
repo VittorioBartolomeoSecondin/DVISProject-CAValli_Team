@@ -24,7 +24,8 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
     .range([0, width])
     .padding(0.1);
   svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
+    //.attr("transform", `translate(0, ${height})`)
+    .attr("transform", `translate(${x.bandwidth() / 2}, ${height})`)
     .call(d3.axisBottom(x).ticks(5));
 
   // Add Y axis
