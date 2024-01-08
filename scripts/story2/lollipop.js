@@ -86,7 +86,7 @@ function updateLollipopChart(selectedValue) {
 	    .join("circle")
 	      .attr("cx", function(d) { return x(d.name); })
 	      .attr("cy", function(d) { return y(d.abundance); })
-	      .attr("r", "4")
+	      .attr("r", "8")
 	      .style("fill", "#69b3a2")
 	      .attr("stroke", "black")
 	      .on("mouseover", LollipopChartMouseOver)
