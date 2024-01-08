@@ -41,7 +41,7 @@ d3.csv("data/story2/streamgraph/streamgraph_final_vero.csv").then( function(data
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([-600000, 600000])
+    .domain([-5000000, 5000000])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
