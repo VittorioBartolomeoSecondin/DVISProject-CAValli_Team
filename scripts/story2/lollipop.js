@@ -3,7 +3,7 @@ function updateLollipopChart(selectedValue) {
 	// Set up the SVG dimensions
 	var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		      width = 750 - margin.left - margin.right,
-		      height = 625 - margin.top - margin.bottom;
+		      height = 650 - margin.top - margin.bottom;
 	
 	// append the svg object to the body of the page
 	const svg = d3.select("#lollipop")
