@@ -100,8 +100,7 @@ const Barcharts = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					tooltip.html(`<span style="color:${colorDictionary[key]}; text-shadow: -0.3px -0.3px 0 #000, 
-     							0.3px -0.3px 0 #000, -0.3px 0.3px 0 #000, 0.3px 0.3px 0 #000;"><b>${d.name}</b></span>:
+					tooltip.html(`<b>${d.name}</b>:
 	    						${Math.floor(d.abundance)}k NEETs`)
 					    .style("left", (event.pageX + 15) + "px")
 					    .style("top", (event.pageY - 28) + "px")
