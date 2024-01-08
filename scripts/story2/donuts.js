@@ -114,7 +114,7 @@ function seeorhideDonuts(id) {
   }
   else if (id === "less_about_gender_gap") {
 	document.getElementById("more_about_gender_gap").removeAttribute("hidden");
-	allDonuts.setAttribute("hidden");
+	allDonuts.setAttribute("hidden", "");
 	allDonuts.removeAttribute("data-aos");
         allDonuts.removeAttribute("data-aos-easing");
         allDonuts.removeAttribute("data-aos-duration");
