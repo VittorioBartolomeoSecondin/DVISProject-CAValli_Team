@@ -8660,25 +8660,25 @@ h1, h2, h3, h4, h5,
     font-weight: 600;
     color: #E57F50; }
 
-.navi {
+#navi {
   top: 180px;
   position: -webkit-sticky;
   position: sticky;
   margin: 0; }
-  .navi ul {
+  #navi ul {
     margin: 0;
     padding: 0; }
-  .navi li {
+  #navi li {
     font-weight: 700;
     list-style: none;
     margin-bottom: 10px; }
-    .navi li a {
+    #navi li a {
       color: #000000; }
-      .navi li a.current {
+      #navi li a.current {
         color: #E57F50;
         margin-left: 20px;
         position: relative; }
-        .navi li a.current:after {
+        #navi li a.current:after {
           position: absolute;
           top: 50%;
           left: -24px;
