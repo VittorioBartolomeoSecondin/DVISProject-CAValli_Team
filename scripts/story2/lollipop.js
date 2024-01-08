@@ -61,7 +61,7 @@ function updateLollipopChart(selectedValue) {
 	  svg.append("text")
 	   .attr("x", x(firstRow.abundance) - 12)
 	   .attr("y", height - 40)
-	   .attr("dx", "0.35em")
+	   .attr("dx", "1.5em")
 	   .style("font-size", "12px")
 	   .text(firstRow.abundance + "%")
 	   .attr("fill", "red");
