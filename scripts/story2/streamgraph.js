@@ -21,8 +21,8 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
   // Add X axis
   const x = d3.scaleBand()
     .domain(data.map(d => d.Age))
-    .range([0, width]);
-    //.padding(0.1);
+    .range([0, width])
+    .padding(1);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).ticks(5));
@@ -42,7 +42,7 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
   // Add Y axis
   const y = d3.scaleLinear()
     .domain([-600000, 600000])
-    .range([ height, 0 ]);
+    .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
