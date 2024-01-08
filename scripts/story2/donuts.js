@@ -1,6 +1,6 @@
 function updateDonuts(selectedValue) {
-	const width = 235,
-	    height = 235,
+	const width = 237,
+	    height = 237,
 	    margin = 20;
 	
 	const radius = Math.min(width, height) / 2 - margin;
@@ -24,7 +24,7 @@ function updateDonuts(selectedValue) {
 	                    .attr("width", width)
 	                    .attr("height", height)
 	                  .append("g")
-	                    .attr("transform", `translate(${width/2-40},${height/2+20})`);
+	                    .attr("transform", `translate(${width/2-35},${height/2+20})`);
 	
 	                // Calculate the total sum of male and female values for each country
 	                countryData.total = +countryData.valueM + +countryData.valueF;
