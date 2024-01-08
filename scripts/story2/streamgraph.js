@@ -37,7 +37,7 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
   // color palette
   const color = d3.scaleOrdinal()
     .domain(keys)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+    .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#888888', '#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854'])
 
   //stack the data?
   const stackedData = d3.stack()
