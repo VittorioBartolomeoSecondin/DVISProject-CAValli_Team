@@ -24,13 +24,12 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
     .range([0, width])
     .padding(0.1);
   svg.append("g")
-    //.attr("transform", `translate(0, ${height})`)
-    .attr("transform", `translate(${x.bandwidth() / 2}, ${height})`)
+    .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).ticks(5));
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([-1000000, 1000000])
+    .domain([-600000, 600000])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -46,8 +45,12 @@ d3.csv("data/story2/streamgraph/prova.csv").then( function(data) {
     .keys(keys)
     (data)
 
+  // Append the group for the streamgraph
+  const streamgraphGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`); // Adjusted the translation
+
   // Show the areas
-  svg.selectAll("mylayers")
+  streamgraphGroup.selectAll("mylayers")
     .data(stackedData)
     .join("path")
       .style("fill", function(d) { return color(d.key); })
