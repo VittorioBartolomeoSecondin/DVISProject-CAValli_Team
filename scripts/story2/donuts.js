@@ -119,4 +119,6 @@ function seeorhideDonuts(id) {
         allDonuts.removeAttribute("data-aos-easing");
         allDonuts.removeAttribute("data-aos-duration");
   }
+
+  AOS.refresh();
 }
