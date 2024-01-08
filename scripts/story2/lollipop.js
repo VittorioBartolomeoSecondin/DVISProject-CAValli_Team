@@ -22,7 +22,7 @@ function updateLollipopChart(selectedValue) {
 	  
 	  // Y axis
 	  const y = d3.scaleBand()
-	    .range([height,  0])
+	    .range([0,  height])
 	    .domain(data.map(function(d) { return d.name; }))
 	    .padding(1);
 	  svg.append("g")
