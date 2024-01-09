@@ -61,7 +61,7 @@ function updateLollipopChart(selectedValue) {
 	  svg.append("text")
 	   .attr("x", x(firstRow.abundance)) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-1.5em")
+	   .attr("dx", "-4.0em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
 	   .text("European Union")
