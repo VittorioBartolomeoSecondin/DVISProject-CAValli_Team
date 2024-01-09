@@ -107,7 +107,7 @@ function updateLollipopChart(selectedValue) {
 	    .on("end", function() {
 	        // Transition for increasing circle radius
 	        circles.transition()
-	            .duration(500) // Duration for the circle animation
+	            .duration(1000) // Duration for the circle animation
 	            .attr("r", "4"); // Adjust the final radius as needed
 	    });
 	})
