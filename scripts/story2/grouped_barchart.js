@@ -1,3 +1,6 @@
+// Create the tooltip element
+let tooltip = null;
+
 // Set up the SVG dimensions
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		width = 900 - margin.left - margin.right,
@@ -65,5 +68,31 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
       .attr("width", xSubgroup.bandwidth())
       .attr("height", d => height - y(d.value))
       .attr("fill", d => color(d.key));
-
+      .on("mouseover", function(event, d) {   
+	if (!tooltip) {
+		tooltip = d3.select("body").append("div")
+			.attr("id", "grouped_barchart_tooltip")
+			.attr("class", "tooltip")
+			.style("opacity", 0);
+	}
+	
+	// Show the tooltip
+	tooltip.transition()
+		.duration(200)
+		.style("opacity", 1)
+	
+	// Customize the tooltip content
+	tooltip.html(`To fill`)
+		.style("left", (event.pageX + 10) + "px")
+		.style("top", (event.pageY - 20) + "px");
+    })
+    .on("mouseout", function(event, d) {
+      if (tooltip) {
+	      tooltip.transition()
+		      .duration(200)
+		      .style("opacity", 0)
+		      .remove();
+	      tooltip = null; // Reset tooltip variable
+      }
+    })
 })
