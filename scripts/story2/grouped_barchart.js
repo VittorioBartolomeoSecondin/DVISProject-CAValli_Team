@@ -75,14 +75,27 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 			.attr("class", "tooltip")
 			.style("opacity", 0);
 	}
-	
+	      
+	// Determine the content based on the subgroup
+	let tooltipContent = "";
+	switch(d.key) {
+		case "Primary education":
+			tooltipContent = "Primary education";
+			break;
+		case "Lower secondary education":
+			tooltipContent = 'Lower secondary education:<br>` + 
+					'Column 7: ${d3.format(",")(d3.select(this.parentNode).datum().Lower secondary general education)}';
+			break;
+		default:
+			tooltipContent = "Default";
+	      
 	// Show the tooltip
 	tooltip.transition()
 		.duration(200)
 		.style("opacity", 1)
 	
-	// Customize the tooltip content
-	tooltip.html(`To fill`)
+	// Set the customized tooltip content
+	tooltip.html(tooltipContent)
 		.style("left", (event.pageX + 10) + "px")
 		.style("top", (event.pageY - 20) + "px");
     })
