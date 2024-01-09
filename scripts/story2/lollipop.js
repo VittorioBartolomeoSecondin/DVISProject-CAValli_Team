@@ -25,6 +25,7 @@ function updateLollipopChart(selectedValue) {
 	  .domain([0, 55]) // Use 0 to 55 for the domain
 	  .range([0, width]); // Use width for the range
 	svg.append("g")
+	  .attr("class", "axis")
 	  .attr("transform", `translate(0, ${height})`)
 	  .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
 	  .selectAll("text")
@@ -36,10 +37,16 @@ function updateLollipopChart(selectedValue) {
 	  .domain(data.map(function(d) { return d.name; }))
 	  .padding(1);
 	svg.append("g")
+	  .attr("class", "axis")
 	  .call(d3.axisLeft(y))
 	  .selectAll("text")
 	    .attr("fill", "black")
 	    .style("text-anchor", "end");
+
+	  // Select lines of X,Y axis
+        svg.selectAll(".axis")
+	 .selectAll("line")
+	 .attr("stroke", "black");
 
 	  // Vertical line
 	  svg.append("line")
