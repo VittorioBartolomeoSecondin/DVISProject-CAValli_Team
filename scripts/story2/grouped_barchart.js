@@ -12,7 +12,7 @@ const svg = d3.select("#grouped_barchart")
     .attr("transform",`translate(${margin.left},${margin.top})`);
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv").then( function(data) {
+d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function(data) {
 
   // List of subgroups = header of the csv files = soil condition here
   const subgroups = data.columns.slice(1)
