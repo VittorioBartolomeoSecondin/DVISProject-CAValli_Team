@@ -63,7 +63,7 @@ d3.csv("data/story2/sankey/sankey_EU.csv").then(function(data) {
     .enter().append("path")
       .attr("id", function(d) {return d.source.name + "->" + d.target.name;})
       .attr("class", "link")
-      .attr("d", d3.sankeyLinkVertical())
+      .attr("d", d3.sankeyLinkHorizontal())
       .attr("stroke-width", function(d) {
          return d.width;
       });
