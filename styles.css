@@ -146,6 +146,7 @@
 .white-popup {
   position: relative;
   background: #FFF;
+  opacity: 0.3;
   padding: 25px;
   width: 725px;
   margin: 0 auto; 
