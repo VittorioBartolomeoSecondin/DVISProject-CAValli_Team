@@ -81,7 +81,13 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 			break;
 		case "Lower secondary education":
 			tooltipContent = `Lower secondary education:<br>` + 
-					`Column 7: ${d3.format(",")(d3.select(this.parentNode).datum()["Lower secondary general education"])}`;
+					`Lower secondary general education: ${d3.format(",")(d3.select(this.parentNode).datum()["Lower secondary general education"])}<br>` + 
+					`Lower secondary vocational education: ${d3.format(",")(d3.select(this.parentNode).datum()["Lower secondary vocational education"])}`;
+			break;
+   		case "Upper secondary education":
+			tooltipContent = `Upper secondary education:<br>` + 
+					`Upper secondary general education: ${d3.format(",")(d3.select(this.parentNode).datum()["Upper secondary general education"])}<br>` + 
+					`Upper secondary vocational education: ${d3.format(",")(d3.select(this.parentNode).datum()["Upper secondary vocational education"])}`;
 			break;
 		default:
 			tooltipContent = "Default";
