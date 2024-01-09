@@ -14,11 +14,11 @@ const svg = d3.select("#grouped_barchart")
 // Parse the Data
 d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function(data) {
 
-  // List of subgroups = header of the csv files = soil condition here
+  // Extract the headers excluding the first column
   const subgroups = data.columns.slice(1)
 
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  const groups = data.map(d => d.group)
+  // Extract the group labels from the 'age' column
+  const groups = data.map(d => d.age);
 
   console.log(groups)
 
@@ -33,7 +33,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, 40])
+    .domain([0, d3.max(data, d => d3.max(subgroups, key => +d[key]))])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -47,7 +47,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
   // color palette = one color per subgroup
   const color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#e41a1c','#377eb8','#4daf4a'])
+    .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00']);
 
   // Show the bars
   svg.append("g")
@@ -57,7 +57,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
     .join("g")
       .attr("transform", d => `translate(${x(d.group)}, 0)`)
     .selectAll("rect")
-    .data(function(d) { return subgroups.map(function(key) { return {key: key, value: d[key]}; }); })
+    .data(function(d) { return subgroups.map(function(key) { return {key: key, value: +d[key]}; }); })
     .join("rect")
       .attr("x", d => xSubgroup(d.key))
       .attr("y", d => y(d.value))
