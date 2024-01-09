@@ -26,7 +26,9 @@ function updateLollipopChart(selectedValue) {
 	  .range([0, width]); // Use width for the range
 	svg.append("g")
 	  .attr("transform", `translate(0, ${height})`)
-	  .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")));
+	  .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
+	  .selectAll("text")
+	   .attr("fill", "black");
 
 	  // Y axis as the horizontal axis
 	const y = d3.scaleBand() // Use scaleBand for the y-axis
@@ -36,6 +38,7 @@ function updateLollipopChart(selectedValue) {
 	svg.append("g")
 	  .call(d3.axisLeft(y))
 	  .selectAll("text")
+	    .attr("fill", "black")
 	    .style("text-anchor", "end");
 
 	  // Vertical line
