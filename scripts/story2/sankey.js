@@ -85,7 +85,8 @@ d3.csv("data/story2/sankey/sankey_EU.csv").then(function(data) {
   node.append("rect")
       .attr("x", function(d) { return d.x0; })
       .attr("y", function(d) { return d.y0; })
-      .style("stroke", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
+      .style("fill", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
+      //.style("stroke", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
       .style("stroke-width", 2)
       .attr("height", function(d) { return d.y1 - d.y0; })
       .attr("width", sankey.nodeWidth());
