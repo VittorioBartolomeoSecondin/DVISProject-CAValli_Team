@@ -20,7 +20,8 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
   // Extract the group labels from the 'age' column
   const groups = data.map(d => d.age);
 
-  console.log(groups)
+  console.log(groups);
+  console.log(subgroups)
 
   // Add X axis
   const x = d3.scaleBand()
