@@ -2,10 +2,6 @@
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		width = 750 - margin.left - margin.right,
 		height = 650 - margin.top - margin.bottom;  
-
-// format variables
-var formatNumber = d3.format(",.0f"), // zero decimal places
-    format = function(d) { return formatNumber(d); },
   
 // append the svg object to the body of the page
 var svg = d3.select("#sankey")
