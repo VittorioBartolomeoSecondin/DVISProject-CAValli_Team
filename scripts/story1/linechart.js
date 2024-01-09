@@ -130,7 +130,7 @@ function drawLineChart(selectedCountries) {
 	        .attr("class", "circles")
 	        .attr("cx", function (d) { return xScale(+d.year); })
 	        .attr("cy", function (d) { return yScale(+d.value); })
-	        .attr("r", 8)
+	        .attr("r", 6)
 	        .style("fill", color)
 		.attr("stroke", "black") 
                 .attr("stroke-width", 1)
