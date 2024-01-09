@@ -67,7 +67,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
       .attr("y", d => y(d.value))
       .attr("width", xSubgroup.bandwidth())
       .attr("height", d => height - y(d.value))
-      .attr("fill", d => color(d.key));
+      .attr("fill", d => color(d.key))
       .on("mouseover", function(event, d) {   
 	if (!tooltip) {
 		tooltip = d3.select("body").append("div")
@@ -94,5 +94,5 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 		      .remove();
 	      tooltip = null; // Reset tooltip variable
       }
-    })
+    });
 })
