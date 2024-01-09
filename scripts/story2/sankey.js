@@ -9,7 +9,7 @@ var formatNumber = d3.format(",.0f"), // zero decimal places
     color = d3.scaleOrdinal(d3.schemeCategory10);
   
 // append the svg object to the body of the page
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#sankey").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
