@@ -88,6 +88,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 			break;
 		default:
 			tooltipContent = "Default";
+	}
 	      
 	// Show the tooltip
 	tooltip.transition()
