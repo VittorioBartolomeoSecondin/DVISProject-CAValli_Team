@@ -64,7 +64,7 @@ function updateLollipopChart(selectedValue) {
 	   .attr("dx", "-1.5em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .text("Europe")
+	   .text("European Union")
 	   .attr("fill", "red");
 		
 	  // Text label vertical line
