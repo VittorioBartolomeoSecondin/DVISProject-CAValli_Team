@@ -56,7 +56,7 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
     // Enter in data = loop group per group
     .data(data)
     .join("g")
-      .attr("transform", d => `translate(${x(d.group)}, 0)`)
+      .attr("transform", d => `translate(${x(d.age)}, 0)`)
     .selectAll("rect")
     .data(function(d) { return subgroups.map(function(key) { return {key: key, value: +d[key]}; }); })
     .join("rect")
