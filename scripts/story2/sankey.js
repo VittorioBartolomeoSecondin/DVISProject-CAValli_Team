@@ -6,7 +6,6 @@ var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 // format variables
 var formatNumber = d3.format(",.0f"), // zero decimal places
     format = function(d) { return formatNumber(d); },
-    color = d3.scaleOrdinal(d3.schemeCategory10);
   
 // append the svg object to the body of the page
 var svg = d3.select("#sankey")
@@ -23,7 +22,6 @@ var sankey = d3.sankey()
     .nodeWidth(36)
     .nodePadding(40)
     .size([width, height]);
-    //.nodeSort(null); // creates sankey nodes as ordered in the data 
 
 var path = sankey.links();
 
@@ -69,7 +67,7 @@ d3.csv("data/story2/sankey/sankey_EU.csv").then(function(data) {
     .enter().append("path")
       .attr("id", function(d) {return d.source.name + "->" + d.target.name;})
       .attr("class", "link")
-      .attr("d", d3.sankeyLinkHorizontal())
+      .attr("d", d3.sankeyLinkVertical())
       .attr("stroke-width", function(d) {
          return d.width;
       });
@@ -78,7 +76,7 @@ d3.csv("data/story2/sankey/sankey_EU.csv").then(function(data) {
   link.append("title")
         .text(function(d) {
     		    return d.source.name + " → " + 
-                d.target.name + "\n" + d.value + " trees"; });
+                d.target.name + "\n" + d.value + "%"; });
 
   // add in the nodes
   var node = svg.append("g").selectAll(".node")
@@ -102,7 +100,7 @@ d3.csv("data/story2/sankey/sankey_EU.csv").then(function(data) {
   // add the title for the nodes
   node.append("title")
       .text(function(d) { 
-          return d.name + "\n" + d.value + " trees"; });
+          return d.name + "\n" + d.value + "%"; });
 
   // add in the text for the nodes
   node.append("text")
