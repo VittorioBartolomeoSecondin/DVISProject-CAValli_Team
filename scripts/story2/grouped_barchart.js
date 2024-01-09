@@ -89,6 +89,18 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 					`Upper secondary general education: ${d3.format(",")(d3.select(this.parentNode).datum()["Upper secondary general education"])}<br>` + 
 					`Upper secondary vocational education: ${d3.format(",")(d3.select(this.parentNode).datum()["Upper secondary vocational education"])}`;
 			break;
+		case "Post-secondary non-tertiary education":
+			tooltipContent = `Post-secondary non-tertiary education:<br>` + 
+					`Post-secondary non-tertiary general education: ${d3.format(",")(d3.select(this.parentNode).datum()["Post-secondary non-tertiary general education"])}<br>` + 
+					`Post-secondary non-tertiary vocational education: ${d3.format(",")(d3.select(this.parentNode).datum()["Post-secondary non-tertiary vocational education"])}`;
+			break;
+		case "Tertiary education":
+			tooltipContent = `Tertiary education:<br>` + 
+					`Short-cycle tertiary education: ${d3.format(",")(d3.select(this.parentNode).datum()["Short-cycle tertiary education"])}<br>` + 
+					`Bachelor’s or equivalent level: ${d3.format(",")(d3.select(this.parentNode).datum()["Bachelor’s or equivalent level"])}<br>`+ 
+					`Master’s or equivalent level: ${d3.format(",")(d3.select(this.parentNode).datum()["Master’s or equivalent level"])}<br>`+ 
+					`Doctoral or equivalent level: ${d3.format(",")(d3.select(this.parentNode).datum()["Doctoral or equivalent level"])}`;
+			break;
 		default:
 			tooltipContent = "Default";
 	}
