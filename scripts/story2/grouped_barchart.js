@@ -23,9 +23,6 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
   // Extract the group labels from the 'age' column
   const groups = data.map(d => d.age);
 
-  console.log(groups);
-  console.log(subgroups)
-
   // Add X axis
   const x = d3.scaleBand()
       .domain(groups)
@@ -83,8 +80,8 @@ d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function
 			tooltipContent = "Primary education";
 			break;
 		case "Lower secondary education":
-			tooltipContent = 'Lower secondary education:<br>` + 
-					'Column 7: ${d3.format(",")(d3.select(this.parentNode).datum().Lower secondary general education)}';
+			tooltipContent = `Lower secondary education:<br>` + 
+					`Column 7: ${d3.format(",")(d3.select(this.parentNode).datum()["Lower secondary general education"])}`;
 			break;
 		default:
 			tooltipContent = "Default";
