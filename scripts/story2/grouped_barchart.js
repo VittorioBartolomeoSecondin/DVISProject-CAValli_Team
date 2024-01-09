@@ -15,7 +15,7 @@ const svg = d3.select("#grouped_barchart")
 d3.csv("data/story2/grouped_barcharts/grouped_barchart_allK.csv").then( function(data) {
 
   // Extract the headers excluding the first column
-  const subgroups = data.columns.slice(1)
+  const subgroups = data.columns.slice(1, 6)
 
   // Extract the group labels from the 'age' column
   const groups = data.map(d => d.age);
