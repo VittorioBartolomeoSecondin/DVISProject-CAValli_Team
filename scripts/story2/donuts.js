@@ -9,18 +9,16 @@ function updateDonuts(selectedValue) {
 	    // Group the data by 'level'
 	    const groupedData = d3.group(data, d => d.level);
 	
-	    for (let i = 1; i <= 7; i += 3) {
-	        const level = i === 1 ? 'low' : (i === 4 ? 'medium' : 'high');
+	    for (let i = 1; i <= 3; i++) {
+	        const level = i === 1 ? 'low' : (i === 2 ? 'medium' : 'high');
 	        const levelData = groupedData.get(level);
-	
-	        for (let j = i; j <= i + 2; j++) {
-	            const rank = j - i + 1;
+	            const rank = 1;
 	            const countryData = levelData.find(d => +d.rank === rank);
 	
 	            if (countryData) {
-	                const svg = d3.select("#donut_" + j)
+	                const svg = d3.select("#donut_" + i)
 	                  .append("svg")
-			    .attr("id", "donut_" + j + "_svg")
+			    .attr("id", "donut_" + i + "_svg")
 	                    .attr("width", width)
 	                    .attr("height", height)
 	                  .append("g")
@@ -36,7 +34,7 @@ function updateDonuts(selectedValue) {
 	                const data = { Male: countryData.percentM, Female: countryData.percentF };
 	
 	                // Setting the title with country name
-	                d3.select("#title_" + j)
+	                d3.select("#title_" + i)
 	                  .text(countryData.name);
 	
 	                const color = d3.scaleOrdinal()
@@ -91,7 +89,6 @@ function updateDonuts(selectedValue) {
 			            .duration(175) // Set text appearance duration
 			            .style('opacity', 1); // Transition to visible state
 			    });
-	            }
 	        }
 	    }
 	});
