@@ -47,7 +47,7 @@ const ItalianChoropleth = {
 		
 		// Define color scale
 		this.colorScale = d3.scaleThreshold()
-			.domain([20, 25, 30, 35, 40]) 
+			.domain([15, 20, 25, 30, 35]) 
 			.range(d3.schemeOranges[6]);
 		
 		let svg = d3.select("#choropleth_italy")
