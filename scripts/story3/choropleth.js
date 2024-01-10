@@ -144,9 +144,8 @@ const ItalianChoropleth = {
 				        }
 					let valueK = d.properties.abundance1000[yearIndex]
 					let value = d.properties.percentage[yearIndex]
-					let description = value != 0 ? ': ' + value + '%<br>Absolute value : ' + valueK + 'k NEETs' : '';
-					self.tooltip.html(`<b>${d.properties.reg_name}</b>
-	 						  ${description}`)
+					let description = value != 0 ? ': ' + value + '%<br>Absolute value: ' + valueK + 'k NEETs' : '';
+					self.tooltip.html(`<b>${d.properties.reg_name}</b>${description}`)
 						    .style("left", (event.pageX + 15) + "px")
 						    .style("top", (event.pageY - 28) + "px")
 						    .transition().duration(400)
