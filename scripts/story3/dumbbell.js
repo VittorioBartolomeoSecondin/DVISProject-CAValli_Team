@@ -53,7 +53,8 @@ const Dumbbell = {
         
         // Parse the Data
         d3.csv("data/story3/dumbbell.csv").then( function(data) {
-        
+          // Treat the first row separately
+    	  const firstRow = data.shift(); // Remove and save the first row
         
           // Add X axis
           const x = d3.scaleLinear()
