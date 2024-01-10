@@ -2,17 +2,7 @@
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		width = 750 - margin.left - margin.right,
 		height = 650 - margin.top - margin.bottom;  
-/*  
-// append the svg object to the body of the page
-var svg = d3.select("#sankey")
-	  .append("svg")
-	    .attr("id", "sankey_svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
-	    .attr("transform", 
-	          "translate(" + margin.left + "," + margin.top + ")");
-*/
+
 // Define the number of Sankey diagrams
 var numSankeys = 3;
 
@@ -20,7 +10,12 @@ var datasets = ["data/story2/sankey/sankey_EU.csv", "data/story2/sankey/sankey_I
 
 // Create SVG elements for each Sankey diagram
 for (var i = 1; i <= numSankeys; i++) {
-    	var containerId = "#sankey" + i;
+    createSankey(i);
+}
+
+// Create SVG elements for each Sankey diagram
+function createSankey(index) {
+    	var containerId = "#sankey" + index;
 
     	// Create the SVG element for the Sankey diagram
     	var svg = d3.select(containerId)
@@ -29,13 +24,13 @@ for (var i = 1; i <= numSankeys; i++) {
         	.attr("height", height + margin.top + margin.bottom)
 		.style("background-color", function() {
             		// Assign a unique background color based on the index
-            		return d3.schemeCategory10[i - 1];
+            		return d3.schemeCategory10[index - 1];
         	})
         	.append("g")
         	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
 	// load the data
-	d3.csv(datasets[i-1]).then(function(data) {
+	d3.csv(datasets[index - 1]).then(function(data) {
 	
 	  // Set the sankey diagram properties
 	  var sankey = d3.sankey()
