@@ -29,7 +29,8 @@ p {
 }
 
 .possibly-sidebyside > div {
-  float: left;
+    flex: 1;
+    margin-right: 10px; /* Adjust as needed for spacing between Sankey diagrams */
 }
 
 h1 {
