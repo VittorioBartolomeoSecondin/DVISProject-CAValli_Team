@@ -146,7 +146,7 @@ const Choropleth = {
 					let value = d.properties.abundance1000[yearIndex]
 					let description = value != 0 ? ': ' + value + 'k NEETs' : '';
 					self.tooltip.html(`<b>${d.properties.name}</b>
-	 						  &#40;${d.properties.abbreviation}&#41; ${description}`)
+	 						  &#40;${d.properties.abbreviation}&#41;${description}`)
 						    .style("left", (event.pageX + 15) + "px")
 						    .style("top", (event.pageY - 28) + "px")
 						    .transition().duration(400)
