@@ -82,7 +82,7 @@ const ItalianChoropleth = {
 			    .rangeRound([600, 860]);
 			
 		const legend = svg.append("g")
-				  .attr("id", "choropleth_italy-legend")
+				  .attr("class", "choropleth-legend")
 				  .attr("transform", `translate(${legendX}, ${legendY})`);
 			
 		const legend_entry = legend.selectAll("g.legend")
@@ -208,4 +208,4 @@ sliders.forEach((slider) => {
     });
 });
 
-Choropleth.initialize();
+ItalianChoropleth.initialize();
