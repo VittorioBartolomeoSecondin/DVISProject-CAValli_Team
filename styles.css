@@ -97,6 +97,20 @@
     height: 100%;
 }
 
+.yearSlider_italy {
+    width: 80%;
+    margin: 0 auto;
+    background: #e57f50;
+    border: none;
+    color: #e57f50;
+}
+
+.selectedYear_italy {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 /* 
 
 ====== Zoom effect ======
