@@ -119,7 +119,7 @@ const ItalianChoropleth = {
 				return d[0] / 1000 + "k - " + d[1] / 1000 + "k";
 			    });
 			
-		legend.append("text").attr("x", 15).attr("y", 290).text("NEET abundance");
+		legend.append("text").attr("x", 15).attr("y", 290).text("NEET percentage");
 	
 		this.updateMap(0);
     	},
@@ -179,7 +179,7 @@ const ItalianChoropleth = {
         }
 }
 // Slider interaction
-const sliders = document.querySelectorAll(".yearSlider");
+const sliders = document.querySelectorAll(".yearSlider_italy");
 sliders.forEach((slider) => {
     slider.addEventListener("input", function () {
         const year = parseInt(this.value);
@@ -187,24 +187,6 @@ sliders.forEach((slider) => {
         selectedYear.innerHTML = year;
         // Call the update function for the map based on the selected year
         Choropleth.updateMap(year - 2009);
-    });
-    slider.addEventListener("change", function () {
-	const sliders = document.querySelectorAll('.yearSlider');
-        const selectedYears = document.querySelectorAll('.selectedYear');
-	    
-        const year = parseInt(this.value);
-        sliders.forEach((s) => {
-		s.value = year;
-        });
-    	selectedYears.forEach((sy) => {
-		sy.innerHTML = year;
-        });
-        // Update the chart based on the selected year
-        Barcharts.destroy();
-        Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
-
-	Butterfly.destroy();
-	Butterfly.initialize("data/story1/pyramids/pyramid" + year + ".csv");
     });
 });
 
