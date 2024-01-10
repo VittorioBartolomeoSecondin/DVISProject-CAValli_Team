@@ -81,7 +81,63 @@ const Dumbbell = {
          svg.selectAll(".axis")
 	    .selectAll("line")
 	    .attr("stroke", "black");
-        
+
+	  // Vertical line
+	  svg.append("line")
+	    .attr("x1", x(firstRow['2013_perc'])) // Change the x1 to an x-coordinate value
+	    .attr("x2", x(firstRow['2013_perc'])) // Change the x2 to the same x-coordinate value
+	    .attr("y1", 0) // Start from the top of the chart
+	    .attr("y2", height) // Extend to the bottom of the chart
+	    .attr("stroke", "#69b3a2")
+	    .attr("stroke-dasharray", "5,5");
+
+	  // Text label vertical line
+	  svg.append("text")
+	   .attr("x", x(firstRow['2013_perc'])) // Adjust the x-coordinate for positioning
+	   .attr("y", 0)
+	   .attr("dx", "-4.0em")
+	   .attr("dy", "-0.5em")
+	   .style("font-size", "12px")
+	   .text("Italia, 2013")
+	   .attr("fill", "#69b3a2");
+
+	  // Text label vertical line
+	  svg.append("text")
+	   .attr("x", x(firstRow['2013_perc']) - 12)
+	   .attr("y", height - 40)
+	   .attr("dx", "1.5em")
+	   .style("font-size", "12px")
+	   .text(firstRow['2013_perc'] + "%")
+	   .attr("fill", "#69b3a2");
+
+	  // Vertical line
+	  svg.append("line")
+	    .attr("x1", x(firstRow['2022_perc'])) // Change the x1 to an x-coordinate value
+	    .attr("x2", x(firstRow['2022_perc'])) // Change the x2 to the same x-coordinate value
+	    .attr("y1", 0) // Start from the top of the chart
+	    .attr("y2", height) // Extend to the bottom of the chart
+	    .attr("stroke", "#4C4082")
+	    .attr("stroke-dasharray", "5,5");
+
+	  // Text label vertical line
+	  svg.append("text")
+	   .attr("x", x(firstRow['2022_perc'])) // Adjust the x-coordinate for positioning
+	   .attr("y", 0)
+	   .attr("dx", "-4.0em")
+	   .attr("dy", "-0.5em")
+	   .style("font-size", "12px")
+	   .text("Italia, 2022")
+	   .attr("fill", "#4C4082");
+
+	  // Text label vertical line
+	  svg.append("text")
+	   .attr("x", x(firstRow['2022_perc']) - 12)
+	   .attr("y", height - 40)
+	   .attr("dx", "1.5em")
+	   .style("font-size", "12px")
+	   .text(firstRow['2022_perc'] + "%")
+	   .attr("fill", "#4C4082");
+	 
           // Lines
           svg.selectAll("myline")
             .data(data)
