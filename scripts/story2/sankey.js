@@ -77,7 +77,7 @@ function createSankey(index) {
 	      .attr("class", "link")
 	      .attr("d", d3.sankeyLinkHorizontal())
 	      .attr("stroke-width", function(d) {
-	         return d.width * 0.5;
+	         return d.width;
 	      });
 	
 	  // add the link titles
@@ -99,7 +99,7 @@ function createSankey(index) {
 	      .attr("y", function(d) { return d.y0; })
 	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	      .style("stroke-width", 2)
-	      .attr("height", function(d) { return (d.y1 - d.y0) * 0.5; })
+	      .attr("height", function(d) { return (d.y1 - d.y0); })
 	      .attr("width", sankey.nodeWidth());
 	
 	
