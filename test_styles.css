@@ -28,10 +28,8 @@ p {
     font: 14px sans-serif; 
 }
 
-.possibly-sidebyside {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns based on the number of Sankey diagrams */
-    gap: 10px; /* Adjust as needed for spacing between Sankey diagrams */
+.possibly-sidebyside > div {
+  float: left;
 }
 
 h1 {
