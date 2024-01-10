@@ -103,7 +103,7 @@ const Dumbbell = {
 
 	  // Text label vertical line
 	  svg.append("text")
-	   .attr("x", x(firstRow['2013_perc']) - 30)
+	   .attr("x", x(firstRow['2013_perc']) - 60)
 	   .attr("y", height - 40)
 	   .attr("dx", "1.5em")
 	   .style("font-size", "12px")
@@ -131,7 +131,7 @@ const Dumbbell = {
 
 	  // Text label vertical line
 	  svg.append("text")
-	   .attr("x", x(firstRow['2022_perc']) - 30)
+	   .attr("x", x(firstRow['2022_perc']) - 60)
 	   .attr("y", height - 40)
 	   .attr("dx", "1.5em")
 	   .style("font-size", "12px")
