@@ -157,7 +157,8 @@ function LineChartMouseOver(event, d) {
         .style("opacity", 1);
 	
     tooltip.html(`Country: <b>${d.Country}</b><br>
-		    Abundance: ${d.value}k NEETs`)
+		    Abundance: ${d.value}k NEETs<br>
+                    Year: ${d.year}`)
 	   .style("left", (event.pageX + 10) + "px")
 	   .style("top", (event.pageY - 20) + "px");
 }
