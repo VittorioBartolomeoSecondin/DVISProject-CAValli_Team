@@ -111,7 +111,7 @@ function createSankey(index) {
 	  // add in the text for the nodes
 	  node.append("text")
 	      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
-	      .attr("y", function(d) { return (d.y1 + d.y0) / 2 - (d.y1 - d.y0) / 2 - 12; })
+	      .attr("y", function(d) { return (d.y1 + d.y0) / 2 + (d.y1 - d.y0) / 2 + 12; })
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
