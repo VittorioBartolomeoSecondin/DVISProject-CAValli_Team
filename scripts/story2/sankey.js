@@ -97,7 +97,7 @@ function createSankey(index) {
 	  node.append("rect")
 	      .attr("x", function(d) { return d.x0; })
 	      .attr("y", function(d) { return d.y0; })
-	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" || d.name === "Searching for work (NEETs)" ? "red" : "black"; })
 	      .style("stroke-width", 2)
 	      .attr("height", function(d) { return (d.y1 - d.y0); })
 	      .attr("width", sankey.nodeWidth());
@@ -106,7 +106,7 @@ function createSankey(index) {
 	  // add the title for the nodes
 	  node.append("title")
 	      .text(function(d) { 
-	          return d.name + "\n" + d.value + "%"; });
+	          return d.value + "% of early leavers in " + d.name; });
 	
 	  // add in the text for the nodes
 	  node.append("text")
@@ -115,9 +115,9 @@ function createSankey(index) {
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
-	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" || d.name === "Searching for work (NEETs)" ? "red" : "black"; })
 	    .filter(function(d) { return d.x0 >= width / 2; })
-	      .attr("x", function (d) { return d.name === "Not searching for work (NEETs)" ? (d.x0 + d.x1) / 2 - 35 : (d.x0 + d.x1) / 2 - 25; });
+	      .attr("x", function (d) { return d.name === "Not searching for work (NEETs)" || d.name === "Searching for work (NEETs)" ? (d.x0 + d.x1) / 2 - 35 : (d.x0 + d.x1) / 2 - 25; });
 	
 	  node.on("mouseover", function (event, d) {
 	    // Highlight the current node
