@@ -21,7 +21,7 @@ d3.csv("data/story3/dumbbell/dumbbell.csv").then( function(data) {
     .range([ 0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x))
+    .call(d3.axisBottom(x));
 
   // Y axis
   const y = d3.scaleBand()
@@ -29,34 +29,34 @@ d3.csv("data/story3/dumbbell/dumbbell.csv").then( function(data) {
     .domain(data.map(function(d) { return d.Territorio; }))
     .padding(1);
   svg.append("g")
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y));
 
   // Lines
   svg.selectAll("myline")
     .data(data)
     .join("line")
-      .attr("x1", function(d) { return x(d.2009); })
-      .attr("x2", function(d) { return x(d.2020); })
+      .attr("x1", function(d) { return x(d.2009_perc); })
+      .attr("x2", function(d) { return x(d.2020_perc); })
       .attr("y1", function(d) { return y(d.Territorio); })
       .attr("y2", function(d) { return y(d.Territorio); })
       .attr("stroke", "grey")
-      .attr("stroke-width", "1px")
+      .attr("stroke-width", "1px");
 
   // Circles of variable 1
   svg.selectAll(".mycircle1")
     .data(data)
     .join("circle")
-      .attr("cx", function(d) { return x(d.2009); })
+      .attr("cx", function(d) { return x(d.2009_perc); })
       .attr("cy", function(d) { return y(d.Territorio); })
       .attr("r", "6")
-      .style("fill", "#69b3a2")
+      .style("fill", "#69b3a2");
 
   // Circles of variable 2
   svg.selectAll(".mycircle2")
     .data(data)
     .join("circle")
-      .attr("cx", function(d) { return x(d.2020); })
+      .attr("cx", function(d) { return x(d.2020_perc); })
       .attr("cy", function(d) { return y(d.Territorio); })
       .attr("r", "6")
-      .style("fill", "#4C4082")
-})
+      .style("fill", "#4C4082");
+});
