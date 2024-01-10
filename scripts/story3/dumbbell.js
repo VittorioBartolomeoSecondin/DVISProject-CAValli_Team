@@ -17,7 +17,7 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 50])
     .range([ 0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
