@@ -75,6 +75,11 @@ const Dumbbell = {
 	    .selectAll("text")
 	    	.attr("fill", "black")
 	        .style("text-anchor", "end");
+
+	 // Select lines of X,Y axis
+         svg.selectAll(".axis")
+	    .selectAll("line")
+	    .attr("stroke", "black");
         
           // Lines
           svg.selectAll("myline")
