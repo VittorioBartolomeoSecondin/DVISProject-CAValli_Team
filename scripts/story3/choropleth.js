@@ -25,7 +25,7 @@ const ItalianChoropleth = {
 				  .rotate([347, 0])
 			          .parallels([35, 45])
 				  .scale(3000)
-				  .translate([width / 2, height / 2 + 60]);
+				  .translate([width / 2, height / 2 + 80]);
 	
 	       const self = this; // saving a reference to the Choropleth object
 			
