@@ -36,7 +36,7 @@ for (var i = 1; i <= numSankeys; i++) {
     	//svgs.push(svg);
 	
 	// load the data
-	d3.csv(datasets[i]).then(function(data) {
+	d3.csv(datasets[i-1]).then(function(data) {
 	
 	  // Set the sankey diagram properties
 	  var sankey = d3.sankey()
