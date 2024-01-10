@@ -68,6 +68,7 @@ function createSankey(index) {
 	  });
 	
 	  graph = sankey(sankeydata);
+	  console.log(graph.nodes());
 		
 	  // add in the links
 	  var link = svg.append("g").selectAll(".link")
