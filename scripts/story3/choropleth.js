@@ -142,8 +142,9 @@ const ItalianChoropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
+					let valueK = d.properties.abundance1000[yearIndex]
 					let value = d.properties.percentage[yearIndex]
-					let description = value != 0 ? ': ' + value + '%' : '';
+					let description = value != 0 ? ': ' + value + '%<br>Absolute value : ' + valueK + 'k NEETs' : '';
 					self.tooltip.html(`<b>${d.properties.reg_name}</b>
 	 						  ${description}`)
 						    .style("left", (event.pageX + 15) + "px")
