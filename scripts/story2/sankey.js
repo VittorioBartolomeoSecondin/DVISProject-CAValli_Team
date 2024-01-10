@@ -97,7 +97,7 @@ function createSankey(index) {
 	  node.append("rect")
 	      .attr("x", function(d) { return d.x0; })
 	      .attr("y", function(d) { return d.y0; })
-	      .style("fill", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	      .style("stroke-width", 2)
 	      .attr("height", function(d) { return d.y1 - d.y0; })
 	      .attr("width", sankey.nodeWidth());
@@ -115,7 +115,7 @@ function createSankey(index) {
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "end")
 	      .text(function(d) { return d.name; })
-	      .style("fill", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	    .filter(function(d) { return d.x0 < width / 2; })
 	      .attr("x", function(d) { return d.x1 + 6; })
 	      .attr("text-anchor", "start");
