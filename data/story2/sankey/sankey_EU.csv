@@ -1,5 +1,5 @@
 source,target,value
 EU,Employed,4.9
 EU,Unemployed,6.5
-Unemployed,Want to work (searching),4.3
-Unemployed,Do not want to work (not searching),2.2
+Unemployed,Searching for work,4.3
+Unemployed,Not searching for work (NEETs),2.2
