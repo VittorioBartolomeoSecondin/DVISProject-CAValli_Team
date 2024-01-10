@@ -36,7 +36,7 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
     .data(data)
     .join("line")
       .attr("x1", function(d) { return x(d['2009_perc']); })
-      .attr("x2", function(d) { return x(d['2020_perc']); })
+      .attr("x2", function(d) { return x(d['2023_perc']); })
       .attr("y1", function(d) { return y(d.Territorio); })
       .attr("y2", function(d) { return y(d.Territorio); })
       .attr("stroke", "grey")
@@ -55,7 +55,7 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
   svg.selectAll(".mycircle2")
     .data(data)
     .join("circle")
-      .attr("cx", function(d) { return x(d['2020_perc']); })
+      .attr("cx", function(d) { return x(d['2023_perc']); })
       .attr("cy", function(d) { return y(d.Territorio); })
       .attr("r", "6")
       .style("fill", "#4C4082");
