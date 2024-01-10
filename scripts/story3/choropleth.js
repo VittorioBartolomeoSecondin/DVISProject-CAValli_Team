@@ -144,8 +144,8 @@ const ItalianChoropleth = {
 				        }
 					let value = d.properties.percentage[yearIndex]
 					let description = value != 0 ? ': ' + value + '%' : '';
-					self.tooltip.html(`<b>${d.properties.name}</b>
-	 						  &#40;${d.properties.abbreviation}&#41; ${description}`)
+					self.tooltip.html(`<b>${d.properties.reg_name}</b>
+	 						  ${description}`)
 						    .style("left", (event.pageX + 15) + "px")
 						    .style("top", (event.pageY - 28) + "px")
 						    .transition().duration(400)
