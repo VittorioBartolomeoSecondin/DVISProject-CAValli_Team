@@ -90,7 +90,7 @@ const Dumbbell = {
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
               .style("fill", "#69b3a2")
-              .on("mouseover", function(event, d) {
+              .on("mouseover", (event, d) => {
                   MouseOver(event, d, "2013"); // Pass additional argument "2013"
               })
 			  .on("mouseout", MouseOut);
@@ -103,7 +103,7 @@ const Dumbbell = {
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
               .style("fill", "#4C4082")
-              .on("mouseover", function(event, d) {
+              .on("mouseover", (event, d) => {
                   MouseOver(event, d, "2022"); // Pass additional argument "2022"
               })
 			  .on("mouseout", MouseOut);
