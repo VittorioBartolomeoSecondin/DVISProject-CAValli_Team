@@ -12,7 +12,7 @@ const svg = d3.select("#dumbbell")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Parse the Data
-d3.csv("data/story3/dumbbell/dumbbell.csv").then( function(data) {
+d3.csv("data/story3/dumbbell.csv").then( function(data) {
 
 
   // Add X axis
