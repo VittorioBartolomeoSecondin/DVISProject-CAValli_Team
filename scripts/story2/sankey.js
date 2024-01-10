@@ -22,10 +22,6 @@ function createSankey(index) {
         	.append("svg")
         	.attr("width", width + margin.left + margin.right)
         	.attr("height", height + margin.top + margin.bottom)
-		.style("background-color", function() {
-            		// Assign a unique background color based on the index
-            		return d3.schemeCategory10[index - 1];
-        	})
         	.append("g")
         	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
@@ -102,7 +98,6 @@ function createSankey(index) {
 	      .attr("x", function(d) { return d.x0; })
 	      .attr("y", function(d) { return d.y0; })
 	      .style("fill", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
-	      //.style("stroke", function(d) { return d.name === "Do not want to work (not searching)" ? "red" : "black"; })
 	      .style("stroke-width", 2)
 	      .attr("height", function(d) { return d.y1 - d.y0; })
 	      .attr("width", sankey.nodeWidth());
@@ -138,13 +133,11 @@ function createSankey(index) {
 	   // Add hover effects to links
 	   link.on("mouseover", function () {
 		d3.select(this)
-		.style("stroke-opacity", 0.5)
-		.attr("stroke-width", function (d) { return Math.max(4, d.width); });
+		.style("stroke-opacity", 0.5);
 	   })
 		.on("mouseout", function () {
 		   d3.select(this)
-		     .style("stroke-opacity", 0.2)
-		     .attr("stroke-width", function (d) { return d.width; });
+		     .style("stroke-opacity", 0.2);
 		});
 	});
 }
