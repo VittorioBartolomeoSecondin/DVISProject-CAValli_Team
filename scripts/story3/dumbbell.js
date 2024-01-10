@@ -95,7 +95,7 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2013_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-4.0em")
+	   .attr("dx", "-2.5em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
 	   .text("Italia, 2013")
@@ -123,7 +123,7 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2022_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-4.0em")
+	   .attr("dx", "-2.5em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
 	   .text("Italia, 2022")
