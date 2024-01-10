@@ -95,10 +95,10 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2013_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-2.5em")
+	   .attr("dx", "-2.7em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .text("Italia, 2013")
+	   .text("Italia - 2013")
 	   .attr("fill", "#69b3a2");
 
 	  // Text label vertical line
@@ -123,10 +123,10 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2022_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-2.5em")
+	   .attr("dx", "-2.7em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .text("Italia, 2022")
+	   .text("Italia - 2022")
 	   .attr("fill", "#4C4082");
 
 	  // Text label vertical line
