@@ -16,8 +16,6 @@ var svg = d3.select("#sankey")
 // Define the number of Sankey diagrams
 var numSankeys = 3;
 
-// Create an array to store SVG elements
-var svgs = [];
 var datasets = ["data/story2/sankey/sankey_EU.csv", "data/story2/sankey/sankey_ITA.csv", "data/story2/sankey/sankey_TUR.csv"];
 
 // Create SVG elements for each Sankey diagram
@@ -29,11 +27,12 @@ for (var i = 1; i <= numSankeys; i++) {
         	.append("svg")
         	.attr("width", width + margin.left + margin.right)
         	.attr("height", height + margin.top + margin.bottom)
+		.style("background-color", function() {
+            		// Assign a unique background color based on the index
+            		return d3.schemeCategory10[i - 1];
+        	})
         	.append("g")
         	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    	// Store the SVG element in the array
-    	//svgs.push(svg);
 	
 	// load the data
 	d3.csv(datasets[i-1]).then(function(data) {
