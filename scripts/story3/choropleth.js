@@ -155,7 +155,7 @@ const ItalianChoropleth = {
 		 fetch("data/story3/choropleth_italy.json") 
 		    .then(response => response.json())
 		    .then(data => {
-		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
+		        const dataFeatures = topojson.feature(data, data.objects.regions).features;
 			self.world.selectAll(".Region").remove(); // Remove previous paths (if any)
 		        self.world.selectAll(".states")
 		            .data(dataFeatures)
