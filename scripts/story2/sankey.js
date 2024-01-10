@@ -117,7 +117,7 @@ function createSankey(index) {
 	      .text(function(d) { return d.name; })
 	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	    .filter(function(d) { return d.x0 >= width / 2; })
-	      .attr("x", function (d) { return (d.x0 + d.x1) / 2 - 6; });
+	      .attr("x", function (d) { return (d.x0 + d.x1) / 2 - 10; });
 	      //.attr("text-anchor", "start");
 	
 	  node.on("mouseover", function (event, d) {
