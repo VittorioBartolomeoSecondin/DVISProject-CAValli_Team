@@ -52,7 +52,7 @@ d3.csv("data/story3/dumbbell/dumbbell.csv").then( function(data) {
       .style("fill", "#69b3a2")
 
   // Circles of variable 2
-  svg.selectAll("mycircle2")
+  svg.selectAll("mycircle")
     .data(data)
     .join("circle")
       .attr("cx", function(d) { return x(d.2020_perc); })
