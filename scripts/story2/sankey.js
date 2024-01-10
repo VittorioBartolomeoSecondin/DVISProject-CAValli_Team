@@ -112,14 +112,14 @@ function createSankey(index) {
 	  node.append("text")
 	      //.attr("x", function(d) { return d.x0 - 6; })
 	      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
-	      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+	      .attr("y", function(d) { return (d.y1 + d.y0) / 2 - 10; })
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
 	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; });
-	    //.filter(function(d) { return d.x0 < width / 2; })
-	      //.attr("x", function(d) { return d.x1 + 6; })
-	      //.attr("text-anchor", "start");
+	    .filter(function(d) { return d.x0 < width / 2; })
+	      .attr("x", function(d) { return d.x1 + 6; })
+	      .attr("text-anchor", "start");
 	
 	  node.on("mouseover", function (event, d) {
 	    // Highlight the current node
