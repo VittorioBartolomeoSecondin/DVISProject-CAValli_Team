@@ -48,7 +48,7 @@ const ItalianChoropleth = {
 		
 		// Define color scale
 		this.colorScale = d3.scaleThreshold()
-			.domain([100000, 200000, 500000, 1000000, 1500000]) 
+			.domain([20, 25, 30, 35, 40]) 
 			.range(d3.schemeOranges[6]);
 		
 		let svg = d3.select("#choropleth_italy")
@@ -114,9 +114,9 @@ const ItalianChoropleth = {
 				return height - (i * ls_h) - ls_h - 6;
 			    })
 			    .text(function(d, i) { // da sistemare
-				if (i === 0) return "< " + d[1] / 1000 + "k";
-				if (d[1] < d[0]) return d[0] / 1000 + "k +";
-				return d[0] / 1000 + "k - " + d[1] / 1000 + "k";
+				if (i === 0) return "< " + d[1] + "%";
+				if (d[1] < d[0]) return d[0] + "% +";
+				return d[0] + "% - " + d[1] + "%";
 			    });
 			
 		legend.append("text").attr("x", 15).attr("y", 290).text("NEET percentage");
@@ -143,8 +143,8 @@ const ItalianChoropleth = {
 						.attr("class", "tooltip")
 						.style("opacity", 0);
 				        }
-					let value = d.properties.abundance1000[yearIndex]
-					let description = value != 0 ? ': ' + value + 'k NEETs' : '';
+					let value = d.properties.percentage[yearIndex]
+					let description = value != 0 ? ': ' + value + '%' : '';
 					self.tooltip.html(`<b>${d.properties.name}</b>
 	 						  &#40;${d.properties.abbreviation}&#41; ${description}`)
 						    .style("left", (event.pageX + 15) + "px")
@@ -165,7 +165,7 @@ const ItalianChoropleth = {
 			    .style("stroke", "black")
 			    .attr("class", "Region")
 			    .style("fill", function(d) {
-			        let value = d.properties.abundance[yearIndex];
+			        let value = d.properties.percentage[yearIndex];
 			        return value !== 0 ? self.colorScale(value) : "url(#stripe)";
 		    	    })
 			    .style("opacity", 1)
@@ -186,7 +186,7 @@ sliders.forEach((slider) => {
         const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
         selectedYear.innerHTML = year;
         // Call the update function for the map based on the selected year
-        Choropleth.updateMap(year - 2009);
+        ItalianChoropleth.updateMap(year - 2009);
     });
 });
 
