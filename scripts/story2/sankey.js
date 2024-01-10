@@ -110,15 +110,14 @@ function createSankey(index) {
 	
 	  // add in the text for the nodes
 	  node.append("text")
-	      //.attr("x", function(d) { return d.x0 - 6; })
 	      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
-	      .attr("y", function(d) { return (d.y1 + d.y0) / 2 - (d.y1 - d.y0) / 2 - 5; })
+	      .attr("y", function(d) { return (d.y1 + d.y0) / 2 - (d.y1 - d.y0) / 2 - 10; })
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
-	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; });
-	    //.filter(function(d) { return d.x0 < width / 2; })
-	      //.attr("x", function(d) { return d.x1 + 6; })
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
+	    .filter(function(d) { return d.x0 >= width / 2; })
+	      .attr("x", function (d) { return (d.x0 + d.x1) / 2 - 6; });
 	      //.attr("text-anchor", "start");
 	
 	  node.on("mouseover", function (event, d) {
