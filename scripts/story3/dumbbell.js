@@ -105,7 +105,7 @@ const Dumbbell = {
               .on("mouseover", function(event, d) {
                   MouseOver(event, d, "2013"); // Pass additional argument "2013"
               })
-			  .on("mouseout", MouseOut);
+	      .on("mouseout", MouseOut);
         
           // Circles of variable 2
           svg.selectAll(".mycircle2")
@@ -120,7 +120,7 @@ const Dumbbell = {
               .on("mouseover", function(event, d) {
                   MouseOver(event, d, "2022"); // Pass additional argument "2022"
               })
-			  .on("mouseout", MouseOut);
+	      .on("mouseout", MouseOut);
         });
     }
 }
