@@ -77,7 +77,7 @@ function createSankey(index) {
 	      .attr("class", "link")
 	      .attr("d", d3.sankeyLinkHorizontal())
 	      .attr("stroke-width", function(d) {
-	         return d.width;
+	         return d.width * 0.5;
 	      });
 	
 	  // add the link titles
@@ -110,15 +110,16 @@ function createSankey(index) {
 	
 	  // add in the text for the nodes
 	  node.append("text")
-	      .attr("x", function(d) { return d.x0 - 6; })
+	      //.attr("x", function(d) { return d.x0 - 6; })
+	      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
 	      .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
 	      .attr("dy", "0.35em")
-	      .attr("text-anchor", "end")
+	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
-	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
-	    .filter(function(d) { return d.x0 < width / 2; })
-	      .attr("x", function(d) { return d.x1 + 6; })
-	      .attr("text-anchor", "start");
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; });
+	    //.filter(function(d) { return d.x0 < width / 2; })
+	      //.attr("x", function(d) { return d.x1 + 6; })
+	      //.attr("text-anchor", "start");
 	
 	  node.on("mouseover", function (event, d) {
 	    // Highlight the current node
