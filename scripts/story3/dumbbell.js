@@ -33,11 +33,8 @@ d3.csv("data/story3/dumbbell/dumbbell.csv").then( function(data) {
 
   // Lines
   svg.selectAll("myline")
-      .data(data)
-	  .enter()
-	  .append("line")
-    /*.data(data)
-    .join("line")*/
+    .data(data)
+    .join("line")
       .attr("x1", function(d) { return x(d.2009_perc); })
       .attr("x2", function(d) { return x(d.2020_perc); })
       .attr("y1", function(d) { return y(d.Territorio); })
