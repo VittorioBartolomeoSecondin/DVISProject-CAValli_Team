@@ -1,7 +1,7 @@
 // Set up the SVG dimensions
 var margin = { top: 30, right: 70, bottom: 30, left: 70 },
 		width = 750 - margin.left - margin.right,
-		height = 450 - margin.top - margin.bottom;  
+		height = 550 - margin.top - margin.bottom;  
 
 // Define the number of Sankey diagrams
 var numSankeys = 3;
