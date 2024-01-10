@@ -71,7 +71,10 @@ const Dumbbell = {
             .domain(data.map(function(d) { return d.Region; }))
             .padding(1);
           svg.append("g")
-            .call(d3.axisLeft(y));
+            .call(d3.axisLeft(y))
+	    .selectAll("text")
+	    	.attr("fill", "black")
+	        .style("text-anchor", "end");
         
           // Lines
           svg.selectAll("myline")
