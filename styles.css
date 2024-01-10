@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-#choropleth-legend {
+.choropleth-legend {
   font-size: 1.2em;
   letter-spacing: 0.1;
 }
