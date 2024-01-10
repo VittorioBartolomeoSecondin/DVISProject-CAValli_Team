@@ -5,7 +5,7 @@ const Dumbbell = {
         const self = this;
 
         function MouseOver(event, d, year) {
-            d3.select(this).attr("stroke-width", 2);
+            d3.select(event.target).attr("stroke-width", 2);
         	
             if (!self.tooltip) {
         	    self.tooltip = d3.select("body").append("div")
@@ -90,7 +90,7 @@ const Dumbbell = {
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
               .style("fill", "#69b3a2")
-              .on("mouseover", (event, d) => {
+              .on("mouseover", function(event, d) {
                   MouseOver(event, d, "2013"); // Pass additional argument "2013"
               })
 			  .on("mouseout", MouseOut);
@@ -103,7 +103,7 @@ const Dumbbell = {
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
               .style("fill", "#4C4082")
-              .on("mouseover", (event, d) => {
+              .on("mouseover", function(event, d) {
                   MouseOver(event, d, "2022"); // Pass additional argument "2022"
               })
 			  .on("mouseout", MouseOut);
