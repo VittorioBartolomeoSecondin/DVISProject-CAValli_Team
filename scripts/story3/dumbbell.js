@@ -39,7 +39,7 @@ const Dumbbell = {
         }
         
         // set the dimensions and margins of the graph
-        const margin = {top: 10, right: 30, bottom: 30, left: 120},
+        const margin = {top: 30, right: 30, bottom: 30, left: 120},
             width = 700 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
         
@@ -103,7 +103,7 @@ const Dumbbell = {
 
 	  // Text label vertical line
 	  svg.append("text")
-	   .attr("x", x(firstRow['2013_perc']) - 12)
+	   .attr("x", x(firstRow['2013_perc']) + 12)
 	   .attr("y", height - 40)
 	   .attr("dx", "1.5em")
 	   .style("font-size", "12px")
@@ -131,7 +131,7 @@ const Dumbbell = {
 
 	  // Text label vertical line
 	  svg.append("text")
-	   .attr("x", x(firstRow['2022_perc']) - 12)
+	   .attr("x", x(firstRow['2022_perc']) + 12)
 	   .attr("y", height - 40)
 	   .attr("dx", "1.5em")
 	   .style("font-size", "12px")
