@@ -15,8 +15,8 @@ var svg = d3.select("#sankey")
 
 // Set the sankey diagram properties
 var sankey = d3.sankey()
-    .nodeWidth(20)
-    .nodePadding(10)
+    .nodeWidth(200)
+    .nodePadding(50)
     .size([width, height]);
 
 var path = sankey.links();
