@@ -1,4 +1,4 @@
-const Choropleth = {
+const ItalianChoropleth = {
 	// fields to be updated when another year is selected
 	tooltip: null,
 	world: null,
@@ -31,7 +31,7 @@ const Choropleth = {
 	       const self = this; // saving a reference to the Choropleth object
 			
 	       this.mouseLeave = function() {
-					d3.selectAll(".Country")
+					d3.selectAll(".Region")
 						.transition()
 						.duration(200)
 						.style("opacity", 1)
@@ -51,7 +51,7 @@ const Choropleth = {
 			.domain([100000, 200000, 500000, 1000000, 1500000]) 
 			.range(d3.schemeOranges[6]);
 		
-		let svg = d3.select("#choropleth")
+		let svg = d3.select("#choropleth_italy")
 			    .append("svg")
 			    .attr("width", width)
 			    .attr("height", height)
@@ -82,7 +82,7 @@ const Choropleth = {
 			    .rangeRound([600, 860]);
 			
 		const legend = svg.append("g")
-				  .attr("id", "choropleth-legend")
+				  .attr("id", "choropleth_italy-legend")
 				  .attr("transform", `translate(${legendX}, ${legendY})`);
 			
 		const legend_entry = legend.selectAll("g.legend")
@@ -126,7 +126,7 @@ const Choropleth = {
     	updateMap: function(yearIndex) {
 		const self = this;
 	        let mouseOver = function(event, d) {
-					d3.selectAll(".Country")
+					d3.selectAll(".Region")
 						.transition()
 						.duration(200)
 						.style("opacity", .3)
@@ -152,18 +152,18 @@ const Choropleth = {
 						    .transition().duration(400)
 						    .style("opacity", 1);
 				  }
-		 fetch("data/story1/choropleth.json") 
+		 fetch("data/story3/choropleth_italy.json") 
 		    .then(response => response.json())
 		    .then(data => {
 		        const dataFeatures = topojson.feature(data, data.objects.europe).features;
-			self.world.selectAll(".Country").remove(); // Remove previous paths (if any)
+			self.world.selectAll(".Region").remove(); // Remove previous paths (if any)
 		        self.world.selectAll(".states")
 		            .data(dataFeatures)
 		            .enter().append("path") 
 			    // add a class, styling and mouseover/mouseleave
 			    .attr("d", this.path)
 			    .style("stroke", "black")
-			    .attr("class", "Country")
+			    .attr("class", "Region")
 			    .style("fill", function(d) {
 			        let value = d.properties.abundance[yearIndex];
 			        return value !== 0 ? self.colorScale(value) : "url(#stripe)";
