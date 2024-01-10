@@ -78,7 +78,7 @@ const ItalianChoropleth = {
 	
 		// Legend
 		const x = d3.scaleLinear()
-			    .domain([2.6, 75.1])
+			    .domain([0.26, 7.51])
 			    .rangeRound([600, 860]);
 			
 		const legend = svg.append("g")
