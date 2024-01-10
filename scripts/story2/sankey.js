@@ -1,5 +1,5 @@
 // Set up the SVG dimensions
-var margin = { top: 30, right: 70, bottom: 90, left: 100 },
+var margin = { top: 30, right: 70, bottom: 30, left: 100 },
 		width = 750 - margin.left - margin.right,
 		height = 650 - margin.top - margin.bottom;  
 
@@ -117,7 +117,7 @@ function createSankey(index) {
 	      .text(function(d) { return d.name; })
 	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	    .filter(function(d) { return d.x0 >= width / 2; })
-	      .attr("x", function (d) { return (d.x0 + d.x1) / 2 - 15; });
+	      .attr("x", function (d) { return (d.x0 + d.x1) / 2 - 25; });
 	      //.attr("text-anchor", "start");
 	
 	  node.on("mouseover", function (event, d) {
