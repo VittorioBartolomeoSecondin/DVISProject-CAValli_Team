@@ -26,7 +26,7 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
   // Y axis
   const y = d3.scaleBand()
     .range([ 0, height ])
-    .domain(data.map(function(d) { return d.Territorio; }))
+    .domain(data.map(function(d) { return d.Region; }))
     .padding(1);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -36,9 +36,9 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
     .data(data)
     .join("line")
       .attr("x1", function(d) { return x(d['2009_perc']); })
-      .attr("x2", function(d) { return x(d['2023_perc']); })
-      .attr("y1", function(d) { return y(d.Territorio); })
-      .attr("y2", function(d) { return y(d.Territorio); })
+      .attr("x2", function(d) { return x(d['2022_perc']); })
+      .attr("y1", function(d) { return y(d.Region); })
+      .attr("y2", function(d) { return y(d.Region); })
       .attr("stroke", "grey")
       .attr("stroke-width", "1px");
 
@@ -47,7 +47,7 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
     .data(data)
     .join("circle")
       .attr("cx", function(d) { return x(d['2009_perc']); })
-      .attr("cy", function(d) { return y(d.Territorio); })
+      .attr("cy", function(d) { return y(d.Region); })
       .attr("r", "6")
       .style("fill", "#69b3a2");
 
@@ -55,8 +55,8 @@ d3.csv("data/story3/dumbbell.csv").then( function(data) {
   svg.selectAll(".mycircle2")
     .data(data)
     .join("circle")
-      .attr("cx", function(d) { return x(d['2023_perc']); })
-      .attr("cy", function(d) { return y(d.Territorio); })
+      .attr("cx", function(d) { return x(d['2022_perc']); })
+      .attr("cy", function(d) { return y(d.Region); })
       .attr("r", "6")
       .style("fill", "#4C4082");
 });
