@@ -31,7 +31,7 @@ function createSankey(index) {
 	  // Set the sankey diagram properties
 	  var sankey = d3.sankey()
 	      .nodeWidth(36)
-	      .nodePadding(50)
+	      .nodePadding(80)
 	      .size([width, height*0.7]);
 	
 	  var path = sankey.links();
