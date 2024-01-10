@@ -89,6 +89,7 @@ const Dumbbell = {
               .attr("cx", function(d) { return x(d['2013_perc']); })
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
+	      .attr("stroke", "black")
 	      .attr("stroke-width", 1)
               .style("fill", "#69b3a2")
               .on("mouseover", function(event, d) {
@@ -103,6 +104,7 @@ const Dumbbell = {
               .attr("cx", function(d) { return x(d['2022_perc']); })
               .attr("cy", function(d) { return y(d.Region); })
               .attr("r", "6")
+	      .attr("stroke", "black")
 	      .attr("stroke-width", 1)
               .style("fill", "#4C4082")
               .on("mouseover", function(event, d) {
