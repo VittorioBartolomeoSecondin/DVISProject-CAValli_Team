@@ -32,7 +32,7 @@ function createSankey(index) {
 	  var sankey = d3.sankey()
 	      .nodeWidth(36)
 	      .nodePadding(80)
-	      .size([width, height * 0.7]);
+	      .size([width, height * 0.5]);
 	
 	  var path = sankey.links();
 	
@@ -116,7 +116,7 @@ function createSankey(index) {
 	      .attr("dy", "0.35em")
 	      .attr("text-anchor", "middle")
 	      .text(function(d) { return d.name; })
-	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; });
+	      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" ? "red" : "black"; })
 	    .filter(function(d) { return d.x0 < width / 2; })
 	      .attr("x", function(d) { return d.x1 + 6; })
 	      .attr("text-anchor", "start");
