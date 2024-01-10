@@ -21,12 +21,11 @@ const ItalianChoropleth = {
 	       const legendY = height / 2 - legendHeight / 2 - 300; 
 			
 	       let projection = d3.geoAlbers()
-				  .rotate([-20.0, 0.0])
-				  .center([0.0, 52.0])
-				  .parallels([35.0, 65.0])
-				  .translate([width / 2, height / 2 + 250])
-				  .scale(width)
-				  .precision(.1);
+				  .center([0, 41])
+				  .rotate([347, 0])
+			          .parallels([35, 45])
+				  .scale(2000)
+				  .translate([width / 2, height / 2]);
 	
 	       const self = this; // saving a reference to the Choropleth object
 			
