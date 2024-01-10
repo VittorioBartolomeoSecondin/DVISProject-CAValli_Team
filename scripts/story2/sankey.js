@@ -106,7 +106,7 @@ function createSankey(index) {
 	  // add the title for the nodes
 	  node.append("title")
 	      .text(function(d) { 
-	          return d.value + "% of early leavers in " + d.name; });
+	          return d.name + "\n" + d.value + "%"; });
 	
 	  // add in the text for the nodes
 	  node.append("text")
