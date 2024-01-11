@@ -30,6 +30,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
     .attr("x", width / 2)
     .attr("y", margin.bottom - 10)
     .style("text-anchor", "middle")
+    .style("fill", "black")
     .text("Early leavers");
 
   // Add Y axis
@@ -44,6 +45,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
     .attr("x", -height / 2)
     .attr("y", -margin.left + 20)
     .style("text-anchor", "middle")
+    .style("fill", "black")
     .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");
 
   // Add a scale for bubble size
@@ -64,9 +66,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
       .attr("stroke", "black")
       .attr("stroke-width", 1)
       .on("mouseover", function(event, d) { 
-	d3.select(this).attr("stroke-width", 2);
-	d3.select(this).attr("opacity", "1");
-	d3.select(this).attr("fill", "#240a8c");
+	d3.select(this).attr("stroke-width", 2).style("opacity", 1);
 	      
 	if (!tooltip) {
 		tooltip = d3.select("body").append("div")
@@ -87,9 +87,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 		.style("top", (event.pageY - 20) + "px");
       })
       .on("mouseout", function(event, d) {
-	d3.select(this).attr("stroke-width", 1);
-	d3.select(this).attr("opacity", "0.7");
-	d3.select(this).attr("fill", "#69b3a2");
+	d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
 	      
       	if (tooltip) {
 	      tooltip.transition()
