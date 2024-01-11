@@ -204,7 +204,7 @@ sliders.forEach((slider) => {
         Barcharts.initialize("data/story1/barcharts/barchart" + year + ".csv");
 
 	Butterfly.destroy();
-	Butterfly.initialize("data/story1/pyramids/pyramid" + year + ".csv");
+	Butterfly.initialize("data/story1/pyramids/butterfly" + year + ".csv");
     });
 });
 
