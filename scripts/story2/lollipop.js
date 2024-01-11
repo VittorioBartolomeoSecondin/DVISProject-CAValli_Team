@@ -158,7 +158,7 @@ document.getElementById("year-dropdown-lollipop").addEventListener("change", fun
     const selectedValue = "data/story2/lollipops/lollipop" + this.value + "_EU.csv";
 
     d3.select("#lollipop_svg").remove();
-    d3.select("lollipop_tooltip").remove();
+    d3.select("#lollipop_tooltip").remove();
     
     updateLollipopChart(selectedValue);
 });
