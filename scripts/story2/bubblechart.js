@@ -4,7 +4,7 @@ var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		      height = 650 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select("bubblechart")
+const svg = d3.select("#bubblechart")
   .append("svg")
     .attr("id", "bubblechart_svg")
     .attr("width", width + margin.left + margin.right)
