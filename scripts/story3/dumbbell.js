@@ -139,45 +139,60 @@ const Dumbbell = {
 	   .attr("fill", "#4C4082");
 	 
           // Lines
-          svg.selectAll("myline")
-            .data(data)
-            .join("line")
-              .attr("x1", function(d) { return x(d['2013_perc']); })
-              .attr("x2", function(d) { return x(d['2022_perc']); })
-              .attr("y1", function(d) { return y(d.Region); })
-              .attr("y2", function(d) { return y(d.Region); })
-              .attr("stroke", "grey")
-              .attr("stroke-width", "1px");
+          const lines = svg.selectAll("myline")
+		            .data(data)
+		            .join("line")
+		              .attr("x1", function(d) { return x(d['2013_perc']); })
+		              .attr("x2", 0)
+		              .attr("y1", function(d) { return y(d.Region); })
+		              .attr("y2", function(d) { return y(d.Region); })
+		              .attr("stroke", "grey")
+		              .attr("stroke-width", "1px");
         
           // Circles of variable 1
-          svg.selectAll(".mycircle1")
-            .data(data)
-            .join("circle")
-              .attr("cx", function(d) { return x(d['2013_perc']); })
-              .attr("cy", function(d) { return y(d.Region); })
-              .attr("r", "6")
-	      .attr("stroke", "black")
-	      .attr("stroke-width", 1)
-              .style("fill", "#69b3a2")
-              .on("mouseover", function(event, d) {
-                  MouseOver(event, d, "2013"); // Pass additional argument "2013"
-              })
-	      .on("mouseout", MouseOut);
+          const circles1 = svg.selectAll(".mycircle1")
+			    .data(data)
+			    .join("circle")
+			      .attr("cx", function(d) { return x(d['2013_perc']); })
+			      .attr("cy", function(d) { return y(d.Region); })
+			      .attr("r", "0")
+			      .attr("stroke", "black")
+			      .attr("stroke-width", 1)
+			      .style("fill", "#69b3a2")
+			      .on("mouseover", function(event, d) {
+				  MouseOver(event, d, "2013"); // Pass additional argument "2013"
+			      })
+			      .on("mouseout", MouseOut);
         
           // Circles of variable 2
-          svg.selectAll(".mycircle2")
-            .data(data)
-            .join("circle")
-              .attr("cx", function(d) { return x(d['2022_perc']); })
-              .attr("cy", function(d) { return y(d.Region); })
-              .attr("r", "6")
-	      .attr("stroke", "black")
-	      .attr("stroke-width", 1)
-              .style("fill", "#4C4082")
-              .on("mouseover", function(event, d) {
-                  MouseOver(event, d, "2022"); // Pass additional argument "2022"
-              })
-	      .on("mouseout", MouseOut);
+          const circles2 = svg.selectAll(".mycircle2")
+		            .data(data)
+		            .join("circle")
+		              .attr("cx", function(d) { return x(d['2022_perc']); })
+		              .attr("cy", function(d) { return y(d.Region); })
+		              .attr("r", "0")
+			      .attr("stroke", "black")
+			      .attr("stroke-width", 1)
+		              .style("fill", "#4C4082")
+		              .on("mouseover", function(event, d) {
+		                  MouseOver(event, d, "2022"); // Pass additional argument "2022"
+		              })
+			      .on("mouseout", MouseOut);
+
+	  lines.transition()
+	    .duration(1000)
+	    .delay((d, i) => i * 100)
+	    .attr("x2", function(d) { return x(d['2022_perc']); })
+	    .on("end", function() {
+	        // Transition for increasing circle radius
+	        circles1.transition()
+	            .duration(250) // Duration for the circle animation
+	            .attr("r", "6"); // Adjust the final radius as needed
+
+		circles2.transition()
+	            .duration(250) // Duration for the circle animation
+	            .attr("r", "6"); // Adjust the final radius as needed
+	    });
         });
     }
 }
