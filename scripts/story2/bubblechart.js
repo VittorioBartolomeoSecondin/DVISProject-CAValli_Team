@@ -36,7 +36,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
   // Add a scale for bubble size
   const z = d3.scaleLinear()
     .domain([1000, 4000000000])
-    .range([5, 100]);
+    .range([5, 50]);
 
   // Add dots
   svg.append('g')
@@ -64,7 +64,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 	      
 	// Set the customized tooltip content
 	tooltip.html(`<b>${d.region}</b>:<br>
- 		     ${d.neet} NEETs`)
+ 		     ${d.neet}% NEETs`)
 		.style("left", (event.pageX + 10) + "px")
 		.style("top", (event.pageY - 20) + "px");
       })
