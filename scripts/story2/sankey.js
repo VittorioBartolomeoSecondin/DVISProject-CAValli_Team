@@ -5,7 +5,7 @@ var sankeyDatasets = ["data/story2/sankey/sankey_EU.csv", "data/story2/sankey/sa
 // Create SVG elements for each Sankey diagram
 function createSankeys() {
 	// Set up the SVG dimensions
-	var margin = { top: 30, right: 90, bottom: 30, left: 90 },
+	var margin = { top: 30, right: 90, bottom: 60, left: 90 },
 		width = 650 - margin.left - margin.right,
 		height = 350 - margin.top - margin.bottom;  
 	
