@@ -18,8 +18,11 @@ const svg = d3.select("#scatterplot")
 //Read the data
 d3.csv("data/story2/scatterplot/scatterplot2009.csv").then( function(data) {
 
+    
+    console.log(data);
     // Filter out data points where either "neet" or "poverty" is null
     data = data.filter(d => d.neet !== null && d.poverty !== null);
+    console.log(data);
 
     // Add X axis
     const x = d3.scaleLinear()
