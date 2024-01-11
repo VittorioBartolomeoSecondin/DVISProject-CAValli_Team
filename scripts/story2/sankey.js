@@ -149,7 +149,7 @@ function MouseOverLink(event, d) {
         .duration(200)
         .style("opacity", 1);
 
-    tooltip.html(`${d.source.name} → ${d.target.name}\n${d.value}%`)
+    tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}%`)
 	   .style("left", (event.pageX + 10) + "px")
 	   .style("top", (event.pageY - 20) + "px");
 }
