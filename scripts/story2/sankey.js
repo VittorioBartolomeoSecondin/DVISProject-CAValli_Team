@@ -7,7 +7,7 @@ function createSankeys() {
 	// Set up the SVG dimensions
 	var margin = { top: 30, right: 90, bottom: 30, left: 90 },
 		width = 650 - margin.left - margin.right,
-		height = 450 - margin.top - margin.bottom;  
+		height = 350 - margin.top - margin.bottom;  
 	
 	for (var i = 1; i <= numSankeys; i++) {
 	    	var containerId = "#sankey" + i;
