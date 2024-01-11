@@ -61,10 +61,6 @@ h1 {
     font-weight: bold;
 }
 
-#stacked_1 {
-    display: block; /* Show the default visualization */
-}
-
 /* styles for the Sankey diagram */
 .node rect {
   fill-opacity: .9;
@@ -185,4 +181,9 @@ footer .cr-con{
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.axis-label {
+    color: black; /* Change the color to black or your preferred color */
+    z-index: 999;
 }
