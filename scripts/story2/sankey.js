@@ -6,7 +6,7 @@ var sankeyDatasets = ["data/story2/sankey/sankey_EU.csv", "data/story2/sankey/sa
 function createSankeys() {
 	// Set up the SVG dimensions
 	var margin = { top: 30, right: 70, bottom: 30, left: 70 },
-		width = 800 - margin.left - margin.right,
+		width = 650 - margin.left - margin.right,
 		height = 750 - margin.top - margin.bottom;  
 	
 	for (var i = 1; i <= numSankeys; i++) {
