@@ -64,6 +64,8 @@
     
     </body>
 </html> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -106,31 +108,61 @@ var yScale = d3.scaleLinear()
   .domain([0, d3.max(data, function(d) { return Math.max(d.value1, d.value2); })])
   .range([height, 0]);
 
-// Draw lines connecting points
-svg.selectAll(".slope-line")
+// Draw lines connecting points (Blue)
+svg.selectAll(".slope-line-blue")
   .data(data)
   .enter().append("line")
-  .attr("class", "slope-line")
+  .attr("class", "slope-line-blue")
   .attr("x1", function(d) { return xScale(d.category); })
   .attr("y1", function(d) { return yScale(d.value1); })
   .attr("x2", function(d) { return xScale(d.category); })
   .attr("y2", function(d) { return yScale(d.value2); })
   .attr("stroke", "blue");
 
-// Draw circles for data points
-svg.selectAll(".data-point-circle1")  // Corrected selection
+// Draw circles for data points (Blue)
+svg.selectAll(".data-point-circle1-blue")
   .data(data)
   .enter().append("circle")
-  .attr("class", "data-point-circle1")
+  .attr("class", "data-point-circle1-blue")
   .attr("cx", function(d) { return xScale(d.category); })
   .attr("cy", function(d) { return yScale(d.value1); })
   .attr("r", 5)
   .attr("fill", "blue");
 
-svg.selectAll(".data-point-circle2")  // Corrected selection
+svg.selectAll(".data-point-circle2-blue")
   .data(data)
   .enter().append("circle")
-  .attr("class", "data-point-circle2")
+  .attr("class", "data-point-circle2-blue")
+  .attr("cx", function(d) { return xScale(d.category); })
+  .attr("cy", function(d) { return yScale(d.value2); })
+  .attr("r", 5)
+  .attr("fill", "blue");
+
+// Draw lines connecting points (Red)
+svg.selectAll(".slope-line-red")
+  .data(data)
+  .enter().append("line")
+  .attr("class", "slope-line-red")
+  .attr("x1", function(d) { return xScale(d.category); })
+  .attr("y1", function(d) { return yScale(d.value1); })
+  .attr("x2", function(d) { return xScale(d.category); })
+  .attr("y2", function(d) { return yScale(d.value2); })
+  .attr("stroke", "red");
+
+// Draw circles for data points (Red)
+svg.selectAll(".data-point-circle1-red")
+  .data(data)
+  .enter().append("circle")
+  .attr("class", "data-point-circle1-red")
+  .attr("cx", function(d) { return xScale(d.category); })
+  .attr("cy", function(d) { return yScale(d.value1); })
+  .attr("r", 5)
+  .attr("fill", "red");
+
+svg.selectAll(".data-point-circle2-red")
+  .data(data)
+  .enter().append("circle")
+  .attr("class", "data-point-circle2-red")
   .attr("cx", function(d) { return xScale(d.category); })
   .attr("cy", function(d) { return yScale(d.value2); })
   .attr("r", 5)
@@ -170,7 +202,7 @@ legend.append("circle")
 legend.append("text")
   .attr("x", 10)
   .attr("y", 5)
-  .text("Value 1");
+  .text("Value 1 (Blue)");
 
 legend.append("circle")
   .attr("r", 5)
@@ -180,7 +212,7 @@ legend.append("circle")
 legend.append("text")
   .attr("x", 10)
   .attr("y", 25)
-  .text("Value 2");
+  .text("Value 2 (Red)");
 </script>
 
 </body>
