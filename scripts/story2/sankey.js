@@ -126,7 +126,7 @@ function MouseOver(event, d) {
     if (event.target.classList.contains("link"))
     	d3.select(this).style("stroke-opacity", 0.5);
     else if (event.target.classList.contains("rect"))
-	d3.select(this).nextSibling.attr("font-weight", "bold");
+	event.target.nextSibling.attr("font-weight", "bold");
 	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
@@ -154,7 +154,7 @@ function MouseOut(event) {
     if (event.target.classList.contains("link"))
     	d3.select(this).style("stroke-opacity", 0.2);
     else if (event.target.classList.contains("rect"))
-	d3.select(this).nextSibling.attr("font-weight", "normal");
+	event.target.nextSibling.attr("font-weight", "normal");
 	
     if (tooltip) {
 		tooltip.transition()
