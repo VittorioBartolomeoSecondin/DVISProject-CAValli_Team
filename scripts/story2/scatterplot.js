@@ -20,8 +20,8 @@ d3.csv("data/story2/scatterplot/scatterplot2009.csv").then( function(data) {
 
     
     console.log(data);
-    // Filter out data points where either "neet" or "poverty" is 0
-    data = data.filter(d => d.neet !== 0 && d.poverty !== 0);
+    // Filter out data points where either "neet" or "poverty" is empty
+    data = data.filter(d => d.neet !== "" && d.poverty !== "");
     console.log(data);
 
     // Add X axis
