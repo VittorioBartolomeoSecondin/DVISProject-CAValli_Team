@@ -178,8 +178,8 @@ const ItalianChoropleth = {
         }
 }
 // Slider interaction
-const sliders = document.querySelectorAll(".yearSlider_italy");
-sliders.forEach((slider) => {
+const sliders_italy = document.querySelectorAll(".yearSlider_italy");
+sliders_italy.forEach((slider) => {
     slider.addEventListener("input", function () {
         const year = parseInt(this.value);
         const selectedYear = this.nextElementSibling; // Assuming the display element is right after the slider
