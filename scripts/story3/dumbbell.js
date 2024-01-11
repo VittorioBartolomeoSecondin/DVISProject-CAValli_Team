@@ -143,7 +143,7 @@ const Dumbbell = {
 		            .data(data)
 		            .join("line")
 		              .attr("x1", function(d) { return x(d['2013_perc']); })
-		              .attr("x2", 0)
+		              .attr("x2", function(d) { return x(d['2013_perc']); })
 		              .attr("y1", function(d) { return y(d.Region); })
 		              .attr("y2", function(d) { return y(d.Region); })
 		              .attr("stroke", "grey")
