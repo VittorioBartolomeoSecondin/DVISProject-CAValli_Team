@@ -20,23 +20,23 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
-    .domain([0, 40])
+    .domain([0, 30])
     .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, 40])
+    .domain([0, 30])
     .range([height, 0]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
 
   // Add a scale for bubble size
   const z = d3.scaleLinear()
-    .domain([5, 40])
-    .range([5, 50]);
+    .domain([1, 100])
+    .range([0, 30]);
 
   // Add dots
   svg.append('g')
