@@ -77,12 +77,6 @@ function createSankeys() {
 			         return d.width;
 			      });
 			
-			  // add the link titles
-			  /*link.append("title")
-			        .text(function(d) {
-			    		    return d.source.name + " → " + 
-			                d.target.name + "\n" + d.value + "%"; });*/
-			
 			  // add in the nodes
 			  var node = svg.append("g").selectAll(".node")
 			      .data(graph.nodes)
@@ -116,26 +110,22 @@ function createSankeys() {
 			    .filter(function(d) { return d.x0 >= width / 2; })
 			      .attr("x", function (d) { return d.name === "Not searching for work (NEETs)" ? (d.x0 + d.x1) / 2 - 35 : (d.x0 + d.x1) / 2 - 25; });
 			
-			  node.on("mouseover", function (event, d) {
-			    // Highlight the current node
-			    d3.select(this).attr("font-weight", "bold");
-			  })
-			  .on("mouseout", function () {
-			    // Reset styles on mouseout
-			    d3.select(this).attr("font-weight", "normal");
-			   });
+			  node.on("mouseover", MouseOver)
+			      .on("mouseout", MouseOut);
 			
-			  
 			   // Add hover effects to links
-			   link.on("mouseover", MouseOverLink)
-				.on("mouseout", MouseOutLink);
+			   link.on("mouseover", MouseOver)
+			       .on("mouseout", MouseOut);
 			});
 		})(containerId);
 	}
 }
 
-function MouseOverLink(event, d) {
-    d3.select(this).style("stroke-opacity", 0.5);
+function MouseOver(event, d) {
+    if (event.target.classList.contains("link"))
+    	d3.select(this).style("stroke-opacity", 0.5);
+    else if (event.target.classList.contains("node"))
+	d3.select(this).attr("font-weight", "bold");
 	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
@@ -149,13 +139,21 @@ function MouseOverLink(event, d) {
         .duration(200)
         .style("opacity", 1);
 
-    tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}%`)
-	   .style("left", (event.pageX + 10) + "px")
-	   .style("top", (event.pageY - 20) + "px");
+    if (event.target.classList.contains("link"))
+	    tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}%`)
+		   .style("left", (event.pageX + 10) + "px")
+		   .style("top", (event.pageY - 20) + "px");
+    else if (event.target.classList.contains("node"))
+	    tooltip.html(`<b>${d.name}</b>: ${d.value}%`)
+		   .style("left", (event.pageX + 10) + "px")
+		   .style("top", (event.pageY - 20) + "px");
 }
 
-function MouseOutLink() {
-    d3.select(this).style("stroke-opacity", 0.2);
+function MouseOut(event) {
+    if (event.target.classList.contains("link"))
+    	d3.select(this).style("stroke-opacity", 0.2);
+    else if (event.target.classList.contains("node"))
+	d3.select(this).attr("font-weight", "normal");
 	
     if (tooltip) {
 		tooltip.transition()
