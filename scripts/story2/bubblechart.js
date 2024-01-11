@@ -49,7 +49,10 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
       .style("fill", "#69b3a2")
       .style("opacity", "0.7")
       .attr("stroke", "black")
-      .on("mouseover", function(event, d) {   
+      .attr("stroke-width", 1)
+      .on("mouseover", function(event, d) { 
+	d3.select(this).attr("stroke-width", 2);
+	      
 	if (!tooltip) {
 		tooltip = d3.select("body").append("div")
 			.attr("id", "bubblechart_tooltip")
@@ -69,6 +72,8 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 		.style("top", (event.pageY - 20) + "px");
       })
       .on("mouseout", function(event, d) {
+	d3.select(this).attr("stroke-width", 1);
+	      
       	if (tooltip) {
 	      tooltip.transition()
 		      .duration(200)
