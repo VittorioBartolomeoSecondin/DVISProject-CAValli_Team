@@ -64,7 +64,6 @@
     
     </body>
 </html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,19 +118,19 @@ svg.selectAll(".slope-line")
   .attr("stroke", "blue");
 
 // Draw circles for data points
-svg.selectAll(".data-point")
+svg.selectAll(".data-point-circle1")  // Corrected selection
   .data(data)
   .enter().append("circle")
-  .attr("class", "data-point")
+  .attr("class", "data-point-circle1")
   .attr("cx", function(d) { return xScale(d.category); })
   .attr("cy", function(d) { return yScale(d.value1); })
   .attr("r", 5)
   .attr("fill", "blue");
 
-svg.selectAll(".data-point")
+svg.selectAll(".data-point-circle2")  // Corrected selection
   .data(data)
   .enter().append("circle")
-  .attr("class", "data-point")
+  .attr("class", "data-point-circle2")
   .attr("cx", function(d) { return xScale(d.category); })
   .attr("cy", function(d) { return yScale(d.value2); })
   .attr("r", 5)
