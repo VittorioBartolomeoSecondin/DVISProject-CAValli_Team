@@ -17,7 +17,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 40])
     .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
@@ -25,14 +25,14 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 40])
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
   // Add a scale for bubble size
   const z = d3.scaleLinear()
-    .domain([1000, 1000000000])
+    .domain([1000, 4000000000])
     .range([5, 100]);
 
   // Add dots
