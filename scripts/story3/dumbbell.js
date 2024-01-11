@@ -61,6 +61,7 @@ const Dumbbell = {
             .domain([0, 50])
             .range([ 0, width]);
           svg.append("g")
+	    .attr("class", "axis")
             .attr("transform", `translate(0, ${height})`)
             .call(d3.axisBottom(x))
 	    .selectAll("text")
@@ -72,6 +73,7 @@ const Dumbbell = {
             .domain(data.map(function(d) { return d.Region; }))
             .padding(1);
           svg.append("g")
+	    .attr("class", "axis")
             .call(d3.axisLeft(y))
 	    .selectAll("text")
 	    	.attr("fill", "black")
