@@ -25,6 +25,12 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
+    .append("text")  // Add X axis label
+    .attr("class", "axis-label")
+    .attr("x", width / 2)
+    .attr("y", margin.bottom - 10)
+    .style("text-anchor", "middle")
+    .text("Early leavers");
 
   // Add Y axis
   const y = d3.scaleLinear()
@@ -32,6 +38,13 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
+    .append("text")  // Add Y axis label
+    .attr("class", "axis-label")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -height / 2)
+    .attr("y", -margin.left + 20)
+    .style("text-anchor", "middle")
+    .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");
 
   // Add a scale for bubble size
   const z = d3.scaleLinear()
