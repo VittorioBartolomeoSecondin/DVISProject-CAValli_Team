@@ -10,7 +10,7 @@ const ItalianChoropleth = {
 	       // set the dimensions and margins of the graph
 	       var margin = { top: 60, right: 70, bottom: 30, left: 100 },
 	           width = 1435 - margin.left - margin.right,
-	           height = 550 - margin.top - margin.bottom;
+	           height = 500 - margin.top - margin.bottom;
 			
 	       // Define the width and height of the legend
 	       const legendWidth = 110;
