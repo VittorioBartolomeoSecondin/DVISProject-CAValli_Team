@@ -75,9 +75,7 @@ function createSankeys() {
 			      .attr("d", d3.sankeyLinkHorizontal())
 			      .attr("stroke-width", function(d) {
 			         return d.width;
-			      })
-			      .on("mouseover", MouseOverLink)
-			      .on("mouseout", MouseOutLink);
+			      });
 			
 			  // add the link titles
 			  /*link.append("title")
@@ -129,14 +127,8 @@ function createSankeys() {
 			
 			  
 			   // Add hover effects to links
-			   link.on("mouseover", function () {
-				d3.select(this)
-				.style("stroke-opacity", 0.5);
-			   })
-				.on("mouseout", function () {
-				   d3.select(this)
-				     .style("stroke-opacity", 0.2);
-				});
+			   link.on("mouseover", MouseOverLink)
+				.on("mouseout", MouseOutLink);
 			});
 		})(containerId);
 	}
