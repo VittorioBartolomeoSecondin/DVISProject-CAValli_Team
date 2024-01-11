@@ -36,7 +36,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
   // Add a scale for bubble size
   const z = d3.scaleLinear()
     .domain([1, 50])
-    .range([0, 30]);
+    .range([0, 50]);
 
   // Add dots
   svg.append('g')
