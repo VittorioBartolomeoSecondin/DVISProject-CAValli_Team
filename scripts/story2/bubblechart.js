@@ -52,6 +52,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
       .attr("stroke-width", 1)
       .on("mouseover", function(event, d) { 
 	d3.select(this).attr("stroke-width", 2);
+	d3.select(this).attr("opacity", "1");
 	      
 	if (!tooltip) {
 		tooltip = d3.select("body").append("div")
@@ -73,6 +74,7 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
       })
       .on("mouseout", function(event, d) {
 	d3.select(this).attr("stroke-width", 1);
+	d3.select(this).attr("opacity", "0.7");
 	      
       	if (tooltip) {
 	      tooltip.transition()
