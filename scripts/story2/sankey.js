@@ -85,7 +85,8 @@ function createSankeys() {
 			
 			
 			  // add the rectangles for the nodes
-			  node.append("rect")
+			  var rect = node.append("rect")
+			      .attr("class", "rect")
 			      .attr("x", function(d) { return d.x0; })
 			      .attr("y", function(d) { return d.y0; })
 			      .style("fill", function(d) { return d.name === "Not searching for work (NEETs)" || d.name === "Searching for work (NEETs)" ? "red" : "black"; })
@@ -100,7 +101,7 @@ function createSankeys() {
 			          return d.name + "\n" + d.value + "%"; });*/
 			
 			  // add in the text for the nodes
-			  node.append("text")
+			  rect.append("text")
 			      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
 			      .attr("y", function(d) { return (d.y1 + d.y0) / 2 + (d.y1 - d.y0) / 2 + 12; })
 			      .attr("dy", "0.35em")
@@ -110,7 +111,7 @@ function createSankeys() {
 			    .filter(function(d) { return d.x0 >= width / 2; })
 			      .attr("x", function (d) { return d.name === "Not searching for work (NEETs)" ? (d.x0 + d.x1) / 2 - 35 : (d.x0 + d.x1) / 2 - 25; });
 			
-			  node.on("mouseover", MouseOver)
+			  rect.on("mouseover", MouseOver)
 			      .on("mouseout", MouseOut);
 			
 			   // Add hover effects to links
@@ -143,7 +144,7 @@ function MouseOver(event, d) {
 	    tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}%`)
 		   .style("left", (event.pageX + 10) + "px")
 		   .style("top", (event.pageY - 20) + "px");
-    else if (event.target.classList.contains("node"))
+    else if (event.target.classList.contains("rect"))
 	    tooltip.html(`<b>${d.name}</b>: ${d.value}%`)
 		   .style("left", (event.pageX + 10) + "px")
 		   .style("top", (event.pageY - 20) + "px");
@@ -152,7 +153,7 @@ function MouseOver(event, d) {
 function MouseOut(event) {
     if (event.target.classList.contains("link"))
     	d3.select(this).style("stroke-opacity", 0.2);
-    else if (event.target.classList.contains("node"))
+    else if (event.target.classList.contains("rect"))
 	d3.select(this).attr("font-weight", "normal");
 	
     if (tooltip) {
