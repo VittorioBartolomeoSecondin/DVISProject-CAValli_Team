@@ -118,7 +118,7 @@ const ItalianChoropleth = {
 				return d[0] + "% - " + d[1] + "%";
 			    });
 			
-		legend.append("text").attr("x", 15).attr("y", 330).text("NEET percentage");
+		legend.append("text").attr("x", 15).attr("y", 290).text("NEET percentage");
 	
 		this.updateMap(0);
     	},
