@@ -28,7 +28,7 @@ function createSankeys() {
 			  var sankey = d3.sankey()
 			      .nodeWidth(36)
 			      .nodePadding(80)
-			      .size([width, height * 0.3]);
+			      .size([width, height]);
 			
 			  var path = sankey.links();
 			
@@ -92,12 +92,6 @@ function createSankeys() {
 			      .style("stroke-width", 2)
 			      .attr("height", function(d) { return (d.y1 - d.y0); })
 			      .attr("width", sankey.nodeWidth());
-			
-			
-			  // add the title for the nodes
-			  /*node.append("title")
-			      .text(function(d) { 
-			          return d.name + "\n" + d.value + "%"; });*/
 			
 			  // add in the text for the nodes
 			  node.append("text")
