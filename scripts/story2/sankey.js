@@ -1,6 +1,6 @@
 // Define the number of Sankey diagrams
 var numSankeys = 3;
-
+var tooltip = null;
 var sankeyDatasets = ["data/story2/sankey/sankey_EU.csv", "data/story2/sankey/sankey_ITA.csv", "data/story2/sankey/sankey_TUR.csv"];
 
 // Create SVG elements for each Sankey diagram
