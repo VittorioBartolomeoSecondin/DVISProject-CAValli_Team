@@ -182,7 +182,7 @@ const Dumbbell = {
 			      .on("mouseout", MouseOut);
 
 	  lines.transition()
-	    .duration(900)
+	    .duration(1000)
 	    .delay((d, i) => i * 100)
 	    .attr("x2", function(d) { return x(d['2022_perc']); })
 	    .on("end", function() {
