@@ -1,3 +1,6 @@
+// Create the tooltip element
+let tooltip = null;
+
 // Set up the SVG dimensions
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		      width = 750 - margin.left - margin.right,
@@ -46,5 +49,31 @@ d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
       .style("fill", "#69b3a2")
       .style("opacity", "0.7")
       .attr("stroke", "black")
-
+      .on("mouseover", function(event, d) {   
+	if (!tooltip) {
+		tooltip = d3.select("body").append("div")
+			.attr("id", "bubblechart_tooltip")
+			.attr("class", "tooltip")
+			.style("opacity", 0);
+	}
+	      
+	// Show the tooltip
+	tooltip.transition()
+		.duration(200)
+		.style("opacity", 1)
+	      
+	// Set the customized tooltip content
+	tooltip.html(d.name)
+		.style("left", (event.pageX + 10) + "px")
+		.style("top", (event.pageY - 20) + "px");
+      })
+      .on("mouseout", function(event, d) {
+      	if (tooltip) {
+	      tooltip.transition()
+		      .duration(200)
+		      .style("opacity", 0)
+		      .remove();
+	      tooltip = null; // Reset tooltip variable
+      	}
+      });
 })
