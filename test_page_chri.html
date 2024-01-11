@@ -78,11 +78,23 @@
 
 <div id="slope-chart-container"></div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slope Chart with D3.js</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+<div id="slope-chart-container"></div>
+
 <script>
 // Fake data
 var data = [
-  { category: 'Category 1', value1: 10, value2: 20 },
-  { category: 'Category 2', value1: 30, value2: 15 },
+  { category: 'Category 1', value1: 10, value2: 30 },
+  { category: 'Category 2', value1: 20, value2: 15 },
   // Add more data points as needed
 ];
 
@@ -144,9 +156,9 @@ svg.selectAll(".slope-line-red")
   .enter().append("line")
   .attr("class", "slope-line-red")
   .attr("x1", function(d) { return xScale(d.category); })
-  .attr("y1", function(d) { return yScale(d.value1); })
+  .attr("y1", function(d) { return yScale(d.value2); })  // Connect to value2 for the red line
   .attr("x2", function(d) { return xScale(d.category); })
-  .attr("y2", function(d) { return yScale(d.value2); })
+  .attr("y2", function(d) { return yScale(d.value1); })  // Connect to value1 for the red line
   .attr("stroke", "red");
 
 // Draw circles for data points (Red)
@@ -155,7 +167,7 @@ svg.selectAll(".data-point-circle1-red")
   .enter().append("circle")
   .attr("class", "data-point-circle1-red")
   .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value1); })
+  .attr("cy", function(d) { return yScale(d.value2); })  // Connect to value2 for the red circle
   .attr("r", 5)
   .attr("fill", "red");
 
@@ -164,7 +176,7 @@ svg.selectAll(".data-point-circle2-red")
   .enter().append("circle")
   .attr("class", "data-point-circle2-red")
   .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value2); })
+  .attr("cy", function(d) { return yScale(d.value1); })  // Connect to value1 for the red circle
   .attr("r", 5)
   .attr("fill", "red");
 
@@ -175,7 +187,7 @@ svg.append("g")
 
 svg.append("g")
   .call(d3.axisLeft(yScale));
-
+    
 // Add labels
 svg.append("text")
   .attr("x", width / 2)
