@@ -17,8 +17,8 @@ const ItalianChoropleth = {
 	       const legendHeight = 300;
 	
 	       // Calculate the position for the legend
-	       const legendX = width - legendWidth - 80 - 175; 
-	       const legendY = height / 2 - legendHeight / 2 - 300 + 30; 
+	       const legendX = width - legendWidth - 255; 
+	       const legendY = height / 2 - legendHeight / 2 - 270; 
 			
 	       let projection = d3.geoAlbers()
 				  .center([0, 41])
