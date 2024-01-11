@@ -135,7 +135,7 @@ function createSankeys() {
 }
 
 function MouseOverLink(event, d) {
-    d3.select(this).attr("stroke-width", 2);
+    d3.select(this).style("stroke-opacity", 0.5);
 	
     if (!tooltip) {
 	    tooltip = d3.select("body").append("div")
@@ -155,7 +155,7 @@ function MouseOverLink(event, d) {
 }
 
 function MouseOutLink() {
-    d3.select(this).attr("stroke-width", 1);
+    d3.select(this).style("stroke-opacity", 0.2);
 	
     if (tooltip) {
 		tooltip.transition()
