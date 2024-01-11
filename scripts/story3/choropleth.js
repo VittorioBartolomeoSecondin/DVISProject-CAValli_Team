@@ -10,7 +10,7 @@ const ItalianChoropleth = {
 	       // set the dimensions and margins of the graph
 	       var margin = { top: 60, right: 70, bottom: 70, left: 100 },
 	           width = 1435 - margin.left - margin.right,
-	           height = 550 - margin.top - margin.bottom;
+	           height = 450 - margin.top - margin.bottom;
 			
 	       // Define the width and height of the legend
 	       const legendWidth = 110;
@@ -25,7 +25,7 @@ const ItalianChoropleth = {
 				  .rotate([347, 0])
 			          .parallels([35, 45])
 				  .scale(2400)
-				  .translate([width / 2, height / 2]);
+				  .translate([width / 2, height / 2 + 30]);
 	
 	       const self = this; // saving a reference to the Choropleth object
 			
