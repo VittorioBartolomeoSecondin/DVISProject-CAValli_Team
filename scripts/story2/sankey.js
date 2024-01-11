@@ -12,7 +12,8 @@ function createSankeys() {
 	
 	for (var i = 1; i <= numSankeys; i++) {
 	    	var containerId = "#sankey" + i;
-	
+
+		(function (containerId) {
 	    	// Create the SVG element for the Sankey diagram
 	    	var svg = d3.select(containerId)
 	        	.append("svg")
@@ -135,6 +136,7 @@ function createSankeys() {
 			     .style("stroke-opacity", 0.2);
 			});
 		});
+		})(containerId);
 	}
 }
 
