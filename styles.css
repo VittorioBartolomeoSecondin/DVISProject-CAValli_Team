@@ -112,7 +112,7 @@
 }
 
 /* styles for the Sankey diagram */
-/*.node rect {
+.node rect {
   fill-opacity: .9;
   shape-rendering: crispEdges;
 }
@@ -126,7 +126,7 @@
   fill: none;
   stroke: #000;
   stroke-opacity: .2;
-}*/
+}
 
 /* 
 
