@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="test_styles.css">
@@ -63,4 +63,126 @@
         <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slope Chart with D3.js</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+<div id="slope-chart-container"></div>
+
+<script>
+// Fake data
+var data = [
+  { category: 'Category 1', value1: 10, value2: 20 },
+  { category: 'Category 2', value1: 30, value2: 15 },
+  // Add more data points as needed
+];
+
+// Set up chart dimensions
+var width = 400;
+var height = 300;
+var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+
+// Create SVG container
+var svg = d3.select("#slope-chart-container")
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+// Set up scales
+var xScale = d3.scaleBand()
+  .domain(data.map(function(d) { return d.category; }))
+  .range([0, width]);
+
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(data, function(d) { return Math.max(d.value1, d.value2); })])
+  .range([height, 0]);
+
+// Draw lines connecting points
+svg.selectAll(".slope-line")
+  .data(data)
+  .enter().append("line")
+  .attr("class", "slope-line")
+  .attr("x1", function(d) { return xScale(d.category); })
+  .attr("y1", function(d) { return yScale(d.value1); })
+  .attr("x2", function(d) { return xScale(d.category); })
+  .attr("y2", function(d) { return yScale(d.value2); })
+  .attr("stroke", "blue");
+
+// Draw circles for data points
+svg.selectAll(".data-point")
+  .data(data)
+  .enter().append("circle")
+  .attr("class", "data-point")
+  .attr("cx", function(d) { return xScale(d.category); })
+  .attr("cy", function(d) { return yScale(d.value1); })
+  .attr("r", 5)
+  .attr("fill", "blue");
+
+svg.selectAll(".data-point")
+  .data(data)
+  .enter().append("circle")
+  .attr("class", "data-point")
+  .attr("cx", function(d) { return xScale(d.category); })
+  .attr("cy", function(d) { return yScale(d.value2); })
+  .attr("r", 5)
+  .attr("fill", "red");
+
+// Draw axes
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(xScale));
+
+svg.append("g")
+  .call(d3.axisLeft(yScale));
+
+// Add labels
+svg.append("text")
+  .attr("x", width / 2)
+  .attr("y", height + margin.top + 10)
+  .style("text-anchor", "middle")
+  .text("Category");
+
+svg.append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("y", 0 - margin.left)
+  .attr("x", 0 - (height / 2))
+  .attr("dy", "1em")
+  .style("text-anchor", "middle")
+  .text("Value");
+
+// Add legend
+var legend = svg.append("g")
+  .attr("transform", "translate(" + (width - 10) + "," + (height - 80) + ")");
+
+legend.append("circle")
+  .attr("r", 5)
+  .attr("fill", "blue");
+
+legend.append("text")
+  .attr("x", 10)
+  .attr("y", 5)
+  .text("Value 1");
+
+legend.append("circle")
+  .attr("r", 5)
+  .attr("cy", 20)
+  .attr("fill", "red");
+
+legend.append("text")
+  .attr("x", 10)
+  .attr("y", 25)
+  .text("Value 2");
+</script>
+
+</body>
 </html>
