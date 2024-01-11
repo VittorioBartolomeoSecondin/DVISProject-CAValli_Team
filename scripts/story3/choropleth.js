@@ -8,7 +8,7 @@ const ItalianChoropleth = {
 	
 	initialize: function() {
 	       // set the dimensions and margins of the graph
-	       var margin = { top: 40, right: 70, bottom: 10, left: 100 },
+	       var margin = { top: 60, right: 70, bottom: 30, left: 100 },
 	           width = 1435 - margin.left - margin.right,
 	           height = 650 - margin.top - margin.bottom;
 			
