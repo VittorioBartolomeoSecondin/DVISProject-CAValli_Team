@@ -22,10 +22,14 @@ function updateScatterplotChart(selectedValue) {
 	
 	    // Filter out data points where either "neet" or "poverty" is empty
 	    data = data.filter(d => d.neet !== "" && d.poverty !== "");
+
+	    // Dynamically set the domain of x and y axes
+	    const x_domain = Math.max(50, (d3.max(data, d => +d.neet)));
+	    const y_domain = Math.max(50, (d3.max(data, d => +d.poverty)));
 	
 	    // Add X axis
 	    const x = d3.scaleLinear()
-	    .domain([0, 50])
+	    .domain([0, x_domain === 50 ? 50 : x_domain + 5])
 	    .range([0, width]);
 	    svg.append("g")
 	    .attr("transform", `translate(0, ${height})`)
@@ -40,7 +44,7 @@ function updateScatterplotChart(selectedValue) {
 	
 	    // Add Y axis
 	    const y = d3.scaleLinear()
-	    .domain([0, 50])
+	    .domain([0, y_domain === 50 ? 50 : y_domain + 5])
 	    .range([height, 0]);
 	    svg.append("g")
 	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
@@ -104,7 +108,7 @@ document.getElementById("year-dropdown-scatterplot").addEventListener("change", 
     const selectedValue = "data/story2/scatterplot/scatterplot" + this.value + ".csv";
 
     d3.select("#scatterplot_svg").remove();
-    d3.select("scatterplot_tooltip").remove();
+    d3.select("#scatterplot_tooltip").remove();
     
     updateScatterplotChart(selectedValue);
 });
