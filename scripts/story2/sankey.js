@@ -95,9 +95,9 @@ function createSankeys() {
 			
 			
 			  // add the title for the nodes
-			  node.append("title")
+			  /*node.append("title")
 			      .text(function(d) { 
-			          return d.name + "\n" + d.value + "%"; });
+			          return d.name + "\n" + d.value + "%"; });*/
 			
 			  // add in the text for the nodes
 			  node.append("text")
