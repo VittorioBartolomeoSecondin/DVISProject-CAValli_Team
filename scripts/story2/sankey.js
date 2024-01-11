@@ -101,7 +101,7 @@ function createSankeys() {
 			          return d.name + "\n" + d.value + "%"; });*/
 			
 			  // add in the text for the nodes
-			  rect.append("text")
+			  node.append("text")
 			      .attr("x", function (d) { return (d.x0 + d.x1) / 2; })
 			      .attr("y", function(d) { return (d.y1 + d.y0) / 2 + (d.y1 - d.y0) / 2 + 12; })
 			      .attr("dy", "0.35em")
