@@ -151,4 +151,4 @@ const Butterfly = {
      }
 }
 
-Butterfly.initialize("data/story1/pyramids/butterfly2009.csv");
+Butterfly.initialize("data/story1/butterfly/butterfly2009.csv");
