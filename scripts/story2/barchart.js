@@ -44,10 +44,10 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
   
   // Bars
-  svg.selectAll("mybar")
+  svg.selectAll("rect")
     .data(data)
     .enter()
-    .join("rect")
+    .append("rect")
       .attr("x", d => x(d.category))
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
