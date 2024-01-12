@@ -62,7 +62,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.value))
-      .attr("fill", d => (d.indicator === "sex") ? "blue" : (d.indicator === "age") ? "red" : (d.indicator === "education") ? "green" : "purple");
+      .attr("fill", d => (d.indicator === "Sex") ? "blue" : (d.indicator === "Age range") ? "red" : (d.indicator === "Education") ? "green" : "purple");
       //.attr("fill", "#69b3a2")
 
 })
