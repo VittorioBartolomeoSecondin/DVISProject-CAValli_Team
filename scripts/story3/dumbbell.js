@@ -20,8 +20,7 @@ const Dumbbell = {
                 .style("opacity", 1);
         	
             self.tooltip.html(`<b>${d.Region}</b>: ${d[year+'_perc']}%<br>
-                          Absolute value: ${d[year+'_K']}k NEETs<br>
-                          Year: ${year}`)
+                          Absolute value: ${d[year+'_K']}k NEETs`)
                 .style("left", (event.pageX + 10) + "px")
                 .style("top", (event.pageY - 20) + "px");
         }
