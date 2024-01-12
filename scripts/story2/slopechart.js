@@ -189,5 +189,24 @@ const SlopeChart = {
 
 }
 
-SlopeChart.initialize(2010);
+// Slider interaction
+const sliders_slopechart = document.querySelectorAll(".yearSlider_slopechart");
+sliders_slopechart.forEach((slider) => {
+    slider.addEventListener("change", function () {
+	const sliders = document.querySelectorAll('.yearSlider_slopechart');
+        const selectedYears = document.querySelectorAll('.selectedYear_slopechart');
+	    
+        const year = parseInt(this.value);
+        sliders.forEach((s) => {
+		s.value = year;
+        });
+    	selectedYears.forEach((sy) => {
+		sy.innerHTML = year;
+        });
+        // Update the chart based on the selected year
+        SlopeChart.destroy();
+	SlopeChart.initialize(year);
+    });
+});
 
+SlopeChart.initialize(2010);
