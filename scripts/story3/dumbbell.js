@@ -101,7 +101,7 @@ const Dumbbell = {
 	   .style("font-size", "12px")
 	   .html(function () {
 		    return "Italia" +
-		      "<tspan x='" + x(firstRow['2013_perc']) + "' dy='1.2em'>2013</tspan>";
+		      "<tspan x='" + x(firstRow['2013_perc'] - 10) + "' dy='1.2em'>2013</tspan>";
   	   })
 	   .attr("fill", "#69b3a2");
 
