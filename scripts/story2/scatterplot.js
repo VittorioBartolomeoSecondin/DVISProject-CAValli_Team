@@ -36,13 +36,13 @@ function updateScatterplotChart(selectedValue) {
 	      .attr("fill", "black");
 
 	    // Add X axis label
-	    svg.append("text")
+	    /*svg.append("text")
 		  .attr("class", "axis-label")
 		  .attr("x", width / 2)
 		  .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
 		  .style("text-anchor", "middle")
 		  .style("fill", "black")
-		  .text("Young people neither in employment nor in education and training (NEET)");
+		  .text("Young people neither in employment nor in education and training (NEET)");*/
 	
 	    // Add Y axis
 	    const y = d3.scaleLinear()
