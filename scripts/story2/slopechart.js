@@ -20,7 +20,7 @@ function SlopeChart() {
       var colors = d3.schemeSet1;
   
       // Create scales
-      var xScale = d3.scaleLinear().domain([2013, 2020]).range([0, width]);
+      var xScale = d3.scaleLinear().domain([2013, 2020]).range([0, width-10]);
       var yScale = d3.scaleLinear().domain([20, 30]).range([height, 0]);
   
       // Create line function
