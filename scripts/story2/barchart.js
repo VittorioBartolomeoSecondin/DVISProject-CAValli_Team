@@ -19,14 +19,9 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   data = data.filter(d => d.year === 2009);
 
   // Extract unique categories for the x-axis
-  // List of subgroups = header of the csv files = soil condition here
-  var subgroups = data.columns.slice(1)
-
-  // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.group)}).keys()
+  const categories = [...new Set(data.map(d => d.category))];
 	
-  console.log(subgroups);
-  console.log(groups);
+  console.log(categories);
   
   // X axis
   const x = d3.scaleBand()
