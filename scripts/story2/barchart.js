@@ -69,7 +69,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 */
 // Set up the SVG dimensions
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
-		        width = 750 - margin.left - margin.right,
+		        width = 1200 - margin.left - margin.right,
 		        height = 650 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -102,8 +102,8 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .call(d3.axisBottom(x))
     .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-90)")
-      .style("text-anchor", "end");
-      //.attr("dy", "-3.85em");
+      .style("text-anchor", "end")
+      .attr("dx", "-3.85em");
   
   // Add Y axis
   const y = d3.scaleLinear()
