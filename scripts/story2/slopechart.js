@@ -158,13 +158,13 @@ const SlopeChart = {
 	      svg.append("text")
 	          .attr("x", xScale(2009))
 	          .attr("y", height + 20)
-	          .text("2013")
+	          .text("2009")
 	          .attr("text-anchor", "middle");
 	  
 	      svg.append("text")
 	          .attr("x", xScale(finalYear))
 	          .attr("y", height + 20)
-	          .text("2020")
+	          .text(finalYear.toString())
 	          .attr("text-anchor", "middle");
 	
 	      // Create a new y-axis for the right side
