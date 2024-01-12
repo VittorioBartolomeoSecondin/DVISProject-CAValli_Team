@@ -53,7 +53,8 @@ function SlopeChart() {
           .enter().append("path")
           .attr("class", "line")
           .attr("d", function(d) { return line([{ year: 2013, value: +d['2013'] }, { year: 2020, value: +d['2020'] }]); })
-          .style("stroke", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; });
+          .style("stroke", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; })
+	  .style("stroke-width", 2);
   
       // Draw points for both starting and final years
       svg.selectAll(".start-point")
