@@ -63,7 +63,7 @@ const Dumbbell = {
           svg.append("g")
 	    .attr("class", "axis")
             .attr("transform", `translate(0, ${height})`)
-            .call(d3.axisBottom(x))
+            .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
 	    .selectAll("text")
 	   	.attr("fill", "black");
         
