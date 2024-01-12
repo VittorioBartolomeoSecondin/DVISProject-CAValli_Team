@@ -1,5 +1,5 @@
 // Use d3.csv to load data from a CSV file
-  d3.csv("data.csv").then(function(dataset) {
+  d3.csv("data/story2/slopechart.csv").then(function(dataset) {
 
     // Set up SVG dimensions
     var margin = { top: 20, right: 20, bottom: 50, left: 50 },
