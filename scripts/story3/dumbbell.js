@@ -130,7 +130,10 @@ const Dumbbell = {
 	   .attr("dx", "-2.7em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .html(`Italia<br>2022`)
+	   .html(function () {
+		    return "Italia" +
+		      "<tspan x='" + x(firstRow['2022_perc']) + "' dy='1.2em'>2022</tspan>";
+  	   })
 	   .attr("fill", "#4C4082");
 
 	  // Text label vertical line
