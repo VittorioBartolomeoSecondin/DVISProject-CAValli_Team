@@ -30,7 +30,7 @@ function BubbleChart() {
 	svg.append("text")
 	  .attr("class", "axis-label")
 	  .attr("x", width / 2)
-	  .attr("y", height + margin.bottom - 10) // Adjusted the y-coordinate
+	  .attr("y", height + margin.bottom) // Adjusted the y-coordinate
 	  .style("text-anchor", "middle")
 	  .style("fill", "black")
 	  .text("Early leavers");
