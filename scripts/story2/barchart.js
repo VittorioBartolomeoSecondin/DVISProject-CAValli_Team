@@ -111,5 +111,5 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   svg.append("text")
     .attr("x", 20)
     .attr("y", height + 50)
-    .text("Sex);
+    .text("Sex");
 })
