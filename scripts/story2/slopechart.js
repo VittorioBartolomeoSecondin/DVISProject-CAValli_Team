@@ -1,3 +1,4 @@
+var tooltip = null;
 function SlopeChart() {
 
     // Use d3.csv to load data from a CSV file
