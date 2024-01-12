@@ -75,6 +75,8 @@ const Butterfly = {
 		    .attr("y", d => y(d.abbreviation))
 		    .attr("width", 0) // Initially set width to 0
 		    .attr("height", y.bandwidth())
+		    .attr("stroke", "black") 
+                    .attr("stroke-width", 1)
 		    .attr("fill", d => d3.schemeSet1[d.sex === "M" ? 1 : 0])
 		    .style("opacity", 0.7);
 		
