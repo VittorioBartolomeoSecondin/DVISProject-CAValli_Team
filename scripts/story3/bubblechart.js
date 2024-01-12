@@ -23,6 +23,8 @@ function BubbleChart() {
 	  svg.append("g")
 	    .attr("transform", `translate(0, ${height})`)
 	    .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
+	    .selectAll("text")
+	      .attr("fill", "black")
 	    .append("text")  // Add X axis label
 	    .attr("class", "axis-label")
 	    .attr("x", width / 2)
