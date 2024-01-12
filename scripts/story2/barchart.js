@@ -64,8 +64,9 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .data(indicators)
     .enter()
     .append("g")
-    .attr("class", d => `indicator-group ${d}`);
-  console.log(indicatorGroups);
+    .attr("class", d => `indicator-group ${d}`)
+    .attr("transform", (d, i) => `translate(${i * 2}, 0)`);
+	
   // Bars
   svg.selectAll("rect")
     .data(indicator => data.filter(d => d.indicator === indicator))
@@ -75,7 +76,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.value))
-      .attr("fill", d => (d.indicator === "Sex") ? "blue" : (d.indicator === "Age range") ? "red" : (d.indicator === "Education") ? "green" : "purple");
+      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato");
   
   const linesData_long = [
     { startX: x(categories[1]) + x.bandwidth() * 1.5, endX: x(categories[1]) + x.bandwidth() * 1.5 },
