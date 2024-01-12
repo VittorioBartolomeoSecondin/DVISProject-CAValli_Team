@@ -49,6 +49,11 @@ function BubbleChart() {
 	    .style("text-anchor", "middle")
 	    .style("fill", "black")
 	    .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");
+
+	  // Select lines of X,Y axis
+        svg.selectAll(".axis")
+	 .selectAll("line")
+	 .attr("stroke", "black");
 	
 	  // Add a scale for bubble size
 	  const z = d3.scaleLinear()
