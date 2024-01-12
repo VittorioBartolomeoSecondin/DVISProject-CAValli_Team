@@ -34,7 +34,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   xAxis.selectAll("text")
     .attr("transform", "translate(-13.5,0)rotate(-90)")
     .style("text-anchor", "end")
-    .attr("dx", "-2px");
+    .attr("dx", "-7px");
   
   // Add Y axis
   const y = d3.scaleLinear()
