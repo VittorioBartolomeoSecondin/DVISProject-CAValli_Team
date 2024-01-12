@@ -20,8 +20,10 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   // Extract unique categories for the x-axis
   const categories = [...new Set(data.map(d => d.category))];
+  const indicators = [...new Set(data.map(d => d.indicator))];
 	
   console.log(categories);
+  console.log(indicators);
   
   // X axis
   const x = d3.scaleBand()
@@ -42,16 +44,25 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
+    
+  // Create separate groups for each indicator
+  const indicatorGroups = svg.selectAll(".indicator-group")
+    .data(indicators)
+    .enter()
+    .append("g")
+    .attr("class", d => `indicator-group ${d}`)
+    .attr("transform", d => `translate(${indicators.indexOf(d) * width / indicators.length}, 0)`);
   
   // Bars
-  svg.selectAll("rect")
-    .data(data)
+  indicatorGroups.selectAll("rect")
+    .data(indicator => data.filter(d => d.indicator === indicator))
     .enter()
     .append("rect")
       .attr("x", d => x(d.category))
       .attr("y", d => y(d.value))
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.value))
-      .attr("fill", "#69b3a2")
+      .attr("fill", d => (d.indicator === "sex") ? "blue" : (d.indicator === "age") ? "red" : (d.indicator === "education") ? "green" : "purple");
+      //.attr("fill", "#69b3a2")
 
 })
