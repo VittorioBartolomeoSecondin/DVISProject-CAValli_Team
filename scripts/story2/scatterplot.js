@@ -29,30 +29,43 @@ function updateScatterplotChart(selectedValue) {
 	    .domain([0, x_domain])
 	    .range([0, width]);
 	    svg.append("g")
+	    .attr("class", "axis")
 	    .attr("transform", `translate(0, ${height})`)
 	    .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
-	    .append("text")  // Add X axis label
-	    .attr("class", "axis-label")
-	    .attr("x", width / 2)
-	    .attr("y", margin.bottom - 10)
-	    .style("text-anchor", "middle")
-	    .style("fill", "black")
-	    .text("Young people neither in employment nor in education and training (NEET)");
+	    .selectAll("text")
+	      .attr("fill", "black");
+
+	    // Add X axis label
+	    svg.append("text")
+		  .attr("class", "axis-label")
+		  .attr("x", width / 2)
+		  .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
+		  .style("text-anchor", "middle")
+		  .style("fill", "black")
+		  .text("Young people neither in employment nor in education and training (NEET)");
 	
 	    // Add Y axis
 	    const y = d3.scaleLinear()
 	    .domain([0, y_domain])
 	    .range([height, 0]);
 	    svg.append("g")
+	       .attr("class", "axis")
 	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
-	    .append("text")  // Add Y axis label
+	    .selectAll("text")
+	      .attr("fill", "black");
+	    /*.append("text")  // Add Y axis label
 	    .attr("class", "axis-label")
 	    .attr("transform", "rotate(-90)")
 	    .attr("x", -height / 2)
 	    .attr("y", -margin.left + 20)
 	    .style("text-anchor", "middle")
 	    .style("fill", "black")
-	    .text("Persons at risk of poverty or social exclusion");
+	    .text("Persons at risk of poverty or social exclusion");*/
+
+	   // Select lines of X,Y axis
+           svg.selectAll(".axis")
+		 .selectAll("line")
+		 .attr("stroke", "black");
 	
 	    // Add dots
 	    svg.append('g')
