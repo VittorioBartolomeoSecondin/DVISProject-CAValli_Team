@@ -67,6 +67,18 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("class", d => `indicator-group ${d}`)
     .attr("transform", d => `translate(${indicators.indexOf(d) * width / indicators.length}, 0)`);
   
+  // Bars
+  indicatorGroups.selectAll("rect")
+    .data(indicator => data.filter(d => d.indicator === indicator))
+    .enter()
+    .append("rect")
+      .attr("x", d => x(d.category))
+      .attr("y", d => y(d.value))
+      .attr("width", x.bandwidth())
+      .attr("height", d => height - y(d.value))
+      .attr("fill", d => (d.indicator === "Sex") ? "blue" : (d.indicator === "Age range") ? "red" : (d.indicator === "Education") ? "green" : "purple");
+      //.attr("fill", "#69b3a2")
+  	
   // Move x-axis labels to align with the corresponding bars
   indicatorGroups.each(function(d) {
       const group = d3.select(this);
@@ -82,17 +94,5 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
           label.attr("x", labelX);
       });
   });
-  
-  // Bars
-  indicatorGroups.selectAll("rect")
-    .data(indicator => data.filter(d => d.indicator === indicator))
-    .enter()
-    .append("rect")
-      .attr("x", d => x(d.category))
-      .attr("y", d => y(d.value))
-      .attr("width", x.bandwidth())
-      .attr("height", d => height - y(d.value))
-      .attr("fill", d => (d.indicator === "Sex") ? "blue" : (d.indicator === "Age range") ? "red" : (d.indicator === "Education") ? "green" : "purple");
-      //.attr("fill", "#69b3a2")
 
 })
