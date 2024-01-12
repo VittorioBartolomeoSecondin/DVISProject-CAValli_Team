@@ -96,12 +96,12 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2013_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-2.7em")
-	   .attr("dy", "-0.5em")
+	   .attr("dx", "-1em")
+	   .attr("dy", "-1.8em")
 	   .style("font-size", "12px")
 	   .html(function () {
 		    return "Italia" +
-		      "<tspan x='" + x(firstRow['2013_perc']) + "' dy='1.2em'>2013</tspan>";
+		      "<tspan x='" + x(firstRow['2013_perc']) + "' dy='1.2em' dx='-0.9em'>2013</tspan>";
   	   })
 	   .attr("fill", "#69b3a2");
 
