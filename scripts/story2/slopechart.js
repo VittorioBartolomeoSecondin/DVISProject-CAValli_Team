@@ -1,5 +1,5 @@
 // Use d3.csv to load data from a CSV file
-  d3.csv("data/story2/slopechart.csv").then(function(dataset) {
+  d3.csv("data.csv").then(function(dataset) {
 
     // Set up SVG dimensions
     var margin = { top: 20, right: 20, bottom: 50, left: 50 },
@@ -33,12 +33,12 @@
         .attr("d", function(d) { return line([{ year: 2013, value: +d['2013'] }, { year: 2020, value: +d['2020'] }]); })
         .style("stroke", function(d, i) { return colors[i]; });
 
-    // Draw points for starting years
+    // Draw points for both starting and final years
     svg.selectAll(".point")
         .data(dataset)
         .enter().append("circle")
         .attr("class", "point")
-        .attr("cx", xScale(2013))
+        .attr("cx", function(d) { return xScale(2013); })
         .attr("cy", function(d) { return yScale(+d['2013']); })
         .attr("r", 6)
         .style("fill", function(d, i) { return colors[i]; })
@@ -47,7 +47,31 @@
           tooltip.transition()
             .duration(200)
             .style("opacity", .9);
-          tooltip.html(d.sex + ": " + d['2013'])
+          tooltip.html(d.sex + " (2013): " + d['2013'])
+            .style("left", (d3.event.pageX + 5) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(d) {
+          // Hide tooltip
+          tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+        });
+
+    svg.selectAll(".point")
+        .data(dataset)
+        .enter().append("circle")
+        .attr("class", "point")
+        .attr("cx", function(d) { return xScale(2020); })
+        .attr("cy", function(d) { return yScale(+d['2020']); })
+        .attr("r", 6)
+        .style("fill", function(d, i) { return colors[i]; })
+        .on("mouseover", function(d) {
+          // Display tooltip
+          tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+          tooltip.html(d.sex + " (2020): " + d['2020'])
             .style("left", (d3.event.pageX + 5) + "px")
             .style("top", (d3.event.pageY - 28) + "px");
         })
@@ -65,6 +89,16 @@
         .attr("class", "label")
         .attr("x", xScale(2013))
         .attr("y", function(d) { return yScale(+d['2013']) - 10; })
+        .text(function(d) { return d.sex; })
+        .style("fill", function(d, i) { return colors[i]; });
+
+    // Draw labels for final points
+    svg.selectAll(".label")
+        .data(dataset)
+        .enter().append("text")
+        .attr("class", "label")
+        .attr("x", xScale(2020))
+        .attr("y", function(d) { return yScale(+d['2020']) - 10; })
         .text(function(d) { return d.sex; })
         .style("fill", function(d, i) { return colors[i]; });
 
