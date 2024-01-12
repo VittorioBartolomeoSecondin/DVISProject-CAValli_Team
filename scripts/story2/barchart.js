@@ -106,4 +106,10 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("y1", height)
     .attr("y2", height + 100)
     .attr("stroke", "black");
+    
+  // Text label for indicators
+  svg.append("text")
+    .attr("x", 20)
+    .attr("y", height + 50)
+    .text("Sex);
 })
