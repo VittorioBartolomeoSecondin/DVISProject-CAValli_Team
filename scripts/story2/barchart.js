@@ -43,9 +43,12 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   const y = d3.scaleLinear()
     .domain([0, 70])
     .range([height, 0]);
+
+  // Manually specify y-axis tick values
+  const yAxisTicks = [0, 10, 20, 30, 40, 50, 60, 70];
     
   const yAxis = svg.append("g")
-    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
+    .call(d3.axisLeft(y).tickValues(yAxisTicks).tickFormat((d) => (d === 0 ? d : d + "%")));
     
   yAxis.selectAll(".tick")
     .append("line")
