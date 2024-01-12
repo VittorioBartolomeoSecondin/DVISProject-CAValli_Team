@@ -35,6 +35,9 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("transform", "translate(-13.5,0)rotate(-90)")
     .style("text-anchor", "end")
     .attr("dx", "-7px");
+
+  // Remove ticks for each label
+  xAxis.selectAll(".tick line").remove();
   
   // Add Y axis
   const y = d3.scaleLinear()
