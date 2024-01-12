@@ -35,7 +35,7 @@ function SlopeChart() {
           .attr("x2", xScale(2013))
           .attr("y2", height)
           .attr("stroke", "black")
-	  .style("stroke-width", 3)
+	  .style("stroke-width", 4)
           .style("opacity", 0.5);
   
       svg.append("line")
@@ -44,7 +44,7 @@ function SlopeChart() {
           .attr("x2", xScale(2020))
           .attr("y2", height)
           .attr("stroke", "black")
-	  .style("stroke-width", 3)
+	  .style("stroke-width", 4)
           .style("opacity", 0.5);
   
       // Draw lines
