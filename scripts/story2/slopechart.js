@@ -87,7 +87,7 @@ function SlopeChart() {
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
-          .on("mouseout", function(event, d) {
+          .on("mouseout", function(d) {
             d3.select(this).attr("stroke-width", 1);
 	
             if (tooltip) {
@@ -129,7 +129,7 @@ function SlopeChart() {
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
-          .on("mouseout", function(event, d) {
+          .on("mouseout", function(d) {
             d3.select(this).attr("stroke-width", 1);
 	
             if (tooltip) {
