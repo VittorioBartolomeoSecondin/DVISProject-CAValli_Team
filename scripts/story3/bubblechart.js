@@ -16,7 +16,7 @@ const svg = d3.select("#bubblechart")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 //Read the data
-d3.csv("data/story2/bubblechart/bubblechart.csv").then( function(data) {
+d3.csv("data/story3/bubblechart.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
