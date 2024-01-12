@@ -56,7 +56,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("x2", width)
     .attr("y1", d => y(d))
     .attr("y2", d => y(d))
-    .attr("stroke", "rgba(0, 0, 0, 0.3)");
+    .attr("stroke", "rgba(0, 0, 0, 0.1)");
   
   // Bars
   svg.selectAll("rect")
