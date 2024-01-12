@@ -122,5 +122,22 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.value))
       .attr("fill", "#69b3a2")
+  
+  const linesData = [
+    { startX: x(categories[0]), endX: x(categories[1]) },
+    { startX: x(categories[6]), endX: x(categories[7]) },
+    { startX: x(categories[9]), endX: x(categories[10]) },
+    { startX: x(categories[categories.length - 1]), endX: width }
+  ];
+  
+  svg.selectAll("line")
+    .data(linesData)
+    .enter()
+    .append("line")
+    .attr("x1", d => d.startX)
+    .attr("x2", d => d.endX)
+    .attr("y1", height)  // Starting point under the x-axis
+    .attr("y2", height + 10)  // Ending point, adjust as needed
+    .attr("stroke", "black");  // Line color
 
 })
