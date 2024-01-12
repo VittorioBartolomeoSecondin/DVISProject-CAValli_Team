@@ -45,7 +45,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .range([height, 0]);
     
   const yAxis = svg.append("g")
-    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
+    .call(d3.axisLeft(y).tickFormat((d) => (d >= 0 ? d : d + "%")))
     .selectAll(".tick")
     .filter(d => d >= 0);
     
