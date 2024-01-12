@@ -181,7 +181,9 @@ const SlopeChart = {
 
     destroy: function() {
 	    const existingSvg = document.querySelector('#slopechart_svg');
-	    existingSvg.forEach(svg => svg.parentNode.removeChild(svg));
+	    if (existingSvg) 
+	        existingSvg.remove();
+	    
 	    
 	    // Remove the reference from the global object
 	    delete window.SlopeChart;
