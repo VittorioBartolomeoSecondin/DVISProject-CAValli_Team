@@ -83,7 +83,7 @@ function SlopeChart() {
         	
             let sex_to_be_displayed = (d.sex === "M") ? "Males" : "Females";
             
-            tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d['2013']}%`)
+            tooltip.html(`<b>${sex_to_be_displayed}</b>: ${+d['2013']}%`)
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
@@ -125,7 +125,7 @@ function SlopeChart() {
 
             let sex_to_be_displayed = (d.sex === "M") ? "Males" : "Females";
             
-            tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d['2020']}%`)
+            tooltip.html(`<b>${sex_to_be_displayed}</b>: ${+d['2020']}%`)
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
