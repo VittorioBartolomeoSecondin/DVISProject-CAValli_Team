@@ -24,7 +24,7 @@ const SlopeChart = {
 	  
 	      // Create scales
 	      var xScale = d3.scaleLinear().domain([2009, finalYear]).range([0, width-50]);
-	      var yScale = d3.scaleLinear().domain([20, 30]).range([height, 0]);
+	      var yScale = d3.scaleLinear().domain([15, 30]).range([height, 0]);
 	  
 	      // Create line function
 	      var line = d3.line()
