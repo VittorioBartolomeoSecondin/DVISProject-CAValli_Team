@@ -51,7 +51,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .enter()
     .append("g")
     .attr("class", d => `indicator-group ${d}`)
-    .attr("transform", d => `translate(${indicators.indexOf(d) * width-50 / indicators.length}, 0)`);
+    .attr("transform", d => `translate(${indicators.indexOf(d) * width / indicators.length}, 0)`);
   
   // Bars
   indicatorGroups.selectAll("rect")
