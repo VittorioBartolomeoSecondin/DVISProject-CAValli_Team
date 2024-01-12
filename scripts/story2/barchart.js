@@ -43,8 +43,18 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   const y = d3.scaleLinear()
     .domain([0, 70])
     .range([height, 0]);
-  svg.append("g")
+    
+  const yAxis = svg.append("g")
     .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
+    
+  yAxis.selectAll(".tick")
+    .append("line")
+    .attr("class", "grid-line")
+    .attr("x1", 0)
+    .attr("x2", width)
+    .attr("y1", d => y(d))
+    .attr("y2", d => y(d))
+    .attr("stroke", "rgba(0, 0, 0, 0.3)");
   
   // Bars
   svg.selectAll("rect")
