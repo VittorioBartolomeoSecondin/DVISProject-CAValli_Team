@@ -150,7 +150,7 @@ const SlopeChart = {
 	          .enter().append("text")
 	          .attr("class", "start-label")
 	          .attr("x", xScale(2009) - 28)
-	          .attr("y", function(d) { return yScale(+d['2013']) + 5; })
+	          .attr("y", function(d) { return yScale(+d['2009']) + 5; })
 	          .text(function(d) { return d.sex; })
 	          .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; });
 	  
