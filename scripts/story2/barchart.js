@@ -109,7 +109,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     
   // Text label for indicators
   svg.append("text")
-    .attr("x", 70)
+    .attr("x", x.bandwidth() * 2.5)
     .attr("y", height + 75)
     .style("font-size", "10px")
     .text("Sex");
