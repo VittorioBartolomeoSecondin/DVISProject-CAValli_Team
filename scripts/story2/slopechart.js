@@ -31,14 +31,16 @@
         .attr("y1", 0)
         .attr("x2", xScale(2013))
         .attr("y2", height)
-        .attr("stroke", "black");
+        .attr("stroke", "black")
+        .style("opacity", 0.7);
 
     svg.append("line")
         .attr("x1", xScale(2020))
         .attr("y1", 0)
         .attr("x2", xScale(2020))
         .attr("y2", height)
-        .attr("stroke", "black");
+        .attr("stroke", "black")
+        .style("opacity", 0.7);
 
     // Draw lines
     svg.selectAll(".line")
