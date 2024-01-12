@@ -20,6 +20,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   // Extract unique categories for the x-axis
   const categories = [...new Set(data.map(d => d.category))];
+  const indicators = [...new Set(data.map(d => d.indicator))];
   
   // X axis
   const x = d3.scaleBand()
