@@ -100,7 +100,7 @@ const Dumbbell = {
 	   .attr("dx", "-2.7em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .html('Italia' + '<br>' + '2013')
+	   .html(`Italia<br>2013')
 	   .attr("fill", "#69b3a2");
 
 	  // Text label vertical line
@@ -128,7 +128,7 @@ const Dumbbell = {
 	   .attr("dx", "-2.7em")
 	   .attr("dy", "-0.5em")
 	   .style("font-size", "12px")
-	   .html('Italia' + '<br>' + '2022')
+	   .html(`Italia<br>2022')
 	   .attr("fill", "#4C4082");
 
 	  // Text label vertical line
