@@ -81,10 +81,10 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     { startX: x(categories[1]) + x.bandwidth() * 1.5, endX: x(categories[1]) + x.bandwidth() * 1.5 },
     { startX: x(categories[6]) + x.bandwidth() * 1.5, endX: x(categories[6]) + x.bandwidth() * 1.5 },
     { startX: x(categories[9]) + x.bandwidth() * 1.5, endX: x(categories[9]) + x.bandwidth() * 1.5 },
+    { startX: width, endX: width },
   ];
   const linesData_short = [
     { startX: 0, endX: 0 },
-    { startX: width, endX: width },
   ];
   
   svg.append("g").selectAll("line")
