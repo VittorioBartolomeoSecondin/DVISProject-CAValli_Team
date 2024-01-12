@@ -25,13 +25,28 @@
         .x(function(d) { return xScale(d.year); })
         .y(function(d) { return yScale(d.value); });
 
+    // Draw vertical lines for the years
+    svg.append("line")
+        .attr("x1", xScale(2013))
+        .attr("y1", 0)
+        .attr("x2", xScale(2013))
+        .attr("y2", height)
+        .attr("stroke", "black");
+
+    svg.append("line")
+        .attr("x1", xScale(2020))
+        .attr("y1", 0)
+        .attr("x2", xScale(2020))
+        .attr("y2", height)
+        .attr("stroke", "black");
+
     // Draw lines
     svg.selectAll(".line")
         .data(dataset)
         .enter().append("path")
         .attr("class", "line")
         .attr("d", function(d) { return line([{ year: 2013, value: +d['2013'] }, { year: 2020, value: +d['2020'] }]); })
-        .style("stroke", function(d, i) { return colors[i]; });
+        .style("stroke", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
 
     // Draw points for both starting and final years
     svg.selectAll(".start-point")
@@ -41,7 +56,7 @@
         .attr("cx", function(d) { return xScale(2013); })
         .attr("cy", function(d) { return yScale(+d['2013']); })
         .attr("r", 6)
-        .style("fill", function(d, i) { return colors[i]; })
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; })
         .on("mouseover", function(d) {
           // Display tooltip
           tooltip.transition()
@@ -65,7 +80,7 @@
         .attr("cx", function(d) { return xScale(2020); })
         .attr("cy", function(d) { return yScale(+d['2020']); })
         .attr("r", 6)
-        .style("fill", function(d, i) { return colors[i]; })
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; })
         .on("mouseover", function(d) {
           // Display tooltip
           tooltip.transition()
@@ -90,7 +105,17 @@
         .attr("x", xScale(2013))
         .attr("y", function(d) { return yScale(+d['2013']) - 10; })
         .text(function(d) { return d.sex; })
-        .style("fill", function(d, i) { return colors[i]; });
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
+
+    // Draw labels for final points
+    svg.selectAll(".final-label")
+        .data(dataset)
+        .enter().append("text")
+        .attr("class", "final-label")
+        .attr("x", xScale(2020))
+        .attr("y", function(d) { return yScale(+d['2020']) - 10; })
+        .text(function(d) { return d.sex; })
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
 
     // Draw labels for years
     svg.append("text")
