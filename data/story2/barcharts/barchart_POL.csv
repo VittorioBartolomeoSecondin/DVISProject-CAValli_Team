@@ -1,0 +1,169 @@
+year,indicator,category,value
+2009,Sex,Male,27.0
+2009,Sex,Female,28.6
+2009,Age range,Less than 18,31.0
+2009,Age range,18-24,29.9
+2009,Age range,25-49,24.0
+2009,Age range,50-64,31.9
+2009,Age range,65 and over,25.8
+2009,Education,Low,43.7
+2009,Education,Medium,27.2
+2009,Education,High,8.2
+2009,Activity status,Employed,17.9
+2009,Activity status,Unemployed,58.4
+2009,Activity status,Retired,27.9
+2009,Activity status,Inactive,44.0
+2010,Sex,Male,27.0
+2010,Sex,Female,28.5
+2010,Age range,Less than 18,30.8
+2010,Age range,18-24,30.4
+2010,Age range,25-49,24.8
+2010,Age range,50-64,31.2
+2010,Age range,65 and over,24.4
+2010,Education,Low,44.1
+2010,Education,Medium,27.3
+2010,Education,High,8.2
+2010,Activity status,Employed,17.8
+2010,Activity status,Unemployed,60.1
+2010,Activity status,Retired,26.7
+2010,Activity status,Inactive,41.8
+2011,Sex,Male,26.6
+2011,Sex,Female,27.7
+2011,Age range,Less than 18,29.8
+2011,Age range,18-24,29.1
+2011,Age range,25-49,24.4
+2011,Age range,50-64,30.5
+2011,Age range,65 and over,24.7
+2011,Education,Low,42.2
+2011,Education,Medium,27.2
+2011,Education,High,8.5
+2011,Activity status,Employed,17.3
+2011,Activity status,Unemployed,60.3
+2011,Activity status,Retired,26.2
+2011,Activity status,Inactive,41.5
+2012,Sex,Male,26.1
+2012,Sex,Female,27.3
+2012,Age range,Less than 18,29.3
+2012,Age range,18-24,31.2
+2012,Age range,25-49,23.6
+2012,Age range,50-64,30.0
+2012,Age range,65 and over,23.4
+2012,Education,Low,42.0
+2012,Education,Medium,27.0
+2012,Education,High,8.4
+2012,Activity status,Employed,17.0
+2012,Activity status,Unemployed,58.7
+2012,Activity status,Retired,24.5
+2012,Activity status,Inactive,41.5
+2013,Sex,Male,25.5
+2013,Sex,Female,26.2
+2013,Age range,Less than 18,29.8
+2013,Age range,18-24,30.8
+2013,Age range,25-49,23.5
+2013,Age range,50-64,28.2
+2013,Age range,65 and over,19.7
+2013,Education,Low,38.3
+2013,Education,Medium,26.1
+2013,Education,High,8.8
+2013,Activity status,Employed,16.4
+2013,Activity status,Unemployed,56.3
+2013,Activity status,Retired,21.0
+2013,Activity status,Inactive,40.1
+2014,Sex,Male,24.7
+2014,Sex,Female,24.7
+2014,Age range,Less than 18,28.2
+2014,Age range,18-24,30.5
+2014,Age range,25-49,22.3
+2014,Age range,50-64,27.9
+2014,Age range,65 and over,18.2
+2014,Education,Low,38.5
+2014,Education,Medium,25.1
+2014,Education,High,7.8
+2014,Activity status,Employed,15.0
+2014,Activity status,Unemployed,58.0
+2014,Activity status,Retired,18.8
+2014,Activity status,Inactive,40.2
+2015,Sex,Male,23.7
+2015,Sex,Female,23.2
+2015,Age range,Less than 18,26.6
+2015,Age range,18-24,28.0
+2015,Age range,25-49,21.6
+2015,Age range,50-64,26.8
+2015,Age range,65 and over,17.0
+2015,Education,Low,37.5
+2015,Education,Medium,24.0
+2015,Education,High,8.0
+2015,Activity status,Employed,14.4
+2015,Activity status,Unemployed,58.3
+2015,Activity status,Retired,17.4
+2015,Activity status,Inactive,40.8
+2016,Sex,Male,21.6
+2016,Sex,Female,22.2
+2016,Age range,Less than 18,24.2
+2016,Age range,18-24,28.9
+2016,Age range,25-49,20.0
+2016,Age range,50-64,25.0
+2016,Age range,65 and over,16.1
+2016,Education,Low,36.8
+2016,Education,Medium,23.1
+2016,Education,High,7.2
+2016,Activity status,Employed,13.4
+2016,Activity status,Unemployed,57.2
+2016,Activity status,Retired,17.0
+2016,Activity status,Inactive,40.4
+2017,Sex,Male,19.3
+2017,Sex,Female,19.6
+2017,Age range,Less than 18,17.9
+2017,Age range,18-24,25.6
+2017,Age range,25-49,17.5
+2017,Age range,50-64,23.7
+2017,Age range,65 and over,17.4
+2017,Education,Low,34.7
+2017,Education,Medium,21.3
+2017,Education,High,6.4
+2017,Activity status,Employed,12.0
+2017,Activity status,Unemployed,51.5
+2017,Activity status,Retired,18.1
+2017,Activity status,Inactive,37.6
+2018,Sex,Male,18.4
+2018,Sex,Female,19.4
+2018,Age range,Less than 18,17.2
+2018,Age range,18-24,24.8
+2018,Age range,25-49,16.6
+2018,Age range,50-64,23.3
+2018,Age range,65 and over,18.1
+2018,Education,Low,35.8
+2018,Education,Medium,20.4
+2018,Education,High,6.6
+2018,Activity status,Employed,11.3
+2018,Activity status,Unemployed,47.8
+2018,Activity status,Retired,18.9
+2018,Activity status,Inactive,38.0
+2019,Sex,Male,17.7
+2019,Sex,Female,18.7
+2019,Age range,Less than 18,16.0
+2019,Age range,18-24,24.3
+2019,Age range,25-49,15.4
+2019,Age range,50-64,22.2
+2019,Age range,65 and over,19.2
+2019,Education,Low,34.9
+2019,Education,Medium,19.7
+2019,Education,High,6.9
+2019,Activity status,Employed,10.7
+2019,Activity status,Unemployed,46.3
+2019,Activity status,Retired,19.9
+2019,Activity status,Inactive,37.9
+2020,Sex,Male,16.5
+2020,Sex,Female,18.2
+2020,Age range,Less than 18,15.8
+2020,Age range,18-24,21.9
+2020,Age range,25-49,14.1
+2020,Age range,50-64,21.1
+2020,Age range,65 and over,19.5
+2020,Education,Low,36.4
+2020,Education,Medium,19.4
+2020,Education,High,6.6
+2020,Activity status,Employed,10.5
+2020,Activity status,Unemployed,50.1
+2020,Activity status,Retired,20.3
+2020,Activity status,Inactive,37.4
