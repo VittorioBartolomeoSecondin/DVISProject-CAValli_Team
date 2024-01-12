@@ -112,7 +112,7 @@
     // Draw labels for years
     svg.append("text")
         .attr("x", xScale(2013))
-        .attr("y", height + 40)
+        .attr("y", height + 20)
         .text("2013")
         .attr("text-anchor", "middle");
 
