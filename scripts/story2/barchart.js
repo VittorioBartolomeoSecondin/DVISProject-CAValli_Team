@@ -133,7 +133,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .text("Education");
 
   svg.append("text")
-    .attr("x", 1080)
+    .attr("x", 880)
     .attr("y", height + 75)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
