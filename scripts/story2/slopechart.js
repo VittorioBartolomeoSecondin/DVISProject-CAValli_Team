@@ -48,7 +48,7 @@
         .enter().append("path")
         .attr("class", "line")
         .attr("d", function(d) { return line([{ year: 2013, value: +d['2013'] }, { year: 2020, value: +d['2020'] }]); })
-        .style("stroke", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
+        .style("stroke", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; });
 
     // Draw points for both starting and final years
     svg.selectAll(".start-point")
@@ -58,7 +58,7 @@
         .attr("cx", function(d) { return xScale(2013); })
         .attr("cy", function(d) { return yScale(+d['2013']); })
         .attr("r", 6)
-        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; })
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; })
         .on("mouseover", function(d) {
           // Display tooltip
           tooltip.transition()
@@ -82,7 +82,7 @@
         .attr("cx", function(d) { return xScale(2020); })
         .attr("cy", function(d) { return yScale(+d['2020']); })
         .attr("r", 6)
-        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; })
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; })
         .on("mouseover", function(d) {
           // Display tooltip
           tooltip.transition()
@@ -107,7 +107,7 @@
         .attr("x", xScale(2013) - 25)
         .attr("y", function(d) { return yScale(+d['2013']) + 5; })
         .text(function(d) { return d.sex; })
-        .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
+        .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; });
 
     // Draw labels for years
     svg.append("text")
