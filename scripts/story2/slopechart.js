@@ -118,7 +118,7 @@
 
     svg.append("text")
         .attr("x", xScale(2020))
-        .attr("y", height + 40)
+        .attr("y", height + 20)
         .text("2020")
         .attr("text-anchor", "middle");
 
