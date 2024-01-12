@@ -113,12 +113,30 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("y", height + 75)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
+    .style("font-weight", "bold")
     .text("Sex");
 
   svg.append("text")
-    .attr("x", 380)
+    .attr("x", x(categories[4]))
     .attr("y", height + 75)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
+    .style("font-weight", "bold")
     .text("Age range");
+
+  svg.append("text")
+    .attr("x", 480)
+    .attr("y", height + 75)
+    .style("font-size", "12px")
+    .style("text-anchor", "middle")
+    .style("font-weight", "bold")
+    .text("Education");
+
+  svg.append("text")
+    .attr("x", 680)
+    .attr("y", height + 75)
+    .style("font-size", "12px")
+    .style("text-anchor", "middle")
+    .style("font-weight", "bold")
+    .text("Activity status");
 })
