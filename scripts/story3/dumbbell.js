@@ -132,7 +132,7 @@ const Dumbbell = {
 	   .style("font-size", "12px")
 	   .html(function () {
 		    return "Italia" +
-		      "<tspan x='" + x(firstRow['2022_perc']) + "' dy='1.2em'>2022</tspan>";
+		      "<tspan x='" + x(firstRow['2022_perc']) + "' dy='1.2em' dx='-0.9em'>2022</tspan>";
   	   })
 	   .attr("fill", "#4C4082");
 
