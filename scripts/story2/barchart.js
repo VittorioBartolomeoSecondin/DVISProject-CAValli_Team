@@ -97,13 +97,19 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .range([0, width])
     .domain(categories)
     .padding(0.5);
-  svg.append("g")
+	
+  const xAxis = svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-      .attr("transform", "translate(-10,0)rotate(-90)")
-      .style("text-anchor", "end")
-      .attr("dx", "-3.85em");
+    .call(d3.axisBottom(x));
+    
+  xAxis.selectAll("text")
+    .attr("transform", function(d) {
+        const labelWidth = this.getBBox().width;
+        const desiredDistance = 2; // Adjust this value as needed
+        const adjustment = labelWidth > desiredDistance ? -desiredDistance : 0;
+        return `translate(${adjustment},0)rotate(-90)`;
+    })
+    .style("text-anchor", "end");
   
   // Add Y axis
   const y = d3.scaleLinear()
