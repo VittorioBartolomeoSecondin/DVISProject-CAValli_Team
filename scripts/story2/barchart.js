@@ -105,7 +105,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   xAxis.selectAll("text")
     .attr("transform", function(d) {
         const labelWidth = this.getBBox().width;
-        const desiredDistance = 10;
+        const desiredDistance = 15;
         const adjustment = labelWidth > desiredDistance ? -desiredDistance : 0;
         return `translate(${adjustment},0)rotate(-90)`;
     })
