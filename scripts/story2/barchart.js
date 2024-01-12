@@ -17,7 +17,6 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   // Filter out data points for the relevant year
   data = data.filter(d => d.year == 2009);
-  console.log(data);
 
   // Extract unique categories for the x-axis
   const categories = [...new Set(data.map(d => d.category))];
@@ -34,8 +33,8 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .call(d3.axisBottom(x))
     .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-90)")
-      .style("text-anchor", "end")
-      .attr("dx", "-0.55em");
+      .style("text-anchor", "middle")
+      .attr("dx", "-0.85em");
   
   // Add Y axis
   const y = d3.scaleLinear()
