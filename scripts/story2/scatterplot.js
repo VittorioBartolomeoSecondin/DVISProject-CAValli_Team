@@ -1,6 +1,3 @@
-// Create the tooltip element
-let tooltip = null;
-
 function updateScatterplotChart(selectedValue) {
 	
 	// Set up the SVG dimensions
