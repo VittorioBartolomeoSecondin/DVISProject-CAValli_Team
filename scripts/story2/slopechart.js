@@ -165,7 +165,7 @@ function SlopeChart() {
           .attr("text-anchor", "middle");
 
       // Create a new y-axis for the right side
-      var yAxisRight = d3.axisRight(yScale);
+      var yAxisRight = d3.axisRight(yScale).tickFormat(function (d) { return d + '%'; });
       svg.append("g")
 	  .attr("class", "y-axis-right")
 	  .attr("transform", "translate(" + (width + margin.right - 50) + ",0)")
