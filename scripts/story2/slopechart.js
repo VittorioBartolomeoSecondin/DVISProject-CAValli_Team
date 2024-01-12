@@ -168,7 +168,7 @@ function SlopeChart() {
       var yAxisRight = d3.axisRight(yScale);
       svg.append("g")
 	  .attr("class", "y-axis-right")
-	  .attr("transform", "translate(" + (width + margin.right) + ",0)")
+	  .attr("transform", "translate(" + (width + margin.right - 50) + ",0)")
 	  .call(yAxisRight);
       
     }).catch(function(error) {
