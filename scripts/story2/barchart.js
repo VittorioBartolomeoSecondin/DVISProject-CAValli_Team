@@ -109,7 +109,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     
   // Text label for indicators
   svg.append("text")
-    .attr("x", 50)
+    .attr("x", 80)
     .attr("y", height + 75)
     .style("font-size", "10px")
     .style("text-anchor", "middle")
