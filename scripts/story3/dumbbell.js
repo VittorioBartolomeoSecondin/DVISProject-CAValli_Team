@@ -38,7 +38,7 @@ const Dumbbell = {
         }
         
         // set the dimensions and margins of the graph
-        const margin = {top: 30, right: 30, bottom: 30, left: 120},
+        const margin = {top: 35, right: 30, bottom: 30, left: 120},
             width = 700 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
         
