@@ -67,7 +67,7 @@ function SlopeChart() {
           .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; })
           .attr("stroke", "black") 
           .attr("stroke-width", 1)
-          .on("mouseover", function(d) {
+          .on("mouseover", function(event, d) {
             d3.select(this).attr("stroke-width", 2);
 	
             if (!tooltip) {
@@ -87,7 +87,7 @@ function SlopeChart() {
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
-          .on("mouseout", function(d) {
+          .on("mouseout", function(event, d) {
             d3.select(this).attr("stroke-width", 1);
 	
             if (tooltip) {
@@ -109,7 +109,7 @@ function SlopeChart() {
           .style("fill", function(d, i) { return (d.sex === "M") ? colors[1] : colors[0]; })
           .attr("stroke", "black") 
           .attr("stroke-width", 1)
-          .on("mouseover", function(d) {
+          .on("mouseover", function(event, d) {
             d3.select(this).attr("stroke-width", 2);
 	
             if (!tooltip) {
@@ -129,7 +129,7 @@ function SlopeChart() {
         	   .style("left", (event.pageX + 10) + "px")
         	   .style("top", (event.pageY - 20) + "px");
           })
-          .on("mouseout", function(d) {
+          .on("mouseout", function(event, d) {
             d3.select(this).attr("stroke-width", 1);
 	
             if (tooltip) {
