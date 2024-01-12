@@ -105,7 +105,7 @@
         .enter().append("text")
         .attr("class", "start-label")
         .attr("x", xScale(2013) - 20)
-        .attr("y", function(d) { return yScale(+d['2013'] + 5); })
+        .attr("y", function(d) { return yScale(+d['2013']) + 5; })
         .text(function(d) { return d.sex; })
         .style("fill", function(d, i) { return (d.sex === "M") ? colors[0] : colors[1]; });
 
