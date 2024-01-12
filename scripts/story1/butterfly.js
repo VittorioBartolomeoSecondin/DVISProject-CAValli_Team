@@ -2,7 +2,7 @@ const Butterfly = {
      initialize: function(selectedDataset) {
 	// set the dimensions and margins of the graph
 	var margin = { top: 20, right: 70, bottom: 30, left: 20 },
-		           width = 800 - margin.left - margin.right,
+		           width = 750 - margin.left - margin.right,
 		           height = 550 - margin.top - margin.bottom;
 	
 	d3.csv(selectedDataset).then(function(data) {
