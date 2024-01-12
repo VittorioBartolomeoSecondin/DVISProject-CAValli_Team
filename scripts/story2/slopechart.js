@@ -92,16 +92,6 @@
         .text(function(d) { return d.sex; })
         .style("fill", function(d, i) { return colors[i]; });
 
-    // Draw labels for final points
-    svg.selectAll(".final-label")
-        .data(dataset)
-        .enter().append("text")
-        .attr("class", "final-label")
-        .attr("x", xScale(2020))
-        .attr("y", function(d) { return yScale(+d['2020']) - 10; })
-        .text(function(d) { return d.sex; })
-        .style("fill", function(d, i) { return colors[i]; });
-
     // Draw labels for years
     svg.append("text")
         .attr("x", xScale(2013))
