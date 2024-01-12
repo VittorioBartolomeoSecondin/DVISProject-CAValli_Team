@@ -110,7 +110,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   // Text label for indicators
   svg.append("text")
     .attr("x", x(categories[0])+x.bandwidth())
-    .attr("y", height + 75)
+    .attr("y", height + 85)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
@@ -118,7 +118,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   svg.append("text")
     .attr("x", x(categories[4]))
-    .attr("y", height + 75)
+    .attr("y", height + 85)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
@@ -126,7 +126,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   svg.append("text")
     .attr("x", x(categories[8]))
-    .attr("y", height + 75)
+    .attr("y", height + 85)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
@@ -134,7 +134,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   svg.append("text")
     .attr("x", x(categories[11])+x.bandwidth())
-    .attr("y", height + 75)
+    .attr("y", height + 85)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
