@@ -70,9 +70,7 @@ function updateStackedPChart(selectedValue) {
            .attr("transform", `translate(0, ${height})`)
          .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
          .selectAll("text")
-           .attr("transform", "translate(-10,0)rotate(-45)")
-	   .attr("fill", "black")
-         .style("text-anchor", "end");
+	   .attr("fill", "black");
       
       // Add Y axis
       const y = d3.scaleBand()
