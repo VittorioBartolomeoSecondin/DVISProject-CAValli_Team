@@ -67,7 +67,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       //.attr("fill", "#69b3a2")
 })
 */
-/ Set up the SVG dimensions
+// Set up the SVG dimensions
 var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 		        width = 750 - margin.left - margin.right,
 		        height = 650 - margin.top - margin.bottom;
