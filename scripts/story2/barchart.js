@@ -16,7 +16,8 @@ const svg = d3.select("#barchart")
 d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
 
   // Filter out data points for the relevant year
-  data = data.filter(d => d.year === 2009);
+  data = data.filter(d => d.year == 2009);
+  console.log(data);
 
   // Extract unique categories for the x-axis
   const categories = [...new Set(data.map(d => d.category))];
@@ -25,7 +26,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   
   // X axis
   const x = d3.scaleBand()
-    .range([ 0, width])
+    .range([0, width])
     .domain(categories)
     .padding(0.2);
   svg.append("g")
@@ -44,7 +45,8 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   
   // Bars
   svg.selectAll("mybar")
-    .data(category => data.filter(d => d.category === category))
+    .data(data)
+    .enter()
     .join("rect")
       .attr("x", d => x(d.category))
       .attr("y", d => y(d.value))
