@@ -40,7 +40,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 70])
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
