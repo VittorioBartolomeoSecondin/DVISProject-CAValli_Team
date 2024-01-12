@@ -43,14 +43,13 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   const y = d3.scaleLinear()
     .domain([0, 70])
     .range([height, 0]);
-
-  // Manually specify y-axis tick values
-  const yAxisTicks = [0, 10, 20, 30, 40, 50, 60, 70];
     
   const yAxis = svg.append("g")
-    .call(d3.axisLeft(y).tickValues(yAxisTicks).tickFormat((d) => (d === 0 ? d : d + "%")));
+    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
     
-  yAxis.selectAll(".tick")
+  svg.selectAll("line.grid-line")
+    .data(y.ticks())
+    .enter()
     .append("line")
     .attr("class", "grid-line")
     .attr("x1", 0)
@@ -71,11 +70,9 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       .attr("fill", "#69b3a2")
   
   const linesData = [
-    { startX: 0, endX: 0 },
     { startX: x(categories[1]) + x.bandwidth() * 1.5, endX: x(categories[1]) + x.bandwidth() * 1.5 },
     { startX: x(categories[6]) + x.bandwidth() * 1.5, endX: x(categories[6]) + x.bandwidth() * 1.5 },
     { startX: x(categories[9]) + x.bandwidth() * 1.5, endX: x(categories[9]) + x.bandwidth() * 1.5 },
-    { startX: width, endX: width }
   ];
   
   svg.append("g").selectAll("line")
@@ -84,7 +81,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .append("line")
     .attr("x1", d => d.startX)
     .attr("x2", d => d.endX)
-    .attr("y1", height)
+    .attr("y1", 0)
     .attr("y2", height + 100)
     .attr("stroke", "black");
 
