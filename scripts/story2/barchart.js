@@ -85,13 +85,15 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
       const translation = group.attr("transform");
       xAxis.each(function() {
           const label = d3.select(this);
-          const labelCategory = label.text();
-          const matchingBar = group.select(`rect[data-category="${labelCategory}"]`);
-          const barX = +matchingBar.attr("x");
-          const barWidth = +matchingBar.attr("width");
-          const barCenterX = barX + barWidth / 2;
-          const labelX = x(labelCategory) + +translation.split("(")[1].split(",")[0] + barCenterX;
-          label.attr("x", labelX);
+	  if (label.node()) {
+	          const labelCategory = label.text();
+	          const matchingBar = group.select(`rect[data-category="${labelCategory}"]`);
+	          const barX = +matchingBar.attr("x");
+	          const barWidth = +matchingBar.attr("width");
+	          const barCenterX = barX + barWidth / 2;
+	          const labelX = x(labelCategory) + +translation.split("(")[1].split(",")[0] + barCenterX;
+	          label.attr("x", labelX);
+	  }
       });
   });
 
