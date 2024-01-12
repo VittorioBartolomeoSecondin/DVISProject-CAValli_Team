@@ -29,7 +29,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   const x = d3.scaleBand()
     .range([0, width])
     .domain(categories)
-    .padding(0.8);
+    .padding(0.1);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x))
