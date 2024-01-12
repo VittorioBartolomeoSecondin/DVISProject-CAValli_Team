@@ -21,7 +21,6 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   // Extract unique categories for the x-axis
   const categories = [...new Set(data.map(d => d.category))];
   const indicators = [...new Set(data.map(d => d.indicator))];
-  console.log(indicators);
   
   // X axis
   const x = d3.scaleBand()
@@ -66,7 +65,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .enter()
     .append("g")
     .attr("class", d => `indicator-group ${d}`);
-  
+  console.log(indicatorGroups);
   // Bars
   svg.selectAll("rect")
     .data(indicator => data.filter(d => d.indicator === indicator))
