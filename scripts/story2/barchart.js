@@ -1,6 +1,6 @@
 // Set up the SVG dimensions
-var margin = { top: 30, right: 70, bottom: 90, left: 100 },
-		        width = 750 - margin.left - margin.right,
+var margin = { top: 30, right: 20, bottom: 90, left: 100 },
+		        width = 950 - margin.left - margin.right,
 		        height = 650 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -29,7 +29,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
   const x = d3.scaleBand()
     .range([0, width])
     .domain(categories)
-    .padding(0.2);
+    .padding(0.8);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x))
@@ -51,7 +51,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .enter()
     .append("g")
     .attr("class", d => `indicator-group ${d}`)
-    .attr("transform", d => `translate(${indicators.indexOf(d) * width / indicators.length}, 0)`);
+    .attr("transform", d => `translate(${indicators.indexOf(d) * width-50 / indicators.length}, 0)`);
   
   // Bars
   indicatorGroups.selectAll("rect")
