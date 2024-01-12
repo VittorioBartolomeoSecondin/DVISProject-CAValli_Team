@@ -163,6 +163,13 @@ function SlopeChart() {
           .attr("y", height + 20)
           .text("2020")
           .attr("text-anchor", "middle");
+
+      // Create a new y-axis for the right side
+      var yAxisRight = d3.axisRight(yScale);
+      svg.append("g")
+	  .attr("class", "y-axis-right")
+	  .attr("transform", "translate(" + (width + margin.right) + ",0)")
+	  .call(yAxisRight);
       
     }).catch(function(error) {
       console.log(error);
