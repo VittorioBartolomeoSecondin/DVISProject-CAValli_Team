@@ -39,6 +39,8 @@ function BubbleChart() {
 	    .range([height, 0]);
 	  svg.append("g")
 	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
+	    .selectAll("text")
+	      .attr("fill", "black")
 	    .append("text")  // Add Y axis label
 	    .attr("class", "axis-label")
 	    .attr("transform", "rotate(-90)")
