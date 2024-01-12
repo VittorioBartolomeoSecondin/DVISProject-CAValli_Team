@@ -82,7 +82,9 @@ function updateScatterplotChart(selectedValue) {
 			  .style("opacity", 1)
 		      
 		  // Set the customized tooltip content
-		  tooltip.html(`<b>${d.Country}</b>`)
+		  tooltip.html(`<b>${d.Country} (${d.Abbreviation})</b> <br>
+    			       NEETs: ${d.neet} <br>
+			       Persons at risk of poverty: ${d.poverty}`)
 			  .style("left", (event.pageX + 10) + "px")
 			  .style("top", (event.pageY - 20) + "px");
 	      })
