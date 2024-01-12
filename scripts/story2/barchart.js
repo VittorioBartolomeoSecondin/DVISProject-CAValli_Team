@@ -41,10 +41,13 @@ function updateBarChart(selectedYear) {
 	
 	  // Remove ticks for each label
 	  xAxis.selectAll(".tick line").remove();
+
+	  // Dynamically set the domain of the y axis
+	  const y_domain = Math.max(70, (d3.max(data, d => +d.value)));
 	  
 	  // Add Y axis
 	  const y = d3.scaleLinear()
-	    .domain([0, 70])
+	    .domain([0, y_domain === 70 ? 70 : y_domain+5])
 	    .range([height, 0]);
 	    
 	  const yAxis = svg.append("g")
