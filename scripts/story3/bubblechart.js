@@ -24,14 +24,16 @@ function BubbleChart() {
 	    .attr("transform", `translate(0, ${height})`)
 	    .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
 	    .selectAll("text")
-	      .attr("fill", "black")
-	    .append("text")  // Add X axis label
-	    .attr("class", "axis-label")
-	    .attr("x", width / 2)
-	    .attr("y", margin.bottom - 10)
-	    .style("text-anchor", "middle")
-	    .style("fill", "black")
-	    .text("Early leavers");
+	      .attr("fill", "black");
+
+	  // Add X axis label
+	svg.append("text")
+	  .attr("class", "axis-label")
+	  .attr("x", width / 2)
+	  .attr("y", height + margin.bottom - 10) // Adjusted the y-coordinate
+	  .style("text-anchor", "middle")
+	  .style("fill", "black")
+	  .text("Early leavers");
 	
 	  // Add Y axis
 	  const y = d3.scaleLinear()
