@@ -64,8 +64,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .data(indicators)
     .enter()
     .append("g")
-    .attr("class", d => `indicator-group ${d}`)
-    .attr("transform", (d, i) => `translate(${i * 2}, 0)`);
+    .attr("class", d => `indicator-group ${d}`);
 	
   // Bars
   svg.selectAll("rect")
@@ -107,5 +106,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .attr("y1", height)
     .attr("y2", height + 100)
     .attr("stroke", "black");
+
+console.log(svg.selectAll("rect"));
 
 })
