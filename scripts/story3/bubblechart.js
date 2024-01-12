@@ -27,13 +27,13 @@ function BubbleChart() {
 	      .attr("fill", "black");
 
 	  // Add X axis label
-	svg.append("text")
+	/*svg.append("text")
 	  .attr("class", "axis-label")
 	  .attr("x", width / 2)
 	  .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
 	  .style("text-anchor", "middle")
 	  .style("fill", "black")
-	  .text("Early leavers");
+	  .text("Early leavers");*/
 	
 	  // Add Y axis
 	  const y = d3.scaleLinear()
@@ -42,15 +42,15 @@ function BubbleChart() {
 	  svg.append("g")
 	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
 	    .selectAll("text")
-	      .attr("fill", "black")
-	    .append("text")  // Add Y axis label
+	      .attr("fill", "black");
+	    /*.append("text")  // Add Y axis label
 	    .attr("class", "axis-label")
 	    .attr("transform", "rotate(-90)")
 	    .attr("x", -height / 2)
 	    .attr("y", -margin.left + 20)
 	    .style("text-anchor", "middle")
 	    .style("fill", "black")
-	    .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");
+	    .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");*/
 
 	  // Select lines of X,Y axis
         svg.selectAll(".axis")
