@@ -125,7 +125,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .text("Age range");
 
   svg.append("text")
-    .attr("x", 480)
+    .attr("x", x(categories[8]))
     .attr("y", height + 75)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
@@ -133,7 +133,7 @@ d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
     .text("Education");
 
   svg.append("text")
-    .attr("x", 680)
+    .attr("x", 1080)
     .attr("y", height + 75)
     .style("font-size", "12px")
     .style("text-anchor", "middle")
