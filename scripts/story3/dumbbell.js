@@ -127,8 +127,8 @@ const Dumbbell = {
 	  svg.append("text")
 	   .attr("x", x(firstRow['2022_perc'])) // Adjust the x-coordinate for positioning
 	   .attr("y", 0)
-	   .attr("dx", "-2.7em")
-	   .attr("dy", "-0.5em")
+	   .attr("dx", "-1em")
+	   .attr("dy", "-1.8em")
 	   .style("font-size", "12px")
 	   .html(function () {
 		    return "Italia" +
