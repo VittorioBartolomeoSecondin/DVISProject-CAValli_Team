@@ -39,7 +39,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return +d.year; }))
+    .domain(d3.extent(formattedData, (d) => +d.year))
     .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
@@ -47,7 +47,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.value; })*1.1])
+    .domain([0, d3.max(formattedData, (d) => +d["percentage of NEETs without disability"]) * 1.1])
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
