@@ -1,6 +1,6 @@
 function BubbleChart() {
 	// Set up the SVG dimensions
-	var margin = { top: 30, right: 70, bottom: 90, left: 100 },
+	var margin = { top: 30, right: 70, bottom: 90, left: 50 },
 			      width = 750 - margin.left - margin.right,
 			      height = 650 - margin.top - margin.bottom;
 	
