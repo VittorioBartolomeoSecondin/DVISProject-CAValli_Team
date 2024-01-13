@@ -123,3 +123,5 @@ const BoxPlot = {
         });
     }
 }
+
+BoxPlot.initialize();
