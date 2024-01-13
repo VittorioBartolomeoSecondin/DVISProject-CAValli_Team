@@ -17,21 +17,19 @@ const svg = d3.select("#stacked_area")
 d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // group the data: one array for each value of the X axis.
-  const sumstat = d3.group(data, d => d.year);
+  const sumstat = d3.group(data, d => d.type);
 
   // Stack the data: each group will be represented on top of each other
   const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
   const mygroup = [1,2] // list of group names
   const stackedData = d3.stack()
     .keys(mygroup)
-    .value(function(d, key){
-      return d[1][key].n
-    })
-    (sumstat)
+    .value((d, key) => +d[key].value)
+    (sumstat);
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.year; }))
+    .domain(d3.extent(data, function(d) { return +d.year; }))
     .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
@@ -54,9 +52,9 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     .selectAll("mylayers")
     .data(stackedData)
     .join("path")
-      .style("fill", function(d) { name = mygroups[d.key-1] ;  return color(name); })
+      .style("fill", function (d) { return color(d.key); })
       .attr("d", d3.area()
-        .x(function(d, i) { return x(d.data[0]); })
+        .x(function (d, i) { return x(+d.data[0].year); })
         .y0(function(d) { return y(d[0]); })
         .y1(function(d) { return y(d[1]); })
     )
