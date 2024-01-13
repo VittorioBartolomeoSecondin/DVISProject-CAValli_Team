@@ -37,13 +37,13 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .selectAll("text")
 	        .attr("fill", "black");
 	    
-	  xAxis.selectAll("text")
+	  /*xAxis.selectAll("text")
 	    .attr("transform", "translate(-13.5,0)rotate(-90)")
 	    .style("text-anchor", "end")
 	    .attr("dx", "-7px");
 	
 	  // Remove ticks for each label
-	  xAxis.selectAll(".tick line").remove();
+	  xAxis.selectAll(".tick line").remove();*/
 
 	  // Dynamically set the domain of the y axis
 	  const y_domain = Math.max(70, (d3.max(data, d => +d.value)));
