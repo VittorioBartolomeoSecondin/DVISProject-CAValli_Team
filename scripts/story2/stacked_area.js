@@ -5,54 +5,59 @@ var margin = { top: 30, right: 70, bottom: 90, left: 100 },
 
 // append the svg object to the body of the page
 const svg = d3.select("#stacked_area")
-    .append("svg")
+  .append("svg")
     .attr("id", "stacked_area_svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")
+  .append("g")
     .attr("transform",
-        `translate(${margin.left}, ${margin.top})`);
+          `translate(${margin.left}, ${margin.top})`);
 
-// Read the data
-d3.csv("data/story2/disability_neet.csv").then(function (data) {
+//Read the data
+d3.csv("data/story2/disability_neet.csv").then( function(data) {
 
-    // Stack the data
-    const stackedData = d3.stack()
-        .keys(data.columns.slice(1))
-        .order(d3.stackOrderNone)
-        .offset(d3.stackOffsetNone)
-        .value((d, key) => +d[key])
-        (data);
+  // group the data: one array for each value of the X axis.
+  const sumstat = d3.group(data, d => d.year);
 
-    // Add Y axis
-    const y = d3.scaleBand()
-        .domain(data.map(d => d.type))
-        .range([height, 0])
-        .padding(0.2);
-    svg.append("g")
-        .call(d3.axisLeft(y));
+  // Stack the data: each group will be represented on top of each other
+  const mygroups = ["Helen", "Amanda", "Ashley"] // list of group names
+  const mygroup = [1,2,3] // list of group names
+  const stackedData = d3.stack()
+    .keys(mygroup)
+    .value(function(d, key){
+      return d[1][key].n
+    })
+    (sumstat)
 
-    // Add X axis
-    const x = d3.scaleLinear()
-        .domain([0, d3.max(stackedData[stackedData.length - 1], d => d[1])])
-        .range([0, width]);
-    svg.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(x));
+  // Add X axis --> it is a date format
+  const x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.year; }))
+    .range([ 0, width ]);
+  svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(x).ticks(5));
 
-    // Color palette
-    const color = d3.scaleOrdinal()
-        .domain(data.columns.slice(1))
-        .range(d3.schemeCategory10);
+  // Add Y axis
+  const y = d3.scaleLinear()
+    .domain([0, d3.max(data, function(d) { return +d.n; })*1.2])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
 
-    // Show the areas
-    svg.selectAll("mylayers")
-        .data(stackedData)
-        .join("path")
-        .style("fill", d => color(d.key))
-        .attr("d", d3.area()
-            .y(d => y(d.data.type))
-            .x0(d => x(d[0]))
-            .x1(d => x(d[1]))
-        );
-});
+  // color palette
+  const color = d3.scaleOrdinal()
+    .domain(mygroups)
+    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+
+  // Show the areas
+  svg
+    .selectAll("mylayers")
+    .data(stackedData)
+    .join("path")
+      .style("fill", function(d) { name = mygroups[d.key-1] ;  return color(name); })
+      .attr("d", d3.area()
+        .x(function(d, i) { return x(d.data[0]); })
+        .y0(function(d) { return y(d[0]); })
+        .y1(function(d) { return y(d[1]); })
+    )
+})
