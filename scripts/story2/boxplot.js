@@ -120,9 +120,9 @@ const BoxPlot = {
     	            
     	            tooltip.html(`Computed on ${d.n_values} points<br>
                                   <i>Mean</i>: ${d.value.mean.toFixed(1)}%<br><br>
-                                  <b>Minimum</b>: ${d.value.min.toFixed(1)}%<br>
+                                  <b>Lower bound</b>: ${d.value.min.toFixed(1)}%<br>
                                   <b>Median</b>: ${d.value.median.toFixed(1)}%<br>
-                                  <b>Maximum</b>: ${d.value.max.toFixed(1)}%`)
+                                  <b>Upper bound</b>: ${d.value.max.toFixed(1)}%`)
     	        	   .style("left", (event.pageX + 10) + "px")
     	        	   .style("top", (event.pageY - 20) + "px");
     	          })
