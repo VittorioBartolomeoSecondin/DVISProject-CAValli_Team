@@ -142,6 +142,11 @@
                             }
                         });
                     }
+
+                    // Clear the selected year if it's not valid for the new country
+                    if (disabledYearsByCountry[selectedCountry] && disabledYearsByCountry[selectedCountry].includes(parseInt(yearDropdown.value))) {
+                        yearDropdown.value = ""; // Clear the selected year
+                    }
                 });
             });
         </script>
