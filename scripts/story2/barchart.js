@@ -1,4 +1,4 @@
-function updateBarChart(selectedYear) {
+function updateBarChart(selectedYear, selectedCountry) {
 	
 	// Set up the SVG dimensions
 	var margin = { top: 30, right: 70, bottom: 120, left: 100 },
@@ -15,7 +15,7 @@ function updateBarChart(selectedYear) {
 	    .attr("transform", `translate(${margin.left},${margin.top})`);
 	
 	// Parse the Data
-	d3.csv("data/story2/barcharts/barchart_AUT.csv").then( function(data) {
+	d3.csv(selectedCountry).then( function(data) {
 	
 	  // Filter out data points for the relevant year
 	  data = data.filter(d => d.year == selectedYear);
@@ -147,7 +147,7 @@ function updateBarChart(selectedYear) {
 	})
 }
 
-updateBarChart(2009);
+updateBarChart(2009, "data/story2/barcharts/barchart_AUT.csv");
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown-barchart").addEventListener("change", function () {
@@ -156,5 +156,16 @@ document.getElementById("year-dropdown-barchart").addEventListener("change", fun
 
     d3.select("#barchart_svg").remove();
     
-    updateBarChart(selectedYear);
+    updateBarChart(selectedYear, selectedCountry);
 });
+
+// Attach an event listener to the country dropdown
+document.getElementById("country-dropdown-barchart").addEventListener("change", function () {
+
+    const selectedCountry = "data/story2/barcharts/barchart_" + this.value + ".csv";
+
+    d3.select("#barchart_svg").remove();
+    
+    updateBarChart(selectedYear, selectedCountry);
+});
+
