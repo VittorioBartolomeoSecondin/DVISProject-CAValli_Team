@@ -46,6 +46,7 @@ const BoxPlot = {
                 .paddingInner(1)
                 .paddingOuter(.5)
             svg.append("g")
+		.attr("class", "axis")
                 .call(d3.axisLeft(y))
                 .selectAll("text")
 	                .attr("fill", "black")
@@ -55,10 +56,15 @@ const BoxPlot = {
             var x = d3.scaleLinear()
                 .domain([0, 70])
                 .range([0, width])
-            svg.append("g").attr("transform", "translate(0," + height + ")")
+            svg.append("g").attr("class", "axis").attr("transform", "translate(0," + height + ")")
                 .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }))
                 .selectAll("text")
 	               .attr("fill", "black");
+
+	   // Select lines of X,Y axis
+           svg.selectAll(".axis")
+		.selectAll("line")
+		 .attr("stroke", "black");
 
             svg.selectAll("line.grid-line")
                 .data(y.domain())  // Use y.domain() to get the unique values for the band scale
