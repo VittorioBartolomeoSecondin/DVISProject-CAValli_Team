@@ -105,10 +105,11 @@
 					    	<div class="text pl-3">
 		    					<h2 style="color: #E57F50;">A map of NEET abundance in Europe</h2>
 		    					<span class="position">Choropleth map</span>
-		    					<p>The following map shows...<br><br>
-							By using the slider, you can interactively select the year you want to visualise.<br>
-							Moreover, you can hover on each bar to better read the absolute value of NEETs (in thousands) for each country.<br><br>
-							We observe that...</p>
+		    					<p>The following map shows the absolute number of people between 15 and 29 years old which are NEET.<br>
+							   Higher numbers of NEETs corresponds to more intense colors.<br><br>
+							   Use the slider to select the year.<br>
+							   Hover on each bar to better read the number of NEETs (in thousands).<br><br>
+							   We observe that...</p>
 							<div id="choropleth"></div>
 							<div class="slider-container">
 							    <label for="slider1" class="slider-title">Select Year:</label>
@@ -121,9 +122,11 @@
 					    	<div class="text pl-3">
 		    					<h2 style="color: #E57F50;">Grouped country comparison</h2>
 		    					<span class="position">Bar charts</span><br>
-		    					<p>The following visualisation displays...<br><br>
-							   Hover on each bar to better read the absolute value of NEETs (in thousands) for each country.<br><br>
-							   We can note that...</p><br>
+		    					<p>The following visualisation displays the comparison among different countries belonging to the same range in the previous map,
+							   in order to appreciate the differences in the values.<br><br>
+							   Use the slider to select the year.<br>
+							   Hover on each bar to better read the number of NEETs (in thousands).<br><br>
+							   We note that...</p><br>
 							<div class="possibly-sidebyside" id="small_multiples">
 						            <div id="barchart_0"><h4 style="text-align:center;">&lt; 100k</h4></div>
 						            <div id="barchart_1"><h4 style="text-align:center;">100k - 200k</h4></div>
@@ -147,7 +150,10 @@
 					    	<div class="text pl-3">
 		    					<h2 style="color: #E57F50;">Trends over time</h2>
 		    					<span class="position">Line chart</span><br>
-		    					<p>Description</p><br>
+		    					<p>The following line chart let you explore the trend of the NEET phenomenon over time, for each country individually or comparatively.<br><br>
+							   Use the dropdown menu to select which countries to compare (up to 5!).<br>
+							   Hover on each point to better read the number of NEETs (in thousands).<br><br>
+							   We point out that...</p><br>
 							<div class="dropdown">
 						                <button class="btn btn-primary dropdown-toggle" type="button" id="states-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 30px;">
 						                    Select State
@@ -304,7 +310,11 @@
 					    	<div class="text pl-3">
 		    					<h2 style="color: #E57F50;">Distribution of NEETs by gender</h2>
 		    					<span class="position">Butterfly chart</span><br>
-		    					<p>Description</p>
+		    					<p>The following visualisation let you explore the gender gap between male and female individuals.<br>
+							   The values of the NEET phenomenon are presented as the percentage of NEETs 
+							   with respect to the reference population (males and females between 15 and 29 years old).<br><br>
+							   Use the slider to select the year.<br><br>
+							   As we can see, the percentage of NEETs is always higher for the females!</p>
 							<div id="pyramid"></div>
 							<div class="slider-container" style="padding-left: 46px;">
 							    <label for="slider3" class="slider-title">Select Year:</label>
