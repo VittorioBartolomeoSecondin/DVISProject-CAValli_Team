@@ -167,12 +167,17 @@ const SlopeChart = {
 	          .text(finalYear.toString())
 	          .attr("text-anchor", "middle");
 	
-	      // Create a new y-axis for the right side
-	      var yAxisRight = d3.axisRight(yScale).tickFormat(function (d) { return d + '%'; });
-	      svg.append("g")
-		  .attr("class", "y-axis-right")
-		  .attr("transform", "translate(" + (width + margin.right - 50) + ",0)")
-		  .call(yAxisRight);
+	      const yAxis = svg.append("g")
+				  .attr("class", "y-axis-right")
+				  .attr("transform", "translate(" + (width + margin.right - 50) + ",0)")
+				  .call(d3.axisRight(yScale).tickFormat(function (d) { return d + '%'; }));
+
+	      yAxis.selectAll("text")
+	        .attr("fill", "black");
+
+	      svg.selectAll(".y-axis-right")
+		 .selectAll("line")
+		 .attr("stroke", "black");
 	      
 	    }).catch(function(error) {
 	      console.log(error);
