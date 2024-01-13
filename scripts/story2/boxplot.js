@@ -44,13 +44,9 @@ const BoxPlot = {
             // Show the X scale (inverted Y scale)
             var x = d3.scaleLinear()
                 .domain([0, 80])
-                .range([0, width]);
-
-            // Define the custom format for displaying percentages
-            var formatPercent = d3.format(".0%");
-
+                .range([0, width])
             svg.append("g").attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x).tickFormat(formatPercent));
+                .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }));
         
             // Show the main horizontal line (inverted vertical line)
             svg
