@@ -36,7 +36,7 @@ const BoxPlot = {
             
                 mean = d3.mean(values, d => d.value); // Calculate mean for each country
             
-                return { key: key, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean } }
+                return { key: key, n_values: values.length, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean } }
             });
         
             // Show the Y scale (inverted X scale)
@@ -96,7 +96,7 @@ const BoxPlot = {
     	                .duration(200)
     	                .style("opacity", 1);
     	            
-    	            tooltip.html(`Computed on ${values.length} points<br>
+    	            tooltip.html(`Computed on ${d.n_values} points<br>
                                   <i>Mean</i>: ${d.value.mean.toFixed(1)}%<br><br>
                                   <b>Minimum</b>: ${d.value.min.toFixed(1)}%<br>
                                   <b>Median</b>: ${d.value.median.toFixed(1)}%<br>
