@@ -56,15 +56,15 @@ const BoxPlot = {
                 .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }));
 
             svg.selectAll("line.grid-line")
-        	    .data(y.ticks())
-        	    .enter()
-        	    .append("line")
-        	    .attr("class", "grid-line")
-        	    .attr("x1", 0)
-        	    .attr("x2", width)
-        	    .attr("y1", d => y(d))
-        	    .attr("y2", d => y(d))
-        	    .attr("stroke", "rgba(0, 0, 0, 0.1)");
+                .data(y.domain())  // Use y.domain() to get the unique values for the band scale
+                .enter()
+                .append("line")
+                .attr("class", "grid-line")
+                .attr("x1", 0)
+                .attr("x2", width)
+                .attr("y1", d => y(d) + y.bandwidth() / 2)
+                .attr("y2", d => y(d) + y.bandwidth() / 2)
+                .attr("stroke", "rgba(0, 0, 0, 0.1)");
         
             // Show the main horizontal line (inverted vertical line)
             svg
