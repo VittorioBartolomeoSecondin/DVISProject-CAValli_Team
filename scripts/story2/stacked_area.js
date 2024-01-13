@@ -18,7 +18,6 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // group the data: one array for each value of the X axis.
   const sumstat = d3.group(data, d => d.year);
-  console.log("Sumstat:", sumstat);
 
   // Transform data to the expected format
   const formattedData = Array.from(sumstat, ([year, values]) => ({
@@ -26,7 +25,6 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     "percentage of NEETs with disability": values.find(d => d.type === "percentage of NEETs with disability").value,
     "percentage of NEETs without disability": values.find(d => d.type === "percentage of NEETs without disability").value,
   }));
-  console.log("Formatted Data:", formattedData);
 
   // Stack the data: each group will be represented on top of each other
   const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
@@ -35,7 +33,6 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     .keys(mygroups)
     .value((d, key) => d[key])
     (formattedData);
-  console.log("Stacked Data:", stackedData);
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
@@ -43,14 +40,14 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(5));
+    .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
 
   // Add Y axis
   const y = d3.scaleLinear()
     .domain([0, d3.max(formattedData, (d) => +d["percentage of NEETs without disability"]) * 1.1])
     .range([height, 0]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
 
   // color palette
   const color = d3.scaleOrdinal()
