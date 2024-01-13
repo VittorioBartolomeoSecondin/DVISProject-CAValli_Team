@@ -39,7 +39,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	        .attr("fill", "black");
 
 	  xAxis.selectAll("text")
-	    .attr("transform", "rotate(-20)")
+	    .attr("transform", "translate(18,0)rotate(-20)")
 	    .style("text-anchor", "end");
 	
 	  // Remove ticks for each label
