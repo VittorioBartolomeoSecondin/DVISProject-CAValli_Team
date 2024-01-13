@@ -152,17 +152,26 @@ const BoxPlot = {
                 .style("width", 80)
 
              // Add individual points with jitter
-            var jitterWidth = 50
+            var jitterWidth = 50;
+            
             svg
               .selectAll("indPoints")
               .data(sumstat)
               .enter()
+              .selectAll("circle")
+              .data(d => d.points)
+              .enter()
               .append("circle")
-                .attr("cx", function(d) { return (x(d.points)) })
-                .attr("cy", function(d) { return (y(d.key)) })
-                .attr("r", 4)
-                .style("fill", "white")
-                .attr("stroke", "black")
+              .attr("cx", function(d) {
+                // Add jitter to x position
+                return x(d.value) + Math.random() * jitterWidth - jitterWidth / 2;
+              })
+              .attr("cy", function(d) {
+                return y(d.country);
+              })
+              .attr("r", 4)
+              .style("fill", "white")
+              .attr("stroke", "black");
         });
     }
 }
