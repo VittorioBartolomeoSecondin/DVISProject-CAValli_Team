@@ -20,7 +20,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   const sumstat = d3.group(data, d => d.year);
 
   // Transform data to the expected format
-  const stackedData = Array.from(sumstat, ([year, values]) => ({
+  const formattedData = Array.from(sumstat, ([year, values]) => ({
     year: year,
     "percentage of NEETs with disability": values.find(d => d.type === "percentage of NEETs with disability").value,
     "percentage of NEETs without disability": values.find(d => d.type === "percentage of NEETs without disability").value,
@@ -32,7 +32,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   const stackedData = d3.stack()
     .keys(mygroups)
     .value((d, key) => d[key])
-    (stackedData);
+    (formattedData);
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
