@@ -43,7 +43,7 @@ const BoxPlot = {
         
             // Show the X scale (inverted Y scale)
             var x = d3.scaleLinear()
-                .domain([0, 80])
+                .domain([0, 100])
                 .range([0, width])
             svg.append("g").attr("transform", "translate(0," + height + ")")
                 .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }));
@@ -89,9 +89,9 @@ const BoxPlot = {
     	                .duration(200)
     	                .style("opacity", 1);
     	            
-    	            tooltip.html(`<b>Minimum</b>: ${d.value.min.toFixed(1)}%<br>
+    	            tooltip.html(`<i>Mean</i>: ${d.value.mean.toFixed(1)}%<br><br>
+                                  <b>Minimum</b>: ${d.value.min.toFixed(1)}%<br>
                                   <b>Median</b>: ${d.value.median.toFixed(1)}%<br>
-                                  <i>Mean</i>: ${d.value.mean.toFixed(1)}%<br>
                                   <b>Maximum</b>: ${d.value.max.toFixed(1)}%`)
     	        	   .style("left", (event.pageX + 10) + "px")
     	        	   .style("top", (event.pageY - 20) + "px");
