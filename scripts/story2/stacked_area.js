@@ -20,8 +20,8 @@ d3.csv("data/story2/disability_neet.csv").then( function(data) {
   const sumstat = d3.group(data, d => d.year);
 
   // Stack the data: each group will be represented on top of each other
-  const mygroups = ["Helen", "Amanda", "Ashley"] // list of group names
-  const mygroup = [1,2,3] // list of group names
+  const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
+  const mygroup = [1,2] // list of group names
   const stackedData = d3.stack()
     .keys(mygroup)
     .value(function(d, key){
