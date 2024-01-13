@@ -26,6 +26,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   const stackedData = d3.stack()
     .keys(mygroup)
     .value(function(d, key) {
+      console.log(d);
       const value = d[1][key].value;
       console.log("Year:", d[1].year, "Key:", key, "Value:", value);
       return value;
