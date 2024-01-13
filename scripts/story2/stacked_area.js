@@ -25,7 +25,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   const stackedData = d3.stack()
     .keys(mygroup)
     .value(function(d, key){
-      return d[1][key].n
+      return d[1][key].value
     })
     (sumstat)
 
@@ -39,7 +39,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.n; })*1.2])
+    .domain([0, d3.max(data, function(d) { return +d.value; })*1.2])
     .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
