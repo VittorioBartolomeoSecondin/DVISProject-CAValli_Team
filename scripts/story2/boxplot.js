@@ -1,8 +1,8 @@
 const BoxPlot = {
     initialize: function() {
         // set the dimensions and margins of the graph
-        var margin = { top: 10, right: 30, bottom: 30, left: 80 },
-            width = 800 - margin.left - margin.right,
+        var margin = { top: 10, right: 30, bottom: 30, left: 70 },
+            width = 750 - margin.left - margin.right,
             height = 1000 - margin.top - margin.bottom;
 
         var tooltip = null;
