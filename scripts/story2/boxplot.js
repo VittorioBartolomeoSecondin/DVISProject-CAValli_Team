@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 40},
+/*var margin = {top: 10, right: 30, bottom: 30, left: 40},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -84,10 +84,10 @@ d3.csv("data/story2/boxplot.csv", function(data) {
       .attr("y2", function(d){return(y(d.value.median))})
       .attr("stroke", "black")
       .style("width", 80)
-})
+})*/
 
 // set the dimensions and margins of the graph
-/*var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+var margin = { top: 10, right: 30, bottom: 30, left: 40 },
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -170,4 +170,4 @@ d3.csv("data/story2/boxplot.csv").then(function (data) {
         .attr("y2", function (d) { return (y(d.value.median)) })
         .attr("stroke", "black")
         .style("width", 80)
-});*/
+});
