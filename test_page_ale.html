@@ -123,10 +123,23 @@
                     "SRB": [2009, 2010, 2011, 2012],
                 };
 
+                const yearDropdown = document.getElementById("year-dropdown-barchart");
+                const countryDropdown = document.getElementById("country-dropdown-barchart");
+            
+                // Disable specific countries based on the default selected year
+                const defaultSelectedYear = parseInt(yearDropdown.value);
+                for (const country in disabledYearsByCountry) {
+                    if (disabledYearsByCountry[country].includes(defaultSelectedYear)) {
+                        const option = countryDropdown.querySelector(`[value='${country}']`);
+                        if (option) {
+                            option.disabled = true;
+                        }
+                    }
+                }
+
                 // Attach event listener to the year dropdown
                 document.getElementById("year-dropdown-barchart").addEventListener("change", function () {
                     const selectedYear = parseInt(this.value);
-                    const countryDropdown = document.getElementById("country-dropdown-barchart");
             
                     // Enable all countries
                     for (let i = 0; i < countryDropdown.options.length; i++) {
@@ -147,7 +160,6 @@
                 // Attach an event listener to the country dropdown
                 document.getElementById("country-dropdown-barchart").addEventListener("change", function () {
                     const selectedCountry = this.value;
-                    const yearDropdown = document.getElementById("year-dropdown-barchart");
             
                     // Enable all years
                     for (let i = 0; i < yearDropdown.options.length; i++) {
