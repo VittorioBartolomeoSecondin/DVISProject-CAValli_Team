@@ -18,6 +18,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // group the data: one array for each value of the X axis.
   const sumstat = d3.group(data, d => d.year);
+  console.log("Sumstat:", sumstat);
 
   // Transform data to the expected format
   const formattedData = Array.from(sumstat, ([year, values]) => ({
@@ -25,6 +26,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     "percentage of NEETs with disability": values.find(d => d.type === "percentage of NEETs with disability").value,
     "percentage of NEETs without disability": values.find(d => d.type === "percentage of NEETs without disability").value,
   }));
+  console.log("Formatted Data:", formattedData);
 
   // Stack the data: each group will be represented on top of each other
   const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
@@ -33,6 +35,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     .keys(mygroups)
     .value((d, key) => d[key])
     (formattedData);
+  console.log("Stacked Data:", stackedData);
 
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
