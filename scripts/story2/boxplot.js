@@ -127,7 +127,7 @@ d3.csv("data/story2/boxplot.csv").then(function (data) {
 
     // Show the Y scale
     var y = d3.scaleLinear()
-        .domain([10, 70])
+        .domain([0, 80])
         .range([height, 0])
     svg.append("g").call(d3.axisLeft(y))
 
@@ -145,7 +145,7 @@ d3.csv("data/story2/boxplot.csv").then(function (data) {
         .style("width", 40)
 
     // rectangle for the main box
-    var boxWidth = 10
+    var boxWidth = 25
     svg
         .selectAll("boxes")
         .data(sumstat)
