@@ -64,7 +64,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
     .join("path")
       .style("fill", function (d) { return color(d.key); })
       .attr("d", d3.area()
-        .x(function (d, i) { return x(+d.data[0].year); })
+        .x(function (d, i) { return x(+d.data.year); })
         .y0(function(d) { return y(d[0]); })
         .y1(function(d) { return y(d[1]); })
     )
