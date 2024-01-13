@@ -35,11 +35,8 @@ const BoxPlot = {
                 max = Math.min(q3 + 1.5 * interQuantileRange, datasetMax);
             
                 mean = d3.mean(values, d => d.value); // Calculate mean for each country
-            
-                // Identify outliers
-                var outliers = values.filter(d => d.value < min || d.value > max).map(d => d.value);
 
-                return { key: key, n_values: values.length, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean, outliers: outliers } }
+                return { key: key, points: values, n_values: values.length, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean } }
             });
         
             // Show the Y scale (inverted X scale)
@@ -154,12 +151,15 @@ const BoxPlot = {
                 .attr("stroke", "red")
                 .style("width", 80)
 
-             svg.selectAll(".outliers")
-                .data(sumstat)
-                .enter()
-                .append("circle")
-                .attr("cx", function (d) { return x(d.value.outliers); })
-                .attr("cy", function (d) { return y(d.key) + y.bandwidth() / 2; }) // Change 'key' to the appropriate variable representing the country
+             // Add individual points with jitter
+            var jitterWidth = 50
+            svg
+              .selectAll("indPoints")
+              .data(sumstat)
+              .enter()
+              .append("circle")
+                .attr("cx", function(d){return(x(d.points))})
+                .attr("cy", function(d){return(y(d.key)})
                 .attr("r", 4)
                 .style("fill", "white")
                 .attr("stroke", "black")
