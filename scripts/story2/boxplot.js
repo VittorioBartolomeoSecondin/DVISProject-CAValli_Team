@@ -150,28 +150,6 @@ const BoxPlot = {
                 .attr("y2", function (d) { return (y(d.key) + boxHeight / 2) })
                 .attr("stroke", "red")
                 .style("width", 80)
-
-             // Add individual points with jitter
-            var jitterWidth = 50;
-            
-            svg
-              .selectAll("indPoints")
-              .data(sumstat)
-              .enter()
-              .selectAll("circle")
-              .data(d => d.points)
-              .enter()
-              .append("circle")
-              .attr("cx", function(d) {
-                // Add jitter to x position
-                return x(d.value);
-              })
-              .attr("cy", function(d) {
-                return y(d.country) + Math.random() * jitterWidth - jitterWidth / 2;
-              })
-              .attr("r", 4)
-              .style("fill", "white")
-              .attr("stroke", "black");
         });
     }
 }
