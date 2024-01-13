@@ -19,16 +19,22 @@ const BoxPlot = {
         // Read the data and compute summary statistics for each specie
         d3.csv("data/story2/boxplot.csv").then(function (data) {
         
-            // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-            var sumstat = d3.group(data, d => d.country);
             sumstat = Array.from(sumstat, ([key, values]) => {
-                q1 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.25)
-                median = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.5)
-                q3 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.75)
-                interQuantileRange = q3 - q1
-                min = q1 - 1.5 * interQuantileRange
-                max = q3 + 1.5 * interQuantileRange
+                q1 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.25);
+                median = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.5);
+                q3 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.75);
+                interQuantileRange = q3 - q1;
+            
+                // Find the minimum and maximum values in the dataset
+                var datasetMin = d3.min(values, d => d.value);
+                var datasetMax = d3.max(values, d => d.value);
+            
+                // Calculate min and max while considering the dataset boundaries
+                min = Math.max(q1 - 1.5 * interQuantileRange, datasetMin);
+                max = Math.min(q3 + 1.5 * interQuantileRange, datasetMax);
+            
                 mean = d3.mean(values, d => d.value); // Calculate mean for each country
+            
                 return { key: key, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean } }
             });
         
