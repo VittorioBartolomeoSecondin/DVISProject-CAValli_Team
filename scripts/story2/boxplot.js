@@ -157,15 +157,12 @@ const BoxPlot = {
              svg.selectAll(".outliers")
                 .data(sumstat)
                 .enter()
-                .selectAll("circle")  // Use selectAll here to create circles within the "outliers" group
-                .data(d => d.value.outliers.filter(outlier => outlier !== undefined && outlier !== null))
-                .enter()
                 .append("circle")
-                .attr("cx", function (d) { return x(d); })
-                .attr("cy", function (d) { return y(d.key) + y.bandwidth() / 2; })
+                .attr("cx", function (d) { return x(d.value.outliers); })
+                .attr("cy", function (d) { return y(d.key) + y.bandwidth() / 2; }) // Change 'key' to the appropriate variable representing the country
                 .attr("r", 4)
                 .style("fill", "white")
-                .attr("stroke", "black");
+                .attr("stroke", "black")
         });
     }
 }
