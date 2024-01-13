@@ -1,7 +1,7 @@
 function updateBarChart(selectedYear, selectedCountry) {
 	
 	// Set up the SVG dimensions
-	var margin = { top: 30, right: 70, bottom: 120, left: 100 },
+	var margin = { top: 30, right: 70, bottom: 120, left: 70 },
 			        width = 900 - margin.left - margin.right,
 			        height = 650 - margin.top - margin.bottom;
 	
