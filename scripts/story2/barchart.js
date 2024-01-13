@@ -36,7 +36,8 @@ function updateBarChart(selectedYear, selectedCountry) {
 			    .call(d3.axisBottom(x));
 
 	  xAxis.selectAll("text")
-	        .attr("fill", "black");
+	        .attr("fill", "black")
+		.style("font-size", "9px");
 	
 	  // Remove ticks for each label
 	  xAxis.selectAll(".tick line").remove();
