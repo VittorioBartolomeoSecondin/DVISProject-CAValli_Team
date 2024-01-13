@@ -19,7 +19,7 @@ const BoxPlot = {
         // Read the data and compute summary statistics for each specie
         d3.csv("data/story2/boxplot.csv").then(function (data) {
         
-            sumstat = Array.from(sumstat, ([key, values]) => {
+           var sumstat = Array.from(sumstat, ([key, values]) => {
                 q1 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.25);
                 median = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.5);
                 q3 = d3.quantile(values.map(g => g.value).sort(d3.ascending), 0.75);
