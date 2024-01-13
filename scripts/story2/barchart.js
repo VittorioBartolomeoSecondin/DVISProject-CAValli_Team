@@ -147,7 +147,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	})
 }
 
-let selectedYear = 2009;
+let selectedYear = 2013;
 let selectedCountry = "data/story2/barcharts/barchart_AUT.csv";
 updateBarChart(selectedYear, selectedCountry);
 
