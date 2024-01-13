@@ -15,19 +15,19 @@ var svg = d3.select("#boxplot")
 // Read the data and compute summary statistics for each specie
 d3.csv("data/story2/boxplot.csv", function(data) {
 
+  var groupedData = d3.group(data, d => d.Species);
+
   // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
-  var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
-    .key(function(d) { return d.country;})
-    .rollup(function(d) {
-      q1 = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.25)
-      median = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.5)
-      q3 = d3.quantile(d.map(function(g) { return g.value;}).sort(d3.ascending),.75)
-      interQuantileRange = q3 - q1
-      min = q1 - 1.5 * interQuantileRange
-      max = q3 + 1.5 * interQuantileRange
-      return({q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max})
-    })
-    .entries(data)
+  var sumstat = Array.from(groupedData.entries()).map(([key, values]) => {
+      q1 = d3.quantile(values.map(g => g.Sepal_Length).sort(d3.ascending), 0.25);
+      median = d3.quantile(values.map(g => g.Sepal_Length).sort(d3.ascending), 0.5);
+      q3 = d3.quantile(values.map(g => g.Sepal_Length).sort(d3.ascending), 0.75);
+      interQuantileRange = q3 - q1;
+      min = q1 - 1.5 * interQuantileRange;
+      max = q3 + 1.5 * interQuantileRange;
+    
+      return { key, value: { q1, median, q3, interQuantileRange, min, max } };
+  });
 
   // Show the X scale
   var x = d3.scaleBand()
