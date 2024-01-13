@@ -50,7 +50,7 @@ const BoxPlot = {
         
             // Show the X scale (inverted Y scale)
             var x = d3.scaleLinear()
-                .domain([0, 100])
+                .domain([0, 70])
                 .range([0, width])
             svg.append("g").attr("transform", "translate(0," + height + ")")
                 .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }));
