@@ -80,6 +80,8 @@ function updateBarChart(selectedYear, selectedCountry) {
 	      .attr("y", d => y(d.value))
 	      .attr("width", x.bandwidth())
 	      .attr("height", d => height - y(d.value))
+	      .attr("stroke", "black") 
+              .attr("stroke-width", 1) 
 	      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato");
 	  
 	  const linesData_long = [
