@@ -15,7 +15,7 @@ var svg = d3.select("#boxplot")
 // Read the data and compute summary statistics for each specie
 d3.csv("data/story2/boxplot.csv", function(data) {
 
-  var groupedData = d3.group(data, d => d.Species);
+  var groupedData = d3.group(data, d => d.country);
 
   // Compute quartiles, median, inter quantile range min and max --> these info are then used to draw the box.
   var sumstat = Array.from(groupedData.entries()).map(([key, values]) => {
