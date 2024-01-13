@@ -72,28 +72,26 @@
                 <option value=AUT>Austria</option>
                 <option value=BEL>Belgium</option>
                 <option value=BGR>Bulgaria</option>
-                <option value=CHE>Switzerland</option>
+                <option value=HRV>Croatia</option>
                 <option value=CYP>Cyprus</option>
                 <option value=CZE>Czechia</option>
-                <option value=DEU>Germany</option>
                 <option value=DNK>Denmark</option>
-                <option value=ESP>Spain</option>
                 <option value=EST>Estonia</option>
                 <option value=FIN>Finland</option>
                 <option value=FRA>France</option>
+                <option value=DEU>Germany</option>
                 <option value=GRC>Greece</option>
-                <option value=HRV>Croatia</option>
                 <option value=HUN>Hungary</option>
-                <option value=IRL>Ireland</option>
                 <option value=ISL>Iceland</option>
+                <option value=IRL>Ireland</option>
                 <option value=ITA>Italy</option>
+                <option value=LVA>Latvia</option>
                 <option value=LTU>Lithuania</option>
                 <option value=LUX>Luxembourg</option>
-                <option value=LVA>Latvia</option>
-                <option value=MKD>North Macedonia</option>
                 <option value=MLT>Malta</option>
                 <option value=MNE>Montenegro</option>
                 <option value=NLD>Netherlands</option>
+                <option value=MKD>North Macedonia</option>
                 <option value=NOR>Norway</option>
                 <option value=POL>Poland</option>
                 <option value=PRT>Portugal</option>
@@ -101,7 +99,9 @@
                 <option value=SRB>Serbia</option>
                 <option value=SVK>Slovakia</option>
                 <option value=SVN>Slovenia</option>
+                <option value=ESP>Spain</option>
                 <option value=SWE>Sweden</option>
+                <option value=CHE>Switzerland</option>
                 <option value=TUR>Türkiye</option>
             </select>
         </div>
@@ -122,6 +122,27 @@
                     "MKD": [2009, 2010, 2011],
                     "SRB": [2009, 2010, 2011, 2012],
                 };
+
+                // Attach event listener to the year dropdown
+                document.getElementById("year-dropdown-barchart").addEventListener("change", function () {
+                    const selectedYear = parseInt(this.value);
+                    const countryDropdown = document.getElementById("country-dropdown-barchart");
+            
+                    // Enable all countries
+                    for (let i = 0; i < countryDropdown.options.length; i++) {
+                        countryDropdown.options[i].disabled = false;
+                    }
+            
+                    // Disable specific countries based on the selected year
+                    for (const country in disabledYearsByCountry) {
+                        if (disabledYearsByCountry[country].includes(selectedYear)) {
+                            const option = countryDropdown.querySelector(`[value='${country}']`);
+                            if (option) {
+                                option.disabled = true;
+                            }
+                        }
+                    }
+                });
             
                 // Attach an event listener to the country dropdown
                 document.getElementById("country-dropdown-barchart").addEventListener("change", function () {
@@ -141,11 +162,6 @@
                                 option.disabled = true;
                             }
                         });
-                    }
-
-                    // Clear the selected year if it's not valid for the new country
-                    if (disabledYearsByCountry[selectedCountry] && disabledYearsByCountry[selectedCountry].includes(parseInt(yearDropdown.value))) {
-                        yearDropdown.value = ""; // Clear the selected year
                     }
                 });
             });
