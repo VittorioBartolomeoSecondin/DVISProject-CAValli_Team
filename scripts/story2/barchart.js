@@ -30,20 +30,21 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .domain(categories)
 	    .padding(0.5);
 		
-	  svg.append("g")
-	    .attr("class", "axis")
-	    .attr("transform", `translate(0, ${height})`)
-	    .call(d3.axisBottom(x))
-	    .selectAll("text")
+	  const xAxis = svg.append("g")
+			    .attr("class", "axis")
+			    .attr("transform", `translate(0, ${height})`)
+			    .call(d3.axisBottom(x));
+
+	  xAxis.selectAll("text")
 	        .attr("fill", "black");
 	    
-	  /*xAxis.selectAll("text")
+	  xAxis.selectAll("text")
 	    .attr("transform", "translate(-13.5,0)rotate(-90)")
 	    .style("text-anchor", "end")
 	    .attr("dx", "-7px");
 	
 	  // Remove ticks for each label
-	  xAxis.selectAll(".tick line").remove();*/
+	  xAxis.selectAll(".tick line").remove();
 
 	  // Dynamically set the domain of the y axis
 	  const y_domain = Math.max(70, (d3.max(data, d => +d.value)));
