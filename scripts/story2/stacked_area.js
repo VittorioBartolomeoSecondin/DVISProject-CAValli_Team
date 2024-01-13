@@ -17,7 +17,7 @@ const svg = d3.select("#stacked_area")
 d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // group the data: one array for each value of the X axis.
-  const sumstat = d3.group(data, d => d.type);
+  const sumstat = d3.group(data, d => d.year, d => d.type);
 
   // Stack the data: each group will be represented on top of each other
   const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
