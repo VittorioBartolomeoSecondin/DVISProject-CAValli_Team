@@ -25,8 +25,10 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   const mygroup = [1,2] // list of group names
   const stackedData = d3.stack()
     .keys(mygroup)
-    .value(function(d, key){
-      return d[0][key].value
+    .value(function(d, key) {
+      const value = d[0][key].value;
+      console.log("Year:", d[0].year, "Key:", key, "Value:", value);
+      return value;
     })
     (sumstat);
 
