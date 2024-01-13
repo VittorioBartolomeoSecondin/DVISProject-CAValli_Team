@@ -157,12 +157,9 @@ const BoxPlot = {
              svg.selectAll(".outliers")
                 .data(sumstat)
                 .enter()
-                .selectAll("circle")
-                .data(d => d.value.outliers)
-                .enter()
                 .append("circle")
-                .attr("cx", function (d) { return x(d); })
-                .attr("cy", function (d) { return y(key) + y.bandwidth() / 2; }) // Change 'key' to the appropriate variable representing the country
+                .attr("cx", function (d) { return x(d.value.outliers); })
+                .attr("cy", function (d) { return y(d.key) + y.bandwidth() / 2; }) // Change 'key' to the appropriate variable representing the country
                 .attr("r", 4)
                 .style("fill", "white")
                 .attr("stroke", "black")
