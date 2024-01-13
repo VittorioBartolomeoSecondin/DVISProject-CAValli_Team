@@ -89,10 +89,10 @@ const BoxPlot = {
     	                .duration(200)
     	                .style("opacity", 1);
     	            
-    	            tooltip.html(`<b>Minimum</b>: ${d.value.min}<br>
-                                  <b>Median</b>: ${d.value.median}<br>
-                                  <i>Mean</i>: ${d.value.mean}<br>
-                                  <b>Maximum</b>: ${d.value.max}`)
+    	            tooltip.html(`<b>Minimum</b>: ${d.value.min.toFixed(1)}<br>
+                                  <b>Median</b>: ${d.value.median.toFixed(1)}<br>
+                                  <i>Mean</i>: ${d.value.mean.toFixed(1)}<br>
+                                  <b>Maximum</b>: ${d.value.max.toFixed(1)}`)
     	        	   .style("left", (event.pageX + 10) + "px")
     	        	   .style("top", (event.pageY - 20) + "px");
     	          })
