@@ -14,7 +14,7 @@ const svg = d3.select("#stacked_area")
           `translate(${margin.left}, ${margin.top})`);
 
 //Read the data
-d3.csv("data/story2/disability_neet.csv").then( function(data) {
+d3.csv("data/story2/areachart.csv").then( function(data) {
 
   // group the data: one array for each value of the X axis.
   const sumstat = d3.group(data, d => d.year);
