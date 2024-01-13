@@ -32,7 +32,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   // Add X axis --> it is a date format
   const x = d3.scaleLinear()
     .domain(d3.extent(data, function(d) { return d.year; }))
-    .range([ 0, width ]);
+    .range([0, width]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).ticks(5));
@@ -40,7 +40,7 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
   // Add Y axis
   const y = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) { return +d.n; })*1.2])
-    .range([ height, 0 ]);
+    .range([height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
