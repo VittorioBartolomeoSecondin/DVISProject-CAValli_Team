@@ -164,10 +164,10 @@ const BoxPlot = {
               .append("circle")
               .attr("cx", function(d) {
                 // Add jitter to x position
-                return x(d.value) + Math.random() * jitterWidth - jitterWidth / 2;
+                return x(d.value);
               })
               .attr("cy", function(d) {
-                return y(d.country);
+                return y(d.country) + Math.random() * jitterWidth - jitterWidth / 2;
               })
               .attr("r", 4)
               .style("fill", "white")
