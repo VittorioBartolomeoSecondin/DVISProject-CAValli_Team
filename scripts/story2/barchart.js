@@ -30,7 +30,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .domain(categories)
 	    .padding(0.5);
 		
-	  const xAxis = svg.append("g")
+	  svg.append("g")
 	    .attr("class", "axis")
 	    .attr("transform", `translate(0, ${height})`)
 	    .call(d3.axisBottom(x))
@@ -53,7 +53,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .domain([0, y_domain === 70 ? 70 : y_domain+10])
 	    .range([height, 0]);
 	    
-	  const yAxis = svg.append("g")
+	  svg.append("g")
 	    .attr("class", "axis")
 	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
 	    .selectAll("text")
