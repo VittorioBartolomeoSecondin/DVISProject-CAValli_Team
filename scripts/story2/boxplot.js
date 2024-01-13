@@ -50,7 +50,7 @@ const BoxPlot = {
             var formatPercent = d3.format(".0%");
 
             svg.append("g").attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x).tickFormat(formatPercent))
+                .call(d3.axisBottom(x).tickFormat(formatPercent));
         
             // Show the main horizontal line (inverted vertical line)
             svg
