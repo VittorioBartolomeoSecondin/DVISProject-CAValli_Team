@@ -31,8 +31,11 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .padding(0.5);
 		
 	  const xAxis = svg.append("g")
+	    .attr("class", "axis")
 	    .attr("transform", `translate(0, ${height})`)
-	    .call(d3.axisBottom(x));
+	    .call(d3.axisBottom(x))
+	    .selectAll("text")
+	        .attr("fill", "black");
 	    
 	  xAxis.selectAll("text")
 	    .attr("transform", "translate(-13.5,0)rotate(-90)")
@@ -51,7 +54,15 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .range([height, 0]);
 	    
 	  const yAxis = svg.append("g")
-	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
+	    .attr("class", "axis")
+	    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
+	    .selectAll("text")
+	        .attr("fill", "black");
+
+	  // Select lines of X,Y axis
+        svg.selectAll(".axis")
+	 .selectAll("line")
+	 .attr("stroke", "black");
 	    
 	  svg.selectAll("line.grid-line")
 	    .data(y.ticks())
