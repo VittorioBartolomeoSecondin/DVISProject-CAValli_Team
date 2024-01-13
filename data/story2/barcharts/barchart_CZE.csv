@@ -1,11 +1,11 @@
 year,indicator,category,value
 2009,Sex,Male,12.3
 2009,Sex,Female,15.7
-2009,Age range,Less than 18,17.2
+2009,Age range,< 18,17.2
 2009,Age range,18-24,16.6
 2009,Age range,25-49,11.8
 2009,Age range,50-64,15.6
-2009,Age range,65 and over,11.7
+2009,Age range,≥ 65,11.7
 2009,Education,Low,29.0
 2009,Education,Medium,11.6
 2009,Education,High,5.0
@@ -15,11 +15,11 @@ year,indicator,category,value
 2009,Activity status,Inactive,23.5
 2010,Sex,Male,12.7
 2010,Sex,Female,16.0
-2010,Age range,Less than 18,18.9
+2010,Age range,< 18,18.9
 2010,Age range,18-24,16.1
 2010,Age range,25-49,12.9
 2010,Age range,50-64,15.4
-2010,Age range,65 and over,10.1
+2010,Age range,≥ 65,10.1
 2010,Education,Low,28.7
 2010,Education,Medium,12.1
 2010,Education,High,4.6
@@ -29,11 +29,11 @@ year,indicator,category,value
 2010,Activity status,Inactive,24.4
 2011,Sex,Male,13.7
 2011,Sex,Female,16.9
-2011,Age range,Less than 18,20.0
+2011,Age range,< 18,20.0
 2011,Age range,18-24,18.3
 2011,Age range,25-49,13.9
 2011,Age range,50-64,15.9
-2011,Age range,65 and over,10.7
+2011,Age range,≥ 65,10.7
 2011,Education,Low,29.8
 2011,Education,Medium,13.4
 2011,Education,High,4.7
@@ -43,11 +43,11 @@ year,indicator,category,value
 2011,Activity status,Inactive,26.3
 2012,Sex,Male,13.7
 2012,Sex,Female,16.9
-2012,Age range,Less than 18,18.8
+2012,Age range,< 18,18.8
 2012,Age range,18-24,18.9
 2012,Age range,25-49,13.8
 2012,Age range,50-64,17.2
-2012,Age range,65 and over,10.8
+2012,Age range,≥ 65,10.8
 2012,Education,Low,29.7
 2012,Education,Medium,14.0
 2012,Education,High,4.7
@@ -57,11 +57,11 @@ year,indicator,category,value
 2012,Activity status,Inactive,27.1
 2013,Sex,Male,13.1
 2013,Sex,Female,16.1
-2013,Age range,Less than 18,16.4
+2013,Age range,< 18,16.4
 2013,Age range,18-24,18.5
 2013,Age range,25-49,13.6
 2013,Age range,50-64,16.8
-2013,Age range,65 and over,10.4
+2013,Age range,≥ 65,10.4
 2013,Education,Low,32.4
 2013,Education,Medium,13.3
 2013,Education,High,4.1
@@ -71,11 +71,11 @@ year,indicator,category,value
 2013,Activity status,Inactive,26.2
 2014,Sex,Male,13.3
 2014,Sex,Female,16.3
-2014,Age range,Less than 18,19.5
+2014,Age range,< 18,19.5
 2014,Age range,18-24,16.3
 2014,Age range,25-49,13.7
 2014,Age range,50-64,15.6
-2014,Age range,65 and over,10.7
+2014,Age range,≥ 65,10.7
 2014,Education,Low,32.0
 2014,Education,Medium,13.3
 2014,Education,High,4.2
@@ -85,11 +85,11 @@ year,indicator,category,value
 2014,Activity status,Inactive,26.8
 2015,Sex,Male,12.3
 2015,Sex,Female,15.6
-2015,Age range,Less than 18,18.5
+2015,Age range,< 18,18.5
 2015,Age range,18-24,15.3
 2015,Age range,25-49,12.7
 2015,Age range,50-64,14.6
-2015,Age range,65 and over,10.9
+2015,Age range,≥ 65,10.9
 2015,Education,Low,31.6
 2015,Education,Medium,12.3
 2015,Education,High,4.1
@@ -99,11 +99,11 @@ year,indicator,category,value
 2015,Activity status,Inactive,25.1
 2016,Sex,Male,12.0
 2016,Sex,Female,14.6
-2016,Age range,Less than 18,17.4
+2016,Age range,< 18,17.4
 2016,Age range,18-24,16.5
 2016,Age range,25-49,11.9
 2016,Age range,50-64,13.9
-2016,Age range,65 and over,10.1
+2016,Age range,≥ 65,10.1
 2016,Education,Low,32.8
 2016,Education,Medium,11.4
 2016,Education,High,3.8
@@ -113,11 +113,11 @@ year,indicator,category,value
 2016,Activity status,Inactive,25.1
 2017,Sex,Male,10.5
 2017,Sex,Female,13.9
-2017,Age range,Less than 18,14.2
+2017,Age range,< 18,14.2
 2017,Age range,18-24,14.4
 2017,Age range,25-49,10.2
 2017,Age range,50-64,13.1
-2017,Age range,65 and over,12.6
+2017,Age range,≥ 65,12.6
 2017,Education,Low,29.5
 2017,Education,Medium,11.2
 2017,Education,High,4.1
@@ -127,11 +127,11 @@ year,indicator,category,value
 2017,Activity status,Inactive,23.8
 2018,Sex,Male,10.0
 2018,Sex,Female,14.3
-2018,Age range,Less than 18,13.2
+2018,Age range,< 18,13.2
 2018,Age range,18-24,12.0
 2018,Age range,25-49,9.7
 2018,Age range,50-64,12.5
-2018,Age range,65 and over,15.6
+2018,Age range,≥ 65,15.6
 2018,Education,Low,31.6
 2018,Education,Medium,11.3
 2018,Education,High,4.1
@@ -141,11 +141,11 @@ year,indicator,category,value
 2018,Activity status,Inactive,24.1
 2019,Sex,Male,10.4
 2019,Sex,Female,14.6
-2019,Age range,Less than 18,13.0
+2019,Age range,< 18,13.0
 2019,Age range,18-24,11.8
 2019,Age range,25-49,9.5
 2019,Age range,50-64,12.8
-2019,Age range,65 and over,17.7
+2019,Age range,≥ 65,17.7
 2019,Education,Low,33.1
 2019,Education,Medium,11.8
 2019,Education,High,3.9
@@ -155,11 +155,11 @@ year,indicator,category,value
 2019,Activity status,Inactive,26.2
 2020,Sex,Male,9.5
 2020,Sex,Female,14.2
-2020,Age range,Less than 18,13.0
+2020,Age range,< 18,13.0
 2020,Age range,18-24,11.5
 2020,Age range,25-49,9.3
 2020,Age range,50-64,11.8
-2020,Age range,65 and over,15.7
+2020,Age range,≥ 65,15.7
 2020,Education,Low,30.9
 2020,Education,Medium,11.1
 2020,Education,High,4.0
