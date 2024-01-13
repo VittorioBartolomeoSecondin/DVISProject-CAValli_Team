@@ -36,7 +36,10 @@ const BoxPlot = {
             
                 mean = d3.mean(values, d => d.value); // Calculate mean for each country
             
-                return { key: key, n_values: values.length, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean } }
+                // Identify outliers
+                var outliers = values.filter(d => d.value < min || d.value > max).map(d => d.value);
+
+                return { key: key, n_values: values.length, value: { q1: q1, median: median, q3: q3, interQuantileRange: interQuantileRange, min: min, max: max, mean: mean, outliers: outliers } }
             });
         
             // Show the Y scale (inverted X scale)
@@ -150,6 +153,20 @@ const BoxPlot = {
                 .attr("y2", function (d) { return (y(d.key) + boxHeight / 2) })
                 .attr("stroke", "red")
                 .style("width", 80)
+
+             svg.selectAll(".outliers")
+                .data(sumstat)
+                .enter()
+                .selectAll("circle")
+                .data(d => d.value.outliers)
+                .enter()
+                .append("circle")
+                .attr("cx", function (d) { return x(d); })
+                .attr("cy", function (d) { return y(key) + y.bandwidth() / 2; }) // Change 'key' to the appropriate variable representing the country
+                .attr("r", 4)
+                .style("fill", "white")
+                .attr("stroke", "black")
+
         });
     }
 }
