@@ -145,7 +145,7 @@ d3.csv("data/story2/boxplot.csv").then(function (data) {
         .style("width", 40)
 
     // rectangle for the main box
-    var boxWidth = 100
+    var boxWidth = 50
     svg
         .selectAll("boxes")
         .data(sumstat)
