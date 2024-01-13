@@ -39,7 +39,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	        .attr("fill", "black");
 	    
 	  xAxis.selectAll("text")
-	    .attr("transform", "translate(-13.5,0)rotate(-45)")
+	    .attr("transform", "translate(-10,0)rotate(-45)")
 	    .style("text-anchor", "end")
 	    .attr("dx", "-7px");
 	
