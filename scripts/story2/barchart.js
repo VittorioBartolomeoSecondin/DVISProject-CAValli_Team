@@ -147,12 +147,14 @@ function updateBarChart(selectedYear, selectedCountry) {
 	})
 }
 
-updateBarChart(2009, "data/story2/barcharts/barchart_AUT.csv");
+let selectedYear = 2009;
+let selectedCountry = "data/story2/barcharts/barchart_AUT.csv";
+updateBarChart(selectedYear, selectedCountry);
 
 // Attach an event listener to the year dropdown
 document.getElementById("year-dropdown-barchart").addEventListener("change", function () {
 
-    const selectedYear = this.value;
+    selectedYear = this.value;
 
     d3.select("#barchart_svg").remove();
     
@@ -162,7 +164,7 @@ document.getElementById("year-dropdown-barchart").addEventListener("change", fun
 // Attach an event listener to the country dropdown
 document.getElementById("country-dropdown-barchart").addEventListener("change", function () {
 
-    const selectedCountry = "data/story2/barcharts/barchart_" + this.value + ".csv";
+    selectedCountry = "data/story2/barcharts/barchart_" + this.value + ".csv";
 
     d3.select("#barchart_svg").remove();
     
