@@ -47,13 +47,18 @@ const BoxPlot = {
                 .paddingOuter(.5)
             svg.append("g")
                 .call(d3.axisLeft(y))
-        
+                .selectAll("text")
+	                .attr("fill", "black")
+	                .style("text-anchor", "end");
+
             // Show the X scale (inverted Y scale)
             var x = d3.scaleLinear()
                 .domain([0, 70])
                 .range([0, width])
             svg.append("g").attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }));
+                .call(d3.axisBottom(x).tickFormat(function (d) { return d + '%'; }))
+                .selectAll("text")
+	               .attr("fill", "black");
 
             svg.selectAll("line.grid-line")
                 .data(y.domain())  // Use y.domain() to get the unique values for the band scale
