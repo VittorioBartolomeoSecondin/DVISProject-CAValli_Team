@@ -66,15 +66,15 @@ const BoxPlot = {
                 .attr("y2", d => y(d) + y.bandwidth() / 2)
                 .attr("stroke", "rgba(0, 0, 0, 0.1)");
 
-            svg.selectAll("line.grid-line")
-                .data(x.domain())  // Use y.domain() to get the unique values for the band scale
+            svg.selectAll("line.grid-line-x")
+                .data(x.ticks())
                 .enter()
                 .append("line")
-                .attr("class", "grid-line")
-                .attr("y1", 0)
-                .attr("y2", height)
+                .attr("class", "grid-line-x")
                 .attr("x1", d => x(d))
                 .attr("x2", d => x(d))
+                .attr("y1", 0)
+                .attr("y2", height)
                 .attr("stroke", "rgba(0, 0, 0, 0.1)");
         
             // Show the main horizontal line (inverted vertical line)
