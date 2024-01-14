@@ -2,6 +2,7 @@
     max-width: 100%;
 }
 
+/* ====== Styles for all tooltips ====== */
 .tooltip {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
@@ -11,11 +12,13 @@
     color: rgb(0, 0, 0);
 }
 
+/* ====== Styles for all choropleth legends ====== */
 .choropleth-legend {
   font-size: 1.2em;
   letter-spacing: 0.1;
 }
 
+/* ====== Styles for all sliders ====== */
 .slider-container {
     margin: 20px;
     text-align: center;
@@ -41,10 +44,12 @@
     font-weight: bold;
 }
 
+/* ====== Styles for putting visualizations side by side ====== */
 .possibly-sidebyside > div {
   float: left;
 }
 
+/* ====== Styles for legends (line chart and 100% stacked bar chart) ====== */
 .standard-legend {
   text-align: center;
 }
@@ -56,17 +61,21 @@
 }
 
 .legend-color-box {
-    display: inline-block; /* Display color box inline */
+    /* display color box inline */
+    display: inline-block; 
     width: 20px;
     height: 20px;
-    vertical-align: middle; /* Align elements vertically */
+    /* align elements vertically */
+    vertical-align: middle; 
     margin-right: 5px;
 }
 
 .legend-text {
-    display: inline-block; /* Display text inline */
+    /* display text inline */
+    display: inline-block; 
 }
 
+/* ====== Styles for the donut elements ====== */
 .donut-item {
     display: flex;
     justify-content: center;
@@ -75,7 +84,7 @@
     height: 100%;
 }
 
-/* styles for the Sankey diagram */
+/* ====== Styles for the Sankey diagram ====== */
 .node rect {
   fill-opacity: .9;
   shape-rendering: crispEdges;
@@ -92,11 +101,7 @@
   stroke-opacity: .2;
 }
 
-/* 
-
-====== Zoom effect ======
-
-*/
+/* ====== Zoom effect ====== */
 .mfp-zoom-in {
   
   /* start state */
