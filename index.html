@@ -635,7 +635,7 @@
                            <br>
                            <div id="dumbbell"></div>
                            <br>
-                           <button type="button" class="btn btn-outline-danger more_about_gender_gap" style="margin-left: 275px;"><a href="#slopechart_container" onclick="document.getElementById('slopechart_container').setAttribute('data-aos', 'zoom-in')" data-effect="mfp-zoom-in">More about gender gap</a></button>
+                           <a class="btn btn-outline-danger more_about_gender_gap" style="margin-left: 275px;" href="#slopechart_container" onclick="document.getElementById('slopechart_container').setAttribute('data-aos', 'zoom-in')" data-effect="mfp-zoom-in">More about gender gap</a>
                            <div id="slopechart_container" class="container white-popup mfp-with-anim mfp-hide" style="background-color: rgba(255, 255, 255, 0.7); padding-left: 60px;">
                               <div id="slopechart"></div>
                               <div class="slider-container">
@@ -790,7 +790,6 @@
       <script>
          $(document).ready(function() {
              $('.more_about_gender_gap').magnificPopup({
-                 delegate: 'a',
                  removalDelay: 500,
                  callbacks: {
                      beforeOpen: function() {
