@@ -36,7 +36,7 @@ function updateDonuts(selectedValue) {
 	                // Assuming i is the index or identifier of the element
 			let countryName = countryData.name;
 			let titleElement = d3.select("#title_" + i);
-			let containerDiv = document.getElementById("#title_" + i).parentNode;
+			let containerDiv = document.getElementById("title_" + i).parentNode;
 			
 			// Check if the country name is "North Macedonia"
 			if (countryName === "North Macedonia") {
