@@ -47,7 +47,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	  
 	  // Add Y axis
 	  const y = d3.scaleLinear()
-	    .domain([y_domain === 70 ? 70 : y_domain+10, 0])
+	    .domain([0, y_domain === 70 ? 70 : y_domain+10])
 	    .range([height, 0]);
 	    
 	  svg.append("g")
@@ -90,10 +90,10 @@ function updateBarChart(selectedYear, selectedCountry) {
               .attr("stroke-width", 1) 
 	      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato")
 	      .attr("width", x.bandwidth())
-	      .attr("height", 0)
+	      .attr("height", height)
 	      .transition()
 	      .duration(2000)
-	      .attr("height", d => y(d.value)) // Transition to the actual width
+	      .attr("height", d => height - y(d.value)) // Transition to the actual width
 	      .delay((d, i) => i * 100); // Add delay for staggered animation
 		
 	  const linesData_long = [
