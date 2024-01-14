@@ -44,6 +44,11 @@ function updateDonuts(selectedValue) {
 			  titleElement.attr("class", "h4");
 			  containerDiv.style.paddingTop = "10px";
 			  containerDiv.style.height = "252px";
+			} else {
+			  // If it's not "North Macedonia", remove the class and styles
+			  titleElement.attr("class", null);
+			  containerDiv.style.paddingTop = null;
+			  containerDiv.style.height = null;
 			}
 			
 			// Update the text content regardless of the country name
