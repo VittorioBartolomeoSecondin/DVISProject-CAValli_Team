@@ -67,13 +67,6 @@
     display: inline-block; /* Display text inline */
 }
 
-.education-level {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 350px;
-}
-
 .donut-item {
     display: flex;
     justify-content: center;
