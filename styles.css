@@ -82,36 +82,6 @@
     height: 100%;
 }
 
-.yearSlider_italy {
-    width: 80%;
-    margin: 0 auto;
-    background: #e57f50;
-    border: none;
-    color: #e57f50;
-}
-
-.selectedYear_italy {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.yearSlider_slopechart {
-    width: 80%;
-    margin: 0 auto;
-    background: #e57f50;
-    border: none;
-    color: #e57f50;
-}
-
-.selectedYear_slopechart {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: black;
-}
-
-
 /* styles for the Sankey diagram */
 .node rect {
   fill-opacity: .9;
