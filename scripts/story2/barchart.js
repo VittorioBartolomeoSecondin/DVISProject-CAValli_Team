@@ -85,7 +85,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .enter()
 	    .append("rect")
 	      .attr("x", d => x(d.category))
-	      .attr("y", d => y(0)
+	      .attr("y", d => y(0))
 	      .attr("stroke", "black") 
               .attr("stroke-width", 1) 
 	      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato")
