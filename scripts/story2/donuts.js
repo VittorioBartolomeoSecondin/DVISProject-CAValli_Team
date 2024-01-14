@@ -43,6 +43,7 @@ function updateDonuts(selectedValue) {
 			// Check if the country name is "North Macedonia"
 			if (countryName === "North Macedonia") {
 			  // Update the element to h4 and add styles to the container div
+			  d3.select(elementId).attr("class", "h4");
 			  containerDiv
 			    .style("padding-top", "10px")
 			    .style("height", "252px");
