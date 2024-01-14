@@ -48,7 +48,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	  // Add Y axis
 	  const y = d3.scaleLinear()
 	    .domain([0, y_domain === 70 ? 70 : y_domain+10])
-	    .range([0, height]);
+	    .range([height, 0]);
 	    
 	  svg.append("g")
 	    .attr("class", "axis")
