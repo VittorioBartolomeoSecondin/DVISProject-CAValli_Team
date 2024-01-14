@@ -85,7 +85,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .enter()
 	    .append("rect")
 	      .attr("x", d => x(d.category))
-	      .attr("y", d => y(d.value))
+	      .attr("y", d => y(0))
 	      .attr("stroke", "black") 
               .attr("stroke-width", 1) 
 	      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato")
@@ -93,6 +93,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	      .attr("height", 0)
 	      .transition()
 	      .duration(2000)
+	      .attr("y", d => y(d.value)) // Start from the initial height
 	      .attr("height", d => y(0) - y(d.value)) // Transition to the actual width
 	      .delay((d, i) => i * 100); // Add delay for staggered animation
 		
