@@ -70,51 +70,53 @@ d3.csv("data/story2/areachart.csv").then( function(data) {
 // Assuming you have an SVG container with an id "barChart"
 const svg = d3.select("#stacked_area");
 
-// Assuming you have the dataset loaded into a variable called "data"
+// Load data from CSV file
+d3.csv("data/story2/areachart.csv").then(function (data) {
 
-// Set up dimensions
-const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-const width = 600 - margin.left - margin.right;
-const height = 400 - margin.top - margin.bottom;
+    // Set up dimensions
+    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+    const width = 600 - margin.left - margin.right;
+    const height = 400 - margin.top - margin.bottom;
 
-// Create scales
-const x = d3.scaleBand().range([0, width]).padding(0.1);
-const y = d3.scaleLinear().range([height, 0]);
+    // Create scales
+    const x = d3.scaleBand().range([0, width]).padding(0.1);
+    const y = d3.scaleLinear().range([height, 0]);
 
-// Create axes
-const xAxis = d3.axisBottom(x);
-const yAxis = d3.axisLeft(y);
+    // Create axes
+    const xAxis = d3.axisBottom(x);
+    const yAxis = d3.axisLeft(y);
 
-// Group data by year
-const groupedData = d3.group(data, d => d.year);
+    // Group data by year
+    const groupedData = d3.group(data, d => d.year);
 
-// Extract types (with and without disability)
-const types = Array.from(new Set(data.map(d => d.type)));
+    // Extract types (with and without disability)
+    const types = Array.from(new Set(data.map(d => d.type)));
 
-// Set the domain for the x and y scales
-x.domain(Array.from(groupedData.keys()));
-y.domain([0, d3.max(data, d => +d.value)]);
+    // Set the domain for the x and y scales
+    x.domain(Array.from(groupedData.keys()));
+    y.domain([0, d3.max(data, d => +d.value)]);
 
-// Append the bars
-svg.append("g")
-    .selectAll("g")
-    .data(groupedData)
-    .enter().append("g")
-    .attr("transform", d => `translate(${x(d[0])},0)`)
-    .selectAll("rect")
-    .data(d => types.map(type => ({ key: type, value: d[1].find(e => e.type === type).value })))
-    .enter().append("rect")
-    .attr("x", d => x.bandwidth() / 2 * (types.indexOf(d.key) - 0.5))
-    .attr("y", d => y(d.value))
-    .attr("width", x.bandwidth() / 2)
-    .attr("height", d => height - y(d.value))
-    .attr("fill", d => (d.key === "percentage of NEETs with disability") ? "steelblue" : "orange");
+    // Append the bars
+    svg.append("g")
+        .selectAll("g")
+        .data(groupedData)
+        .enter().append("g")
+        .attr("transform", d => `translate(${x(d[0])},0)`)
+        .selectAll("rect")
+        .data(d => types.map(type => ({ key: type, value: d[1].find(e => e.type === type).value })))
+        .enter().append("rect")
+        .attr("x", d => x.bandwidth() / 2 * (types.indexOf(d.key) - 0.5))
+        .attr("y", d => y(d.value))
+        .attr("width", x.bandwidth() / 2)
+        .attr("height", d => height - y(d.value))
+        .attr("fill", d => (d.key === "percentage of NEETs with disability") ? "steelblue" : "orange");
 
-// Append the x-axis
-svg.append("g")
-    .attr("transform", `translate(0,${height})`)
-    .call(xAxis);
+    // Append the x-axis
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(xAxis);
 
-// Append the y-axis
-svg.append("g")
-    .call(yAxis);
+    // Append the y-axis
+    svg.append("g")
+        .call(yAxis);
+});
