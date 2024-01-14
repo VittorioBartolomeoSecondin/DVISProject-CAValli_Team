@@ -53,6 +53,7 @@ function updateDonuts(selectedValue) {
 			
 			// Update the text content regardless of the country name
 			titleElement.text(countryName);
+			titleElement.attr("hidden", null);
 	
 	                const color = d3.scaleOrdinal()
 	                    .domain(["Male", "Female"])
