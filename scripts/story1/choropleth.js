@@ -189,8 +189,8 @@ sliders.forEach((slider) => {
         Choropleth.updateMap(year - 2009);
     });
     slider.addEventListener("change", function () {
-	const sliders = document.querySelectorAll('.yearSlider');
-        const selectedYears = document.querySelectorAll('.selectedYear');
+	const sliders = document.querySelectorAll('.yearSlider:not(.yearSlider_slopechart):not(.yearSlider_italy)');
+        const selectedYears = document.querySelectorAll('.selectedYear:not(.selectedYear_slopechart):not(.selectedYear_italy)');
 	    
         const year = parseInt(this.value);
         sliders.forEach((s) => {
