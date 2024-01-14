@@ -180,6 +180,7 @@ const Choropleth = {
 }
 // Slider interaction
 const sliders = document.querySelectorAll(".yearSlider:not(.yearSlider_slopechart):not(.yearSlider_italy)");
+const selectedYears = document.querySelectorAll(".selectedYear:not(.selectedYear_slopechart):not(.selectedYear_italy)");
 sliders.forEach((slider) => {
     slider.addEventListener("input", function () {
         const year = parseInt(this.value);
@@ -188,10 +189,7 @@ sliders.forEach((slider) => {
         // Call the update function for the map based on the selected year
         Choropleth.updateMap(year - 2009);
     });
-    slider.addEventListener("change", function () {
-	const sliders = document.querySelectorAll('.yearSlider:not(.yearSlider_slopechart):not(.yearSlider_italy)');
-        const selectedYears = document.querySelectorAll('.selectedYear:not(.selectedYear_slopechart):not(.selectedYear_italy)');
-	    
+    slider.addEventListener("change", function () {    
         const year = parseInt(this.value);
         sliders.forEach((s) => {
 		s.value = year;
