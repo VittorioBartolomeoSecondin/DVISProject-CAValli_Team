@@ -179,7 +179,7 @@ const Choropleth = {
         }
 }
 // Slider interaction
-const sliders = document.querySelectorAll(".yearSlider");
+const sliders = document.querySelectorAll(".yearSlider:not(.yearSlider_slopechart)");
 sliders.forEach((slider) => {
     slider.addEventListener("input", function () {
         const year = parseInt(this.value);
