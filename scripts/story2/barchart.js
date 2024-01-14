@@ -86,12 +86,16 @@ function updateBarChart(selectedYear, selectedCountry) {
 	    .append("rect")
 	      .attr("x", d => x(d.category))
 	      .attr("y", d => y(d.value))
-	      .attr("width", x.bandwidth())
-	      .attr("height", d => height - y(d.value))
 	      .attr("stroke", "black") 
               .attr("stroke-width", 1) 
 	      .attr("fill", d => (d.indicator === "Sex") ? "LightSalmon" : (d.indicator === "Age range") ? "LightCoral" : (d.indicator === "Education") ? "IndianRed" : "Tomato");
-	  
+	      .attr("width", x.bandwidth())
+	      .attr("height", 0)
+	      .transition()
+	      .duration(2000)
+	      .attr("height", d => height - y(d.value)) // Transition to the actual width
+	      .delay((d, i) => i * 100); // Add delay for staggered animation
+		
 	  const linesData_long = [
 	    { startX: x(categories[1]) + x.bandwidth() * 1.5, endX: x(categories[1]) + x.bandwidth() * 1.5 },
 	    { startX: x(categories[6]) + x.bandwidth() * 1.5, endX: x(categories[6]) + x.bandwidth() * 1.5 },
