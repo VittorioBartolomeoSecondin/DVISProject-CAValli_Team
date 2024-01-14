@@ -93,7 +93,7 @@ function updateBarChart(selectedYear, selectedCountry) {
 	      .attr("height", 0)
 	      .transition()
 	      .duration(2000)
-	      .attr("height", d => y(d.value)) // Transition to the actual width
+	      .attr("height", d => -y(d.value)) // Transition to the actual width
 	      .delay((d, i) => i * 100); // Add delay for staggered animation
 		
 	  const linesData_long = [
