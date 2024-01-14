@@ -34,23 +34,20 @@ function updateDonuts(selectedValue) {
 	                const data = { Male: countryData.percentM, Female: countryData.percentF };
 	
 	                // Assuming i is the index or identifier of the element
-			var countryName = countryData.name;
-			var elementId = "#title_" + i;
-			
-			// Select the parent container div by ID
-			var containerDiv = d3.select(elementId).select('.card-body');
+			let countryName = countryData.name;
+			let titleElement = d3.select("#title_" + i);
+			let containerDiv = document.getElementById("#title_" + i).parentNode;
 			
 			// Check if the country name is "North Macedonia"
 			if (countryName === "North Macedonia") {
 			  // Update the element to h4 and add styles to the container div
-			  d3.select(elementId).attr("class", "h4");
-			  containerDiv
-			    .style("padding-top", "10px")
-			    .style("height", "252px");
+			  titleElement.attr("class", "h4");
+			  containerDiv.style.paddingTop = "10px";
+			  containerDiv.style.height = "252px";
 			}
 			
 			// Update the text content regardless of the country name
-			d3.select(elementId).text(countryName);
+			titleElement.text(countryName);
 	
 	                const color = d3.scaleOrdinal()
 	                    .domain(["Male", "Female"])
