@@ -11,21 +11,6 @@
     color: rgb(0, 0, 0);
 }
 
-.tooltip .tooltip-content {
-    font-size: 14px;
-    line-height: 1.4;
-    text-align: left;
-    max-width: 200px;
-}
-
-.tooltip p {
-    margin: 0;
-}
-
-.tooltip strong {
-    font-weight: bold;
-}
-
 .choropleth-legend {
   font-size: 1.2em;
   letter-spacing: 0.1;
