@@ -36,11 +36,13 @@ svg
     .innerRadius(0)
     .outerRadius(radius)
   )
+  .attr("class", "Slice")
   .attr('fill', function(d){ return(color(d.data[1])) })
   .attr("stroke", "black")
   .style("stroke-width", "2px")
   .style("opacity", 0.7)
   .on("mouseover", function (event, d) {
+	    d3.select
             d3.select(this).attr("stroke-width", 4).style("opacity", 1);
 
             /*if (!tooltip) {
