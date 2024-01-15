@@ -27,15 +27,17 @@ const pie = d3.pie()
   .value(function(d) {return d[1]})
 const data_ready = pie(Object.entries(data))
 
+// shape helper to build arcs:
+const arcGenerator = d3.arc()
+  .innerRadius(0)
+  .outerRadius(radius)
+
 // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 svg
-  .selectAll('whatever')
+  .selectAll('myPie')
   .data(data_ready)
   .join('path')
-  .attr('d', d3.arc()
-    .innerRadius(0)
-    .outerRadius(radius)
-  )
+  .attr('d', arcGenerator)
   .attr("class", "Slice")
   .attr('fill', function(d){ return(color(d.data[1])) })
   .attr("stroke", "black")
@@ -77,3 +79,13 @@ svg
 */
            //}
          });
+
+// Now add the annotation. Use the centroid method to get the best coordinates
+svg
+  .selectAll('myPie')
+  .data(data_ready)
+  .join('text')
+  .text(function(d){ return d.data[0] + "%"})
+  .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
+  .style("text-anchor", "middle")
+  .style("font-size", 17);
