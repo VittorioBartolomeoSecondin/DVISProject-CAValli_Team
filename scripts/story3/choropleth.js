@@ -176,6 +176,11 @@ const ItalianChoropleth = {
                .style("opacity", 1)
                .style("stroke-width", "0.75px")
                .on("mouseover", mouseOver)
+               .on("mousemove", function (event, d) {
+                  // Move the tooltip with the mouse pointer
+                  self.tooltip.style("left", (event.pageX + 10) + "px")
+                     .style("top", (event.pageY + 10) + "px");
+               })
                .on("mouseleave", self.mouseLeave);
          })
          .catch(error => {
