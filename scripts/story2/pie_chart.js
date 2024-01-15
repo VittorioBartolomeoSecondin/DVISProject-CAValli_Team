@@ -19,7 +19,14 @@ const svg = d3.select("#pie_chart")
     .attr("transform", `translate(${width/2}, ${height/2})`);
 
 // Create data
-const data = {a: 7.8, b: 29.8, c:22, d:6.8, e:15.4, f:5.8, g:12.5}
+const data = {"Re-entrants: will soon leave the NEET group": 7.8,
+	      "Short-term unemployed (less than a year)": 29.8,
+	      "Long-term unemployed (more than a year)":22,
+	      "Illness/Disability":6.8,
+	      "Family responsibilities: caring for children or incapacitated adults":15.4,
+	      "Discouraged: believing that there are no job opportunities":5.8,
+	      "Other NEETs":12.5
+	     }
 
 // set the color scale
 const color = d3.scaleOrdinal()
@@ -69,7 +76,7 @@ svg
                .style("opacity", 1)
 
             // Set the customized tooltip content
-            tooltip.html(`<b>${d.data[1]}</b>`)
+            tooltip.html(`<b>${d.data[0]}</b>`)
                .style("left", (event.pageX + 10) + "px")
                .style("top", (event.pageY - 20) + "px");
          })
