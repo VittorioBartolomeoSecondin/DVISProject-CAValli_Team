@@ -1,7 +1,7 @@
-// Set up the SVG dimensions
-var margin = { top: 30, right: 70, bottom: 90, left: 100 },
-    width = 750 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+// set the dimensions and margins of the graph
+const width = 450,
+    height = 450,
+    margin = 40;
 
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 const radius = Math.min(width, height) / 2 - margin;
