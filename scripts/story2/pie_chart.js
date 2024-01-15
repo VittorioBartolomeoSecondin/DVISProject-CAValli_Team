@@ -3,66 +3,39 @@ var margin = { top: 30, right: 70, bottom: 90, left: 100 },
     width = 750 - margin.left - margin.right,
     height = 650 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-const svg = d3.select("#stacked_area")
+// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+const radius = Math.min(width, height) / 2 - margin;
+
+// append the svg object to the div called 'my_dataviz'
+const svg = d3.select("#pie_chart")
   .append("svg")
-    .attr("id", "stacked_area_svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width)
+    .attr("height", height)
   .append("g")
-    .attr("transform",
-          `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(${width/2}, ${height/2})`);
 
-//Read the data
-d3.csv("data/story2/areachart.csv").then( function(data) {
+// Create dummy data
+const data = {a: 9, b: 20, c:30, d:8, e:12}
 
-  // group the data: one array for each value of the X axis.
-  const sumstat = d3.group(data, d => d.year);
+// set the color scale
+const color = d3.scaleOrdinal()
+  .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"])
 
-  // Transform data to the expected format
-  const formattedData = Array.from(sumstat, ([year, values]) => ({
-    year: year,
-    "percentage of NEETs with disability": values.find(d => d.type === "percentage of NEETs with disability").value,
-    "percentage of NEETs without disability": values.find(d => d.type === "percentage of NEETs without disability").value,
-  }));
+// Compute the position of each group on the pie:
+const pie = d3.pie()
+  .value(function(d) {return d[1]})
+const data_ready = pie(Object.entries(data))
 
-  // Stack the data: each group will be represented on top of each other
-  const mygroups = ["percentage of NEETs with disability", "percentage of NEETs without disability"] // list of group names
-  const mygroup = [1,2] // list of group names
-  const stackedData = d3.stack()
-    .keys(mygroups)
-    .value((d, key) => d[key])
-    (formattedData);
-
-  // Add X axis --> it is a date format
-  const x = d3.scaleLinear()
-    .domain(d3.extent(formattedData, (d) => +d.year))
-    .range([0, width]);
-  svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
-
-  // Add Y axis
-  const y = d3.scaleLinear()
-    .domain([0, 100])
-    .range([height, 0]);
-  svg.append("g")
-    .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")));
-
-  // color palette
-  const color = d3.scaleOrdinal()
-    .domain(mygroups)
-    .range(['#e41a1c','#377eb8'])
-
-  // Show the areas
-  svg
-    .selectAll("mylayers")
-    .data(stackedData)
-    .join("path")
-      .style("fill", function (d) { return color(d.key); })
-      .attr("d", d3.area()
-        .x(function (d, i) { return x(+d.data.year); })
-        .y0(function(d) { return y(d[0]); })
-        .y1(function(d) { return y(d[1]); })
-    )
-})
+// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+svg
+  .selectAll('whatever')
+  .data(data_ready)
+  .join('path')
+  .attr('d', d3.arc()
+    .innerRadius(0)
+    .outerRadius(radius)
+  )
+  .attr('fill', function(d){ return(color(d.data[1])) })
+  .attr("stroke", "black")
+  .style("stroke-width", "2px")
+  .style("opacity", 0.7)
