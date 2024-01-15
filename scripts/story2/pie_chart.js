@@ -85,7 +85,7 @@ svg
   .selectAll('myPie')
   .data(data_ready)
   .join('text')
-  .text(function(d){ return d.data[0] + "%"})
+  .text(function(d){ return d.data[1] + "%"})
   .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
   .style("text-anchor", "middle")
   .style("font-size", 17);
