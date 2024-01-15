@@ -41,7 +41,7 @@ svg
   .style("stroke-width", "2px")
   .style("opacity", 0.7)
   .on("mouseover", function (event, d) {
-            d3.select(this).attr("r", 5);
+            d3.select(this).attr("stroke-width", 4).style("opacity", 1);
 
             /*if (!tooltip) {
                tooltip = d3.select("body").append("div")
@@ -63,7 +63,7 @@ svg
                .style("top", (event.pageY - 20) + "px");*/
          })
          .on("mouseout", function (event, d) {
-            d3.select(this).attr("r", 2.5);
+            d3.select(this).attr("stroke-width", 2).style("opacity", 0.7);
 
             /*if (tooltip) {
                tooltip.transition()
