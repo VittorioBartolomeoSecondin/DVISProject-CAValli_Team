@@ -56,7 +56,7 @@ function createPieChartLegend() {
 
 function initializePieChart() {
    // Set the dimensions and margins of the graph
-   const width = 500,
+   const width = 600,
       height = 450,
       margin = 40;
    
@@ -70,7 +70,7 @@ function initializePieChart() {
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${width/2+75}, ${height/2})`);
+      .attr("transform", `translate(${width/2+100}, ${height/2})`);
    
    // Create data
    const data = {
