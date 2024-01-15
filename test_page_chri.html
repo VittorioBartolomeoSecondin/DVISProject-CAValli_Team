@@ -135,7 +135,7 @@
 	      const subgroups = data.columns.slice(2);
 	
 	      // List of groups = value of the first column = countries -> on Y axis
-	      const groups = data.map(d => d.Country);
+	      const groups = data.map(d => d.Activity_status);
 	
 	      var filteredData = data;
 	
@@ -215,7 +215,7 @@
 	         .data(d => d)
 	         .join("rect")
 	         .attr("x", d => x(d[0]))
-	         .attr("y", d => y(d.data.Country))
+	         .attr("y", d => y(d.data.Activity_status))
 	         .attr("stroke", "black")
 	         .attr("stroke-width", 1)
 	         .style("opacity", 0.7)
