@@ -89,6 +89,6 @@ svg
   .join('text')
   .attr("class", "Slice_text")
   .text(function(d){ return d.data[1] + "%"})
-  .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
+  .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)}+5)`})
   .style("text-anchor", "middle")
   .style("font-size", 12);
