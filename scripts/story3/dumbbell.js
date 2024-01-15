@@ -188,6 +188,11 @@ const Dumbbell = {
             .on("mouseover", function (event, d) {
                MouseOver(event, d, "2013"); // Pass additional argument "2013"
             })
+            .on("mousemove", function (event, d) {
+               // Move the tooltip with the mouse pointer
+               self.tooltip.style("left", (event.pageX + 10) + "px")
+                  .style("top", (event.pageY + 10) + "px");
+            })
             .on("mouseout", MouseOut);
 
          // Circles of variable 2
@@ -206,6 +211,11 @@ const Dumbbell = {
             .style("fill", "#4C4082")
             .on("mouseover", function (event, d) {
                MouseOver(event, d, "2022"); // Pass additional argument "2022"
+            })
+            .on("mousemove", function (event, d) {
+               // Move the tooltip with the mouse pointer
+               self.tooltip.style("left", (event.pageX + 10) + "px")
+                  .style("top", (event.pageY + 10) + "px");
             })
             .on("mouseout", MouseOut);
 
