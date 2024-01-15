@@ -160,3 +160,5 @@ svg
   .attr("transform", function(d) { return `translate(${arcGenerator2.centroid(d)})`})
   .style("text-anchor", "middle")
   .style("font-size", 14);
+
+createPieChartLegend();
