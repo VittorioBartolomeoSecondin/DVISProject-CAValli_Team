@@ -115,7 +115,7 @@ function initializePieChart() {
          return (color(d.data[1]))
       })
       .attr("stroke", "black")
-      .style("stroke-width", "2px")
+      .attr("stroke-width", 2)
       .style("opacity", 0.7)
       .on("mouseover", function (event, d) {
          d3.selectAll(".Slice").style("opacity", 0.1);
