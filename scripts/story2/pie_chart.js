@@ -139,6 +139,11 @@ function initializePieChart() {
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 20) + "px");
       })
+      .on("mousemove", function (event, d) {
+         // Move the tooltip with the mouse pointer
+         tooltip.style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY + 10) + "px");
+      })
       .on("mouseout", function (event, d) {
          d3.selectAll(".Slice").style("opacity", 0.7);
          d3.selectAll(".Slice_text").style("font-weight", "normal");
