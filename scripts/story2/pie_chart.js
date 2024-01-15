@@ -35,7 +35,7 @@ const arcGenerator = d3.arc()
 // shape helper to build arcs:
 const arcGenerator2 = d3.arc()
   .innerRadius(0)
-  .outerRadius(radius+10)
+  .outerRadius(radius+radius/2)
 
 // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 svg
