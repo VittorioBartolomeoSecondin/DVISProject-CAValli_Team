@@ -184,6 +184,11 @@ function updateStackedPChart(selectedValue) {
                .style("top", (event.pageY - 20) + "px");
 
          })
+         .on("mousemove", function (event, d) {
+	    // Move the tooltip with the mouse pointer
+	    tooltip.style("left", (event.pageX + 10) + "px")
+	       .style("top", (event.pageY + 10) + "px");
+         })
          .on("mouseout", function (event, d) {
 
             // Returning to original stroke width when not hovering
