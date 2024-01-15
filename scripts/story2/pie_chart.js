@@ -70,7 +70,7 @@ function initializePieChart() {
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${width/2+100}, ${height/2})`);
+      .attr("transform", `translate(${width/2+80}, ${height/2})`);
    
    // Create data
    const data = {
