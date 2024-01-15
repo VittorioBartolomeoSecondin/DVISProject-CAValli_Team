@@ -41,7 +41,7 @@ const ItalianChoropleth = {
             .style("opacity", 1)
             .style("stroke-width", "0.75px");
          if (self.tooltip) {
-            self.tooltip.transition().duration(300)
+            self.tooltip.transition().duration(500)
                .style("opacity", 0)
                .remove();
             self.tooltip = null; // Reset tooltip variable
@@ -154,7 +154,7 @@ const ItalianChoropleth = {
          self.tooltip.html(`<b>${d.properties.reg_name}</b>${description}`)
             .style("left", (event.pageX + 15) + "px")
             .style("top", (event.pageY - 28) + "px")
-            .transition().duration(400)
+            .transition().duration(200)
             .style("opacity", 1);
       }
       fetch("data/story3/choropleth_italy.json")
