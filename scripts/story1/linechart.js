@@ -151,6 +151,11 @@ function drawLineChart(selectedCountries) {
             .attr("stroke", "black")
             .attr("stroke-width", 1)
             .on("mouseover", LineChartMouseOver)
+	    .on("mousemove", function (event, d) {
+		  // Move the tooltip with the mouse pointer
+		  tooltip.style("left", (event.pageX + 10) + "px")
+		     .style("top", (event.pageY + 10) + "px");
+            })
             .on("mouseout", LineChartMouseOut);
       });
 
