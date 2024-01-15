@@ -96,4 +96,4 @@ svg
   .text(function(d){ return d.data[1] + "%"})
   .attr("transform", function(d) { return `translate(${arcGenerator2.centroid(d)})`})
   .style("text-anchor", "middle")
-  .style("font-size", 12);
+  .style("font-size", 14);
