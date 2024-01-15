@@ -1,46 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" type="text/css" href="test_styles.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <meta charset="utf-8">
-        <title>TEST</title>
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        
-    </head>
-    
-    <body> 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
-            <div class="container-fluid">
-                <a class="navbar-brand"><h3>Trees in the USA</h3></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                    <a class="nav-link mx-2" aria-current="page" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link mx-2 active" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section1.html">Assignment 1</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section2.html">Assignment 2</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section3.html">Assignment 3</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section4.html">Assignment 4</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-
-        <br>
-        function createStackedPLegend() {
+function createStackedPLegend() {
    var legendContainer = d3.select("#stacked_percentage_1_legend");
 
    // Data for legend items
@@ -282,6 +240,49 @@ document.getElementById("variant-checkbox").addEventListener("change", function 
    // Trigger a change in the year dropdown to reload the chart with the current dataset
    document.getElementById("year-dropdown").dispatchEvent(new Event("change"));
 });
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="test_styles.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <title>TEST</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        
+    </head>
+    
+    <body> 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+            <div class="container-fluid">
+                <a class="navbar-brand"><h3>Trees in the USA</h3></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                    <a class="nav-link mx-2" aria-current="page" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link mx-2 active" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section1.html">Assignment 1</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section2.html">Assignment 2</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section3.html">Assignment 3</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link mx-2" href="https://vittoriobartolomeosecondin.github.io/DVIS-CAValli_Team/section4.html">Assignment 4</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
        
         <div id="stacked_percentage_1">
             <h2>Stacked percentage</h2>
