@@ -27,6 +27,7 @@ const color = d3.scaleOrdinal()
 const pie = d3.pie()
   .value(function(d) {return d[1]})
 const data_ready = pie(Object.entries(data))
+console.log(data_ready);
 
 // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 svg
