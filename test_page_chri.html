@@ -40,9 +40,251 @@
         </nav>
 
         <br>
-           
-        <div id="pyramid">
-            <h2>Pyramid 2009</h2>
+        function createStackedPLegend() {
+   var legendContainer = d3.select("#stacked_percentage_1_legend");
+
+   // Data for legend items
+   var legendData = [{
+         level: 'None',
+         color: '#b51d14'
+      },
+      {
+         level: 'Some',
+         color: '#ddb310'
+      },
+      {
+         level: 'Severe',
+         color: '#4053d3'
+      }
+   ];
+
+   // Create legend items
+   var legendItems = legendContainer.selectAll(".legend-item")
+      .data(legendData)
+      .enter()
+      .append("div")
+      .attr("class", "legend-item");
+
+   // Add color boxes to legend
+   legendItems.append("div")
+      .attr("class", "legend-color-box")
+      .style("background-color", function (d) {
+         return d.color;
+      });
+
+   // Add level names to legend
+   legendItems.append("div")
+      .attr("class", "legend-text")
+      .text(function (d) {
+         return d.level;
+      });
+}
+
+function updateStackedPChart(selectedValue) {
+
+   // Parse the Data
+   d3.csv(selectedValue).then(function (data) {
+
+      // Set up the SVG dimensions
+      var margin = {
+            top: 30,
+            right: 80,
+            bottom: 70,
+            left: 90
+         },
+         width = 800 - margin.left - margin.right,
+         height = 625 - margin.top - margin.bottom;
+
+      // Append the svg object to the div of the chart
+      const svg = d3.select("#stacked_percentage_1")
+         .append("svg")
+         .attr("id", "stacked_percentage_svg")
+         .attr("width", width + margin.left + margin.right)
+         .attr("height", height + margin.top + margin.bottom)
+         .append("g")
+         .attr("transform", `translate(${margin.left},${margin.top})`);
+
+
+      // Create the tooltip element
+      let tooltip = null;
+
+      // List of subgroups = header of the csv files = "none", "some", "severe"
+      const subgroups = data.columns.slice(2);
+
+      // List of groups = value of the first column = countries -> on Y axis
+      const groups = data.map(d => d.Country);
+
+      var filteredData = data;
+
+      // Define maximum
+      var max = d3.max(filteredData, d => d3.sum(subgroups.map(key => +d[key])));
+
+      // Add X axis
+      const x = d3.scaleLinear()
+         .domain([0, 100])
+         .range([0, width]);
+
+      svg.append("g")
+         .attr("class", "axis")
+         .attr("transform", `translate(0, ${height})`)
+         .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
+         .selectAll("text")
+         .attr("fill", "black");
+
+      // Add Y axis
+      const y = d3.scaleBand()
+         .range([0, height])
+         .domain(groups)
+         .padding(0.5);
+
+      svg.append("g")
+         .attr("class", "axis")
+         .call(d3.axisLeft(y).tickSizeOuter(0))
+         .selectAll("text")
+         .attr("fill", "black");
+
+      // Select lines of X,Y axes
+      svg.selectAll(".axis")
+         .selectAll("line")
+         .attr("stroke", "black");
+
+      // Color palette = one color per subgroup
+      const color = d3.scaleOrdinal()
+         .range(['#b51d14', '#ddb310', '#4053d3'])
+         .domain(subgroups);
+
+      // Normalize the data -> sum of each group must be 100!
+      dataNormalized = []
+      filteredData.forEach(function (d) {
+
+         // Compute the total
+         tot = 0
+         for (i in subgroups) {
+            name = subgroups[i];
+            tot += +d[name]
+         }
+
+         // Now normalize
+         for (i in subgroups) {
+            name = subgroups[i];
+            const originalValue = +d[name]; // Store the original value
+            d[name] = (originalValue / tot * 100).toFixed(2); // Normalize to 100
+            d[`${name}_original`] = originalValue; // Create a new property for the original value
+         }
+
+      })
+
+      // Stack the data (per subgroup)
+      const stackedData = d3.stack()
+         .keys(subgroups)
+         .value((d, key) => +d[key])
+         .order(d3.stackOrderNone)
+         .offset(d3.stackOffsetNone)
+         (filteredData);
+
+      // Show the bars
+      svg.append("g")
+         .selectAll("g")
+         .data(stackedData)
+         .join("g")
+         .attr("fill", d => color(d.key))
+         .selectAll("rect")
+         .data(d => d)
+         .join("rect")
+         .attr("x", d => x(d[0]))
+         .attr("y", d => y(d.data.Country))
+         .attr("stroke", "black")
+         .attr("stroke-width", 1)
+         .style("opacity", 0.7)
+         .on("mouseover", function (event, d) {
+
+            // Change stroke width when hovering
+            d3.select(this).attr("stroke-width", 2).style("opacity", 1);
+
+            if (!tooltip) {
+               tooltip = d3.select("body").append("div")
+                  .attr("id", "stacked_percentage_tooltip")
+                  .attr("class", "tooltip")
+                  .style("opacity", 0);
+            }
+
+            // Show the tooltip
+            tooltip.transition()
+               .duration(200)
+               .style("opacity", 1)
+
+            // Define the subgroup name and value to display them in the tooltip
+            const subgroupName = d3.select(this.parentNode).datum().key;
+            const subgroupValue = d.data[subgroupName];
+            const subgroupOriginalValue = d.data[`${subgroupName}_original`];
+
+            // Customize the tooltip content
+            tooltip.html(`Education level: <b>${subgroupName.charAt(0).toUpperCase() + 
+				subgroupName.slice(1)}</b><br>Percentage: ${(+subgroupValue).toFixed(1)}%<br>
+	                        Absolute value: ${(+subgroupOriginalValue).toFixed(0)}k persons`)
+               .style("left", (event.pageX + 10) + "px")
+               .style("top", (event.pageY - 20) + "px");
+
+         })
+         .on("mouseout", function (event, d) {
+
+            // Returning to original stroke width when not hovering
+            d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
+
+            if (tooltip) {
+               tooltip.transition()
+                  .duration(200)
+                  .style("opacity", 0)
+                  .remove();
+               tooltip = null; // Reset tooltip variable
+            }
+         })
+         .attr("height", y.bandwidth())
+         .attr("width", 0) // Starting width at 0 for animation
+
+         // Animation
+         .transition()
+         .duration(2000)
+         .attr("width", d => x(d[1]) - x(d[0])) // Transition to the actual width
+         .delay((d, i) => i * 100); // Add delay for staggered animation
+
+      createStackedPLegend();
+   })
+
+}
+
+updateStackedPChart("data/story2/stacked/stacked2009.csv");
+
+// Attach an event listener to the year dropdown
+document.getElementById("year-dropdown").addEventListener("change", function () {
+
+   const useVariantDataset = document.getElementById("variant-checkbox").checked;
+
+   let selectedValue;
+   if (useVariantDataset) {
+      selectedValue = "data/story2/stacked/stacked" + this.value + "_low.csv";
+   } else {
+      selectedValue = "data/story2/stacked/stacked" + this.value + ".csv";
+   }
+
+   d3.select("#stacked_percentage_svg").remove();
+   d3.select("#stacked_percentage_tooltip").remove();
+   // Remove elements with IDs from donut_1 to donut_3
+   for (let i = 1; i <= 3; i++)
+      d3.select("#donut_" + i + "_svg").remove();
+
+   updateStackedPChart(selectedValue);
+   updateDonuts("data/story2/donuts/donut" + this.value + ".csv");
+});
+
+// Add an event listener to the checkbox
+document.getElementById("variant-checkbox").addEventListener("change", function () {
+   // Trigger a change in the year dropdown to reload the chart with the current dataset
+   document.getElementById("year-dropdown").dispatchEvent(new Event("change"));
+});
+       
+        <div id="stacked_percentage_1">
+            <h2>Stacked percentage</h2>
         </div>
         
         <br>
@@ -64,169 +306,3 @@
     
     </body>
 </html>
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slope Chart with D3.js</title>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-</head>
-<body>
-
-<div id="slope-chart-container"></div>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slope Chart with D3.js</title>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-</head>
-<body>
-
-<div id="slope-chart-container"></div>
-
-<script>
-// Fake data
-var data = [
-  { category: 'Category 1', value1: 10, value2: 30 },
-  { category: 'Category 2', value1: 20, value2: 15 },
-  // Add more data points as needed
-];
-
-// Set up chart dimensions
-var width = 400;
-var height = 300;
-var margin = { top: 20, right: 20, bottom: 30, left: 50 };
-
-// Create SVG container
-var svg = d3.select("#slope-chart-container")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-// Set up scales
-var xScale = d3.scaleBand()
-  .domain(data.map(function(d) { return d.category; }))
-  .range([0, width]);
-
-var yScale = d3.scaleLinear()
-  .domain([0, d3.max(data, function(d) { return Math.max(d.value1, d.value2); })])
-  .range([height, 0]);
-
-// Draw lines connecting points (Blue)
-svg.selectAll(".slope-line-blue")
-  .data(data)
-  .enter().append("line")
-  .attr("class", "slope-line-blue")
-  .attr("x1", function(d) { return xScale(d.category); })
-  .attr("y1", function(d) { return yScale(d.value1); })
-  .attr("x2", function(d) { return xScale(d.category); })
-  .attr("y2", function(d) { return yScale(d.value2); })
-  .attr("stroke", "blue");
-
-// Draw circles for data points (Blue)
-svg.selectAll(".data-point-circle1-blue")
-  .data(data)
-  .enter().append("circle")
-  .attr("class", "data-point-circle1-blue")
-  .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value1); })
-  .attr("r", 5)
-  .attr("fill", "blue");
-
-svg.selectAll(".data-point-circle2-blue")
-  .data(data)
-  .enter().append("circle")
-  .attr("class", "data-point-circle2-blue")
-  .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value2); })
-  .attr("r", 5)
-  .attr("fill", "blue");
-
-// Draw lines connecting points (Red)
-svg.selectAll(".slope-line-red")
-  .data(data)
-  .enter().append("line")
-  .attr("class", "slope-line-red")
-  .attr("x1", function(d) { return xScale(d.category); })
-  .attr("y1", function(d) { return yScale(d.value2); })  // Connect to value2 for the red line
-  .attr("x2", function(d) { return xScale(d.category); })
-  .attr("y2", function(d) { return yScale(d.value1); })  // Connect to value1 for the red line
-  .attr("stroke", "red");
-
-// Draw circles for data points (Red)
-svg.selectAll(".data-point-circle1-red")
-  .data(data)
-  .enter().append("circle")
-  .attr("class", "data-point-circle1-red")
-  .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value2); })  // Connect to value2 for the red circle
-  .attr("r", 5)
-  .attr("fill", "red");
-
-svg.selectAll(".data-point-circle2-red")
-  .data(data)
-  .enter().append("circle")
-  .attr("class", "data-point-circle2-red")
-  .attr("cx", function(d) { return xScale(d.category); })
-  .attr("cy", function(d) { return yScale(d.value1); })  // Connect to value1 for the red circle
-  .attr("r", 5)
-  .attr("fill", "red");
-
-// Draw axes
-svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
-  .call(d3.axisBottom(xScale));
-
-svg.append("g")
-  .call(d3.axisLeft(yScale));
-    
-// Add labels
-svg.append("text")
-  .attr("x", width / 2)
-  .attr("y", height + margin.top + 10)
-  .style("text-anchor", "middle")
-  .text("Category");
-
-svg.append("text")
-  .attr("transform", "rotate(-90)")
-  .attr("y", 0 - margin.left)
-  .attr("x", 0 - (height / 2))
-  .attr("dy", "1em")
-  .style("text-anchor", "middle")
-  .text("Value");
-
-// Add legend
-var legend = svg.append("g")
-  .attr("transform", "translate(" + (width - 10) + "," + (height - 80) + ")");
-
-legend.append("circle")
-  .attr("r", 5)
-  .attr("fill", "blue");
-
-legend.append("text")
-  .attr("x", 10)
-  .attr("y", 5)
-  .text("Value 1 (Blue)");
-
-legend.append("circle")
-  .attr("r", 5)
-  .attr("cy", 20)
-  .attr("fill", "red");
-
-legend.append("text")
-  .attr("x", 10)
-  .attr("y", 25)
-  .text("Value 2 (Red)");
-</script>
-
-</body>
-</html>
- -->
