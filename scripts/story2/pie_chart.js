@@ -3,6 +3,9 @@ const width = 450,
     height = 450,
     margin = 40;
 
+// Create the tooltip element
+let tooltip = null;
+
 // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
 const radius = Math.min(width, height) / 2 - margin;
 
@@ -53,9 +56,9 @@ svg
 	    d3.selectAll(".Slice_text").style("font-weight", "bold");
             d3.select(this).attr("stroke-width", 4).style("opacity", 1);
 
-            /*if (!tooltip) {
+            if (!tooltip) {
                tooltip = d3.select("body").append("div")
-                  .attr("id", "scatterplot_tooltip")
+                  .attr("id", "pie_chart_tooltip")
                   .attr("class", "tooltip")
                   .style("opacity", 0);
             }
@@ -66,25 +69,22 @@ svg
                .style("opacity", 1)
 
             // Set the customized tooltip content
-            tooltip.html(`<b>${d.Country} (${d.Abbreviation})</b> <br>
-    			       NEETs: ${d.neet}% <br>
-			       Persons at risk of poverty: ${d.poverty}%`)
+            tooltip.html(`<b>${d.data[1]}</b>`)
                .style("left", (event.pageX + 10) + "px")
-               .style("top", (event.pageY - 20) + "px");*/
+               .style("top", (event.pageY - 20) + "px");
          })
          .on("mouseout", function (event, d) {
 	    d3.selectAll(".Slice").style("opacity", 0.7);
 	    d3.selectAll(".Slice_text").style("font-weight", "normal");
             d3.select(this).attr("stroke-width", 2);
 
-            /*if (tooltip) {
+            if (tooltip) {
                tooltip.transition()
                   .duration(200)
                   .style("opacity", 0)
                   .remove();
                tooltip = null; // Reset tooltip variable
-*/
-           //}
+           }
          });
 
 // Now add the annotation. Use the centroid method to get the best coordinates
