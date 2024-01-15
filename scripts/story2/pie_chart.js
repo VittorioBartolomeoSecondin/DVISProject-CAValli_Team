@@ -16,7 +16,8 @@ const svg = d3.select("#pie_chart")
     .attr("transform", `translate(${width/2}, ${height/2})`);
 
 // Create data
-const data = {a: 7.8, b: 29.8, c:22, d:6.8, e:15.4, f:5.8, g:12.5}
+//const data = {a: 7.8, b: 29.8, c:22, d:6.8, e:15.4, f:5.8, g:12.5}
+const data = {a: 7, b: 29, c:22, d:6, e:15, f:5, g:16}
 
 // set the color scale
 const color = d3.scaleOrdinal()
