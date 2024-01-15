@@ -142,10 +142,20 @@ function createSankeys() {
                });
 
             rect.on("mouseover", MouseOver)
+               .on("mousemove", function (event, d) {
+                  // Move the tooltip with the mouse pointer
+                  tooltip.style("left", (event.pageX + 10) + "px")
+                     .style("top", (event.pageY + 10) + "px");
+               })
                .on("mouseout", MouseOut);
 
             // Add hover effects to links
             link.on("mouseover", MouseOver)
+               .on("mousemove", function (event, d) {
+                  // Move the tooltip with the mouse pointer
+                  tooltip.style("left", (event.pageX + 10) + "px")
+                     .style("top", (event.pageY + 10) + "px");
+               })
                .on("mouseout", MouseOut);
          });
       })(containerId);
