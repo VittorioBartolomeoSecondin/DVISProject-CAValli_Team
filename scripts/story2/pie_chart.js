@@ -1,3 +1,59 @@
+function createPieChartLegend() {
+   var legendContainer = d3.select("#pie_chart_legend");
+
+   // Data for legend items
+   var legendData = [{
+         level: 'Re-entrants',
+         color: '#259C1F'
+      },
+      {
+         level: 'Short-term unemployed',
+         color: '#20EACC'
+      },
+      {
+         level: 'Long-term unemployed',
+         color: '#FF9E00'
+      },
+      {
+         level: 'Illness/Disability',
+         color: '#EFE50D'
+      },
+      {
+         level: 'Family responsibilities',
+         color: '#a05d56'
+      },
+      {
+         level: 'Discouraged',
+         color: '#FF5733'
+      },
+      {
+         level: 'Other NEETs',
+         color: '#b1b2b5'
+      }
+   ];
+
+   // Create legend items
+   var legendItems = legendContainer.selectAll(".legend-item")
+      .data(legendData)
+      .enter()
+      .append("div")
+      .attr("class", "legend-item");
+
+   // Add color boxes to legend
+   legendItems.append("div")
+      .attr("class", "legend-color-box")
+      .style("background-color", function (d) {
+         return d.color;
+      });
+
+   // Add level names to legend
+   legendItems.append("div")
+      .attr("class", "legend-text")
+      .text(function (d) {
+         return d.level;
+      });
+}
+
 // set the dimensions and margins of the graph
 const width = 450,
     height = 450,
