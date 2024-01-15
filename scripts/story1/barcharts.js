@@ -109,7 +109,7 @@ const Barcharts = {
                   tooltip.html(`<b>${d.name}</b>: ${Math.floor(d.abundance)}k NEETs`)
                      .style("left", (event.pageX + 15) + "px")
                      .style("top", (event.pageY - 28) + "px")
-                     .transition().duration(400)
+                     .transition().duration(200)
                      .style("opacity", 1);
                })
 
@@ -126,7 +126,7 @@ const Barcharts = {
                   d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
 
                   if (tooltip) {
-                     tooltip.transition().duration(300)
+                     tooltip.transition().duration(500)
                         .style("opacity", 0)
                         .remove();
                      tooltip = null; // Reset tooltip variable
