@@ -59,9 +59,6 @@ const width = 450,
    height = 450,
    margin = 40;
 
-// Create the tooltip element
-let tooltip = null;
-
 // The radius of the pie plot is half the width or half the height (the smallest one). Subtract a bit of margin.
 const radius = Math.min(width, height) / 2 - margin;
 
