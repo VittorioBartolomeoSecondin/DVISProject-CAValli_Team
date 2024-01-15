@@ -276,7 +276,7 @@
 	
 	}
 	
-	updateStackedPChart("data/story2/stacked/stacked2009_disability.csv");
+	updateStackedPChart("data/story2/prova/stacked2009_disability.csv");
 	
 	// Attach an event listener to the year dropdown
 	document.getElementById("year-dropdown").addEventListener("change", function () {
@@ -285,9 +285,9 @@
 	
 	   let selectedValue;
 	   if (useVariantDataset) {
-	      selectedValue = "data/story2/stacked/stacked" + this.value + "_disability.csv";
+	      selectedValue = "data/story2/prova/stacked" + this.value + "_disability.csv";
 	   } else {
-	      selectedValue = "data/story2/stacked/stacked" + this.value + "_disability.csv";
+	      selectedValue = "data/story2/prova/stacked" + this.value + "_disability.csv";
 	   }
 	
 	   d3.select("#stacked_percentage_svg").remove();
