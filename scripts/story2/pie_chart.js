@@ -42,7 +42,7 @@ svg
   .style("stroke-width", "2px")
   .style("opacity", 0.7)
   .on("mouseover", function (event, d) {
-	    d3.selectAll(".Slice").style("opacity", 0.3);
+	    d3.selectAll(".Slice").style("opacity", 0.1);
             d3.select(this).attr("stroke-width", 4).style("opacity", 1);
 
             /*if (!tooltip) {
