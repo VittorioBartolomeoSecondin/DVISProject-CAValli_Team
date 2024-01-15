@@ -30,7 +30,7 @@ const data = {"Re-entrants: will soon leave the NEET group": 7.8,
 
 // set the color scale
 const color = d3.scaleOrdinal()
-  .range(["#259C1F", "#20EACC", "#6608CA", "#EFE50D", "#a05d56", "#FF5733","#FF9E00"])
+  .range(["#259C1F", "#20EACC", "#FF9E00", "#EFE50D", "#a05d56", "#FF5733","#b1b2b5"])
 
 // Compute the position of each group on the pie:
 const pie = d3.pie()
