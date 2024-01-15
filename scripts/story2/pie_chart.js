@@ -146,7 +146,7 @@ function initializePieChart() {
    
          if (tooltip) {
             tooltip.transition()
-               .duration(200)
+               .duration(500)
                .style("opacity", 0)
                .remove();
             tooltip = null; // Reset tooltip variable
