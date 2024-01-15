@@ -32,6 +32,11 @@ const arcGenerator = d3.arc()
   .innerRadius(0)
   .outerRadius(radius)
 
+// shape helper to build arcs:
+const arcGenerator2 = d3.arc()
+  .innerRadius(0)
+  .outerRadius(radius+10)
+
 // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 svg
   .selectAll('myPie')
@@ -89,6 +94,6 @@ svg
   .join('text')
   .attr("class", "Slice_text")
   .text(function(d){ return d.data[1] + "%"})
-  .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)}+5)`})
+  .attr("transform", function(d) { return `translate(${arcGenerator2.centroid(d)})`})
   .style("text-anchor", "middle")
   .style("font-size", 12);
