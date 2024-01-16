@@ -67,6 +67,16 @@ const Barcharts = {
                .attr("fill", "black")
                .style("text-anchor", "end");
 
+            // Add X axis label
+            svg.append("text")
+      		  .attr("class", "axis-label")
+      		  .attr("x", width - 20)
+      		  .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
+      		  .style("text-anchor", "middle")
+      		  .style("fill", "black")
+      	     .style("font-size", 8)
+      		  .text("NEETs");
+
             // Add Y axis
             let y = d3.scaleBand()
                .range([height, 0])
