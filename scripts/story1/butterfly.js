@@ -38,7 +38,7 @@ const Butterfly = {
             .rangeRound([height - margin.bottom, margin.top])
             .padding(0.1);
 
-         var xAxis = g => g
+         /*var xAxis = g => g
             .attr("transform", `translate(0,${height - margin.bottom})`)
             .call(g => g.append("g")
                .attr("transform", `translate(-50,0)`)
@@ -55,7 +55,35 @@ const Butterfly = {
                .attr("stroke", "black")) // Changing the tick lines color to black
             .call(g => g.selectAll(".tick text") // Selecting all tick text in xM axis
                .attr("fill", "black") // Changing the tick text color to black
-               .text(d => d + "%"));
+               .text(d => d + "%"));*/
+
+         var xAxis = g => g
+             .attr("transform", `translate(0,${height - margin.bottom})`)
+             .call(g => g.append("g")
+                 .attr("transform", `translate(-50,0)`)
+                 .call(d3.axisBottom(xM).ticks(5, "s").tickSizeOuter(0))
+                 .selectAll(".tick line")
+                 .attr("stroke", "black"))
+             .call(g => g.selectAll(".tick text")
+                 .attr("fill", "black")
+                 .text(d => d + "%"))
+             .call(g => g.append("g")
+                 .attr("transform", `translate(50,0)`)
+                 .call(d3.axisBottom(xF).ticks(5, "s").tickSizeOuter(0))
+                 .selectAll(".tick line")
+                 .attr("stroke", "black"))
+             .call(g => g.selectAll(".tick text")
+                 .attr("fill", "black")
+                 .text(d => d + "%"))
+             // Add X axis label
+             .call(g => g.append("text")
+                 .attr("class", "axis-label")
+                 .attr("x", width - 20)
+                 .attr("y", height + margin.bottom - 60)
+                 .style("text-anchor", "middle")
+                 .style("fill", "black")
+                 .style("font-size", 10)
+                 .text("NEETs"));
 
          var yAxisF = g => g
             .attr("transform", `translate(${xF(0) + 50}, 0)`)
