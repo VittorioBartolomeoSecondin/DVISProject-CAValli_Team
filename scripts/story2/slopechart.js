@@ -31,6 +31,8 @@ const SlopeChart = {
          var xScale = d3.scaleLinear().domain([2013, finalYear]).range([0, width - 50]);
          var yScale = d3.scaleLinear().domain([15, 30]).range([height, 0]);
 
+         var linesToBeSwapped = finalYear < 2013 ? true : false;
+
          // Create line function
          var line = d3.line()
             .x(function (d) {
@@ -42,18 +44,18 @@ const SlopeChart = {
 
          // Draw vertical lines for the years
          svg.append("line")
-            .attr("x1", xScale(2013))
+            .attr("x1", xScale(linesToBeSwapped ? finalYear : 2013))
             .attr("y1", 0)
-            .attr("x2", xScale(2013))
+            .attr("x2", xScale(linesToBeSwapped ? finalYear : 2013))
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
             .style("opacity", 0.5);
 
          svg.append("line")
-            .attr("x1", xScale(finalYear))
+            .attr("x1", xScale(linesToBeSwapped ? 2013 : finalYear))
             .attr("y1", 0)
-            .attr("x2", xScale(finalYear))
+            .attr("x2", xScale(linesToBeSwapped ? 2013 : finalYear))
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
@@ -66,11 +68,11 @@ const SlopeChart = {
             .attr("class", "line")
             .attr("d", function (d) {
                return line([{
-                  year: 2013,
-                  value: +d['2013']
+                  year: linesToBeSwapped ? finalYear : 2013,
+                  value: +d[(linesToBeSwapped ? finalYear : 2013).toString()]
                }, {
-                  year: finalYear,
-                  value: +d[finalYear.toString()]
+                  year: linesToBeSwapped ? 2013 : finalYear,
+                  value: +d[(linesToBeSwapped ? 2013 : finalYear).toString()]
                }]);
             })
             .style("stroke", function (d, i) {
@@ -84,10 +86,10 @@ const SlopeChart = {
             .enter().append("circle")
             .attr("class", "start-point")
             .attr("cx", function (d) {
-               return xScale(2013);
+               return xScale(linesToBeSwapped ? finalYear : 2013);
             })
             .attr("cy", function (d) {
-               return yScale(+d['2013']);
+               return yScale(+d[(linesToBeSwapped ? finalYear : 2013).toString()]);
             })
             .attr("r", 7)
             .style("fill", function (d, i) {
@@ -137,10 +139,10 @@ const SlopeChart = {
             .enter().append("circle")
             .attr("class", "final-point")
             .attr("cx", function (d) {
-               return xScale(finalYear);
+               return xScale(linesToBeSwapped ? 2013 : finalYear);
             })
             .attr("cy", function (d) {
-               return yScale(+d[finalYear.toString()]);
+               return yScale(+d[(linesToBeSwapped ? 2013 : finalYear).toString()]);
             })
             .attr("r", 7)
             .style("fill", function (d, i) {
@@ -190,9 +192,9 @@ const SlopeChart = {
             .data(dataset)
             .enter().append("text")
             .attr("class", "start-label")
-            .attr("x", xScale(2013) - 28)
+            .attr("x", xScale(linesToBeSwapped ? finalYear : 2013) - 28)
             .attr("y", function (d) {
-               return yScale(+d['2013']) + 5;
+               return yScale(+d[(linesToBeSwapped ? finalYear : 2013).toString()]) + 5;
             })
             .text(function (d) {
                return d.sex;
@@ -203,13 +205,13 @@ const SlopeChart = {
 
          // Draw labels for years
          svg.append("text")
-            .attr("x", xScale(2013))
+            .attr("x", xScale(linesToBeSwapped ? finalYear : 2013))
             .attr("y", height + 20)
             .text("2013")
             .attr("text-anchor", "middle");
 
          svg.append("text")
-            .attr("x", xScale(finalYear))
+            .attr("x", xScale(linesToBeSwapped ? 2013 : finalYear))
             .attr("y", height + 20)
             .text(finalYear.toString())
             .attr("text-anchor", "middle");
