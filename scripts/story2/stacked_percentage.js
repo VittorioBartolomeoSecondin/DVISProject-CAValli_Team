@@ -97,7 +97,7 @@ function updateStackedPChart(selectedValue) {
 	 .style("text-anchor", "middle")
 	 .style("fill", "black")
 	 .style("font-size", 12)
-	 .text("reference population");
+	 .text("Reference population");
 
       // Add Y axis
       const y = d3.scaleBand()
