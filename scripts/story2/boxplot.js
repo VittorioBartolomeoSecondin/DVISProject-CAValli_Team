@@ -2,7 +2,7 @@ const BoxPlot = {
    initialize: function () {
       // Set the dimensions and margins of the graph
       var margin = {
-            top: 10,
+            top: 30,
             right: 30,
             bottom: 30,
             left: 70
