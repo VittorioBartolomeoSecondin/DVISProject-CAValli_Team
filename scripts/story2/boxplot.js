@@ -80,6 +80,16 @@ const BoxPlot = {
             }))
             .selectAll("text")
             .attr("fill", "black");
+              
+         // Add X axis label
+         svg.append("text")
+   	      .attr("class", "axis-label")
+   	      .attr("x", width - 20)
+   	      .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
+   	      .style("text-anchor", "middle")
+   	      .style("fill", "black")
+   	      .style("font-size", 12)
+   	      .text("AROPE people");
 
          // Add a second X-axis at the top
          svg.append("g")
@@ -90,6 +100,16 @@ const BoxPlot = {
             }))
             .selectAll("text")
             .attr("fill", "black");
+                   
+         // Add second X axis label
+         svg.append("text")
+   	      .attr("class", "axis-label")
+   	      .attr("x", width - 20)
+   	      .attr("y", height + margin.top - 40) // Adjusted the y-coordinate
+   	      .style("text-anchor", "middle")
+   	      .style("fill", "black")
+   	      .style("font-size", 12)
+   	      .text("AROPE people");
 
          // Select lines of X,Y axes
          svg.selectAll(".axis")
