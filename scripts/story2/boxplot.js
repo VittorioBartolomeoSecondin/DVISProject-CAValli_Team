@@ -75,9 +75,7 @@ const BoxPlot = {
             .domain([0, 70])
             .range([0, width])
          svg.append("g").attr("class", "axis").attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x).tickFormat(function (d) {
-               return d + '%';
-            }))
+            .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
             .selectAll("text")
             .attr("fill", "black");
               
