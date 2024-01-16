@@ -21,7 +21,7 @@ const Butterfly = {
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
-            .attr("transform", `translate(${margin.left} - 100, ${margin.top})`);
+            .attr("transform", `translate(${margin.left} - 80, ${margin.top})`);
 
          var len = data.length;
 
