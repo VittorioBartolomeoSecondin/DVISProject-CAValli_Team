@@ -88,6 +88,27 @@ function updateScatterplotChart(selectedValue) {
          .on("mouseover", function (event, d) {
             d3.select(this).attr("r", 5);
 
+	    // Draw dotted lines
+            svg.append("line")
+               .attr("class", "x-line")
+               .attr("x1", x(d.neet))
+               .attr("y1", y(d.poverty))
+               .attr("x2", x(d.neet))
+               .attr("y2", height)
+               .attr("stroke", "black")
+               .attr("stroke-width", 1)
+               .attr("stroke-dasharray", "4");
+
+            svg.append("line")
+               .attr("class", "y-line")
+               .attr("x1", 0)
+               .attr("y1", y(d.poverty))
+               .attr("x2", x(d.neet))
+               .attr("y2", y(d.poverty))
+               .attr("stroke", "black")
+               .attr("stroke-width", 1)
+               .attr("stroke-dasharray", "4");
+               
             if (!tooltip) {
                tooltip = d3.select("body").append("div")
                   .attr("id", "scatterplot_tooltip")
@@ -114,6 +135,10 @@ function updateScatterplotChart(selectedValue) {
          })
          .on("mouseout", function (event, d) {
             d3.select(this).attr("r", 2.5);
+                   
+	    // Remove dotted lines
+            svg.selectAll(".x-line").remove();
+            svg.selectAll(".y-line").remove();
 
             if (tooltip) {
                tooltip.transition()
