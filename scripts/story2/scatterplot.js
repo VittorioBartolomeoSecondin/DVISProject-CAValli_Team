@@ -63,8 +63,8 @@ function updateScatterplotChart(selectedValue) {
       // Add Y axis label
       svg.append("text")
          .attr("class", "axis-label")
-         .attr("x", 0)
-         .attr("y", -margin.left + 30)
+         .attr("x", -10)
+         .attr("y", -margin.left + 40)
          .style("text-anchor", "middle")
          .style("fill", "black")
 	 .style("font-size", 10)
