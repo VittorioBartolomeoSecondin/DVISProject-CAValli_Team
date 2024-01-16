@@ -59,7 +59,9 @@ const Barcharts = {
             svg.append("g")
                .attr("class", "axis")
                .attr("transform", `translate(0, ${height})`)
-               .call(d3.axisBottom(x).ticks(5))
+               .call(d3.axisBottom(x).ticks(5).tickFormat(function (d) {
+                  return d === 0 ? d : d + "k";
+               }))
                .selectAll("text")
                .attr("transform", "translate(-10,0)rotate(-45)")
                .attr("fill", "black")
