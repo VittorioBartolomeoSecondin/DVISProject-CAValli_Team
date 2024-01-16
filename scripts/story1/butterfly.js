@@ -78,8 +78,8 @@ const Butterfly = {
              // Add X axis label
              .call(g => g.append("text")
                  .attr("class", "axis-label")
-                 .attr("x", width - 20)
-                 .attr("y", height + margin.bottom - 60)
+                 .attr("x", width - 309)
+                 .attr("y", height - 474)
                  .style("text-anchor", "middle")
                  .style("fill", "black")
                  .style("font-size", 10)
