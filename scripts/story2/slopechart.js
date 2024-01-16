@@ -192,9 +192,9 @@ const SlopeChart = {
             .data(dataset)
             .enter().append("text")
             .attr("class", "start-label")
-            .attr("x", xScale(linesToBeSwapped ? finalYear : 2013) - 28)
+            .attr("x", xScale(2013) - 28)
             .attr("y", function (d) {
-               return yScale(+d[(linesToBeSwapped ? finalYear : 2013).toString()]) + 5;
+               return yScale(+d[(2013).toString()]) + 5;
             })
             .text(function (d) {
                return d.sex;
