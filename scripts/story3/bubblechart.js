@@ -49,14 +49,16 @@ function BubbleChart() {
          .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
          .selectAll("text")
          .attr("fill", "black");
-      /*.append("text")  // Add Y axis label
-      .attr("class", "axis-label")
-      .attr("transform", "rotate(-90)")
-      .attr("x", -height / 2)
-      .attr("y", -margin.left + 20)
-      .style("text-anchor", "middle")
-      .style("fill", "black")
-      .text("Incidence of individual relative poverty (% of people living in families in relative poverty among residents)");*/
+               
+      // Add Y axis label
+      svg.append("text")
+         .attr("class", "axis-label")
+         .attr("x", -10)
+         .attr("y", -margin.left + 40)
+         .style("text-anchor", "middle")
+         .style("fill", "black")
+	 .style("font-size", 10)
+         .text("Relative poverty");
 
       // Select lines of X,Y axes
       svg.selectAll(".axis")
