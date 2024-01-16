@@ -265,4 +265,4 @@ sliders_slopechart.forEach((slider) => {
    });
 });
 
-SlopeChart.initialize(2010);
+SlopeChart.initialize(2013);
