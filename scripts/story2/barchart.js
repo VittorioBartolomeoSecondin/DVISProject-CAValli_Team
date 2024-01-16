@@ -132,7 +132,7 @@ function updateBarChart(selectedYear, selectedCountry) {
          .attr("x2", d => d.endX)
          .attr("y1", -10)
          .attr("y2", height + 100)
-         .attr("stroke", "black");
+         .attr("stroke", "grey");
 
       svg.append("g").selectAll("line")
          .data(linesData_short)
@@ -142,7 +142,7 @@ function updateBarChart(selectedYear, selectedCountry) {
          .attr("x2", d => d.endX)
          .attr("y1", height)
          .attr("y2", height + 100)
-         .attr("stroke", "black");
+         .attr("stroke", "grey");
 
       // Text label for indicators
       svg.append("text")
