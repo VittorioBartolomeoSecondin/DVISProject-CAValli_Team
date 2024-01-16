@@ -120,7 +120,7 @@ function updateLollipopChart(selectedValue) {
          })
          .on("mouseout", LollipopChartMouseOut);
 
-      lines.transition()
+      /*lines.transition()
          .duration(1000)
          .delay((d, i) => i * 100)
          .attr("x2", function (d) {
@@ -130,7 +130,20 @@ function updateLollipopChart(selectedValue) {
       circles.transition()
          .duration(1000) // Duration for the circle animation
          .delay((d, i) => i * 100)
-	 .attr("r", "4"); // Adjust the final radius as needed
+	 .attr("r", "4"); // Adjust the final radius as needed*/
+      lines.transition()
+    .duration(1000)
+    .delay((d, i) => i * 100)
+    .attr("x2", function (d) {
+        return x(d.abundance);
+    })
+    .on("end", function () {
+        // Transition for increasing circle radius
+        circles.transition()
+            .duration(250) // Duration for the circle animation
+            .delay((d, i) => i * 100)
+            .attr("r", "4"); // Adjust the final radius as needed.
+    });
    })
 }
 
