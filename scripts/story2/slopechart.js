@@ -44,9 +44,9 @@ const SlopeChart = {
 
          // Draw vertical lines for the years
          svg.append("line")
-            .attr("x1", xScale(domainInterval[0])
+            .attr("x1", xScale(domainInterval[0]))
             .attr("y1", 0)
-            .attr("x2", xScale(domainInterval[0])
+            .attr("x2", xScale(domainInterval[0]))
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
