@@ -103,7 +103,7 @@ const BoxPlot = {
          svg.append("text")
    	      .attr("class", "axis-label")
    	      .attr("x", width - 30)
-   	      .attr("y", margin.top - 60) // Adjusted the y-coordinate
+   	      .attr("y", margin.top - 70) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
    	      .style("font-size", 10)
