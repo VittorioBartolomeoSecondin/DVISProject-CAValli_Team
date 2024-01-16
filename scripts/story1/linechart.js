@@ -97,7 +97,17 @@ function drawLineChart(selectedCountries) {
          )
          .selectAll("text")
          .attr("fill", "black");
-
+                 
+      // Add Y axis label
+      svg.append("text")
+         .attr("class", "axis-label")
+         .attr("x", -10)
+         .attr("y", -margin.left + 40)
+         .style("text-anchor", "middle")
+         .style("fill", "black")
+	 .style("font-size", 10)
+         .text("NEETs");
+                      
       // Select lines of X,Y axes
       svg.selectAll(".axis")
          .selectAll("line")
