@@ -70,7 +70,17 @@ const Dumbbell = {
             .call(d3.axisBottom(x).tickFormat((d) => (d === 0 ? d : d + "%")))
             .selectAll("text")
             .attr("fill", "black");
-
+                  
+         // Add X axis label
+         svg.append("text")
+   	      .attr("class", "axis-label")
+   	      .attr("x", width - 20)
+   	      .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
+   	      .style("text-anchor", "middle")
+   	      .style("fill", "black")
+   	      .style("font-size", 12)
+   	      .text("NEETs");
+                   
          // Y axis
          const y = d3.scaleBand()
             .range([0, height])
