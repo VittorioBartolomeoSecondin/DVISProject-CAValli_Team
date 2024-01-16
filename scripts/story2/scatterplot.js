@@ -97,7 +97,8 @@ function updateScatterplotChart(selectedValue) {
                .attr("y2", height)
                .attr("stroke", "black")
                .attr("stroke-width", 1)
-               .attr("stroke-dasharray", "4");
+               .attr("stroke-dasharray", "4")
+	       .style("opacity", 0.5);
 
             svg.append("line")
                .attr("class", "y-line")
@@ -107,7 +108,8 @@ function updateScatterplotChart(selectedValue) {
                .attr("y2", y(d.poverty))
                .attr("stroke", "black")
                .attr("stroke-width", 1)
-               .attr("stroke-dasharray", "4");
+               .attr("stroke-dasharray", "4")
+	       .style("opacity", 0.5);
                
             if (!tooltip) {
                tooltip = d3.select("body").append("div")
