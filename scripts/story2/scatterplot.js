@@ -59,14 +59,16 @@ function updateScatterplotChart(selectedValue) {
          .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
          .selectAll("text")
          .attr("fill", "black");
-      /*.append("text")  // Add Y axis label
-      .attr("class", "axis-label")
-      .attr("transform", "rotate(-90)")
-      .attr("x", -height / 2)
-      .attr("y", -margin.left + 20)
-      .style("text-anchor", "middle")
-      .style("fill", "black")
-      .text("Persons at risk of poverty or social exclusion");*/
+              
+      // Add Y axis label
+      svg.append("text")
+         .attr("class", "axis-label")
+         .attr("x", -height)
+         .attr("y", -margin.left + 20)
+         .style("text-anchor", "middle")
+         .style("fill", "black")
+	 .style("font-size", 10)
+         .text("AROPE people");
 
       // Select lines of X,Y axes
       svg.selectAll(".axis")
