@@ -3,9 +3,9 @@ const Butterfly = {
       // Set the dimensions and margins of the graph
       var margin = {
             top: 20,
-            right: 200,
+            right: 90,
             bottom: 40,
-            left: 30
+            left: 90
          },
          width = 800 - margin.left - margin.right,
          height = 550 - margin.top - margin.bottom;
