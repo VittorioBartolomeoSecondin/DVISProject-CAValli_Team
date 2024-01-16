@@ -64,8 +64,8 @@ function updateBarChart(selectedYear, selectedCountry) {
       // Add Y axis label
       svg.append("text")
          .attr("class", "axis-label")
-         .attr("x", -15)
-         .attr("y", -margin.left + 40)
+         .attr("x", 5)
+         .attr("y", -margin.left + 20)
          .style("text-anchor", "middle")
          .style("fill", "black")
 	      .style("font-size", 10)
