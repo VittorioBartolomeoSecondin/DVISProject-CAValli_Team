@@ -44,7 +44,7 @@ function updateScatterplotChart(selectedValue) {
       svg.append("text")
 		  .attr("class", "axis-label")
 		  .attr("x", width - 20)
-		  .attr("y", height + margin.bottom - 20) // Adjusted the y-coordinate
+		  .attr("y", height + margin.bottom - 60) // Adjusted the y-coordinate
 		  .style("text-anchor", "middle")
 		  .style("fill", "black")
 	          .style("font-size", 12)
