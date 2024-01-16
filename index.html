@@ -450,7 +450,7 @@
                            <h2 style="color: #E57F50;">Early leaving from education</h2>
                            <span class="position">Lollipop chart</span><br>
                            <p>The following visualisation displays <b>the percentage of early leavers from education in each European country over
-			   the years</b>. This percentage value is computed with respect to the reference population (individuals aged between 15 and 29).<br><br>
+			   the years</b>. This percentage value is computed with respect to a subgroup of the reference population (individuals aged between 18 and 24).<br><br>
 			   <i>Hover on each circle to better read the associated percentage. Use the dropdown menu to navigate throught the years. The red dashed line
 			   represents a mean percentage value that serves as a basis for comparison for each country.</i></p>
                            <br>
@@ -481,7 +481,8 @@
                            <h2 style="color: #E57F50;">From early leavers, back to NEETs</h2>
                            <span class="position">Sankey diagrams</span><br>
                            <p>The following three Sankey diagrams present <b>the current activity status of people that were early leavers</b>,
-			    respectively from Europe, from Italy and from Türkiye. These percentage values are computed as average values over years between 2009 and 2022.<br><br>
+			    respectively from Europe, from Italy and from Türkiye. These percentage values are computed as average values over years between 2009 and 2022,
+			    with the same subgroup of the reference population considered in the previous visualisation (individuals aged between 18 and 24).<br><br>
 			    <i>Hover on nodes and links to read percentage values.</i>
 			   </p>
                            <br>
@@ -614,13 +615,13 @@
       <section class="ftco-section ftco-no-pb goto-here" id="story3-section">
          <div class="col-md-12 heading-section text-center ftco-animate">
             <h2 class="mb-4">In Italy</h2>
-            <p>In this third and last part of our analysis, the focus will be on the Italian level.<br>
-               We are going to present a comparison among the <b>20 regions for the time span between 2009 and 2022.</b><br><br>
+            <p>In this third and last part of our analysis, the focus will be on Italy.<br>
+               We are going to present a comparison among the <b>20 regions in the time span between 2009 and 2022.</b><br><br>
                The target will be getting an overview of the phenomenon and identifying regions suffering from it the most.<br>
-               Additional objectives will be:<br>
+               We'll deal with:<br>
                - understanding whether NEETs are increasing or decreasing over the considered period of time;<br>
-               - discover whether any gender gap is highlighted by data;<br>
-               - point out the actual correlation between the NEET phenomenon and its risk factors.
+               - discovering whether any gender gap is highlighted by data;<br>
+               - pointing out the actual correlation between the NEET phenomenon and its risk factors.
             </p>
          </div>
          <br><br>
@@ -630,7 +631,7 @@
                   <nav class="navi">
                      <ul>
                         <li><a href="#page-7">NEET incidence</a></li>
-                        <li><a href="#page-8">NEETs vs Risk factors</a></li>
+                        <li><a href="#page-8">NEETs & risk factors</a></li>
                      </ul>
                   </nav>
                </div>
@@ -641,7 +642,11 @@
                         <div class="text pl-3">
                            <h2 style="color: #E57F50;">A map of NEET incidence in Italy</h2>
                            <span class="position">Choropleth map</span>
-                           <p>Description 1</p>
+                           <p>The following map shows <b>the number of NEET individuals aged between 15 and 29</b>.
+                              Higher numbers correspond to more intense colours.<br><br>
+                              <i>Use the slider to select the year.
+                              Hover on each country to better read the number of NEETs (in thousands).</i><br><br>
+                           </p>
                            <div id="choropleth_italy"></div>
                            <div class="slider-container">
                               <label for="slider4" class="slider-title">Select Year:</label>
@@ -676,9 +681,10 @@
                         <div class="text pl-3">
                            <h2 style="color: #E57F50;">Correlation between NEETs and risk factors</h2>
                            <span class="position">Bubble chart</span>
-                           <p>The following bubble chart presents the <b>strong</b> correlation between NEET incidence and two of the main risk factors: <b>early leaving (on x axis)</b> and <b>incidence of individual relative poverty (on y axis)</b>.
-			   The latter is <b>the percentage of people living in families in relative poverty among residents</b>. We used as a reference data from year 2020.<br><br>
-			   <i>Use the dropdown menu to navigate through the years. Hover on each bubble to better read the associated value.</i>
+                           <p>The following bubble chart shows the <b>strong</b> correlation between NEET incidence and two of the main risk factors: <b>early leaving (on x axis)</b> and <b>incidence of individual relative poverty (on y axis)</b>.
+			   The latter is slightly different from the AROPE indicator and represents <b>the percentage of people living in families in relative poverty among residents</b>. 
+			   The size of each bubble is proportional to the amount of NEETs. We used as a reference data from year 2020.<br><br>
+			   <i>Hover on each bubble to read the associated NEET percentage.</i>
 			   </p>
                            <div id="bubblechart"></div>
                         </div>
