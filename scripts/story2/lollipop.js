@@ -40,7 +40,7 @@ function updateLollipopChart(selectedValue) {
       svg.append("text")
 	 .attr("class", "axis-label")
 	 .attr("x", width - 20)
-	 .attr("y", height + margin.bottom - 25) // Adjusted the y-coordinate
+	 .attr("y", height + margin.bottom - 55) // Adjusted the y-coordinate
 	 .style("text-anchor", "middle")
 	 .style("fill", "black")
 	 .style("font-size", 12)
