@@ -93,9 +93,7 @@ const BoxPlot = {
          svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0, 0)")
-            .call(d3.axisTop(x).tickFormat(function (d) {
-               return d + '%';
-            }))
+            .call(d3.axisTop(x).tickFormat((d) => (d === 0 ? d : d + "%")))
             .selectAll("text")
             .attr("fill", "black");
                    
