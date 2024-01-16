@@ -34,10 +34,11 @@ function BubbleChart() {
       // Add X axis label
       svg.append("text")
         .attr("class", "axis-label")
-        .attr("x", width / 2)
+        .attr("x", width - 20)
         .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
         .style("text-anchor", "middle")
         .style("fill", "black")
+	.style("font-size", 14)
         .text("Early leavers");
 
       // Add Y axis
