@@ -26,11 +26,12 @@ const Butterfly = {
          var len = data.length;
 
          var xM = d3.scaleLinear()
-            .domain([0, d3.max(data, d => +d.percentage)])
+            //.domain([0, d3.max(data, d => +d.percentage)])
+            .domain(xM.domain())
             .rangeRound([width / 2, margin.left]);
 
          var xF = d3.scaleLinear()
-            .domain(xM.domain())
+            .domain(xF.domain())
             .rangeRound([width / 2, width - margin.right]);
 
          var y = d3.scaleBand()
