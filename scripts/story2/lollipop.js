@@ -126,7 +126,7 @@ function updateLollipopChart(selectedValue) {
          .attr("x2", function (d) {
             return x(d.abundance);
          });
-    // Transition for increasing circle radius
+      // Transition for increasing circle radius
       circles.transition()
          .duration(250) // Duration for the circle animation
          .attr("r", "4"); // Adjust the final radius as needed
