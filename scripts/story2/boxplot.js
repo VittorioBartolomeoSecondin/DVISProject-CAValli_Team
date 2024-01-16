@@ -83,10 +83,10 @@ const BoxPlot = {
          svg.append("text")
    	      .attr("class", "axis-label")
    	      .attr("x", width - 20)
-   	      .attr("y", height + margin.bottom - 40) // Adjusted the y-coordinate
+   	      .attr("y", height + margin.bottom - 10) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
-   	      .style("font-size", 12)
+   	      .style("font-size", 10)
    	      .text("AROPE people");
 
          // Add a second X-axis at the top
@@ -103,7 +103,7 @@ const BoxPlot = {
          svg.append("text")
    	      .attr("class", "axis-label")
    	      .attr("x", width - 20)
-   	      .attr("y", height + margin.top - 40) // Adjusted the y-coordinate
+   	      .attr("y", height + margin.top + 40) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
    	      .style("font-size", 12)
