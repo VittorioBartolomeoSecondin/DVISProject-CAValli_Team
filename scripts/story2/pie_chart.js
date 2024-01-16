@@ -80,7 +80,7 @@ function initializePieChart() {
       "Illness/Disability": 6.8,
       "Family responsibilities: caring for children or incapacitated adults": 15.4,
       "Discouraged: believing that there are no job opportunities": 5.8,
-      "Other NEETs": 12.5
+      "Other NEETs": 12.4
    }
    
    // Set the color scale
