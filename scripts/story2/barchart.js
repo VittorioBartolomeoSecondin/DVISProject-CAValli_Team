@@ -202,3 +202,68 @@ document.getElementById("country-dropdown-barchart").addEventListener("change", 
 
    updateBarChart(selectedYear, selectedCountry);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Define mapping of countries to disabled years
+    const disabledYearsByCountry = {
+        "MNE": [2009, 2010, 2011, 2012],
+        "HRV": [2009],
+        "ISL": [2019, 2020],
+        "MKD": [2009, 2010, 2011],
+        "SRB": [2009, 2010, 2011, 2012],
+    };
+   
+    const yearDropdown = document.getElementById("year-dropdown-barchart");
+    const countryDropdown = document.getElementById("country-dropdown-barchart");
+   
+    // Disable specific countries based on the default selected year
+    const defaultSelectedYear = parseInt(yearDropdown.value);
+    for (const country in disabledYearsByCountry) {
+        if (disabledYearsByCountry[country].includes(defaultSelectedYear)) {
+            const option = countryDropdown.querySelector(`[value='${country}']`);
+            if (option) {
+                option.disabled = true;
+            }
+        }
+    }
+   
+    // Attach event listener to the year dropdown
+    document.getElementById("year-dropdown-barchart").addEventListener("change", function () {
+        const selectedYear = parseInt(this.value);
+   
+        // Enable all countries
+        for (let i = 0; i < countryDropdown.options.length; i++) {
+            countryDropdown.options[i].disabled = false;
+        }
+   
+        // Disable specific countries based on the selected year
+        for (const country in disabledYearsByCountry) {
+            if (disabledYearsByCountry[country].includes(selectedYear)) {
+                const option = countryDropdown.querySelector(`[value='${country}']`);
+                if (option) {
+                    option.disabled = true;
+                }
+            }
+        }
+    });
+   
+    // Attach an event listener to the country dropdown
+    document.getElementById("country-dropdown-barchart").addEventListener("change", function () {
+        const selectedCountry = this.value;
+   
+        // Enable all years
+        for (let i = 0; i < yearDropdown.options.length; i++) {
+            yearDropdown.options[i].disabled = false;
+        }
+   
+        // Disable specific years based on the selected country
+        if (disabledYearsByCountry[selectedCountry]) {
+            disabledYearsByCountry[selectedCountry].forEach(year => {
+                const option = yearDropdown.querySelector(`[value='${year}']`);
+                if (option) {
+                    option.disabled = true;
+                }
+            });
+        }
+    });
+});
