@@ -83,7 +83,7 @@ const BoxPlot = {
          svg.append("text")
    	      .attr("class", "axis-label")
    	      .attr("x", width - 20)
-   	      .attr("y", height + margin.bottom) // Adjusted the y-coordinate
+   	      .attr("y", height + margin.bottom - 20) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
    	      .style("font-size", 10)
@@ -102,7 +102,7 @@ const BoxPlot = {
          // Add second X axis label
          svg.append("text")
    	      .attr("class", "axis-label")
-   	      .attr("x", width - 20)
+   	      .attr("x", width - 30)
    	      .attr("y", margin.top - 60) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
