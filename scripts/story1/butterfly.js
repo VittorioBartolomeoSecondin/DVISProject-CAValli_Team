@@ -27,7 +27,6 @@ const Butterfly = {
 
          var xM = d3.scaleLinear()
             .domain([0, d3.max(data.filter(d => d.sex === 'M'), d => +d.percentage)])
-            .domain(xM.domain())
             .rangeRound([width / 2, margin.left]);
 
          var xF = d3.scaleLinear()
