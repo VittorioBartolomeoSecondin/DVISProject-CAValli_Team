@@ -38,7 +38,7 @@ function BubbleChart() {
         .attr("y", height + margin.bottom - 55) // Adjusted the y-coordinate
         .style("text-anchor", "middle")
         .style("fill", "black")
-	.style("font-size", 12)
+	.style("font-size", 10)
         .text("Early leavers");
 
       // Add Y axis
