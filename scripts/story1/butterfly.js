@@ -3,7 +3,7 @@ const Butterfly = {
       // Set the dimensions and margins of the graph
       var margin = {
             top: 20,
-            right: 70,
+            right: 200,
             bottom: 40,
             left: 30
          },
