@@ -8,7 +8,7 @@ const BoxPlot = {
             left: 70
          },
          width = 750 - margin.left - margin.right,
-         height = 1000 - margin.top - margin.bottom;
+         height = 1100 - margin.top - margin.bottom;
 
       var tooltip = null;
 
