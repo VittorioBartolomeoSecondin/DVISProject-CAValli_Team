@@ -223,6 +223,16 @@ const SlopeChart = {
                return d + '%';
             }));
 
+         // Add Y axis label
+         svg.append("text")
+            .attr("class", "axis-label")
+            .attr("x", 10)
+            .attr("y", -margin.left + 40)
+            .style("text-anchor", "middle")
+            .style("fill", "black")
+   	      .style("font-size", 10)
+            .text("NEETs");
+                            
          yAxis.selectAll("text")
             .attr("fill", "black");
 
