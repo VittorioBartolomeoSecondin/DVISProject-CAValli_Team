@@ -27,11 +27,11 @@ const SlopeChart = {
          // Define colors
          var colors = d3.schemeSet1;
 
+         var domainInterval = finalYear < 2013 ? [finalYear, 2013] : [2013, finalYear];
+         
          // Create scales
-         var xScale = d3.scaleLinear().domain([2013, finalYear]).range([0, width - 50]);
+         var xScale = d3.scaleLinear().domain(domainInterval).range([0, width - 50]);
          var yScale = d3.scaleLinear().domain([15, 30]).range([height, 0]);
-
-         var linesToBeSwapped = finalYear < 2013 ? true : false;
 
          // Create line function
          var line = d3.line()
@@ -44,18 +44,18 @@ const SlopeChart = {
 
          // Draw vertical lines for the years
          svg.append("line")
-            .attr("x1", xScale(linesToBeSwapped ? finalYear : 2013))
+            .attr("x1", xScale(domainInterval[0])
             .attr("y1", 0)
-            .attr("x2", xScale(linesToBeSwapped ? finalYear : 2013))
+            .attr("x2", xScale(domainInterval[0])
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
             .style("opacity", 0.5);
 
          svg.append("line")
-            .attr("x1", xScale(linesToBeSwapped ? 2013 : finalYear))
+            .attr("x1", xScale(domainInterval[1]))
             .attr("y1", 0)
-            .attr("x2", xScale(linesToBeSwapped ? 2013 : finalYear))
+            .attr("x2", xScale(domainInterval[1]))
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
@@ -68,11 +68,11 @@ const SlopeChart = {
             .attr("class", "line")
             .attr("d", function (d) {
                return line([{
-                  year: linesToBeSwapped ? finalYear : 2013,
-                  value: +d[(linesToBeSwapped ? finalYear : 2013).toString()]
+                  year: domainInterval[0],
+                  value: +d[domainInterval[0].toString()]
                }, {
-                  year: linesToBeSwapped ? 2013 : finalYear,
-                  value: +d[(linesToBeSwapped ? 2013 : finalYear).toString()]
+                  year: domainInterval[1],
+                  value: +d[domainInterval[1].toString()]
                }]);
             })
             .style("stroke", function (d, i) {
@@ -86,10 +86,10 @@ const SlopeChart = {
             .enter().append("circle")
             .attr("class", "start-point")
             .attr("cx", function (d) {
-               return xScale(linesToBeSwapped ? finalYear : 2013);
+               return xScale(domainInterval[0]);
             })
             .attr("cy", function (d) {
-               return yScale(+d[(linesToBeSwapped ? finalYear : 2013).toString()]);
+               return yScale(+d[domainInterval[0].toString()]);
             })
             .attr("r", 7)
             .style("fill", function (d, i) {
@@ -113,7 +113,7 @@ const SlopeChart = {
 
                let sex_to_be_displayed = (d.sex === "M") ? "Males" : "Females";
 
-               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d[(linesToBeSwapped ? finalYear : 2013).toString()]}%`)
+               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d[domainInterval[0].toString()]}%`)
                   .style("left", (event.pageX + 10) + "px")
                   .style("top", (event.pageY - 20) + "px");
             })
@@ -139,10 +139,10 @@ const SlopeChart = {
             .enter().append("circle")
             .attr("class", "final-point")
             .attr("cx", function (d) {
-               return xScale(linesToBeSwapped ? 2013 : finalYear);
+               return xScale(domainInterval[1]);
             })
             .attr("cy", function (d) {
-               return yScale(+d[(linesToBeSwapped ? 2013 : finalYear).toString()]);
+               return yScale(+d[domainInterval[1].toString()]);
             })
             .attr("r", 7)
             .style("fill", function (d, i) {
@@ -166,7 +166,7 @@ const SlopeChart = {
 
                let sex_to_be_displayed = (d.sex === "M") ? "Males" : "Females";
 
-               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d[finalYear.toString()]}%`)
+               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d[domainInterval[1].toString()]}%`)
                   .style("left", (event.pageX + 10) + "px")
                   .style("top", (event.pageY - 20) + "px");
             })
@@ -192,9 +192,9 @@ const SlopeChart = {
             .data(dataset)
             .enter().append("text")
             .attr("class", "start-label")
-            .attr("x", xScale(2013) - 28)
+            .attr("x", xScale(domainInterval[0]) - 28)
             .attr("y", function (d) {
-               return yScale(+d[(2013).toString()]) + 5;
+               return yScale(+d[domainInterval[0].toString()]) + 5;
             })
             .text(function (d) {
                return d.sex;
@@ -205,15 +205,15 @@ const SlopeChart = {
 
          // Draw labels for years
          svg.append("text")
-            .attr("x", xScale(linesToBeSwapped ? finalYear : 2013))
+            .attr("x", xScale(domainInterval[0]))
             .attr("y", height + 20)
-            .text("2013")
+            .text(domainInterval[0])
             .attr("text-anchor", "middle");
 
          svg.append("text")
-            .attr("x", xScale(linesToBeSwapped ? 2013 : finalYear))
+            .attr("x", xScale(domainInterval[1]))
             .attr("y", height + 20)
-            .text(finalYear.toString())
+            .text(domainInterval[1].toString())
             .attr("text-anchor", "middle");
 
          const yAxis = svg.append("g")
