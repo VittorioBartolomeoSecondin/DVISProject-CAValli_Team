@@ -106,7 +106,7 @@ const BoxPlot = {
    	      .attr("y", margin.top + 10) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
-   	      .style("font-size", 12)
+   	      .style("font-size", 10)
    	      .text("AROPE people");
 
          // Select lines of X,Y axes
