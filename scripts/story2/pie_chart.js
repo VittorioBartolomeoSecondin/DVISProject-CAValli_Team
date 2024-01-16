@@ -3,10 +3,6 @@ function createPieChartLegend() {
 
    // Data for legend items
    var legendData = [{
-         level: 'Re-entrants',
-         color: '#259C1F'
-      },
-      {
          level: 'Short-term unemployed',
          color: '#20EACC'
       },
@@ -15,20 +11,24 @@ function createPieChartLegend() {
          color: '#FF9E00'
       },
       {
-         level: 'Illness/Disability',
-         color: '#EFE50D'
-      },
-      {
          level: 'Family responsibilities',
          color: '#a05d56'
       },
       {
-         level: 'Discouraged',
-         color: '#FF5733'
-      },
-      {
          level: 'Other NEETs',
          color: '#b1b2b5'
+      },
+      {
+         level: 'Re-entrants',
+         color: '#259C1F'
+      },
+      {
+         level: 'Illness/Disability',
+         color: '#EFE50D'
+      },
+      {
+         level: 'Discouraged',
+         color: '#FF5733'
       }
    ];
 
