@@ -84,6 +84,8 @@ function updateScatterplotChart(selectedValue) {
             return y(d.poverty);
          })
          .attr("r", 2.5)
+	 .attr("stroke", "black")
+         .attr("stroke-width", 1)
          .style("fill", "#69b3a2")
          .on("mouseover", function (event, d) {
             d3.select(this).attr("r", 5);
