@@ -81,7 +81,30 @@ function BubbleChart() {
          .attr("stroke-width", 1)
          .on("mouseover", function (event, d) {
             d3.select(this).attr("stroke-width", 2).style("opacity", 1);
-
+             
+	    // Draw dotted lines
+            svg.append("line")
+               .attr("class", "x-line")
+               .attr("x1", x(d.neet))
+               .attr("y1", y(d.poverty))
+               .attr("x2", x(d.neet))
+               .attr("y2", height)
+               .attr("stroke", "black")
+               .attr("stroke-width", 1)
+               .attr("stroke-dasharray", "4")
+	       .style("opacity", 0.5);
+                       
+            svg.append("line")
+               .attr("class", "y-line")
+               .attr("x1", 0)
+               .attr("y1", y(d.poverty))
+               .attr("x2", x(d.neet))
+               .attr("y2", y(d.poverty))
+               .attr("stroke", "black")
+               .attr("stroke-width", 1)
+               .attr("stroke-dasharray", "4")
+	       .style("opacity", 0.5);
+                     
             if (!tooltip) {
                tooltip = d3.select("body").append("div")
                   .attr("id", "bubblechart_tooltip")
@@ -107,7 +130,11 @@ function BubbleChart() {
         })
          .on("mouseout", function (event, d) {
             d3.select(this).attr("stroke-width", 1).style("opacity", 0.7);
-
+                         
+	    // Remove dotted lines
+            svg.selectAll(".x-line").remove();
+            svg.selectAll(".y-line").remove();
+                           
             if (tooltip) {
                tooltip.transition()
                   .duration(500)
