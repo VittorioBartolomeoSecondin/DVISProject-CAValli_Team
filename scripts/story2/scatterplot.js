@@ -47,7 +47,7 @@ function updateScatterplotChart(selectedValue) {
 		  .attr("y", height + margin.bottom - 60) // Adjusted the y-coordinate
 		  .style("text-anchor", "middle")
 		  .style("fill", "black")
-	          .style("font-size", 12)
+	          .style("font-size", 10)
 		  .text("NEETs");
 
       // Add Y axis
