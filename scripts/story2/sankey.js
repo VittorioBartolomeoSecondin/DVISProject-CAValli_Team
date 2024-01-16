@@ -181,11 +181,11 @@ function MouseOver(event, d) {
       .style("opacity", 1);
 
    if (event.target.classList.contains("link"))
-      tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}%`)
+      tooltip.html(`<b>${d.source.name} → ${d.target.name}</b>: ${d.value}% of the reference population`)
       .style("left", (event.pageX + 10) + "px")
       .style("top", (event.pageY - 20) + "px");
    else if (event.target.classList.contains("rect"))
-      tooltip.html(`<b>${d.name}</b>: ${d.value}%`)
+      tooltip.html(`<b>${d.name}</b>: ${d.value}% of the reference population`)
       .style("left", (event.pageX + 10) + "px")
       .style("top", (event.pageY - 20) + "px");
 }
