@@ -28,7 +28,7 @@ const SlopeChart = {
          var colors = d3.schemeSet1;
 
          // Create scales
-         var xScale = d3.scaleLinear().domain([2009, finalYear]).range([0, width - 50]);
+         var xScale = d3.scaleLinear().domain([2013, finalYear]).range([0, width - 50]);
          var yScale = d3.scaleLinear().domain([15, 30]).range([height, 0]);
 
          // Create line function
@@ -42,9 +42,9 @@ const SlopeChart = {
 
          // Draw vertical lines for the years
          svg.append("line")
-            .attr("x1", xScale(2009))
+            .attr("x1", xScale(2013))
             .attr("y1", 0)
-            .attr("x2", xScale(2009))
+            .attr("x2", xScale(2013))
             .attr("y2", height)
             .attr("stroke", "black")
             .style("stroke-width", 4)
@@ -66,8 +66,8 @@ const SlopeChart = {
             .attr("class", "line")
             .attr("d", function (d) {
                return line([{
-                  year: 2009,
-                  value: +d['2009']
+                  year: 2013,
+                  value: +d['2013']
                }, {
                   year: finalYear,
                   value: +d[finalYear.toString()]
@@ -84,10 +84,10 @@ const SlopeChart = {
             .enter().append("circle")
             .attr("class", "start-point")
             .attr("cx", function (d) {
-               return xScale(2009);
+               return xScale(2013);
             })
             .attr("cy", function (d) {
-               return yScale(+d['2009']);
+               return yScale(+d['2013']);
             })
             .attr("r", 7)
             .style("fill", function (d, i) {
@@ -111,7 +111,7 @@ const SlopeChart = {
 
                let sex_to_be_displayed = (d.sex === "M") ? "Males" : "Females";
 
-               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d['2009']}%`)
+               tooltip.html(`<b>${sex_to_be_displayed}</b>: ${d['2013']}%`)
                   .style("left", (event.pageX + 10) + "px")
                   .style("top", (event.pageY - 20) + "px");
             })
@@ -190,9 +190,9 @@ const SlopeChart = {
             .data(dataset)
             .enter().append("text")
             .attr("class", "start-label")
-            .attr("x", xScale(2009) - 28)
+            .attr("x", xScale(2013) - 28)
             .attr("y", function (d) {
-               return yScale(+d['2009']) + 5;
+               return yScale(+d['2013']) + 5;
             })
             .text(function (d) {
                return d.sex;
@@ -203,9 +203,9 @@ const SlopeChart = {
 
          // Draw labels for years
          svg.append("text")
-            .attr("x", xScale(2009))
+            .attr("x", xScale(2013))
             .attr("y", height + 20)
-            .text("2009")
+            .text("2013")
             .attr("text-anchor", "middle");
 
          svg.append("text")
