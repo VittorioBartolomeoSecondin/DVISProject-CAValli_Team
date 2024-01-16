@@ -16,7 +16,6 @@ const Butterfly = {
          const svg = d3.select("#pyramid")
             .append("svg")
             .attr("viewBox", [0, 0, width, height])
-            .attr("font-family", "sans-serif")
             .attr("font-size", 10)
             .attr("id", "pyramid_svg")
             .attr("width", width + margin.left + margin.right)
