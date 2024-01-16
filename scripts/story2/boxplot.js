@@ -81,6 +81,16 @@ const BoxPlot = {
             .selectAll("text")
             .attr("fill", "black");
 
+         // Add a second X-axis at the top
+         svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0, 0)")
+            .call(d3.axisTop(x).tickFormat(function (d) {
+               return d + '%';
+            }))
+            .selectAll("text")
+            .attr("fill", "black");
+
          // Select lines of X,Y axes
          svg.selectAll(".axis")
             .selectAll("line")
