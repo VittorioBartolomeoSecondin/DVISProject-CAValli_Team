@@ -60,6 +60,16 @@ function updateBarChart(selectedYear, selectedCountry) {
          .call(d3.axisLeft(y).tickFormat((d) => (d === 0 ? d : d + "%")))
          .selectAll("text")
          .attr("fill", "black");
+                        
+      // Add Y axis label
+      svg.append("text")
+         .attr("class", "axis-label")
+         .attr("x", -10)
+         .attr("y", -margin.left + 40)
+         .style("text-anchor", "middle")
+         .style("fill", "black")
+	      .style("font-size", 10)
+         .text("AROPE people");
 
       // Select lines of X,Y axes
       svg.selectAll(".axis")
