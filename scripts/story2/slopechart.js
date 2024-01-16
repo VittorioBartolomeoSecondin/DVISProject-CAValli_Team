@@ -226,7 +226,7 @@ const SlopeChart = {
          // Add Y axis label
          svg.append("text")
             .attr("class", "axis-label")
-            .attr("x", 10)
+            .attr("x", width - 10)
             .attr("y", -margin.left + 40)
             .style("text-anchor", "middle")
             .style("fill", "black")
