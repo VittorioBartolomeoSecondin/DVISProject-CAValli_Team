@@ -4,7 +4,7 @@ const BoxPlot = {
       var margin = {
             top: 30,
             right: 30,
-            bottom: 30,
+            bottom: 35,
             left: 70
          },
          width = 750 - margin.left - margin.right,
@@ -103,7 +103,7 @@ const BoxPlot = {
          svg.append("text")
    	      .attr("class", "axis-label")
    	      .attr("x", width - 20)
-   	      .attr("y", margin.top + 10) // Adjusted the y-coordinate
+   	      .attr("y", margin.top - 60) // Adjusted the y-coordinate
    	      .style("text-anchor", "middle")
    	      .style("fill", "black")
    	      .style("font-size", 10)
